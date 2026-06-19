@@ -30,7 +30,8 @@
 | ファイル | 内容 |
 |---|---|
 | `09_production/script_format.md` | 脚本MD形式・振り付け・画面 |
-| `09_production/art_and_voice.md` | 立ち絵“こびない”方針・口調 |
+| `09_production/art_and_voice.md` | 立ち絵“こびない”方針・**画風の確定（今風塗り＋ToHeart目パレット＋個別LoRA・2段パイプライン）**・口調 |
+| `09_production/delivery_platform.md` | **提供形態（name-name 埋め込み・ショーケースモード・ネタバレ防止シークバー・サイト＝置き場）** |
 | `09_production/naming.md` | 命名の由来 |
 | `09_production/cast_selection.md` | 配役の選考基準・外した人物 |
 
