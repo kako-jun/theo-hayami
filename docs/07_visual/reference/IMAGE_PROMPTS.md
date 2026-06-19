@@ -17,6 +17,8 @@ Avoid: camera-facing flirtatious smile, host-club look, BL fanservice, rose peta
 
 ## キャラクターシート共通
 
+重要: 既にキャラカードがある場合、プロンプトだけで作り直してはいけない。必ず該当キャラカードを reference image として渡し、「同じ人物をキャラクターシートへ展開する」と指定する。参照画像なしで作ると別人化する。
+
 ```text
 Create a full production character sheet for {name}, an original fictional personification of {idea}.
 
@@ -32,6 +34,12 @@ Character direction:
 - Outfit: grounded modern-academic clothes with faint historical hints, layered fabric, book/paper/astronomical details, usable as a visual novel standing portrait.
 
 Keep the character distinct from the existing cast through eye shape, posture, hair silhouette, hand gesture, and accent color. The result must be useful before LoRA compositing: clear face, clear outfit, clear turnaround, clear expression variants.
+```
+
+### 参照カードからシート化するときの追加文
+
+```text
+Input image role: reference image. It is the approved {name} card. Preserve the same character identity above all. Expand this exact character into a full production character sheet. Do not redesign the person.
 ```
 
 ## キャラ別メモ
