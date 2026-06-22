@@ -2,9 +2,13 @@
 engine: name-name
 title: "アバター 〜カンティアの問い〜"
 aspect_ratio: "9:16"
+dialog_style: "novel"
+font_family: "Hina Mincho, serif"
 ---
 
 ## kantia-avatar: アバター / 住人: カンティア（能力:認識）
+
+[背景: shadow-library/dream-corridor.png]
 
 **ヴィンチア**:
 せお、ひとつ聞かせろ。お前は今、絵の自分で人と喋っている。あれは——嘘の自分だと思うか？
