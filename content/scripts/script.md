@@ -4,6 +4,7 @@ title: "せおはやみ"
 aspect_ratio: "9:16"
 dialog_style: "novel"
 font_family: "Hina Mincho, serif"
+font_size: 26
 ---
 
 ## hub: お題を選ぶ

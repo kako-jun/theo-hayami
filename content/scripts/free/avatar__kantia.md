@@ -4,6 +4,7 @@ title: "アバター 〜カンティアの問い〜"
 aspect_ratio: "9:16"
 dialog_style: "novel"
 font_family: "Hina Mincho, serif"
+font_size: 26
 ---
 
 ## kantia-avatar: アバター / 住人: カンティア（能力:認識）
