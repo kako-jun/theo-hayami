@@ -1,6 +1,7 @@
 ---
 engine: name-name
 title: "せおはやみ"
+aspect_ratio: "9:16"
 ---
 
 ## hub: お題を選ぶ

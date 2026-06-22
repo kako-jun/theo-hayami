@@ -1,6 +1,7 @@
 ---
 engine: name-name
 title: "アバター 〜カンティアの問い〜"
+aspect_ratio: "9:16"
 ---
 
 ## kantia-avatar: アバター / 住人: カンティア（能力:認識）
