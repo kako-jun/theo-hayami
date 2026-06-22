@@ -16,4 +16,6 @@ font_size: 26
 
 [選択]
 - アバター 〜カンティアの問い〜 → kantia-avatar
+- 幻想 〜デカリスの問い〜 → dekaris-gensou
+- 死 〜スピノの問い〜 → spino-shi
 [/選択]
