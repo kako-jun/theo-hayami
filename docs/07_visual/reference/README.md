@@ -30,7 +30,7 @@ YYYYMMDD_subject_kind_vNN.ext
 例:
 
 ```text
-20260619_seo-hayami_face_v01.webp
+20260619_theo-hayami_face_v01.webp
 20260619_shadow-library_wide_v02.png
 20260619_source_character-sheet_v01.png
 ```
@@ -52,7 +52,7 @@ YYYYMMDD_subject_kind_vNN.ext
 
 | フォルダ | 対象 |
 |---|---|
-| `seo-hayami/` | 主人公せおはやみ |
+| `theo-hayami/` | 主人公せおはやみ |
 | `vincia/` | ヴィンチア |
 | `aristo/` | アリスト |
 | `kantia/` | カンティア |

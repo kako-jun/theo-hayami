@@ -35,7 +35,7 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
 
 | char | cm | 縦px | char | cm | 縦px |
 |--|--|--|--|--|--|
-| seo | 158 | 646 | dekaris | 176 | 720 |
+| theo | 158 | 646 | dekaris | 176 | 720 |
 | hue | 168 | 687 | vincia | 178 | 728 |
 | aristo | 170 | 695 | makiya | 180 | 736 |
 | kantia | 172 | 703 | hegru | 182 | 744 |
@@ -53,7 +53,7 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
 
 ## 一括スクリプト例
 ```bash
-declare -A CM=( [seo]=158 [hue]=168 [aristo]=170 [kantia]=172 [ou]=173 \
+declare -A CM=( [theo]=158 [hue]=168 [aristo]=170 [kantia]=172 [ou]=173 \
                 [dekaris]=176 [vincia]=178 [makiya]=180 [hegru]=182 [spino]=184 )
 K=4.09
 for c in "${!CM[@]}"; do
