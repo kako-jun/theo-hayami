@@ -10,7 +10,7 @@ protagonist: "せお"
 
 ## spino-shi: 死 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.png]
+[背景: shadow-library/still-garden.webp]
 
 **せお** (theo/normal, 左):
 スピノ。……いなくなる、ってどういうことなんだろう。いつか、ボクの周りの人も、ボクも、ぜんぶ消えてしまう。考えると、胸の奥が冷たくなって、何も手につかなくなるんだ。

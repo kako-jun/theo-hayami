@@ -10,7 +10,7 @@ protagonist: "せお"
 
 ## ou-chikou: わかっててもできない / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.png]
+[背景: shadow-library/empty-dojo.webp]
 
 **せお** (theo/normal, 左):
 オウ。……頭ではわかってるんだ。やった方がいいって。やらなきゃって。何度も自分に言い聞かせてる。なのに、体が動かない。先延ばしにして、できない自分が嫌になって、また動けなくなって。わかってるのに、どうして。

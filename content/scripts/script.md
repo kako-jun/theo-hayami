@@ -10,7 +10,7 @@ protagonist: "せお"
 
 ## hub: お題を選ぶ
 
-[背景: shadow-library/grand-reading-room.png]
+[背景: shadow-library/grand-reading-room.webp]
 
 **せお** (theo/normal, 左):
 影の図書館。ここには、時を超える人間の「お題」が並んでいる。……どれから聞こうかな。

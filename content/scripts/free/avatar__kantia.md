@@ -10,7 +10,7 @@ protagonist: "せお"
 
 ## kantia-avatar: アバター / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.png]
+[背景: shadow-library/dream-corridor.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 せお、ひとつ聞かせてくれ。きみは今、絵の自分で人と喋っている。あれは——嘘の自分だと思うかい？

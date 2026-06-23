@@ -10,7 +10,7 @@ protagonist: "せお"
 
 ## aristo-bunrui: 分類 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.png]
+[背景: shadow-library/specimen-shelves.webp]
 
 **せお** (theo/normal, 左):
 アリスト。……なんだか、胸の中がぐちゃぐちゃなんだ。嬉しいような、悔しいような、でもちょっと寂しくて。ぜんぶ混ざって、名前のつけられない一つの塊になってて。重たいのに、何が重いのか分からなくて。
