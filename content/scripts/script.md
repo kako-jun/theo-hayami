@@ -5,13 +5,14 @@ aspect_ratio: "9:16"
 dialog_style: "novel"
 font_family: "Hina Mincho, serif"
 font_size: 26
+protagonist: "せお"
 ---
 
 ## hub: お題を選ぶ
 
 [背景: shadow-library/grand-reading-room.png]
 
-**せお**:
+**せお** (seo/normal, 左):
 影の図書館。ここには、時を超える人間の「お題」が並んでいる。……どれから聞こうかな。
 
 [選択]
