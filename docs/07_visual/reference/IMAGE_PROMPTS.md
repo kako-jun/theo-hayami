@@ -44,9 +44,11 @@ Input image role: reference image. It is the approved {name} card. Preserve the 
 
 ## キャラ別メモ
 
+> **視覚署名（隈／三白眼／鋭い眼光／刈り上げ／閉眼）と せお のオッドアイ（翡翠／琥珀）は `../../02_characters/character_bible.md`「視覚署名」を正本とする。** 下表の personality/motif 列は署名追加前の素性メモなので、生成時は署名を併せて参照する。
+
 | name | idea | ability | role | personality | motif |
 |---|---|---|---|---|---|
-| せおはやみ | reader's questioning self | none | blind protagonist / listener | neutral, quiet, sincere, still not passive | paper fragments, closed book, pale coat, soft blue-gray |
+| せおはやみ | reader's questioning self | none | blind protagonist / listener | neutral, quiet, sincere, still not passive | paper fragments, closed book, pale coat, heterochromia: jade-green & amber eyes |
 | ヴィンチア | the first human impulse to know | 探究 | host / guide | playful, expansive, inviting, not ominous | sketchbook, compass, gears, warm sepia gold |
 | アリスト | classification and observation | 観察 | observer | bright, precise, curious, able student energy | magnifying glass, leaves, owl, green accent |
 | カンティア | theory of cognition and boundaries | 認識 | boundary thinker | serious, polite, rule-bound, quietly intense | geometric halo, measuring lines, white and blue |
