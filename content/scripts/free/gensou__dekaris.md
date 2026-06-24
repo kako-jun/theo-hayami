@@ -7,6 +7,7 @@ font_family: "Hina Mincho, serif"
 font_size: 26
 protagonist: "せお"
 character_y_ratio: 1.05
+skip_enabled: false
 ---
 
 ## dekaris-gensou: 幻想 / 住人: デカリス（能力:懐疑）

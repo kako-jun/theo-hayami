@@ -7,6 +7,7 @@ font_family: "Hina Mincho, serif"
 font_size: 26
 protagonist: "せお"
 character_y_ratio: 1.05
+skip_enabled: false
 ---
 
 ## hegru-mujun: 矛盾 / 住人: ヘグル（能力:弁証）
