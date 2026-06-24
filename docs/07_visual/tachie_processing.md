@@ -31,15 +31,7 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
 ```
 - **係数 K = 4.09**。決め方: 「**最も背が高いキャラ（スピノ 184cm）の trim 後ネイティブ高さ ≒753px を保ち**、全員それ以下＝**ダウンスケールのみ**（アップスケール＝ボケ増を避ける）」よう、`K = (最長キャラの trim 後 px) / (最長キャラの cm)` で求めた。
   - 厳密には全キャラで `trim後px / cm` を出し、その**最小値**を K にすると誰もアップスケールされない（今回 ヘグル 745/182≒4.09 が最小だったので K=4.09）。
-- これで `縦px = 身長cm × 4.09`。例（2026-06-23 時点）:
-
-| char | cm | 縦px | char | cm | 縦px |
-|--|--|--|--|--|--|
-| theo | 158 | 646 | dekaris | 176 | 720 |
-| hue | 168 | 687 | vincia | 178 | 728 |
-| aristo | 170 | 695 | makiya | 180 | 736 |
-| kantia | 172 | 703 | hegru | 182 | 744 |
-| ou | 173 | 708 | spino | 184 | 753 |
+- これで `縦px = 身長cm × 4.09`。**各キャラの cm・縦px の対応表は `../02_characters/character_bible.md`「身長データ」表が唯一の正本**（数値の二重管理を避けるためここには再掲しない）。身長を変えたら bible の表だけを直し、同 K で源画を再計算する。
 
 ## 出力と表示
 - `assets/images/<char>/normal.png`（感情追加時は `<char>/<emotion>.png`、**同じ身長pxで**書き出す＝感情で背丈が変わらない）。
@@ -63,6 +55,6 @@ for c in "${!CM[@]}"; do
     -resize x$px "assets/images/$c/normal.png"
 done
 ```
-（`src/` は LoRA 出力置き場。bash は zsh では `${!CM[@]}` 連想配列が使える。）
+（`src/` は LoRA 出力置き場。bash は zsh では `${!CM[@]}` 連想配列が使える。**CM 値は `../02_characters/character_bible.md` 身長表が正本＝この配列は実行用の写し。表を変えたらここも合わせる。**）
 
 関連: name-name #294（原寸表示＋フィットオプション）, studio-yokonami #10（源画整備）/#11（白フチ）/#12（感情立ち絵）, `character_bible.md`（身長データ正本）。
