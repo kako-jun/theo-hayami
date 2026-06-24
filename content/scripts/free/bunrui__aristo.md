@@ -6,6 +6,7 @@ dialog_style: "novel"
 font_family: "Hina Mincho, serif"
 font_size: 26
 protagonist: "せお"
+character_y_ratio: 1.05
 ---
 
 ## aristo-bunrui: 分類 / 住人: アリスト（能力:観察）

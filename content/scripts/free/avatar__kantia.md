@@ -6,6 +6,7 @@ dialog_style: "novel"
 font_family: "Hina Mincho, serif"
 font_size: 26
 protagonist: "せお"
+character_y_ratio: 1.05
 ---
 
 ## kantia-avatar: アバター / 住人: カンティア（能力:認識）
