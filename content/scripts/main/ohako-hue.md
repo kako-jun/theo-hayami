@@ -10,7 +10,7 @@ character_y_ratio: 1.05
 skip_enabled: false
 ---
 
-## hue-shukan: あたりまえ / 住人: ヒュー（能力:経験）
+## ohako-hue: あたりまえ / 住人: ヒュー（能力:経験）
 
 [背景: shadow-library/sunrise-window.webp]
 

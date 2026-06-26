@@ -10,7 +10,7 @@ character_y_ratio: 1.05
 skip_enabled: false
 ---
 
-## makiya-sontoku: きれいごと / 住人: マキヤ（能力:現実）
+## ohako-makiya: きれいごと / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/ledger-desk.webp]
 

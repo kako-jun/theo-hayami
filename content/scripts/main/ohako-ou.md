@@ -10,7 +10,7 @@ character_y_ratio: 1.05
 skip_enabled: false
 ---
 
-## ou-chikou: わかっててもできない / 住人: オウ（能力:知行）
+## ohako-ou: わかっててもできない / 住人: オウ（能力:知行）
 
 [背景: shadow-library/empty-dojo.webp]
 

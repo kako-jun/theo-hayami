@@ -10,7 +10,7 @@ character_y_ratio: 1.05
 skip_enabled: false
 ---
 
-## spino-shi: 死 / 住人: スピノ（能力:汎神）
+## ohako-spino: 死 / 住人: スピノ（能力:汎神）
 
 [背景: shadow-library/still-garden.webp]
 

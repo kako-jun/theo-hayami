@@ -10,7 +10,7 @@ character_y_ratio: 1.05
 skip_enabled: false
 ---
 
-## hegru-mujun: 矛盾 / 住人: ヘグル（能力:弁証）
+## ohako-hegru: 矛盾 / 住人: ヘグル（能力:弁証）
 
 [背景: shadow-library/spiral-staircase.webp]
 

@@ -10,7 +10,7 @@ character_y_ratio: 1.05
 skip_enabled: false
 ---
 
-## kantia-avatar: アバター / 住人: カンティア（能力:認識）
+## ohako-kantia: アバター / 住人: カンティア（能力:認識）
 
 [背景: shadow-library/dream-corridor.webp]
 

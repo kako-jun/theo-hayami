@@ -10,7 +10,7 @@ character_y_ratio: 1.05
 skip_enabled: false
 ---
 
-## dekaris-gensou: 幻想 / 住人: デカリス（能力:懐疑）
+## ohako-dekaris: 幻想 / 住人: デカリス（能力:懐疑）
 
 [背景: shadow-library/mirror-annex.webp]
 

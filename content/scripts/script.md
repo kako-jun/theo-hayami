@@ -15,15 +15,27 @@ skip_enabled: false
 [背景: shadow-library/grand-reading-room.webp]
 
 **せお** (theo/normal, 左):
-影の図書館。ここには、時を超える人間の「お題」が並んでいる。⋯⋯どれから聞こうかな。
+影の図書館。ここの棚に並んでいるのは、時を超えても人が抱え続けるお題——消えるのが怖い、人がうらやましい、損得で動いてしまう……どれも、ボクの中にもある。今、扉が開いているのは、どれだろう。
 
 [選択]
-- アバター 〜カンティアの問い〜 → kantia-avatar
-- 幻想 〜デカリスの問い〜 → dekaris-gensou
-- 死 〜スピノの問い〜 → spino-shi
-- 分類 〜アリストの問い〜 → aristo-bunrui
-- 矛盾 〜ヘグルの問い〜 → hegru-mujun
-- あたりまえ 〜ヒューの問い〜 → hue-shukan
-- きれいごと 〜マキヤの問い〜 → makiya-sontoku
-- わかっててもできない 〜オウの問い〜 → ou-chikou
+- 人がうらやましい → netami-menu
+- 感情に振り回される → makiya-ikari
+[/選択]
+
+## netami-menu: 人がうらやましい — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「人がうらやましい」——この胸のちりちりを、誰に聞いてみよう。住人によって、答えはきっと、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-netami
+- カンティアに聞く → kantia-netami
+- ヘグルに聞く → hegru-netami
+- デカリスに聞く → dekaris-netami
+- スピノに聞く → spino-netami
+- ヒューに聞く → hue-netami
+- マキヤに聞く → makiya-netami
+- オウに聞く → ou-netami
 [/選択]

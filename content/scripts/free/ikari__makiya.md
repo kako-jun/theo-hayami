@@ -1,6 +1,6 @@
 ---
 engine: name-name
-title: "怒り 〜マキヤの問い〜"
+title: "感情に振り回される"
 aspect_ratio: "9:16"
 dialog_style: "novel"
 font_family: "Hina Mincho, serif"
