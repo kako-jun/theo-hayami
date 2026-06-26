@@ -22,7 +22,7 @@ skip_enabled: false
 - 人がうらやましい → netami-menu
 - 言い負かしたい → makiya-ronpa
 - 本当の自分がわからない → makiya-uso
-- 感情に振り回される → makiya-ikari
+- 感情に振り回される → ikari-menu
 - どちらも選べない → makiya-mujun
 - わかっているのに動けない → makiya-wakattete
 [/選択]
@@ -43,4 +43,22 @@ skip_enabled: false
 - ヒューに聞く → hue-netami
 - マキヤに聞く → makiya-netami
 - オウに聞く → ou-netami
+[/選択]
+
+## ikari-menu: 感情に振り回される — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「感情に振り回される」——この胸の火を、誰に聞いてみよう。住人によって、鎮め方も、向き合い方も、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-ikari
+- カンティアに聞く → kantia-ikari
+- ヘグルに聞く → hegru-ikari
+- デカリスに聞く → dekaris-ikari
+- スピノに聞く → spino-ikari
+- ヒューに聞く → hue-ikari
+- マキヤに聞く → makiya-ikari
+- オウに聞く → ou-ikari
 [/選択]
