@@ -18,7 +18,7 @@ skip_enabled: false
 影の図書館。ここの棚に並んでいるのは、時を超えても人が抱え続けるお題——消えるのが怖い、人がうらやましい、損得で動いてしまう……どれも、ボクの中にもある。今、扉が開いているのは、どれだろう。
 
 [選択]
-- 消えるのが怖い → makiya-shi
+- 消えるのが怖い → shi-menu
 - 人がうらやましい → netami-menu
 - 言い負かしたい → makiya-ronpa
 - 本当の自分がわからない → makiya-uso
@@ -61,4 +61,21 @@ skip_enabled: false
 - ヒューに聞く → hue-ikari
 - マキヤに聞く → makiya-ikari
 - オウに聞く → ou-ikari
+[/選択]
+
+## shi-menu: 消えるのが怖い — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「消えるのが怖い」——この足元のおぼつかなさを、誰に聞いてみよう。住人によって、死の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-shi
+- カンティアに聞く → kantia-shi
+- ヘグルに聞く → hegru-shi
+- デカリスに聞く → dekaris-shi
+- ヒューに聞く → hue-shi
+- マキヤに聞く → makiya-shi
+- オウに聞く → ou-shi
 [/選択]
