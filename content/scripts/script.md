@@ -18,8 +18,13 @@ skip_enabled: false
 影の図書館。ここの棚に並んでいるのは、時を超えても人が抱え続けるお題——消えるのが怖い、人がうらやましい、損得で動いてしまう……どれも、ボクの中にもある。今、扉が開いているのは、どれだろう。
 
 [選択]
+- 消えるのが怖い → makiya-shi
 - 人がうらやましい → netami-menu
+- 言い負かしたい → makiya-ronpa
+- 本当の自分がわからない → makiya-uso
 - 感情に振り回される → makiya-ikari
+- どちらも選べない → makiya-mujun
+- わかっているのに動けない → makiya-wakattete
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
