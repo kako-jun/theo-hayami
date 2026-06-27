@@ -24,7 +24,7 @@ skip_enabled: false
 - 言い負かしたい → ronpa-menu
 - 本当の自分がわからない → uso-menu
 - 感情に振り回される → ikari-menu
-- どちらも選べない → makiya-mujun
+- どちらも選べない → mujun-menu
 - わかっているのに動けない → makiya-wakattete
 [/選択]
 
@@ -131,4 +131,21 @@ skip_enabled: false
 - ヒューに聞く → hue-uso
 - マキヤに聞く → makiya-uso
 - オウに聞く → ou-uso
+[/選択]
+
+## mujun-menu: どちらも選べない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「どちらも選べない」——この板挟みを、誰に聞いてみよう。住人によって、矛盾のほどき方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-mujun
+- カンティアに聞く → kantia-mujun
+- デカリスに聞く → dekaris-mujun
+- スピノに聞く → spino-mujun
+- ヒューに聞く → hue-mujun
+- マキヤに聞く → makiya-mujun
+- オウに聞く → ou-mujun
 [/選択]
