@@ -44,6 +44,7 @@ skip_enabled: false
 - あのときこうしていれば → koukai-menu
 - なにもかもつまらない → taikutsu-menu
 - 失って立ち直れない → soushitsu-menu
+- 自分を責めてしまう → zaiakukan-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -507,4 +508,22 @@ skip_enabled: false
 - ヒューに聞く → hue-soushitsu
 - マキヤに聞く → makiya-soushitsu
 - オウに聞く → ou-soushitsu
+[/選択]
+
+## zaiakukan-menu: 自分を責めてしまう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「自分を責めてしまう」——この、過ちを思い出すたび自分を罰してしまう癖を、誰に聞いてみよう。住人によって、罪悪感の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-zaiakukan
+- カンティアに聞く → kantia-zaiakukan
+- ヘグルに聞く → hegru-zaiakukan
+- デカリスに聞く → dekaris-zaiakukan
+- スピノに聞く → spino-zaiakukan
+- ヒューに聞く → hue-zaiakukan
+- マキヤに聞く → makiya-zaiakukan
+- オウに聞く → ou-zaiakukan
 [/選択]
