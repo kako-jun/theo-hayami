@@ -37,6 +37,7 @@ skip_enabled: false
 - 好きで苦しい → ai-menu
 - 人を信じられない → fushin-menu
 - どうしても許せない → yurushi-menu
+- つい周りに合わせてしまう → douchou-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -374,4 +375,22 @@ skip_enabled: false
 - ヒューに聞く → hue-yurushi
 - マキヤに聞く → makiya-yurushi
 - オウに聞く → ou-yurushi
+[/選択]
+
+## douchou-menu: つい周りに合わせてしまう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「つい周りに合わせてしまう」——この、自分の声が消えてみんなと同じになる感じを、誰に聞いてみよう。住人によって、合わせることの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-douchou
+- カンティアに聞く → kantia-douchou
+- ヘグルに聞く → hegru-douchou
+- デカリスに聞く → dekaris-douchou
+- スピノに聞く → spino-douchou
+- ヒューに聞く → hue-douchou
+- マキヤに聞く → makiya-douchou
+- オウに聞く → ou-douchou
 [/選択]
