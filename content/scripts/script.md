@@ -30,6 +30,7 @@ skip_enabled: false
 - つい人を見下してしまう → gouman-menu
 - 思いどおりにしたい → shihai-menu
 - どうしても手放せない → shuuchaku-menu
+- やめたいのにやめられない → izon-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -241,4 +242,22 @@ skip_enabled: false
 - ヒューに聞く → hue-shuuchaku
 - マキヤに聞く → makiya-shuuchaku
 - オウに聞く → ou-shuuchaku
+[/選択]
+
+## izon-menu: やめたいのにやめられない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「やめたいのにやめられない」——この、わかっているのに手が動いてしまう繰り返しを、誰に聞いてみよう。住人によって、断ち切り方の見立ては、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-izon
+- カンティアに聞く → kantia-izon
+- ヘグルに聞く → hegru-izon
+- デカリスに聞く → dekaris-izon
+- スピノに聞く → spino-izon
+- ヒューに聞く → hue-izon
+- マキヤに聞く → makiya-izon
+- オウに聞く → ou-izon
 [/選択]
