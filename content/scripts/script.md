@@ -22,7 +22,7 @@ skip_enabled: false
 - 人がうらやましい → netami-menu
 - 損得で動いてしまう → moke-menu
 - 言い負かしたい → ronpa-menu
-- 本当の自分がわからない → makiya-uso
+- 本当の自分がわからない → uso-menu
 - 感情に振り回される → ikari-menu
 - どちらも選べない → makiya-mujun
 - わかっているのに動けない → makiya-wakattete
@@ -114,4 +114,21 @@ skip_enabled: false
 - ヒューに聞く → hue-ronpa
 - マキヤに聞く → makiya-ronpa
 - オウに聞く → ou-ronpa
+[/選択]
+
+## uso-menu: 本当の自分がわからない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「本当の自分がわからない」——この掴めなさを、誰に聞いてみよう。住人によって、本物と偽りの分け方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-uso
+- ヘグルに聞く → hegru-uso
+- デカリスに聞く → dekaris-uso
+- スピノに聞く → spino-uso
+- ヒューに聞く → hue-uso
+- マキヤに聞く → makiya-uso
+- オウに聞く → ou-uso
 [/選択]
