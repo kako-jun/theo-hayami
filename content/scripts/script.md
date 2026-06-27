@@ -31,6 +31,7 @@ skip_enabled: false
 - 思いどおりにしたい → shihai-menu
 - どうしても手放せない → shuuchaku-menu
 - やめたいのにやめられない → izon-menu
+- つい後回しにしてしまう → namake-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -260,4 +261,22 @@ skip_enabled: false
 - ヒューに聞く → hue-izon
 - マキヤに聞く → makiya-izon
 - オウに聞く → ou-izon
+[/選択]
+
+## namake-menu: つい後回しにしてしまう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「つい後回しにしてしまう」——この、やるべきと分かっているのに腰が上がらない感じを、誰に聞いてみよう。住人によって、腰の上げ方の見立ては、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-namake
+- カンティアに聞く → kantia-namake
+- ヘグルに聞く → hegru-namake
+- デカリスに聞く → dekaris-namake
+- スピノに聞く → spino-namake
+- ヒューに聞く → hue-namake
+- マキヤに聞く → makiya-namake
+- オウに聞く → ou-namake
 [/選択]
