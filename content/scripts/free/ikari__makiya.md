@@ -14,7 +14,7 @@ skip_enabled: false
 
 [背景: shadow-library/ledger-desk.webp]
 
-**ヴィンチア**:
+**ヴィンチア** (vincia/normal, 右):
 ほう。ずいぶん荒れた顔をしているね、せお。誰かに何かをされて、腹が煮えている——そんなところかな。さあ、その怒り、ここの現実家にぶつけてごらん。
 
 **せお** (theo/normal, 左):
