@@ -20,6 +20,7 @@ skip_enabled: false
 [選択]
 - 消えるのが怖い → shi-menu
 - 人がうらやましい → netami-menu
+- 損得で動いてしまう → moke-menu
 - 言い負かしたい → makiya-ronpa
 - 本当の自分がわからない → makiya-uso
 - 感情に振り回される → ikari-menu
@@ -78,4 +79,21 @@ skip_enabled: false
 - ヒューに聞く → hue-shi
 - マキヤに聞く → makiya-shi
 - オウに聞く → ou-shi
+[/選択]
+
+## moke-menu: 損得で動いてしまう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「損得で動いてしまう」——この勘定ぐせを、誰に聞いてみよう。住人によって、損得と正しさの結び方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-moke
+- カンティアに聞く → kantia-moke
+- ヘグルに聞く → hegru-moke
+- デカリスに聞く → dekaris-moke
+- スピノに聞く → spino-moke
+- ヒューに聞く → hue-moke
+- オウに聞く → ou-moke
 [/選択]
