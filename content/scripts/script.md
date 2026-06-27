@@ -33,6 +33,7 @@ skip_enabled: false
 - やめたいのにやめられない → izon-menu
 - つい後回しにしてしまう → namake-menu
 - よく見られたい → mie-menu
+- ひとりがさみしい → kodoku-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -298,4 +299,22 @@ skip_enabled: false
 - ヒューに聞く → hue-mie
 - マキヤに聞く → makiya-mie
 - オウに聞く → ou-mie
+[/選択]
+
+## kodoku-menu: ひとりがさみしい — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「ひとりがさみしい」——この、誰ともつながれていない気がする心細さを、誰に聞いてみよう。住人によって、さみしさの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-kodoku
+- カンティアに聞く → kantia-kodoku
+- ヘグルに聞く → hegru-kodoku
+- デカリスに聞く → dekaris-kodoku
+- スピノに聞く → spino-kodoku
+- ヒューに聞く → hue-kodoku
+- マキヤに聞く → makiya-kodoku
+- オウに聞く → ou-kodoku
 [/選択]
