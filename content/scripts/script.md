@@ -34,6 +34,7 @@ skip_enabled: false
 - つい後回しにしてしまう → namake-menu
 - よく見られたい → mie-menu
 - ひとりがさみしい → kodoku-menu
+- 好きで苦しい → ai-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -317,4 +318,22 @@ skip_enabled: false
 - ヒューに聞く → hue-kodoku
 - マキヤに聞く → makiya-kodoku
 - オウに聞く → ou-kodoku
+[/選択]
+
+## ai-menu: 好きで苦しい — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「好きで苦しい」——この、好きなのに胸が痛くなる気持ちを、誰に聞いてみよう。住人によって、愛の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-ai
+- カンティアに聞く → kantia-ai
+- ヘグルに聞く → hegru-ai
+- デカリスに聞く → dekaris-ai
+- スピノに聞く → spino-ai
+- ヒューに聞く → hue-ai
+- マキヤに聞く → makiya-ai
+- オウに聞く → ou-ai
 [/選択]
