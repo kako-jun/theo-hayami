@@ -47,6 +47,7 @@ skip_enabled: false
 - 自分を責めてしまう → zaiakukan-menu
 - 置いていかれる気がする → aseri-menu
 - 何のために生きるんだろう → imi-menu
+- 自分で選んでいるのかわからない → jiyuu-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -564,4 +565,22 @@ skip_enabled: false
 - ヒューに聞く → hue-imi
 - マキヤに聞く → makiya-imi
 - オウに聞く → ou-imi
+[/選択]
+
+## jiyuu-menu: 自分で選んでいるのかわからない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「自分で選んでいるのかわからない」——本当に自分の意志で選んでいるのか、それとも流されているだけなのか、足元がふわふわするこの感じを、誰に聞いてみよう。住人によって、自由の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-jiyuu
+- カンティアに聞く → kantia-jiyuu
+- ヘグルに聞く → hegru-jiyuu
+- デカリスに聞く → dekaris-jiyuu
+- スピノに聞く → spino-jiyuu
+- ヒューに聞く → hue-jiyuu
+- マキヤに聞く → makiya-jiyuu
+- オウに聞く → ou-jiyuu
 [/選択]
