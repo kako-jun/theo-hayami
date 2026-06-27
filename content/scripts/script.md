@@ -41,6 +41,7 @@ skip_enabled: false
 - 期待してしまう → kitai-menu
 - 仕返ししたい → fukushuu-menu
 - この先が不安だ → fuan-menu
+- あのときこうしていれば → koukai-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -450,4 +451,22 @@ skip_enabled: false
 - ヒューに聞く → hue-fuan
 - マキヤに聞く → makiya-fuan
 - オウに聞く → ou-fuan
+[/選択]
+
+## koukai-menu: あのときこうしていれば — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「あのときこうしていれば」——この、過ぎた選択を今になって悔やむ気持ちを、誰に聞いてみよう。住人によって、後悔の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-koukai
+- カンティアに聞く → kantia-koukai
+- ヘグルに聞く → hegru-koukai
+- デカリスに聞く → dekaris-koukai
+- スピノに聞く → spino-koukai
+- ヒューに聞く → hue-koukai
+- マキヤに聞く → makiya-koukai
+- オウに聞く → ou-koukai
 [/選択]
