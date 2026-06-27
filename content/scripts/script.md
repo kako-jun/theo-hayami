@@ -43,6 +43,7 @@ skip_enabled: false
 - この先が不安だ → fuan-menu
 - あのときこうしていれば → koukai-menu
 - なにもかもつまらない → taikutsu-menu
+- 失って立ち直れない → soushitsu-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -488,4 +489,22 @@ skip_enabled: false
 - ヒューに聞く → hue-taikutsu
 - マキヤに聞く → makiya-taikutsu
 - オウに聞く → ou-taikutsu
+[/選択]
+
+## soushitsu-menu: 失って立ち直れない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「失って立ち直れない」——この、大切なものを失った穴が塞がらない苦しさを、誰に聞いてみよう。住人によって、喪失の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-soushitsu
+- カンティアに聞く → kantia-soushitsu
+- ヘグルに聞く → hegru-soushitsu
+- デカリスに聞く → dekaris-soushitsu
+- スピノに聞く → spino-soushitsu
+- ヒューに聞く → hue-soushitsu
+- マキヤに聞く → makiya-soushitsu
+- オウに聞く → ou-soushitsu
 [/選択]
