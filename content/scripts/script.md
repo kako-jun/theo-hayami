@@ -25,7 +25,7 @@ skip_enabled: false
 - 本当の自分がわからない → uso-menu
 - 感情に振り回される → ikari-menu
 - どちらも選べない → mujun-menu
-- わかっているのに動けない → makiya-wakattete
+- わかっているのに動けない → wakattete-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -148,4 +148,21 @@ skip_enabled: false
 - ヒューに聞く → hue-mujun
 - マキヤに聞く → makiya-mujun
 - オウに聞く → ou-mujun
+[/選択]
+
+## wakattete-menu: わかっているのに動けない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「わかっているのに動けない」——この足の重さを、誰に聞いてみよう。住人によって、知と行の埋め方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-wakattete
+- カンティアに聞く → kantia-wakattete
+- ヘグルに聞く → hegru-wakattete
+- デカリスに聞く → dekaris-wakattete
+- スピノに聞く → spino-wakattete
+- ヒューに聞く → hue-wakattete
+- マキヤに聞く → makiya-wakattete
 [/選択]
