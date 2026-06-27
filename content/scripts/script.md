@@ -28,6 +28,7 @@ skip_enabled: false
 - わかっているのに動けない → wakattete-menu
 - 歳をとりたくない → oi-menu
 - つい人を見下してしまう → gouman-menu
+- 思いどおりにしたい → shihai-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -203,4 +204,22 @@ skip_enabled: false
 - ヒューに聞く → hue-gouman
 - マキヤに聞く → makiya-gouman
 - オウに聞く → ou-gouman
+[/選択]
+
+## shihai-menu: 思いどおりにしたい — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「思いどおりにしたい」——この、人もものごとも自分の手で動かしたくなる気持ちを、誰に聞いてみよう。住人によって、動かすということの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-shihai
+- カンティアに聞く → kantia-shihai
+- ヘグルに聞く → hegru-shihai
+- デカリスに聞く → dekaris-shihai
+- スピノに聞く → spino-shihai
+- ヒューに聞く → hue-shihai
+- マキヤに聞く → makiya-shihai
+- オウに聞く → ou-shihai
 [/選択]
