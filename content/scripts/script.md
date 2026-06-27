@@ -29,6 +29,7 @@ skip_enabled: false
 - 歳をとりたくない → oi-menu
 - つい人を見下してしまう → gouman-menu
 - 思いどおりにしたい → shihai-menu
+- どうしても手放せない → shuuchaku-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -222,4 +223,22 @@ skip_enabled: false
 - ヒューに聞く → hue-shihai
 - マキヤに聞く → makiya-shihai
 - オウに聞く → ou-shihai
+[/選択]
+
+## shuuchaku-menu: どうしても手放せない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「どうしても手放せない」——この、握った手をどうしても開けない気持ちを、誰に聞いてみよう。住人によって、手放すということの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-shuuchaku
+- カンティアに聞く → kantia-shuuchaku
+- ヘグルに聞く → hegru-shuuchaku
+- デカリスに聞く → dekaris-shuuchaku
+- スピノに聞く → spino-shuuchaku
+- ヒューに聞く → hue-shuuchaku
+- マキヤに聞く → makiya-shuuchaku
+- オウに聞く → ou-shuuchaku
 [/選択]
