@@ -39,6 +39,7 @@ skip_enabled: false
 - どうしても許せない → yurushi-menu
 - つい周りに合わせてしまう → douchou-menu
 - 期待してしまう → kitai-menu
+- 仕返ししたい → fukushuu-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -412,4 +413,22 @@ skip_enabled: false
 - ヒューに聞く → hue-kitai
 - マキヤに聞く → makiya-kitai
 - オウに聞く → ou-kitai
+[/選択]
+
+## fukushuu-menu: 仕返ししたい — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「仕返ししたい」——この、やられた分を相手に返したくて疼く胸を、誰に聞いてみよう。住人によって、復讐の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-fukushuu
+- カンティアに聞く → kantia-fukushuu
+- ヘグルに聞く → hegru-fukushuu
+- デカリスに聞く → dekaris-fukushuu
+- スピノに聞く → spino-fukushuu
+- ヒューに聞く → hue-fukushuu
+- マキヤに聞く → makiya-fukushuu
+- オウに聞く → ou-fukushuu
 [/選択]
