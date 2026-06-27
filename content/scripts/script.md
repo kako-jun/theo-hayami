@@ -32,6 +32,7 @@ skip_enabled: false
 - どうしても手放せない → shuuchaku-menu
 - やめたいのにやめられない → izon-menu
 - つい後回しにしてしまう → namake-menu
+- よく見られたい → mie-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -279,4 +280,22 @@ skip_enabled: false
 - ヒューに聞く → hue-namake
 - マキヤに聞く → makiya-namake
 - オウに聞く → ou-namake
+[/選択]
+
+## mie-menu: よく見られたい — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「よく見られたい」——この、人の目に映る自分をよく見せたくなる気持ちを、誰に聞いてみよう。住人によって、その正体の見立ては、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-mie
+- カンティアに聞く → kantia-mie
+- ヘグルに聞く → hegru-mie
+- デカリスに聞く → dekaris-mie
+- スピノに聞く → spino-mie
+- ヒューに聞く → hue-mie
+- マキヤに聞く → makiya-mie
+- オウに聞く → ou-mie
 [/選択]
