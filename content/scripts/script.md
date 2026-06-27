@@ -49,6 +49,7 @@ skip_enabled: false
 - 何のために生きるんだろう → imi-menu
 - 自分で選んでいるのかわからない → jiyuu-menu
 - しあわせって何だろう → koufuku-menu
+- 過ぎた時間にとらわれてしまう → jikan-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -602,4 +603,22 @@ skip_enabled: false
 - ヒューに聞く → hue-koufuku
 - マキヤに聞く → makiya-koufuku
 - オウに聞く → ou-koufuku
+[/選択]
+
+## jikan-menu: 過ぎた時間にとらわれてしまう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「過ぎた時間にとらわれてしまう」——もう戻れないはずの過去が、今も胸を引き戻す。この、過ぎた時間の重さを、誰に聞いてみよう。住人によって、時間の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-jikan
+- カンティアに聞く → kantia-jikan
+- ヘグルに聞く → hegru-jikan
+- デカリスに聞く → dekaris-jikan
+- スピノに聞く → spino-jikan
+- ヒューに聞く → hue-jikan
+- マキヤに聞く → makiya-jikan
+- オウに聞く → ou-jikan
 [/選択]
