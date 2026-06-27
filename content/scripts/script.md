@@ -45,6 +45,7 @@ skip_enabled: false
 - なにもかもつまらない → taikutsu-menu
 - 失って立ち直れない → soushitsu-menu
 - 自分を責めてしまう → zaiakukan-menu
+- 置いていかれる気がする → aseri-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -526,4 +527,22 @@ skip_enabled: false
 - ヒューに聞く → hue-zaiakukan
 - マキヤに聞く → makiya-zaiakukan
 - オウに聞く → ou-zaiakukan
+[/選択]
+
+## aseri-menu: 置いていかれる気がする — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「置いていかれる気がする」——この、まわりが先へ進んで自分だけ遅れている焦りを、誰に聞いてみよう。住人によって、焦りの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-aseri
+- カンティアに聞く → kantia-aseri
+- ヘグルに聞く → hegru-aseri
+- デカリスに聞く → dekaris-aseri
+- スピノに聞く → spino-aseri
+- ヒューに聞く → hue-aseri
+- マキヤに聞く → makiya-aseri
+- オウに聞く → ou-aseri
 [/選択]
