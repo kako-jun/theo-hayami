@@ -7,6 +7,7 @@ font_family: "Hina Mincho, serif"
 font_size: 26
 protagonist: "せお"
 character_y_ratio: 1.05
+character_fade_ms: 700
 skip_enabled: false
 ---
 

@@ -5,6 +5,7 @@
 theo-hayami は描画を name-name に流用するので、**脚本MD は最初から name-name の原稿形式で書く**（独自記法 `[話者]` は廃止＝変換器を持たない・パーサは name-name の1つだけ＝単一情報源）。形式の正本は name-name 側 `docs/spec/markdown-v0.1.md`。要点:
 
 - 先頭に frontmatter（`engine: name-name` 必須、`title` 等）
+- theo-hayami の novel 既定 frontmatter は `dialog_style: "novel"` / `font_size: 26` / `protagonist: "せお"` / `character_y_ratio: 1.05` / `character_fade_ms: 700` / `skip_enabled: false`
 - 場面は `## scene-id: 見出し`
 - セリフは **`**話者**:`** の次行に本文（複数行可）。話者は `せお` / `ヴィンチア` / 住人名（`カンティア` 等）
 - 地の文は `> 本文`（ただし theo-hayami では今は使わない。下記）
