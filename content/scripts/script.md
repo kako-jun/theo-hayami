@@ -40,6 +40,7 @@ skip_enabled: false
 - つい周りに合わせてしまう → douchou-menu
 - 期待してしまう → kitai-menu
 - 仕返ししたい → fukushuu-menu
+- この先が不安だ → fuan-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -431,4 +432,22 @@ skip_enabled: false
 - ヒューに聞く → hue-fukushuu
 - マキヤに聞く → makiya-fukushuu
 - オウに聞く → ou-fukushuu
+[/選択]
+
+## fuan-menu: この先が不安だ — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「この先が不安だ」——この、まだ来てもいない先のことで落ち着かない胸を、誰に聞いてみよう。住人によって、不安の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-fuan
+- カンティアに聞く → kantia-fuan
+- ヘグルに聞く → hegru-fuan
+- デカリスに聞く → dekaris-fuan
+- スピノに聞く → spino-fuan
+- ヒューに聞く → hue-fuan
+- マキヤに聞く → makiya-fuan
+- オウに聞く → ou-fuan
 [/選択]
