@@ -38,6 +38,7 @@ skip_enabled: false
 - 人を信じられない → fushin-menu
 - どうしても許せない → yurushi-menu
 - つい周りに合わせてしまう → douchou-menu
+- 期待してしまう → kitai-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -393,4 +394,22 @@ skip_enabled: false
 - ヒューに聞く → hue-douchou
 - マキヤに聞く → makiya-douchou
 - オウに聞く → ou-douchou
+[/選択]
+
+## kitai-menu: 期待してしまう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「期待してしまう」——この、勝手に胸がふくらんで外れると落ち込む心を、誰に聞いてみよう。住人によって、期待の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-kitai
+- カンティアに聞く → kantia-kitai
+- ヘグルに聞く → hegru-kitai
+- デカリスに聞く → dekaris-kitai
+- スピノに聞く → spino-kitai
+- ヒューに聞く → hue-kitai
+- マキヤに聞く → makiya-kitai
+- オウに聞く → ou-kitai
 [/選択]
