@@ -26,6 +26,7 @@ skip_enabled: false
 - 感情に振り回される → ikari-menu
 - どちらも選べない → mujun-menu
 - わかっているのに動けない → wakattete-menu
+- 歳をとりたくない → oi-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -165,4 +166,22 @@ skip_enabled: false
 - スピノに聞く → spino-wakattete
 - ヒューに聞く → hue-wakattete
 - マキヤに聞く → makiya-wakattete
+[/選択]
+
+## oi-menu: 歳をとりたくない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「歳をとりたくない」——この変わっていくことへの怯えを、誰に聞いてみよう。住人によって、老いの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-oi
+- カンティアに聞く → kantia-oi
+- ヘグルに聞く → hegru-oi
+- デカリスに聞く → dekaris-oi
+- スピノに聞く → spino-oi
+- ヒューに聞く → hue-oi
+- マキヤに聞く → makiya-oi
+- オウに聞く → ou-oi
 [/選択]
