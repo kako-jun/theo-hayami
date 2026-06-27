@@ -46,6 +46,7 @@ skip_enabled: false
 - 失って立ち直れない → soushitsu-menu
 - 自分を責めてしまう → zaiakukan-menu
 - 置いていかれる気がする → aseri-menu
+- 何のために生きるんだろう → imi-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -545,4 +546,22 @@ skip_enabled: false
 - ヒューに聞く → hue-aseri
 - マキヤに聞く → makiya-aseri
 - オウに聞く → ou-aseri
+[/選択]
+
+## imi-menu: 何のために生きるんだろう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「何のために生きるんだろう」——この、生きる意味が分からず胸がぽっかり虚しい気持ちを、誰に聞いてみよう。住人によって、意味の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-imi
+- カンティアに聞く → kantia-imi
+- ヘグルに聞く → hegru-imi
+- デカリスに聞く → dekaris-imi
+- スピノに聞く → spino-imi
+- ヒューに聞く → hue-imi
+- マキヤに聞く → makiya-imi
+- オウに聞く → ou-imi
 [/選択]
