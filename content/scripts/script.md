@@ -36,6 +36,7 @@ skip_enabled: false
 - ひとりがさみしい → kodoku-menu
 - 好きで苦しい → ai-menu
 - 人を信じられない → fushin-menu
+- どうしても許せない → yurushi-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -355,4 +356,22 @@ skip_enabled: false
 - ヒューに聞く → hue-fushin
 - マキヤに聞く → makiya-fushin
 - オウに聞く → ou-fushin
+[/選択]
+
+## yurushi-menu: どうしても許せない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「どうしても許せない」——この、胸で固まってほどけない恨みを、誰に聞いてみよう。住人によって、許しの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-yurushi
+- カンティアに聞く → kantia-yurushi
+- ヘグルに聞く → hegru-yurushi
+- デカリスに聞く → dekaris-yurushi
+- スピノに聞く → spino-yurushi
+- ヒューに聞く → hue-yurushi
+- マキヤに聞く → makiya-yurushi
+- オウに聞く → ou-yurushi
 [/選択]
