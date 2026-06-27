@@ -21,7 +21,7 @@ skip_enabled: false
 - 消えるのが怖い → shi-menu
 - 人がうらやましい → netami-menu
 - 損得で動いてしまう → moke-menu
-- 言い負かしたい → makiya-ronpa
+- 言い負かしたい → ronpa-menu
 - 本当の自分がわからない → makiya-uso
 - 感情に振り回される → ikari-menu
 - どちらも選べない → makiya-mujun
@@ -96,4 +96,22 @@ skip_enabled: false
 - スピノに聞く → spino-moke
 - ヒューに聞く → hue-moke
 - オウに聞く → ou-moke
+[/選択]
+
+## ronpa-menu: 言い負かしたい — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「言い負かしたい」——この勝ちたい気持ちを、誰に聞いてみよう。住人によって、勝つことと正しいことの分け方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-ronpa
+- カンティアに聞く → kantia-ronpa
+- ヘグルに聞く → hegru-ronpa
+- デカリスに聞く → dekaris-ronpa
+- スピノに聞く → spino-ronpa
+- ヒューに聞く → hue-ronpa
+- マキヤに聞く → makiya-ronpa
+- オウに聞く → ou-ronpa
 [/選択]
