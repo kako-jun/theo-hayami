@@ -48,6 +48,7 @@ skip_enabled: false
 - 置いていかれる気がする → aseri-menu
 - 何のために生きるんだろう → imi-menu
 - 自分で選んでいるのかわからない → jiyuu-menu
+- しあわせって何だろう → koufuku-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -583,4 +584,22 @@ skip_enabled: false
 - ヒューに聞く → hue-jiyuu
 - マキヤに聞く → makiya-jiyuu
 - オウに聞く → ou-jiyuu
+[/選択]
+
+## koufuku-menu: しあわせって何だろう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「しあわせって何だろう」——掴んだと思っても、すぐ指の間からこぼれていく。この、しあわせの正体が分からない気持ちを、誰に聞いてみよう。住人によって、しあわせの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-koufuku
+- カンティアに聞く → kantia-koufuku
+- ヘグルに聞く → hegru-koufuku
+- デカリスに聞く → dekaris-koufuku
+- スピノに聞く → spino-koufuku
+- ヒューに聞く → hue-koufuku
+- マキヤに聞く → makiya-koufuku
+- オウに聞く → ou-koufuku
 [/選択]
