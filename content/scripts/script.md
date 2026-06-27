@@ -27,6 +27,7 @@ skip_enabled: false
 - どちらも選べない → mujun-menu
 - わかっているのに動けない → wakattete-menu
 - 歳をとりたくない → oi-menu
+- つい人を見下してしまう → gouman-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -184,4 +185,22 @@ skip_enabled: false
 - ヒューに聞く → hue-oi
 - マキヤに聞く → makiya-oi
 - オウに聞く → ou-oi
+[/選択]
+
+## gouman-menu: つい人を見下してしまう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「つい人を見下してしまう」——この、相手を一段低く置いてしまう心の癖を、誰に聞いてみよう。住人によって、見えているものは、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-gouman
+- カンティアに聞く → kantia-gouman
+- ヘグルに聞く → hegru-gouman
+- デカリスに聞く → dekaris-gouman
+- スピノに聞く → spino-gouman
+- ヒューに聞く → hue-gouman
+- マキヤに聞く → makiya-gouman
+- オウに聞く → ou-gouman
 [/選択]
