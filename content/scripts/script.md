@@ -35,6 +35,7 @@ skip_enabled: false
 - よく見られたい → mie-menu
 - ひとりがさみしい → kodoku-menu
 - 好きで苦しい → ai-menu
+- 人を信じられない → fushin-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -336,4 +337,22 @@ skip_enabled: false
 - ヒューに聞く → hue-ai
 - マキヤに聞く → makiya-ai
 - オウに聞く → ou-ai
+[/選択]
+
+## fushin-menu: 人を信じられない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「人を信じられない」——この、信じて傷つくのが怖くて手を引いてしまう心を、誰に聞いてみよう。住人によって、信頼の捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-fushin
+- カンティアに聞く → kantia-fushin
+- ヘグルに聞く → hegru-fushin
+- デカリスに聞く → dekaris-fushin
+- スピノに聞く → spino-fushin
+- ヒューに聞く → hue-fushin
+- マキヤに聞く → makiya-fushin
+- オウに聞く → ou-fushin
 [/選択]
