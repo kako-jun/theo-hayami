@@ -9,6 +9,7 @@ protagonist: "せお"
 character_y_ratio: 1.10
 character_fade_ms: 700
 skip_enabled: false
+debug_enabled: true
 ---
 
 ## hub: お題を選ぶ
