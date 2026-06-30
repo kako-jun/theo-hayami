@@ -96,6 +96,7 @@ LoRA 学習用に採用した画像だけ、後段で `docs/07_visual/lora-datas
 - 量産画像は「1画像=1人」だけ。4人入り sheet をそのまま学習に使わない。
 - 4ビュー sheet を使う場合は、等分スライスしてから使う。
 - caption に `turnaround` / `character sheet` / `full body turnaround` を書かない。
+- 身長・体格は `docs/02_characters/character_bible.md` の身長データを正本とする。生成プロンプトでは「縦長キャンバス」を人物の脚長・高身長として解釈させない。採用後は足元基準で trim し、同表の `立ち絵 縦px` にリサイズする。
 
 ### 1キャラあたりの最小セット
 
@@ -124,6 +125,7 @@ Using the attached master image as the exact same character identity, generate 4
 All images must depict the EXACT SAME SINGLE CHARACTER.
 Maintain identical face, hairstyle, body build, visual signature, costume, accessories, and color palette.
 Do NOT redesign or reinterpret the character.
+Keep the character's natural body proportions and height impression from the project height chart. Do NOT elongate the body, legs, neck, or head-to-body ratio. A vertical canvas is allowed, but the person must not become taller than their assigned character height.
 
 Each image must be a full-body standing illustration with feet visible.
 Each image must show a different angle:
@@ -142,6 +144,7 @@ Using the attached master image as the exact same character identity, generate 4
 
 Keep the same face, hairstyle, body build, visual signature, costume, accessories, and color palette.
 Only vary expression and small pose.
+Keep the character's natural body proportions and height impression from the project height chart. Do NOT elongate the body, legs, neck, or head-to-body ratio.
 
 Create four variants:
 1. neutral standing
