@@ -28,10 +28,9 @@ Every source-candidate PNG has a same-name `.txt` caption.
 
 ## Rejected
 
-`rejected/20260630-wrong-sheet-output/` and `rejected/20260630-elongated-body/`
-are failed built-in ImageGEN attempts from this session. Do not mix them into LoRA
-source. The sheet output was too low-resolution after cropping, and the standalone
-front retries produced elongated body proportions.
+`rejected/20260630-wrong-sheet-output/` contains failed built-in ImageGEN sheet
+attempts from this session. Do not mix them into LoRA source. The sheet output
+was too low-resolution after cropping.
 
 ## Notes
 
