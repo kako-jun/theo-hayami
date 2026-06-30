@@ -52,6 +52,12 @@ debug_enabled: true
 - 自分で選んでいるのかわからない → jiyuu-menu
 - しあわせって何だろう → koufuku-menu
 - 過ぎた時間にとらわれてしまう → jikan-menu
+- 変わりたいのに変われない → henka-menu
+- 何が現実かわからない → gensou-menu
+- 何が正しいのかわからない → tadashisa-menu
+- 迷ってばかりで決められない → mayoi-menu
+- 当たり前を疑えない → atarimae-menu
+- 人を決めつけてしまう → wakeru-menu
 [/選択]
 
 ## netami-menu: 人がうらやましい — 誰に聞く
@@ -623,4 +629,109 @@ debug_enabled: true
 - ヒューに聞く → hue-jikan
 - マキヤに聞く → makiya-jikan
 - オウに聞く → ou-jikan
+[/選択]
+
+## henka-menu: 変わりたいのに変われない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「変わりたいのに変われない」——決めても三日で元に戻ってしまう、この足踏みを、誰に聞いてみよう。住人によって、変わるということの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-henka
+- カンティアに聞く → kantia-henka
+- ヘグルに聞く → hegru-henka
+- デカリスに聞く → dekaris-henka
+- スピノに聞く → spino-henka
+- ヒューに聞く → hue-henka
+- マキヤに聞く → makiya-henka
+- オウに聞く → ou-henka
+[/選択]
+
+## gensou-menu: 何が現実かわからない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「何が現実かわからない」——夢とうつつ、本物とまやかしの境がぼやけるこの感じを、誰に聞いてみよう。住人によって、現実と幻の分け方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-gensou
+- カンティアに聞く → kantia-gensou
+- ヘグルに聞く → hegru-gensou
+- スピノに聞く → spino-gensou
+- ヒューに聞く → hue-gensou
+- マキヤに聞く → makiya-gensou
+- オウに聞く → ou-gensou
+[/選択]
+
+## tadashisa-menu: 何が正しいのかわからない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「何が正しいのかわからない」——調べても場面ごとに食い違い、足場がぐらつくこの感じを、誰に聞いてみよう。住人によって、正しさの捉え方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-tadashisa
+- カンティアに聞く → kantia-tadashisa
+- ヘグルに聞く → hegru-tadashisa
+- デカリスに聞く → dekaris-tadashisa
+- スピノに聞く → spino-tadashisa
+- ヒューに聞く → hue-tadashisa
+- マキヤに聞く → makiya-tadashisa
+- オウに聞く → ou-tadashisa
+[/選択]
+
+## mayoi-menu: 迷ってばかりで決められない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「迷ってばかりで決められない」——選ぼうとするたび二つの前で立ちすくむこの足踏みを、誰に聞いてみよう。住人によって、迷いのほどき方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-mayoi
+- カンティアに聞く → kantia-mayoi
+- ヘグルに聞く → hegru-mayoi
+- デカリスに聞く → dekaris-mayoi
+- スピノに聞く → spino-mayoi
+- ヒューに聞く → hue-mayoi
+- マキヤに聞く → makiya-mayoi
+- オウに聞く → ou-mayoi
+[/選択]
+
+## atarimae-menu: 当たり前を疑えない — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「当たり前を疑えない」——みんなが「そういうものだ」と言うことを、疑っていいのかも分からないこの感じを、誰に聞いてみよう。住人によって、当たり前の崩し方は、まるで違う。
+
+[選択]
+- アリストに聞く → aristo-atarimae
+- カンティアに聞く → kantia-atarimae
+- ヘグルに聞く → hegru-atarimae
+- デカリスに聞く → dekaris-atarimae
+- スピノに聞く → spino-atarimae
+- マキヤに聞く → makiya-atarimae
+- オウに聞く → ou-atarimae
+[/選択]
+
+## wakeru-menu: 人を決めつけてしまう — 誰に聞く
+
+[背景: shadow-library/grand-reading-room.webp]
+
+**せお** (theo/normal, 左):
+「人を決めつけてしまう」——相手を一目で「こういう人」と箱に入れてしまうこの癖を、誰に聞いてみよう。住人によって、決めつけの正体は、まるで違う。
+
+[選択]
+- カンティアに聞く → kantia-wakeru
+- ヘグルに聞く → hegru-wakeru
+- デカリスに聞く → dekaris-wakeru
+- スピノに聞く → spino-wakeru
+- ヒューに聞く → hue-wakeru
+- マキヤに聞く → makiya-wakeru
+- オウに聞く → ou-wakeru
 [/選択]
