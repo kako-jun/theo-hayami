@@ -1,6 +1,12 @@
 # 立ち絵の加工手順（再現可能・絵を作り直すたびに実行）
 
-LoRA 等で立ち絵を作り直したら、毎回この手順で `assets/images/<char>/normal.png`（将来は感情ごと `<char>/<emotion>.png`）を整える。name-name は**立ち絵を原寸表示**する（個別縮小なし／name-name #294）。よって **源画の縦ピクセル数がそのままキャラの身長**を表す。足の裏を画面下端でそろえ上に伸びるので、源画を身長どおりに作れば背丈差がそのまま出る。
+> **⚠️ 2026-07-01 更新: 本番方式が変わった。** 透過は下記の旧 erode+feather（Step 2）でなく、**BiRefNet_HR matte → 前景色 decontaminate → 暖色ランプのリムグロー(#FFDFB0)** にする。「白フチをゼロにする」競争はやめ、**図書館の光沢背景の反射光という設定で、立ち絵周囲に暖色の柔らかい光を乗せ離れるほど透明にフェード**させる（matte のアラを演出に変える）。生成時ネイティブ透過は Anima(Qwen系)に存在しないと確定済（出典: studio-yokonami #11）。
+> - 本番スクリプト: `studio-yokonami/tools/tachie_finalize_birefnet.py`（matte+decontaminate+暖色グロー+trim+身長px を一括）。生成は `tools/gen_theo_tachie.py`。
+> - 確定値: matte=BiRefNet_HR-matting(RES1024)/グロー色=#FFDFB0/sigma=10/gain=1.0。身長エンコードは下記 Step 3 のまま（K=4.09）。
+> - 設計確定の経緯と blink 選定は studio-yokonami #11/#12、Theo 全13キー実例は #23。
+> - 旧 Step 1（trim）と Step 3（身長エンコード）は現役。Step 2 は BiRefNet+グローに置換。
+
+LoRA 等で立ち絵を作り直したら、毎回この手順で `assets/images/<char>/normal.png`（感情ごと `<char>/<emotion>.png`）を整える。name-name は**立ち絵を原寸表示**する（個別縮小なし／name-name #294）。よって **源画の縦ピクセル数がそのままキャラの身長**を表す。足の裏を画面下端でそろえ上に伸びるので、源画を身長どおりに作れば背丈差がそのまま出る。
 
 前提ツール: **ImageMagick 7**（`magick`）。この開発機では Rog/PIL 不要でこの加工はできる（高解像度の LoRA 再生成だけが Rog 依存）。
 
