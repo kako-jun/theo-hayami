@@ -607,7 +607,7 @@ Using the attached reference images as the exact same character identity, genera
 
 Keep the same face, black undercut / two-block hairstyle, adult man identity, 180cm assigned height impression, guarded angular face, black and burnt-umber coat, red thread map and compass motifs, and dry practical strategist air.
 
-Create an open-front clothing variant for LoRA training: Makiya's normal outfit already has the upper shirt open, so make this Phase 2 variant clearly different by opening the shirt front all the way down to the waist/hem while keeping the coat open. Keep it practical and fully non-sexual; do not turn it into a seductive pose, do not emphasize the abdomen, and preserve the same outfit identity and red-thread map motifs.
+Create a clearly different open-front clothing variant for LoRA training. Makiya's normal outfit already has the upper shirt open, so do NOT stop at the upper sternum. The shirt must be fully unbuttoned/open from the collar all the way down to the waist/hem, with the left and right shirt panels visibly separated down the torso. Keep the coat open too. A little torso/abdomen visibility is acceptable for this training variant, but keep it practical, stern, and fully non-sexual; do not make it seductive, erotic, beach-like, or fanservice. Preserve the same outfit identity and red-thread map motifs.
 
 Create four separate full-body images:
 1. front view
@@ -615,7 +615,7 @@ Create four separate full-body images:
 3. side view
 4. back view
 
-Full body with feet visible. Plain pure white background. No text. No UI panels. No other people. No seductive pose. No exposed abdomen. Do not redesign the character. High-resolution separate images only. Natural strong proportions, not elongated.
+Full body with feet visible. Plain pure white background. No text. No UI panels. No other people. Do not keep the shirt closed at the chest. No seductive pose. Do not emphasize the abdomen. Do not redesign the character. High-resolution separate images only. Natural strong proportions, not elongated.
 ```
 
 Phase 3 でアップロードする参考画像: master priority 画像 + Phase 1 normal で生成して目視採用した通常全身画像 1〜3枚だけ。front/side/back を優先。Phase 2 open-front の成果物は混ぜない。旧 candidate や secondary は使わない。
