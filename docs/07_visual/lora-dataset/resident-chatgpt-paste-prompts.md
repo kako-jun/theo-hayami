@@ -607,7 +607,7 @@ Using the attached reference images as the exact same character identity, genera
 
 Keep the same face, black undercut / two-block hairstyle, adult man identity, 180cm assigned height impression, guarded angular face, black and burnt-umber coat, red thread map and compass motifs, and dry practical strategist air.
 
-Create an open-front clothing variant for LoRA training: coat and shirt front open only to the upper sternum, collarbone and upper chest lightly visible if natural, abdomen fully covered, fully non-sexual. Preserve the same outfit identity and red-thread map motifs.
+Create an open-front clothing variant for LoRA training: Makiya's normal outfit already has the upper shirt open, so make this Phase 2 variant clearly different by opening the shirt front all the way down to the waist/hem while keeping the coat open. Keep it practical and fully non-sexual; do not turn it into a seductive pose, do not emphasize the abdomen, and preserve the same outfit identity and red-thread map motifs.
 
 Create four separate full-body images:
 1. front view
