@@ -40,7 +40,14 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
 - これで `縦px = 身長cm × 4.09`。**各キャラの cm・縦px の対応表は `../02_characters/character_bible.md`「身長データ」表が唯一の正本**（数値の二重管理を避けるためここには再掲しない）。身長を変えたら bible の表だけを直し、同 K で源画を再計算する。
 
 ## 出力と表示
-- `assets/images/<char>/normal.png`（感情追加時は `<char>/<emotion>.png`、**同じ身長pxで**書き出す＝感情で背丈が変わらない）。
+- finalize は `assets/images/<char>/normal.png`（感情追加時は `<char>/<emotion>.png`、**同じ身長pxで**書き出す＝感情で背丈が変わらない）を作る。ただし**これは中間物**。
+- **配信用は webp に焼く（最終工程・必須）**。2倍解像度 PNG は 1〜2MB あり、name-name-api の **1ファイル 1 MiB 安全上限**（超えると 413 で立ち絵が出ない）を踏む。**寸法（身長px）はそのまま**に webp へ焼き、元 PNG は削除する（ムーブ）:
+  ```bash
+  cwebp -q 85 -alpha_q 100 -m 6 assets/images/<char>/<key>.png -o assets/images/<char>/<key>.webp
+  ```
+  - q85 固定（縮小表示前提でも 1 MiB に全く近づかないため画質は割り切らない）／alpha_q 100（透過エッジをロスレス保持）／m6（最良圧縮）／**リサイズしない**。実測で全立ち絵 112〜290KB に収まる（最重 spino/close=288KB・目標 ≤300KB）。
+  - 参照側 name-name は `**Name** (char/key, 位置)` の**拡張子省略**参照を webp→png の順で解決する（name-name #376）。だから webp を置けば webp が使われる。
+  - **正本は `studio-yokonami/LORA-PIPELINE.md`「立ち絵の webp 焼き＝配信フォーマット標準」節**（今後の全立ち絵・追加分も同一パラメータで焼く＝統一感）。**⚠️ PNG を消すのは name-name #376 が本番デプロイ済みを確認してから**（webp→png フォールバックの安全順序）。
 - name-name 原寸表示。幅が論理画面(9:16=450)を超えても**はみ出しOK**（縮小しない）。ToHeart 式に**下端（靴）が画面外に切れてよい**。
 
 ## 作り直し時の再現
