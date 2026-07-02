@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-aseri: 焦り / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、足だけが先に行きたがる目をしているね。立ち止まると置いていかれる、急がなきゃ間に合わない--そんな、追い立てられた顔だ。ちょうどいい、そこの現実家にぶつけてごらん。力の使い方なら、この男が一番冷たく勘定するよ。

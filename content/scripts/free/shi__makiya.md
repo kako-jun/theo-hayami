@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-shi: 死 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/event-horizon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日はずいぶん遠くを見ているね。足元じゃなくて、その先の--いつか自分が居なくなる場所を、覗き込んでいる目だ。ちょうどいい、そこの現実家に持っていってごらん。終わりの勘定なら、この男は冷たく弾くよ。

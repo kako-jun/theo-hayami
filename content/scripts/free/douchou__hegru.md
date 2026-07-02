@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-douchou: 同調 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、自分の輪郭がぼやけた目をしているね。気づけばいつも周りに合わせて、つい頷いて、流されて--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。流れのなかでの足の使い方を説く話なら、この男が一番熱いよ。

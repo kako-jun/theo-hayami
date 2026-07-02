@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-fukushuu: 復讐 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は奥歯のあたりに、小さな火種を仕込んだような顔だね。やられたぶんは、きっちり返してやりたい--そんな顔だ。ちょうどいい、そこの汎神家にぶつけてごらん。仕返しの話を、この男は急かしも諫めもせず、ただ静かにほどいていくよ。僕も隣で聞かせてもらう。

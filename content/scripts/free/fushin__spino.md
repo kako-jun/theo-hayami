@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-fushin: 不信 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はやけに身構えた顔をしているね。誰かが近づくたび、一歩うしろへ引いてしまう--そんな顔だ。ちょうどいい、そこの汎神家に聞いてごらん。人を信じられないという話を、この男は安く笑ったりしないよ。僕も隣で聞かせてもらう。

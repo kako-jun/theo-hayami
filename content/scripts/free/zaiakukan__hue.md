@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-zaiakukan: 罪悪感 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、自分の手のひらをじっと見ている目だね。何かをしてしまって、その手がまだ汚れている気がしている--そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。重たい話でも、この男はやけに静かに、心の仕組みのほうへ連れていってしまうよ。

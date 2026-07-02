@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-kodoku: 孤独 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん寄る辺なさそうな顔だね。人の輪に入りたいのに、いざ近づくと身がすくむ--そんな顔だ。ちょうどいい、そこの理屈屋にぶつけてごらん。この男は、矛盾した心の仕組みを、誰よりも冷たく腑分けする男だよ。

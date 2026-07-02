@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-soushitsu: 喪失 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、胸にぽっかり穴をあけた目をしているね。大事なものを手放して、いつまでも立ち直れない--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。失ったものを語らせたら、この男が一番熱いよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-mujun: 矛盾 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう。今日のきみは、二つの道の前で固まっているね、せお。どちらにも行けず、足だけが宙に浮いている--そんな顔だ。さあ、そこの経験家に聞いてごらん。心の中身を、生の願いまで腑分けしちゃう男だよ。

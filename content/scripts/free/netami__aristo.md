@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-netami: 嫉み / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日はやけに伏し目がちだね。誰かのまぶしさに、目をやられた--そんな顔だ。さあ、そこの観察家にごらんに入れるといい。この男はね、どんなにこんがらがった気持ちでも、棚に分けて並べてしまうんだよ。

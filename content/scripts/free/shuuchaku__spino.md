@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-shuuchaku: 執着 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は両手を、胸にぎゅっと抱え込んでいるね。何かを手放したくない--手放すくらいなら指がちぎれてもいい、そんな顔だ。ちょうどいい、そこの庭師に預けてごらん。この男は、持つことにも手放すことにも、不思議とこだわらない数少ない一人さ。

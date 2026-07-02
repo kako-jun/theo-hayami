@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-oi: 老い / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/spiral-stacks.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。鏡の前で、ずいぶん長くため息をついていたね。ほう……映っている顔が、少し気に入らなかったかな。さあ、そこの静かな男に話してごらん。この人は、過ぎていくものを、急かしも惜しみもしないからね。

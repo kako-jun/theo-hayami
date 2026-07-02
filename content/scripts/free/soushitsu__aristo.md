@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-soushitsu: 喪失 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、胸にぽっかり穴が空いた顔をしているね。何か大事なものを失くして、そこから動けないでいる--そんな目だ。ちょうどいい、そこの観察家にぶつけてごらん。きみが失くしたのが本当は何なのか、この男なら分けて見せてくれるよ。

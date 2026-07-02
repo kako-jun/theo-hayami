@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-soushitsu: 喪失 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、うつろな目をしているね。大切な何かをなくして、その穴があんまり大きくて、自分まで呑み込まれそうだ--そんな顔だ。ちょうどいい、そこの理屈屋に持っていってごらん。この男はね、君を打ちのめしているその「大きさ」が、そもそも何という名前のものなのか、まずそこから教えてくれる男だよ。

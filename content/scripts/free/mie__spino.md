@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-mie: 見栄 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はやけに、誰かの視線を気にしているね。よく見られたい--いや、よく見られていないと落ち着かない、そんな顔だ。ちょうどいい、そこの汎神家に話してごらん。この男は、人の見栄を笑ったりはしない男さ。僕も隣で聞かせてもらうよ。

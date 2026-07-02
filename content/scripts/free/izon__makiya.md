@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-izon: 依存 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん指先が落ち着かないね。やめようやめようと思いながら、気づくとまた同じことを繰り返している--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。得か損か、効くのはどっちか。その勘定なら、この男が一番冷たいよ。

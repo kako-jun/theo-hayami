@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-kitai: 期待 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、まだ来てもいない明日に、心ごと引っぱられている--そんな顔だね。何かいいことが起きるはずだと、つい身を乗り出して、待っている。けれど手の中は、まだ空っぽだ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、お前の「期待」を、いっぺん裸にして突きつけてくるよ。

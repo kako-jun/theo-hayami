@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-fukushuu: 復讐 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん奥歯を噛んだ目をしているね。やられた分だけ、相手にもやり返してやりたい--そんな顔だ。ちょうどいい、そこの観察家にぶつけてごらん。きみが本当に欲しがっているものが何なのか、この男なら棚に並べて分けてくれるよ。

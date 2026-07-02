@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-ronpa: 論破 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう。今日のきみは、誰かを言い負かしたくてうずうずしている顔だね、せお。さあ、そこの経験家に話してごらん。理屈の勝ち負けを、根っこから疑ってかかる男だよ。

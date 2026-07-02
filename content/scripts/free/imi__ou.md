@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-imi: 意味 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/underground-vault.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、胸に風が吹き抜けていくみたいな顔だね。「何のために生きるんだろう」--やることはあるのに、その芯のところが、ぽっかり空っぽ。そんな目だ。ちょうどいい、奥の知行家にぶつけてごらん。この人は、空っぽの胸を、ふしぎと静かに覗き込む人だよ。

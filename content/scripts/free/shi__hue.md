@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-shi: 死 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/event-horizon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう。今日はやけに静かな目をしているね、せお。何かを覗き込んでいる--というより、覗き込もうとして、何も見えなくて立ちすくんでいる、そんな顔だ。さあ、そこの経験家に預けてごらん。中身のない観念なら、この男が薄目で見破るよ。

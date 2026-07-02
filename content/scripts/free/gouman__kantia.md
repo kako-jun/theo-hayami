@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-gouman: 傲慢 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん見晴らしのいい顔をしているね。誰を見ても、自分のほうが少しだけ上--そんな高みから世界を眺めている顔だ。ちょうどいい、そこの理屈屋にぶつけてごらん。この男は、人を「上」だの「下」だのに並べる手つきに、誰よりうるさいよ。

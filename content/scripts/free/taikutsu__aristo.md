@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-taikutsu: 退屈 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん退屈そうな顔だね。何を見ても、もう底が見えている--そんな、あくびの混じった目だ。ちょうどいい、そこの観察家にぶつけてごらん。きみの「つまらない」がどういう仕組みでそうなっているのか、この男なら分けて見せてくれるよ。

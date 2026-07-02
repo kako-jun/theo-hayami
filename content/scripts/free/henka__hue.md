@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-henka: 変化 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、何かを決めかねて足踏みしている顔だね。「変わろう」と心に決めては、また同じ朝に逆戻り--そんな足取りだ。ちょうどいい、そこの経験家にぶつけてごらん。この男は、立派な誓いほど、胡散くさそうに眺めるからね。

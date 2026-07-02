@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-uso: 嘘 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。鏡の前で着替えるみたいに、いくつもの顔を持ち替えてきた顔だね。さあ、どれが本物か分からなくなったのなら、そこの静かな男に預けてごらん。この人は、嘘つきを責めたりはしないよ。

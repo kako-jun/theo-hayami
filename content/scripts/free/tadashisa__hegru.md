@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-tadashisa: 正しさ / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **せお** (theo/normal, 左):
 ……ねえ。ボク、最近わからなくなったんだ。何が正しいのか。みんなが正しいって言うことも、別の誰かは間違ってるって言う。結局、正しさなんて、どこにあるんだろう。

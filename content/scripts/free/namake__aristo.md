@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-namake: 怠け / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はやけに肩が重そうだね。やることは分かっている、分かっているのに、体だけがどっかり座り込んで動かない--そんな顔だ。ちょうどいい、そこの観察家にぶつけてごらん。この男なら、きみの「分かっている」と「動けない」を、別々の棚に並べてくれるよ。

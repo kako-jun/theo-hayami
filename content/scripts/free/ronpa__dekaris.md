@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-ronpa: 論破 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。ずいぶん前のめりだね。誰かを言い負かして、ぐうの音も出ないところまで追い込みたい--そんな顔だ。さあ、その勝負欲、そこの懐疑家にぶつけてごらん。この男は、勝ち負けという言葉そのものを疑ってかかるよ。

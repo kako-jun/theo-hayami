@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ohako-makiya: きれいごと / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/thermae-hall.webp]
 
 **せお** (theo/normal, 左):
 マキヤ。……正しくありたいのに、正しくしようとすると、いつも上手くいかないんだ。本当のことを言えば誰かが傷つくし、優しくすれば嘘になる。きれいごとじゃ回らないって、わかってる。でも、回すために汚れるのも嫌で。どっちも選べなくて、止まる。

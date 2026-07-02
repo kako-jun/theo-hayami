@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-oi: 老い / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/spiral-stacks.webp]
 
 **ヘグル** (hegru/normal, 右):
 来たね、せお！ いや、待ちきれないよ。鏡をのぞいて、ふっと息を呑んだろう。目尻の線、思うように動かない体、変わっていく自分--それが怖くて、できることなら時間を止めて、若いままでいたい。そういう顔だ。歳をとりたくない。当たりかい？

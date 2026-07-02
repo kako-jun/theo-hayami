@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-mayoi: 迷い / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **せお** (theo/normal, 左):
 ……ねえ。ボク、いつもこうなんだ。あれにするか、これにするか。二つ並べて、にらんで、いつまでも決められない。どっちかが正しくて、どっちかが間違っているはずなのに--その境目の前で、足が止まってしまうんだ。

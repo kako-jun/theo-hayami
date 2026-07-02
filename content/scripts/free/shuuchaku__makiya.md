@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-shuuchaku: 執着 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん拳を固く握っているね。一度つかんだものを、どうしても手放せない--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。何が手元に残るかの勘定なら、この男が一番冷たいよ。

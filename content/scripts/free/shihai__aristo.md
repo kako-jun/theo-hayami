@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-shihai: 支配 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん何もかも自分の手で動かしたそうな顔をしているね。人も、ものごとも、ぜんぶ自分の思った向きに動いてほしい--そんな目だ。ちょうどいい、そこの観察家に並べてもらうといい。この男はね、天の巡り方から虫の足の運びまで、棚に分けて見てきた男だよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-izon: 依存 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん落ち着かない指をしているね。やめようと決めたそばから、手のほうが先に伸びてしまう--そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。「やめたいのにやめられない」って捻れを、合図のタイミングまでばらして見せる男だよ。

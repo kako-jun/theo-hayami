@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-taikutsu: 退屈 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、何を見ても瞼が半分降りたような顔をしているね。新しいものも、珍しいものも、もう全部どこかで見た気がする--そんな目だ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、きみが「もう知ってる」と札を貼って閉じた目を、いっぺん抉じ開けてくるよ。

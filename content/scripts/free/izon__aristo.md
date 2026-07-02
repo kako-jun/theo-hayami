@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-izon: 依存 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はなんだか、同じ場所をぐるぐる回って戻ってきたような足取りだね。行きたくない方へ、足だけが勝手に進んでしまった--そんな顔だ。ちょうどいい、そこの観察家にぶつけてごらん。何でも棚に分けてしまう男だから、きみの足跡だって、きっと一本ずつ並べてくれるよ。

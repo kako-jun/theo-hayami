@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-henka: 変化 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん肩に力が入っているね。生まれ変わるくらいの覚悟で、何もかも変えてやる--そう意気込んでは、かえって一歩も踏み出せずにいる。僕の見るところ、そんな顔だ。ちょうどいい、そこの静かな男にぶつけてごらん。この人は、いちばん小さく動くことだけを説くよ。

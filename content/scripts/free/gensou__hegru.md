@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-gensou: 幻想 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **せお** (theo/normal, 左):
 ……ねえ。最近、何が現実なのか、分からなくなるんだ。こうして見ているボクと、目の前に広がっている世界。--どっちが本物なんだろう。見ているボクの方が確かなのか、それとも、見られている世界の方が確かなのか。考えはじめると、足元が崩れていくみたいで、こわいんだ。

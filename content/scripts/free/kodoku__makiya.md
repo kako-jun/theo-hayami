@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-kodoku: 孤独 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん心細い顔をしているね。まわりに人はいるのに、誰とも本当には繋がっていない--そんな、ひとりぼっちの顔だ。ちょうどいい、そこの現実家にぶつけてごらん。寄る辺の無さを損得で量るなら、この男が一番冷たいよ。

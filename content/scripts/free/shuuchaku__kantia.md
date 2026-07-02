@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-shuuchaku: 執着 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん握りしめた手をしているね。一度気に入ったものを、どうしても手放せない--そんな指の強張りだ。ちょうどいい、そこの理屈屋にぶつけてごらん。この男は、「好き」という言葉を、誰よりも細かく切り分けたがる男だよ。

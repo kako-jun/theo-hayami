@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-fuan: 不安 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、まだ来てもいない明日を覗き込もうとする目をしているね。この先がどうなるか分からなくて、足がすくむ--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。先の見えなさの扱いなら、この男が一番熱いよ。

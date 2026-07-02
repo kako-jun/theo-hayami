@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-koufuku: 幸福 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、手のひらを見つめては溜息をつく目をしているね。幸福というやつを掴もうとして、掴んだそばからすり抜けていく--そんな顔だ。ちょうどいい、そこの懐疑家にぶつけてごらん。掴んだものを根こそぎ疑って崩すなら、この男が一番容赦ないよ。

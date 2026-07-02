@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-mujun: 矛盾 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。鏡の間で右へ左へ、ずいぶん往生際が悪いね。進みたいのに進めない、どちらを取っても片方が泣く--そんな顔だ。そこの懐疑家にぶつけてごらん。この男は、引き裂かれる前に「いつお前が決めたのか」を訊いてくる。

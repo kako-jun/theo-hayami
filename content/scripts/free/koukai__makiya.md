@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-koukai: 後悔 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん後ろを向いた目だね。終わってしまった一手を、何度も何度も指し直しては、ため息をついている--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。済んだ勝負をいちばん醒めた目で勘定する男だよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-soushitsu: 喪失 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん遠くを見ている目だね。誰かがそこに居るような、でも本当は居ないと知っているような--そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。重たい話でも、この男はやけに静かに、心の仕組みのほうへ連れていってしまうよ。

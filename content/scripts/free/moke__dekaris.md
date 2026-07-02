@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-moke: 儲け / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。また何か後ろめたそうだね。得か損か--頭の中でいつも算盤を弾いている、そんな顔だ。さあ、そこの懐疑家にぶつけてごらん。この男は、後ろめたさをまず疑ってかかる。

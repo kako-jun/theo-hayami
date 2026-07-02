@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-shihai: 支配 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は世界中の駒を、自分の手で並べ直したそうな顔だね。「あの人がこう動いてくれたら」「この場がこうなってくれたら」--思いどおりにならないものに、苛々している目だ。ちょうどいい、奥に座る知行家にぶつけてごらん。この人は、ものの動かし方を、誰より静かに知っているよ。

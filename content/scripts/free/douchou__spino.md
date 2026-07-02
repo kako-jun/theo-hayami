@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-douchou: 同調 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。妙に落ち着かない顔だね。周りがそう言うから、つい自分もそう言ってしまった--あとで一人になって、首をかしげている。そんな顔だ。ちょうどいい、そこの汎神家に聞いてごらん。流される話を、この男は叱ったりしないよ。僕も隣で聞かせてもらう。

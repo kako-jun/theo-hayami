@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-wakeru: 分けること / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。誰かのことを、頭の中でぱちんと一言に貼り終えたような顔だね。「あの人はこういう人」--そう決めて、それきりにしている。ちょうどいい、そこの経験ずきに聞いてごらん。何でもいったんバラして眺めたがる、のんきな男さ。

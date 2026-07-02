@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-ai: 愛 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん思い詰めた顔だね。誰かを好きで、好きなはずなのに、なぜか胸が苦しい--そんな顔だ。ちょうどいい、そこの理屈屋にぶつけてごらん。この男は、こんがらがった心を、誰よりも冷たく腑分けする男だよ。

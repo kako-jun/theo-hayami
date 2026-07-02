@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-shi: 死 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/event-horizon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日は鏡を覗きながら、その奥にいるはずの自分を探しているような目だね。いつか居なくなる--その手前で立ちすくんでいる。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、怖いものをまず手で分解してかかる。

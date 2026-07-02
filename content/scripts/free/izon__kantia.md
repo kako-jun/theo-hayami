@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-izon: 依存 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん同じ仕草を繰り返しているね。やめたいのに、気づくとまた手が伸びている--そんな指の癖だ。ちょうどいい、そこの理屈屋にぶつけてごらん。この男は、「どうしようもない」という言葉を、いちばん信じない男だよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-imi: 意味 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/underground-vault.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、足元の地面が急に頼りなく見える目をしているね。何のために生きているのか、その答えが本当に正しいのか分からない--そんな、宙ぶらりんの顔だ。ちょうどいい、そこの現実家にぶつけてごらん。意味の勘定なら、この男が一番冷たく弾くよ。

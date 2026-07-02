@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-mayoi: 迷い / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん思い詰めた足取りだね。あれもこれも決めかねて、その場で立ち往生--そんな顔だ。ちょうどいい、そこの懐疑家に聞いてごらん。決められない悩みも、こいつは容赦なく刻むよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ohako-hegru: 矛盾 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/history-hall.webp]
 
 **せお** (theo/normal, 左):
 ヘグル。……同じ人のことを、好きと嫌いが、両方あるんだ。優しくしてくれるのは大好きなのに、ときどき言うことが許せなくて。こんなの、おかしいよな。どっちかが嘘なんじゃないかって、ずっと自分を責めてて。

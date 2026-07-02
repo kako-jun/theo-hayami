@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-wakattete: わかってても / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **せお** (theo/normal, 左):
 ……スピノ。ボク、わかってるんだ。早く動いたほうがいいって、頭ではちゃんと分かってる。それなのに、体が動かない。やるべきことも、その理由も、全部知っているのに……なんでボクは動けないのかな。

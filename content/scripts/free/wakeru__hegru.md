@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-wakeru: 分けること / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/music-hall.webp]
 
 **せお** (theo/normal, 左):
 ……ねえ。ボク、人をすぐ決めつけてしまうんだ。あの人はきっとこういう人だ、ってひと目で見切って、線を引いて、それきり中身を見ようとしない。あとで違ったと気づいても、もう遅くて……。どうしてボクは、こうやって人を、ぱきっと分けてしまうんだろう。

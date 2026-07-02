@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-fukushuu: 復讐 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、誰かに何かをされて、それを返したくてたまらない顔をしているね。「やられた、だから、やり返す」--指がもう、拳を握っている。ちょうどいい、そこの理屈屋に持っていってごらん。この男はね、君が握ったその「だから」を、まず一度ほどいて、机の上に並べてみせるんだよ。

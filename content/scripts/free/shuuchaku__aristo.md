@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-shuuchaku: 執着 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、手を固く握っているね。中に何が入っているのか僕には見えないけれど、放したら消えてしまうとでも言いたげな握り方だ。ちょうどいい、そこの観察家に見せてごらん。何でも棚に分けてしまう男だから、きみの握りこぶしも、きっと開かせてくれるよ。

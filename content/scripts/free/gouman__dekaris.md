@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-gouman: 傲慢 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。鏡の間でずいぶん見下ろした目をしているね。話していると相手の鈍さが透けて見えて、つい呆れてしまう--そんな顔だ。ちょうどいい、そこの懐疑家にぶつけてごらん。お前の見下しを、まず根っこから疑ってかかる男だよ。

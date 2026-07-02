@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-soushitsu: 喪失 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、うつろな目をしているね。大事なものをごっそり持っていかれて、立ち上がる力まで一緒に抜けてしまった--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。失ったものの勘定書を、いちばん冷たく、いちばん正確に読む男だよ。

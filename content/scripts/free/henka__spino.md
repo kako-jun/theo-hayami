@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-henka: 変化 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、何度も拳を握っては、また開いてしまったような手をしているね。「変わろう」と決めるたびに、結局おなじ場所へ戻ってくる--そんな顔だ。さあ、そこの静かな男に話してごらん。この人は、何かを叱って追い払うのが、いちばん下手な人だからね。

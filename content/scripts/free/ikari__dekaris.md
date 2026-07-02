@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-ikari: 怒り / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/spiral-stacks.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。鏡の間に駆け込んでくる足音からして、もう湯気が立っているね。腹の底で何かが煮えている--そんな顔だ。さあ、その熱、そこの懐疑家にぶつけてごらん。この男は、煮えているものをまず分解してかかる。

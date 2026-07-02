@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-fuan: 不安 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、まだ来てもいない明日のほうばかり見て、足元がふわふわしている顔だね。この先どうなるんだろう、うまくいかなかったらどうしよう--胸が、先へ先へと引っぱられて落ち着かない。ちょうどいい、奥の知行家にぶつけてごらん。この人は、きみの心が今どこにあるかを、ずいぶん正確に見る人だよ。

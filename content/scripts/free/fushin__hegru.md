@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-fushin: 不信 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、人を遠ざける目をしているね。誰かに裏切られて、もう誰も信じられない--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。固めたものを、もう一度溶かして動かす話なら、この男が一番しつこいよ。

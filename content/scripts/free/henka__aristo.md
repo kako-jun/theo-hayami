@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-henka: 変化 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん力んだ顔をしているね。変わりたいのに、変われない--自分を持てあましている、そんな足取りだ。ちょうどいい、そこの整理魔に並べてもらうといい。この男は、こんがらがったものを種類ごとに分けて、棚に戻すのが何より得意でね。

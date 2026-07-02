@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-oi: 老い / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/spiral-stacks.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。鏡を覗いては、指で目尻を伸ばしているね。皺が増えた、髪が薄くなった、昔のことが思い出せない--きみは自分が少しずつ崩れていくのが、こわくてたまらないと見える。さあ、そこの几帳面な男にぶつけてごらん。この男は、「移ろうもの」と「移ろわないもの」を仕分けるのが、何より得意でね。

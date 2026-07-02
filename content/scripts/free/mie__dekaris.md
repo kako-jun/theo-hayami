@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-mie: 見栄 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はやけに背筋を伸ばしているね。誰かの目を気にして、本当の丈より少し高く見せようと--そんな、つま先立ちの顔だ。ちょうどいい、そこの懐疑家にぶつけてごらん。きみが「こう見られたい」と飾るその姿、本物かどうか、骨まで割って見せる男だよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-gouman: 傲慢 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん見晴らしのいい顔をしているね。誰かを見下ろした帰りかな。高い所から人を眺めるのは気分がいい--でも、後味が少しだけ苦い。そんな顔だ。さあ、そこの経験家にぶつけてごらん。気分の中身を、生の絵の具まで分解しちゃう男だよ。

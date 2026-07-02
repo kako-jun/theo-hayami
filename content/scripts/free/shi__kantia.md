@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-shi: 死 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/event-horizon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。ずいぶん青い顔をしているね。いつか自分が消えてなくなる--その先を覗き込んで、底が見えなくて怯えている目だ。さあ、そこの理屈屋に持っていってごらん。この男はね、答えの代わりに、まず線を引くよ。

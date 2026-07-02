@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-jikan: 時間 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/time-chamber.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、後ろばかり見ている目をしているね。もう過ぎ去ったはずの時間を、まだ手のなかで握りしめている--そんな顔だ。ちょうどいい、そこの静かな儒者にぶつけてごらん。心の本体のことなら、この人がいちばん落ち着いて返すよ。

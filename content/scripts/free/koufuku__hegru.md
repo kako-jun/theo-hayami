@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-koufuku: 幸福 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、何かを取り逃したような目をしているね。確かに手の中にあったはずなのに、握った途端に消えてしまう--そんな顔だ。ちょうどいい、そこの登りたがりにぶつけてごらん。掴めないものの話なら、この熱い男が一段上から照らしてくれるよ。

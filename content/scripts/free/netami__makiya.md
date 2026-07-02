@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-netami: 嫉み / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん物欲しそうな目をしているね。誰かのいいところばかり、目について仕方ない--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。算盤の弾き方なら、この男が一番冷たいよ。

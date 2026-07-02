@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-douchou: 同調 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん曖昧な顔をしているね。右の言うことにも頷き、左の言うことにも頷き、自分の旗をどこにも立てられずにいる--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。日和見の値段を、いちばん冷たく値付けする男だよ。

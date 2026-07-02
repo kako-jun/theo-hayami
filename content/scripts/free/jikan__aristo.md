@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-jikan: 時間 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/time-chamber.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、首だけ後ろを向いたまま歩いているような目をしているね。過ぎてしまった時間が、いつまでも背中に貼りついて離れない--そんな顔だ。ちょうどいい、そこの観察家にぶつけてごらん。時間というやつの正体なら、この人が一番ていねいに分けてくれる。

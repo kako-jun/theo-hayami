@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-wakattete: わかってても / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **マキヤ** (makiya/normal, 右):
 丸腰だな、きみは。

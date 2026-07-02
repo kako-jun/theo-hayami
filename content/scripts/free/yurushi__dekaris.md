@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-yurushi: 許し / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、どうしても飲み下せない棘が、喉の奥に刺さったままって顔だね。あの人がしたこと、何度思い返しても許せない--そんな日だ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、お前が憎んでいる相手を、いっぺん歯車みたいに分解して見せてくるよ。

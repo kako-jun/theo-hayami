@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-ai: 愛 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、甘くて痛い顔をしているね。誰かが好きで、その好きが、うれしいのに苦しい--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。「失う」と「得る」がもつれ合う話なら、この男が一番うるさいよ。

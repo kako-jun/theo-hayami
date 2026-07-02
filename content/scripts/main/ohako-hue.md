@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ohako-hue: あたりまえ / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/curio-nook.webp]
 
 **せお** (theo/normal, 左):
 ヒュー。……ふと怖くなったんだ。明日も今日と同じように朝が来て、いつもの人がいて、いつもの場所がある。それって、誰かが約束してくれたわけじゃないよな。明日も続く保証なんて、本当はどこにもないんだって気づいたら、足元がすうっとして。

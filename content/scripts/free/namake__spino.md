@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-namake: 怠け / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、自分の背中を押しあぐねているね。やらなきゃいけないと分かっているのに、どうしても手がつかない--そんな顔だ。ちょうどいい、そこの汎神家に聞いてごらん。この男は、人を「なまけ者」と決めつけるということを、生まれてこのかた一度もしない男さ。

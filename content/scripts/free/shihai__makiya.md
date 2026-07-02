@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-shihai: 支配 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん手綱を握りたそうな目をしているね。あれもこれも、ぜんぶ自分の思いどおりに運びたい--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。人を動かす勘定なら、この男が一番冷たいよ。

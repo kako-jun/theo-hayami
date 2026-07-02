@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-koukai: 後悔 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、過ぎた日のほうばかり振り返って、肩を落としている顔だね。「あのとき、ああしていれば」--もう戻らない一手を、今になって、何度も指し直している。ちょうどいい、奥の知行家にぶつけてごらん。この人は、過ぎた日のきみを、ずいぶん公平に見る人だよ。

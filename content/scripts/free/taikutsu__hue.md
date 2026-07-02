@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-taikutsu: 退屈 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は何を見ても灰色がかった目をしているね。何もかも色あせて、味がしない--そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。きみの「つまらない」を、この男はやけに涼しい顔で、利き酒の話にすり替えてしまうよ。

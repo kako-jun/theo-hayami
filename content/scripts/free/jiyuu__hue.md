@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-jiyuu: 自由 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、自分の手綱を誰かに握られている目をしているね。選んでいるつもりが、本当は選ばされているだけなんじゃないか--そんな、足の止まった顔だ。ちょうどいい、そこの経験家にぶつけてごらん。僕の友人だが、独断を笑わせたら一番軽いよ。

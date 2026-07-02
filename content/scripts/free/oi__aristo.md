@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-oi: 老い / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/spiral-stacks.webp]
 
 **せお** (theo/normal, 左):
 ……ねえ、アリスト。ボク、歳をとるのがこわいんだ。鏡を見るたび、できてたことが少しずつできなくなって、覚えてたことも忘れていって。このまま、ちょっとずつ自分がすり減って、消えていくみたいで……。

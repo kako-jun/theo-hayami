@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-fuan: 不安 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。まだ来てもいないものに、もう肩をすくめているような顔だね。この先どうなるかと考えると、足の裏が冷たくなる--そんな顔だ。ちょうどいい、そこの汎神家にぶつけてごらん。先のことを、この男は怖がりも励ましもせず、ただ静かに眺めるよ。僕も隣で聞かせてもらう。

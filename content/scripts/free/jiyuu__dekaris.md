@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-jiyuu: 自由 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、自分の手綱を誰かに握られているような目をしているね。決めたつもりが、本当に自分で決めたのか確信が持てない--そんな顔だ。ちょうどいい、そこの懐疑家にぶつけてごらん。僕の見立てでは、選ぶという行為を一番しつこく分解する男だよ。

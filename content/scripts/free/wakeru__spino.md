@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-wakeru: 分けること / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は誰かの顔を思い浮かべては、眉根を寄せているね。「あの人はきっとこういう人だ」と、心の中で札を貼って回っている--そんな顔だ。さあ、そこの静かな男に話してごらん。この人は、どんなものにも、初めから線を引いて眺めたりしないからね。

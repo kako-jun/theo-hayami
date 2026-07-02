@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-fuan: 不安 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん先の方を見ている目だね。まだ来てもいない明日を覗き込んでは、足がすくんでいる--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。先のことを、いちばん醒めた目で勘定する男だよ。

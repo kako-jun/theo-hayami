@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-atarimae: あたりまえ / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、誰かが敷いた道の上を、疑いもせず歩いているような足取りだね。「みんながそう言うから」--その一言で、自分の足を止めてしまう。そんな顔だ。ちょうどいい、そこの静かな人に聞いてごらん。この人はね、当たり前というやつを、身ひとつで疑ってみた人なんだよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-ikari: 怒り / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/spiral-stacks.webp]
 
 **カンティア** (kantia/normal, 右):
 せお。今の君に、まず一つだけ言っておく。--その顔のまま、何も決めるな。目が血走っている。正確には、それは「情動（じょうどう）」だ。私はそれを、長く居座る情念とは区別する。情動は突風のように来て、君の落ち着いた判断を、一瞬で麻痺させるものだ。

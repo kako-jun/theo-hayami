@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-namake: 怠け / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん腰の重そうな顔だね。やろうやろうと思っているのに、机の前で指一本動かせない--そんな夕暮れの顔だ。ちょうどいい、そこの懐疑家にぶつけてごらん。「動けない」その重さの正体を、骨まで割って見せる男だよ。

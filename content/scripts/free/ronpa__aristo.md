@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-ronpa: 論破 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日はずいぶん拳を握りしめているね。誰かと言い合って、勝ちきれなかった--そんな顔だ。さあ、そこの観察家に話してごらん。この男はね、似たもの同士を、ちゃんと別の名前で呼び分けてしまうんだよ。

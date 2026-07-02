@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-yurushi: 許し / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。ずいぶん重たいものを抱えた顔だね。誰かのことを思い出すたび、奥歯を噛みしめてしまう--そんな顔だ。ちょうどいい、そこの汎神家に聞いてごらん。許せないという話を、この男は急かしたりしないよ。僕も隣で聞かせてもらう。

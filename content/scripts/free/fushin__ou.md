@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-fushin: 不信 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、誰の手も取れない顔をしているね。「この人は、どうせ裏切る」「あいつは敵だ」--そう壁を立てるほど、部屋は冷えていく。ちょうどいい、奥の知行家にぶつけてごらん。この人は、背いて見える相手の中まで、覗いてしまう人だよ。

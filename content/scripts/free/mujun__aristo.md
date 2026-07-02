@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-mujun: 矛盾 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **アリスト** (aristo/normal, 右):
 やあ、せお。さっきから、右の足と左の足が、別々の方を向いているような顔だね。何かを選ぼうとして、選べずに、そこで固まっている--そう見えるよ。

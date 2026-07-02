@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-fushin: 不信 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、誰のことも、何ひとつ信じられないって顔をしているね。優しい言葉をかけられても、その裏ばかり探してしまう--そんな日だ。ちょうどいい、そこの懐疑家にぶつけてごらん。疑うことにかけては、この世の誰より底まで潜った男だよ。

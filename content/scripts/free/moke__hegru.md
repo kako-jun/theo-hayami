@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-moke: 儲け / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。さっきから頭の中でそろばんを弾いているね。やろうとするたび、「これは得か、損か」と一拍止まる--そんな顔だ。さあ、そこの弁証家が、もう乗り出しているよ。

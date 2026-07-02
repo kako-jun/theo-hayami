@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-oi: 老い / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/spiral-stacks.webp]
 
 **せお** (theo/normal, 左):
 ……歳をとるのが、こわいんだ。鏡を見るたびに、少しずつ下っていく気がして……。今日より明日、明日より明後日。だんだん衰えて、変わっていって、止められない坂を、ずるずる転がり落ちていくみたいで……。

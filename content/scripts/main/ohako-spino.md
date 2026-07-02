@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ohako-spino: 死 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/water-stacks.webp]
 
 **せお** (theo/normal, 左):
 スピノ。……いなくなる、ってどういうことなんだろう。いつか、ボクの周りの人も、ボクも、ぜんぶ消えてしまう。考えると、胸の奥が冷たくなって、何も手につかなくなるんだ。

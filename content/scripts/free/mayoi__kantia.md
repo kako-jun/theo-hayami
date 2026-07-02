@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-mayoi: 迷い / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。また分かれ道の前で、根が生えたみたいに固まっているね。誰かが正解の地図でも配ってくれたら、どんなに楽だろう--そんな顔だ。ちょうどいい、そこの理屈屋にぶつけてごらん。物事の決め方を、この男ほど几帳面に分けて考える者はいないよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-mayoi: 迷い / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん長いこと、同じところで足踏みしているね。右の道か左の道か、決めかねて、結局どちらにも踏み出せない--そんな顔だ。ちょうどいい、そこの整理魔に並べてもらうといい。この人は、こんがらがった糸を、棚ごとに分けるのが何より得意な男だからね。

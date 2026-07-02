@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-soushitsu: 喪失 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、胸の真ん中にぽっかり穴が空いたような顔をしているね。大切なものを失って、もう何ヶ月も経つのに、ちっとも立ち直れない--そんな顔だ。ちょうどいい、そこの汎神家に聞いてごらん。この男は、立ち直れないきみを、心が弱いせいにはしないよ。僕も隣で眺めさせてもらう。

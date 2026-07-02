@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-shi: 死 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/event-horizon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日はやけに俯いているね。さあ、そこの弁証家のところへ。何を抱えていても、あの男は嬉しそうに受け取るよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-tadashisa: 正しさ / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん歩き疲れた顔だね。あちこちの本をめくって、人の顔色をうかがって、それでもまだ答えが見つからない--そんな足取りだ。ちょうどいい、そこの静かな人に聞いてごらん。この男は、答えを外に探させない人だからね。

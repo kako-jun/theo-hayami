@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-jikan: 時間 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/time-chamber.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、後ろばかり振り返って歩いているような足取りだね。過ぎてしまった日々が、いつまでも袖を引いて離さない--そんな顔だ。さあ、そこの静かな男に話してごらん。この人は、過ぎていくものを、急かしも惜しみもしないからね。

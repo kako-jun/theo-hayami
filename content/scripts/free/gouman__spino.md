@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-gouman: 傲慢 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はやけに顎が上を向いているね。誰かを見下ろしたあとの、ちょっとだけ後ろめたい顔だ。ちょうどいい、そこの静かな庭師に預けてごらん。この男は、高いも低いも測らないよ。

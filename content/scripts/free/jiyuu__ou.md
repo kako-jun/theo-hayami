@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-jiyuu: 自由 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、自分の手が誰のものか分からなくなった顔だね。「これは本当に僕が選んだのか、それとも、ただ流されただけなのか」--考えるほど、足元がぐらつく。ちょうどいい、奥の知行家に聞いてごらん。この人は、頭の中の堂々巡りには、答えをくれないよ。

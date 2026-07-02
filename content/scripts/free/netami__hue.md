@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-netami: 嫉み / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう。今日のきみは、よその芝生ばかり見ている顔だね、せお。隣の誰かが眩しくて仕方ない--そんなところかな。さあ、そこの経験家に話してごらん。心の中身を、生の絵の具まで分解しちゃう男だよ。

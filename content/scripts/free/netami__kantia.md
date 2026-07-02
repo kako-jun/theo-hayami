@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-netami: 嫉み / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。また誰かの背中を、まぶしそうに見上げているね。あの子はすごい、あの人には敵わない--きみの口は、いつもよその名前でいっぱいだ。さあ、そこの理屈屋にぶつけてごらん。この男は、ものの値打ちを測る物差しに、誰よりうるさいよ。

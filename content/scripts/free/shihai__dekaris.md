@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-shihai: 支配 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。ずいぶん何もかも掌の中に収めたそうな目をしているね。あれもこれも、自分の思いどおりに動いてくれたら--そんな顔だ。ちょうどいい、そこの懐疑家にぶつけてごらん。お前の「思いどおり」を、まず根っこから崩しにかかる男だよ。

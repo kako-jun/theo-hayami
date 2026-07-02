@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-ikari: 怒り / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/spiral-stacks.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう。ずいぶん拳を握りしめた顔だね、せお。誰かに何かをされて、腹の底が煮えている--そんなところかな。さあ、その火を、ここの経験家にぶつけてごらん。腹の底で何が燃えているか、こいつは涼しい顔で名前をつけてしまう男でね。

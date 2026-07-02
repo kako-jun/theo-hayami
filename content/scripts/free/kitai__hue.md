@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-kitai: 期待 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん前のめりな顔をしているね。きっとこうなるはず、今度こそうまくいくはず--そう信じて、勝手に重たくなっている。そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。「期待する」という心の動きを、この男はやけに面白がって分解してしまうよ。

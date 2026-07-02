@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-kitai: 期待 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん遠くを見る目をしているね。まだ来てもいない明日を、もう何度も頭の中で生きてしまった--そんな顔だ。ちょうどいい、そこの観察家にぶつけてごらん。「こうなるはず」というのが何の働きなのか、この男なら棚に並べて分けてくれるよ。

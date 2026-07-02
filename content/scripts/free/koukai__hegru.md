@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-koukai: 後悔 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、後ろばかり振り返る目をしているね。あのときああしていれば、こうしていれば--もう戻れない一点を、何度も指でなぞっている。そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。過ぎたことの扱いなら、この男が一番熱いよ。

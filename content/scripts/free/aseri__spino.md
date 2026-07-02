@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-aseri: 焦り / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、息を切らしたような顔をしているね。隣を歩く誰かが、どんどん先へ行ってしまって、自分だけ取り残される--そんな顔だ。ちょうどいい、そこの汎神家に聞いてごらん。この男は、きみの足を、誰かの足に縛りつけたりはしないよ。僕も隣で眺めさせてもらう。

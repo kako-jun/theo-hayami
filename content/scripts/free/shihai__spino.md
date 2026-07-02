@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-shihai: 支配 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん手が握り込まれているね。誰かを思いどおりに動かしたいのに、ちっとも動いてくれない--そんな顔だ。ちょうどいい、そこの静かな庭師に預けてごらん。この男は、人を握ろうとしない数少ない一人さ。

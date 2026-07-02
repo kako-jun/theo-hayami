@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-tadashisa: 正しさ / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、足場が急にあやふやになったような顔をしているね。何が正しいのか、もう何を信じればいいのか分からない--そんな迷い方だ。ちょうどいい、そこの整理好きにぶつけてごらん。物事を分けて並べ直すなら、この人の右に出る者はいないよ。

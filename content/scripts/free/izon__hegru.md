@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-izon: 依存 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、指先がそわそわしているね。「これで終わり」と決めたそばから、もう一度だけ、と手が伸びてしまう--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。終わりと果てしなさの話なら、この男が一番しつこいよ。

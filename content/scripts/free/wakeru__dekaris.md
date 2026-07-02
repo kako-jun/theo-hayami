@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-wakeru: 分けること / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、すれ違う人を一人ずつ値踏みするような目をしているね。あの人はこういう人、この人はああいう人--一目で札を貼って、もう分かった気になっている。そんな顔だ。ちょうどいい、そこの懐疑家に聞いてごらん。一目で人を決めつける癖、こいつは容赦なく崩すよ。

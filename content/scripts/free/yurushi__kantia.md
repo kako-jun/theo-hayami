@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-yurushi: 許し / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん硬い顔だね。誰かを、どうしても許せない--拳を握ったまま、下ろせずにいる。そんな顔だ。ちょうどいい、そこの理屈屋に持っていってごらん。この男はね、怒る前に、まず「君は何を見たのか」を訊く。

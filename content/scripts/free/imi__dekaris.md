@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-imi: 意味 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/underground-vault.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、足元に穴でも空いているような顔だね。何をしても、その奥がすうすう冷えていく--そんな目だ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、きみが「無い」と言い切った、その一言のほうを、まず疑いにかかるよ。

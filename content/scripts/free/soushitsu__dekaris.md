@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-soushitsu: 喪失 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、両手で何かを探して、そこに何もないのを確かめてしまったような顔だね。失くしたものの形に、手のひらだけが残っている--そんな目だ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、きみが「何もかも消えた」と決めた、その「何もかも」を、いっぺん崩しにかかるよ。

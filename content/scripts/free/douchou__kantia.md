@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-douchou: 同調 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はなんだか、自分の輪郭がぼやけた顔をしているね。気づけば周りに合わせてしまって、本当はどう思っていたのか、自分でも分からない--そんな顔だ。ちょうどいい、そこの理屈屋に持っていってごらん。この男はね、「みんな」という言葉が出た途端、まず数を数え直すんだよ。

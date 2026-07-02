@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-kodoku: 孤独 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん心細そうな顔をしているね。まわりに誰かいても、自分だけぽつんと取り残されている--そんな目だ。ちょうどいい、そこの観察家にぶつけてごらん。さみしさが何の標本なのか、この男なら棚に並べて見せてくれるよ。

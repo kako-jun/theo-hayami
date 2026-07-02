@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-shuuchaku: 執着 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、握った拳をどうしても開けないって顔だね。「これだけは手放せない」「失いたくない」--指がもう、白くなっているよ。ちょうどいい、奥の知行家にぶつけてごらん。この人は、握るのも開くのも、誰より静かに見ている。

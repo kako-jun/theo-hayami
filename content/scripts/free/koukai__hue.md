@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-koukai: 後悔 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずっと後ろを振り返っている目だね。あのとき別の手を選んでいれば--そう、終わった盤面を、何度も並べ直している顔だ。ちょうどいい、そこの経験家にぶつけてごらん。その「あのとき」を、この男はやけに涼しい顔で、伏せられた賽の話にすり替えてしまうよ。

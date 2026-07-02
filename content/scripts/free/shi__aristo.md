@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-shi: 死 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/event-horizon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日は身体の輪郭が薄いね。自分がいつか溶けて、跡形もなくなる--その手前で立ちすくんでいる顔だ。さあ、そこの観察家に並べてもらうといい。この男はね、消える話でさえ、素材と形にきれいに分けてしまうんだよ。

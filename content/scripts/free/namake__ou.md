@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-namake: 怠け / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、やるべきことが、ちゃんと見えているのに--その手前で、足が止まっている顔だね。「やらなきゃ」とわかっている。なのに、明日へ、明日へと、先送りしてしまう。ちょうどいい、奥の知行家にぶつけてごらん。この人は、知ることと、動くことの、境い目を見ていない。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-shuuchaku: 執着 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、胸に何かを抱え込んでいるね。指の力をゆるめたら、こぼれ落ちてしまう--そんな、抱きしめ方だ。ちょうどいい、そこの弁証家にぶつけてごらん。終わりと始まりの話なら、この男が一番しつこいよ。

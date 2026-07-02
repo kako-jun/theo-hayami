@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-shihai: 支配 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん握りしめた顔をしているね。世界が、自分の思い描いたとおりに動かないと、どうにも落ち着かない--そんな手つきだ。ちょうどいい、そこの理屈屋にぶつけてごらん。この男は、「自由」という言葉を、誰よりも細かく区切りたがる男だよ。

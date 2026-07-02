@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-fushin: 不信 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん身構えた顔をしているね。一度裏切られて、それきり、差し出される手をぜんぶ疑ってしまう--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。人の信義まで損得で量る、いちばん冷たい男だよ。

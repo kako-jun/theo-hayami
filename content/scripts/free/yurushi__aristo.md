@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-yurushi: 許し / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん硬い顔をしているね。誰かにされたことが、何年経っても胸につかえて下りていかない--そんな目だ。ちょうどいい、そこの観察家にぶつけてごらん。「許す」というのが何の働きなのか、この男なら棚に並べて分けてくれるよ。

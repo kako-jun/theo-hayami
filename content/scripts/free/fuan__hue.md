@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-fuan: 不安 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん遠くを見ている目だね。何が起きたわけでもないのに、この先がただ漠と恐い--そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。その「正体のない恐さ」を、この男はやけに楽しそうに、人類が神を作った場所まで遡ってしまうよ。

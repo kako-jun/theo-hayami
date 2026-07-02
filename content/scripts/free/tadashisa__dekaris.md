@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-tadashisa: 正しさ / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は足元がふらついて、どこへ踏み出せばいいのか分からない--そんな顔だね。何が正しいのか、自分でも掴めずにいるんだろう。ちょうどいい、そこの懐疑家に聞いてごらん。正しさを気分で語ると、容赦なく崩されるよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-shihai: 支配 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん握りしめた顔をしているね。あれもこれも、自分の思いどおりに動いてほしい--人を上から動かしたくて、うずうずしている。そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。「上に立つ」って感触を、足の裏まで分解しちゃう男だよ。

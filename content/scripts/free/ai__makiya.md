@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-ai: 愛 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん満たされない顔をしているね。好きな相手がいるのに、その好きが、そのまま痛みに変わってしまう--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。情の量り方さえ損得に直す、いちばん冷たい男だよ。

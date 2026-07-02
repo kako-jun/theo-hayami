@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-fukushuu: 復讐 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん据わった目をしているね。やられた、だから自分の手でやり返したい--そう腹の底で燃やしている。そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。「自分でやり返したい」というその衝動を、この男はやけに面白がって、ずっと古い場所まで遡ってしまうよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-gouman: 傲慢 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん高いところから世界を見ているような顔だね。「どうしてみんな、こんな簡単なことが分からないんだろう」--そんな、見下ろす目だ。ちょうどいい、奥に座る知行家にぶつけてごらん。この人は、誰の胸も覗いてしまう、静かな男でね。

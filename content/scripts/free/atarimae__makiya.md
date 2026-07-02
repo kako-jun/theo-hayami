@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-atarimae: あたりまえ / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、何かが引っかかっているのに、それが何なのか言葉にできない--そんな顔だね。「こういうものだ」と自分に言い聞かせて、無理に飲み込もうとしている。ちょうどいい、そこの現実家に聞いてごらん。『当たり前』『普通』に、いちばん用心する男だよ。

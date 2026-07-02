@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-atarimae: あたりまえ / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はなんだか、足元の地面をうまく踏めないような、おかしな歩き方だね。みんなが「当たり前」と言うことが、どうしても疑えない--そのくせ、心のどこかが落ち着かない。そんな顔だ。さあ、そこの静かな男に話してごらん。この人は、誰かに教わった姿じゃなく、物そのものを、まっすぐ覗き込む人だからね。

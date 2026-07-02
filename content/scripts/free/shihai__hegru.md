@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-shihai: 支配 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん手を握りしめているね。あれもこれも思いどおりにしたい--そんな、なんでも掴もうとする手だ。ちょうどいい、そこの弁証家にぶつけてごらん。掴んだり手放したりの話なら、この男が一番うるさいよ。

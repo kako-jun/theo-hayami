@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-koufuku: 幸福 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、何かを探しあぐねた目をしているね。手の中に欲しいものはあるのに、それで合っているのか確信が持てない--そんな顔だ。ちょうどいい、そこの理屈屋にぶつけてごらん。「幸福」を真っ向から問うと、この男は少し妙な角度から答えるよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-kodoku: 孤独 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、ずいぶん心細い顔をしているね。誰にも分かってもらえない、ひとりぼっちだ--そんな、内へ内へ縮こまる目だ。ちょうどいい、奥の知行家にぶつけてごらん。この人は、心を、しまっておくものだとは、思っていないよ。

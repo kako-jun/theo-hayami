@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ohako-dekaris: 幻想 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/mirror-hall.webp]
 
 **せお** (theo/normal, 左):
 ねえ。さっき、ここに来る前に見たことが、本当にあったことなのか自信がないんだ。すごく鮮やかだったのに、思い出すほどぼやけて……夢だったのか、思い込みだったのか。地面に足がついてる感じがしない。

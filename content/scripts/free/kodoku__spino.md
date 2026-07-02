@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-kodoku: 孤独 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん心細そうな顔をしているね。まわりに誰もいない--そう感じて、指先まで冷えているような顔だ。ちょうどいい、そこの汎神家に話してごらん。この男は、ひとりぼっちを笑ったりはしない。僕も隣で聞かせてもらうよ。

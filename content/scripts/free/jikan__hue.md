@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-jikan: 時間 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/time-chamber.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、後ろばかり振り返る目をしているね。過ぎてしまった時間に、まだ片足を置いたまま--そんな顔だ。ちょうどいい、そこの経験論者にぶつけてごらん。心の中身をばらして覗くなら、この男が一番くわしいよ。

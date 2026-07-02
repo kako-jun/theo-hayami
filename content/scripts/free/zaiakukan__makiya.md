@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-zaiakukan: 罪悪感 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、後ろばかり振り返る目をしているね。あのとき正しかったのか、間違っていたのか--その問いに足を取られて、一歩も前へ出せない。そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。正しいか恥かを、いちばん冷たく脇へどける男だよ。

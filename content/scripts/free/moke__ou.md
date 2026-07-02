@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-moke: 儲け / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日は何か、天秤を抱えてきたような顔だね。右に置くか左に置くか、損か得か--その目盛りばかり見ている。さあ、奥の知行家に量らせてごらん。この男は、まず一点を地に据えてから動く人でね。

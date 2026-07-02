@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-gouman: 傲慢 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん顎が上がっているね。まわりがみんな、足元の小石みたいに見える--そんな涼しい顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。高い所の話なら、この男ほど登りたがる奴はいないよ。

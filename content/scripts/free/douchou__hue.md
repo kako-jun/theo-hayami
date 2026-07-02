@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-douchou: 同調 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん自信なさげな顔をしているね。気づけばいつも周りに合わせてしまう--自分の色がないみたいで、それが情けない。そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。「みんなに合わせる」のがどういう仕組みでできているのか、この男はやけに面白がって見ているよ。

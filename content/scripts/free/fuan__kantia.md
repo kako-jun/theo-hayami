@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-fuan: 不安 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、まだ来てもいないものに、もう怯えている顔をしているね。「この先、どうなるんだろう」--足元はここにあるのに、目は、ずっと遠くの暗がりを覗いている。ちょうどいい、そこの理屈屋に持っていってごらん。この男はね、君がいま覗き込んでいる、その「先」という場所が、そもそも見える場所なのかどうかを、まず確かめてくれるんだよ。

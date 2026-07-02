@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-kodoku: 孤独 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、ひとりぼっちの顔をしているね。誰ともつながっていない、自分だけが世界から切り離されている--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。「ひとり」と「みんな」がもつれ合う話なら、この男が一番うるさいよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-soushitsu: 喪失 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、奥に引っこんだ顔をしているね。大事な何かを失って、表に出る気力もない--そんな、戸を閉めたきりの顔だ。ちょうどいい、そこに座る知行家に預けてごらん。この人は、退くことも、戻ることも、どちらもよく知っている。

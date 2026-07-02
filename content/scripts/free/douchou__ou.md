@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-douchou: 同調 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、列の最後尾でつま先立ちをしているような顔だね。みんなが進む方へ、つい体ごと傾いてしまう--そんな日もある。ちょうどいい、奥の知行家にぶつけてごらん。この人は、入り口というものを、ずいぶん変わった数え方で数える人だよ。

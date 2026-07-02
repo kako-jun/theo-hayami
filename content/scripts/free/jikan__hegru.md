@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-jikan: 時間 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/time-chamber.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、後ろばかり振り返る目をしているね。過ぎてしまった時間にとらわれて、足が前へ出ない--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。過ぎた時間の畳み方なら、この男が誰より熱く語るよ。

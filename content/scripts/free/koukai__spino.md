@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-koukai: 後悔 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/glass-balcony.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。とうに過ぎたものを、まだ手のひらでこねくり回しているような顔だね。あのとき、ああしていれば--指の隙間から、いつまでも砂がこぼれ続けている。そんな顔だ。ちょうどいい、そこの汎神家にぶつけてごらん。終わったことを、この男は責めも慰めもせず、ただ静かに来た道を見るよ。僕も隣で聞かせてもらう。

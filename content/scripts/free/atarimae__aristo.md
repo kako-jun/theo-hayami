@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-atarimae: あたりまえ / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、足元を確かめながら歩いているような顔だね。みんなが「当たり前だ」と言うことを、どうしても自分だけ呑み込めない--でも、疑っていいのかも分からない。そんな顔だ。ちょうどいい、そこの整理好きに並べてもらうといい。この男は、地面を踏む前に必ず一度、下を覗く人だからね。

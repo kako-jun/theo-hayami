@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-moke: 儲け / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日は妙に算盤を弾くような顔だね。儲かるか、損するか--そんな目盛りで世界を測っているのが、ここからでも透けて見えるよ。さあ、その勘定を、棚の整理屋に見てもらうといい。

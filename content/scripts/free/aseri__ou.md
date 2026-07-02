@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-aseri: 焦り / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、座っているのに足踏みしているみたいな顔だね。「早くしなきゃ、もう遅い、置いていかれる」--そんな声が、頭の中で次々鳴って、止まらない。ちょうどいい、奥の知行家にぶつけてごらん。この人は、慌てている相手を、ふしぎなくらい静かに見る人だよ。

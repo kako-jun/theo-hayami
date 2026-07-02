@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-atarimae: あたりまえ / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/forbidden-archive-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。また『そういうものだ』で片付けようとしてるね。疑っていいんだよ、当たり前ってやつを。ちょうどいい、そこの几帳面な認識家にぶつけてごらん。この男は、誰も指一本触れない土台を、平気で叩いてみせるからね。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-jiyuu: 自由 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/writing-study.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、自分の手で舵を握っているのか、それとも誰かに流されているだけなのか--その境目が分からなくなった顔をしているね。ちょうどいい、そこの整理魔に並べてもらうといい。ものごとを種類ごとに分けるなら、この人が一番きれいに棚へ収めるよ。

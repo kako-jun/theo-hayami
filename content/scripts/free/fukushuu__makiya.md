@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-fukushuu: 復讐 / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん物騒な目をしているね。誰かの顔を思い浮かべては、奥歯を噛みしめている--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。仕返しの損得を、いちばん冷たく勘定する男だよ。

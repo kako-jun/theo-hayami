@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-ai: 愛 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、好きで好きで、それがそのまま痛いみたいな顔をしているね。誰かを想うほど、胸の奥がきりきり締まる--そんな日だ。ちょうどいい、そこの懐疑家にぶつけてごらん。「好き」がなぜ「苦しい」に化けるのか、骨まで割って確かめる男だよ。

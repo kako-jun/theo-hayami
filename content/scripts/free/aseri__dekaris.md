@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-aseri: 焦り / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、誰かの背中ばかり追って、息を切らしているような顔だね。隣を走る足音が、やけに速く聞こえる--そんな目だ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、きみが当たり前に握っている「物差し」を、まず疑いにかかるよ。

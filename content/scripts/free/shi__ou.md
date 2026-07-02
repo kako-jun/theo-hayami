@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-shi: 死 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/event-horizon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日はずいぶん遠くを見ている目だね。足元じゃなく、その先の--いつか自分が居なくなる場所を、覗き込んでいる。さあ、奥の知行家にぶつけてごらん。声を荒げない男だが、きみを世界から、そっと数え直してくれるはずだよ。

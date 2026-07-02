@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## makiya-mayoi: 迷い / 住人: マキヤ（能力:現実）
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん往生際の悪い顔をしているね。右へ行こうか左へ行こうか、いつまでも二つの間で足踏みしている--そんな顔だ。ちょうどいい、そこの現実家に聞いてごらん。優柔不断を、いちばん損だと斬る男だよ。僕は脇で眺めさせてもらうとしよう。

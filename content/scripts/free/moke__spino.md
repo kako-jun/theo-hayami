@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-moke: 儲け / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/music-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。算盤を弾く音が、ここまで聞こえてきそうな顔だね。一歩動くたびに、得か損か--その勘定が、きみの足を縛っているんだろう。さあ、そこの汎神の男に並べてごらん。彼は、勘定を笑ったりはしないよ。

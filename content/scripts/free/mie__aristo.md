@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-mie: 見栄 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はやけに人の目を気にしているね。ちゃんとやれているか、よりも、ちゃんとやれているように見えているか--そっちで頭がいっぱい、という顔だ。ちょうどいい、そこの観察家にぶつけてごらん。この男なら、きみの「できること」と「よく見られること」を、別々の棚に並べてくれるよ。

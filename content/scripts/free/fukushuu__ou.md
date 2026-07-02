@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-fukushuu: 復讐 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/mezzanine-gallery.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、こぶしを握ったまま、それをどこへ振り下ろせばいいか分からない--そんな顔をしているね。誰かにやられた分を、そっくり返してやりたい。胸の奥が、ずっと熱くて固い。ちょうどいい、奥の知行家にぶつけてごらん。この人は、敵がどこにいるかを、見間違えない人だよ。

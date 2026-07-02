@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-kodoku: 孤独 / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/entrance-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん心細そうな顔をしているね。誰かに会いたいのに会えない、ひとりが胸に染みて仕方ない--そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。きみのさみしさが、いったいどこから「跳ね返って」来ているのか、種明かしをしてくれる男だよ。

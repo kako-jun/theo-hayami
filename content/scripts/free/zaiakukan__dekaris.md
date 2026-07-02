@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-zaiakukan: 罪悪感 / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日は、自分で自分を裁いて、判決まで自分で下してしまったような顔だね。被告も裁判官も、ぜんぶきみ一人--そんな目だ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、きみが握りしめた「証拠」を、根っこから崩しにかかるよ。

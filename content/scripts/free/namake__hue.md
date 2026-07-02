@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hue-namake: 怠け / 住人: ヒュー（能力:経験）
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/observation-deck.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん腰の重そうな顔をしているね。やらなきゃいけないと分かっているのに、つい後回しにしてしまう--そんな顔だ。ちょうどいい、そこの経験家にぶつけてごらん。きみの「やる気が出ない」って嘆きを、観念の濃さまでばらして見せる男だよ。

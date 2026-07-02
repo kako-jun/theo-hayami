@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-netami: 嫉み / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 ほう、せお。今日は誰かの背中ばかり追っているような顔だね。自分にないものを、あの人は持っている--そんな焦げつきかな。さあ、奥に座る知行家にぶつけてごらん。この男は、心の曇りを拭くことばかり考えている、静かな人でね。

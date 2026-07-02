@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## dekaris-netami: 嫉み / 住人: デカリス（能力:懐疑）
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。鏡の間でずいぶん遠くばかり見ているね。誰かの持っているものが、いちいち眩しくて仕方ない--そんな顔だ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、眩しいものをまず疑ってかかる。

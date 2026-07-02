@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-imi: 意味 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/underground-vault.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、足元の抜けたような顔をしているね。生きてはいる、息もしている、でも、何のためにこうしているのか分からない--そんな顔だ。ちょうどいい、そこの汎神家に聞いてごらん。この男なら、きみの「ために」を、急かさず一緒に探してくれる。僕も隣で眺めさせてもらうよ。

@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-kitai: 期待 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、まだ来てもいない明日に気を取られた目をしているね。何かが始まる前から、もう結末まで思い描いて、そのとおりにならなくて、しょんぼり--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。頭の中の像と、生きた現実の見分け方なら、この男が一番熱いよ。

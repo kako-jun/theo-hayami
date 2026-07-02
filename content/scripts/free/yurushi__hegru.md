@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-yurushi: 許し / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/numbers-hall.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん、奥歯を噛みしめた目をしているね。どうしても許せない誰かがいて、その棘がいつまでも抜けない--そんな顔だ。ちょうどいい、そこの弁証家にぶつけてごらん。裂けたものを縫い直す話なら、この男が一番しつこいよ。

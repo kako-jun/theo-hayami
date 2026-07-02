@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## spino-izon: 依存 / 住人: スピノ（能力:汎神）
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、自分の手を恨めしそうに見ているね。やめたほうがいいと頭では分かっている、それなのにまた手が伸びてしまう--そんな顔だ。ちょうどいい、そこの庭師に話してごらん。この男は、人を叱って引き剥がすということを、決してしない数少ない一人さ。

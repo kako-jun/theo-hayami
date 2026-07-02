@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## hegru-henka: 変化 / 住人: ヘグル（能力:弁証）
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヘグル** (hegru/normal, 右):
 おっ、来たね、せお！ --いいなあ、その顔。きみ、いま自分の中で何かがぶつかってるだろう。僕にはわかるよ。お、ズレてるね。いいぞ、すごくいい。何かと何かが食い違ってるってことは、きみは今まさに動こうとしてる証拠だ。さあ聞かせてくれ。何が、きみを揺らしてる？

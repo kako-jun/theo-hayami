@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## ou-izon: 依存 / 住人: オウ（能力:知行）
 
-[背景: shadow-library/empty-dojo.webp]
+[背景: shadow-library/wind-curtains.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日は、自分の手綱を自分で握れないって顔だね。「やめたい」「もうやめると決めた」--なのに、気づくと指が、また同じものに伸びている。ちょうどいい、奥の知行家にぶつけてごらん。この人は、心の動きはじめの、いちばん細いところを見ている。

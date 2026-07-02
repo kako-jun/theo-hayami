@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## aristo-fuan: 不安 / 住人: アリスト（能力:観察）
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/intimate-reading-room.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。今日はずいぶん遠くを見て肩を縮めた顔だね。足元じゃなくて、ずっと先の暗がりに怯えている--そんな目だ。ちょうどいい、そこの観察家にぶつけてごらん。きみの怖がっているものが、いったい何という棚に並ぶ品なのか、この男なら分けて見せてくれるよ。

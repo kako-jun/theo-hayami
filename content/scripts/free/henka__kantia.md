@@ -14,7 +14,7 @@ skip_enabled: false
 
 ## kantia-henka: 変化 / 住人: カンティア（能力:認識）
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/shelf-canyon.webp]
 
 **ヴィンチア** (vincia/normal, 右):
 やあ、せお。また同じところでつまずいているね。直したはずなのに、なぜ戻る？ --そんな顔だ。何度も誓って、何度も自分にだけ裏切られて。ちょうどいい、そこの几帳面な男に聞いてごらん。物事の根を見極めるのが、誰より得意な人だよ。
