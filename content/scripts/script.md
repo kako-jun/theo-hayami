@@ -17,7 +17,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 影の図書館。ここの棚に並んでいるのは、時を超えても人が抱え続けるお題--消えるのが怖い、人がうらやましい、損得で動いてしまう……どれも、ボクの中にもある。今、扉が開いているのは、どれだろう。
 
 [選択]
@@ -65,7 +65,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「人がうらやましい」--この胸のちりちりを、誰に聞いてみよう。住人によって、答えはきっと、まるで違う。
 
 [選択]
@@ -83,7 +83,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/angry, 左):
 「感情に振り回される」--この胸の火を、誰に聞いてみよう。住人によって、鎮め方も、向き合い方も、まるで違う。
 
 [選択]
@@ -101,7 +101,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/sad, 左):
 「消えるのが怖い」--この足元のおぼつかなさを、誰に聞いてみよう。住人によって、死の捉え方は、まるで違う。
 
 [選択]
@@ -118,7 +118,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「損得で動いてしまう」--この勘定ぐせを、誰に聞いてみよう。住人によって、損得と正しさの結び方は、まるで違う。
 
 [選択]
@@ -135,7 +135,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/firm, 左):
 「言い負かしたい」--この勝ちたい気持ちを、誰に聞いてみよう。住人によって、勝つことと正しいことの分け方は、まるで違う。
 
 [選択]
@@ -153,7 +153,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「本当の自分がわからない」--この掴めなさを、誰に聞いてみよう。住人によって、本物と偽りの分け方は、まるで違う。
 
 [選択]
@@ -170,7 +170,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「どちらも選べない」--この板挟みを、誰に聞いてみよう。住人によって、矛盾のほどき方は、まるで違う。
 
 [選択]
@@ -187,7 +187,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/sad, 左):
 「わかっているのに動けない」--この足の重さを、誰に聞いてみよう。住人によって、知と行の埋め方は、まるで違う。
 
 [選択]
@@ -204,7 +204,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「歳をとりたくない」--この変わっていくことへの怯えを、誰に聞いてみよう。住人によって、老いの捉え方は、まるで違う。
 
 [選択]
@@ -222,7 +222,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/firm, 左):
 「つい人を見下してしまう」--この、相手を一段低く置いてしまう心の癖を、誰に聞いてみよう。住人によって、見えているものは、まるで違う。
 
 [選択]
@@ -240,7 +240,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「思いどおりにしたい」--この、人もものごとも自分の手で動かしたくなる気持ちを、誰に聞いてみよう。住人によって、動かすということの捉え方は、まるで違う。
 
 [選択]
@@ -258,7 +258,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/sad, 左):
 「どうしても手放せない」--この、握った手をどうしても開けない気持ちを、誰に聞いてみよう。住人によって、手放すということの捉え方は、まるで違う。
 
 [選択]
@@ -276,7 +276,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「やめたいのにやめられない」--この、わかっているのに手が動いてしまう繰り返しを、誰に聞いてみよう。住人によって、断ち切り方の見立ては、まるで違う。
 
 [選択]
@@ -294,7 +294,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「つい後回しにしてしまう」--この、やるべきと分かっているのに腰が上がらない感じを、誰に聞いてみよう。住人によって、腰の上げ方の見立ては、まるで違う。
 
 [選択]
@@ -312,7 +312,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「よく見られたい」--この、人の目に映る自分をよく見せたくなる気持ちを、誰に聞いてみよう。住人によって、その正体の見立ては、まるで違う。
 
 [選択]
@@ -330,7 +330,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/sad, 左):
 「ひとりがさみしい」--この、誰ともつながれていない気がする心細さを、誰に聞いてみよう。住人によって、さみしさの捉え方は、まるで違う。
 
 [選択]
@@ -348,7 +348,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「好きで苦しい」--この、好きなのに胸が痛くなる気持ちを、誰に聞いてみよう。住人によって、愛の捉え方は、まるで違う。
 
 [選択]
@@ -366,7 +366,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「人を信じられない」--この、信じて傷つくのが怖くて手を引いてしまう心を、誰に聞いてみよう。住人によって、信頼の捉え方は、まるで違う。
 
 [選択]
@@ -384,7 +384,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/angry, 左):
 「どうしても許せない」--この、胸で固まってほどけない恨みを、誰に聞いてみよう。住人によって、許しの捉え方は、まるで違う。
 
 [選択]
@@ -402,7 +402,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「つい周りに合わせてしまう」--この、自分の声が消えてみんなと同じになる感じを、誰に聞いてみよう。住人によって、合わせることの捉え方は、まるで違う。
 
 [選択]
@@ -420,7 +420,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/notice, 左):
 「期待してしまう」--この、勝手に胸がふくらんで外れると落ち込む心を、誰に聞いてみよう。住人によって、期待の捉え方は、まるで違う。
 
 [選択]
@@ -438,7 +438,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/angry, 左):
 「仕返ししたい」--この、やられた分を相手に返したくて疼く胸を、誰に聞いてみよう。住人によって、復讐の捉え方は、まるで違う。
 
 [選択]
@@ -456,7 +456,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/sad, 左):
 「この先が不安だ」--この、まだ来てもいない先のことで落ち着かない胸を、誰に聞いてみよう。住人によって、不安の捉え方は、まるで違う。
 
 [選択]
@@ -474,7 +474,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「あのときこうしていれば」--この、過ぎた選択を今になって悔やむ気持ちを、誰に聞いてみよう。住人によって、後悔の捉え方は、まるで違う。
 
 [選択]
@@ -492,7 +492,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「なにもかもつまらない」--この、何を見ても色あせて感じる虚しさを、誰に聞いてみよう。住人によって、退屈の捉え方は、まるで違う。
 
 [選択]
@@ -510,7 +510,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/sad, 左):
 「失って立ち直れない」--この、大切なものを失った穴が塞がらない苦しさを、誰に聞いてみよう。住人によって、喪失の捉え方は、まるで違う。
 
 [選択]
@@ -528,7 +528,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「自分を責めてしまう」--この、過ちを思い出すたび自分を罰してしまう癖を、誰に聞いてみよう。住人によって、罪悪感の捉え方は、まるで違う。
 
 [選択]
@@ -546,7 +546,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/sad, 左):
 「置いていかれる気がする」--この、まわりが先へ進んで自分だけ遅れている焦りを、誰に聞いてみよう。住人によって、焦りの捉え方は、まるで違う。
 
 [選択]
@@ -564,7 +564,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「何のために生きるんだろう」--この、生きる意味が分からず胸がぽっかり虚しい気持ちを、誰に聞いてみよう。住人によって、意味の捉え方は、まるで違う。
 
 [選択]
@@ -582,7 +582,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/notice, 左):
 「自分で選んでいるのかわからない」--本当に自分の意志で選んでいるのか、それとも流されているだけなのか、足元がふわふわするこの感じを、誰に聞いてみよう。住人によって、自由の捉え方は、まるで違う。
 
 [選択]
@@ -600,7 +600,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/soften, 左):
 「しあわせって何だろう」--掴んだと思っても、すぐ指の間からこぼれていく。この、しあわせの正体が分からない気持ちを、誰に聞いてみよう。住人によって、しあわせの捉え方は、まるで違う。
 
 [選択]
@@ -618,7 +618,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/sad, 左):
 「過ぎた時間にとらわれてしまう」--もう戻れないはずの過去が、今も胸を引き戻す。この、過ぎた時間の重さを、誰に聞いてみよう。住人によって、時間の捉え方は、まるで違う。
 
 [選択]
@@ -636,7 +636,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「変わりたいのに変われない」--決めても三日で元に戻ってしまう、この足踏みを、誰に聞いてみよう。住人によって、変わるということの捉え方は、まるで違う。
 
 [選択]
@@ -654,7 +654,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「何が現実かわからない」--夢とうつつ、本物とまやかしの境がぼやけるこの感じを、誰に聞いてみよう。住人によって、現実と幻の分け方は、まるで違う。
 
 [選択]
@@ -671,7 +671,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/notice, 左):
 「何が正しいのかわからない」--調べても場面ごとに食い違い、足場がぐらつくこの感じを、誰に聞いてみよう。住人によって、正しさの捉え方は、まるで違う。
 
 [選択]
@@ -689,7 +689,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/think, 左):
 「迷ってばかりで決められない」--選ぼうとするたび二つの前で立ちすくむこの足踏みを、誰に聞いてみよう。住人によって、迷いのほどき方は、まるで違う。
 
 [選択]
@@ -707,7 +707,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/notice, 左):
 「当たり前を疑えない」--みんなが「そういうものだ」と言うことを、疑っていいのかも分からないこの感じを、誰に聞いてみよう。住人によって、当たり前の崩し方は、まるで違う。
 
 [選択]
@@ -724,7 +724,7 @@ debug_enabled: true
 
 [背景: shadow-library/grand-reading-room-v.webp]
 
-**せお** (theo/normal, 左):
+**せお** (theo/akarame, 左):
 「人を決めつけてしまう」--相手を一目で「こういう人」と箱に入れてしまうこの癖を、誰に聞いてみよう。住人によって、決めつけの正体は、まるで違う。
 
 [選択]
