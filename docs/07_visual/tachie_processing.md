@@ -6,7 +6,7 @@
 > - 設計確定の経緯と blink 選定は studio-yokonami #11/#12、Theo 全13キー実例は #23。
 > - 旧 Step 1（trim）と Step 3（身長エンコード）は現役。Step 2 は BiRefNet+グローに置換。
 
-LoRA 等で立ち絵を作り直したら、毎回この手順で `assets/images/<char>/normal.png`（感情ごと `<char>/<emotion>.png`）を整える。name-name は**立ち絵を原寸表示**する（個別縮小なし／name-name #294）。よって **源画の縦ピクセル数がそのままキャラの身長**を表す。足の裏を画面下端でそろえ上に伸びるので、源画を身長どおりに作れば背丈差がそのまま出る。
+LoRA 等で立ち絵を作り直したら、毎回この手順で `assets/images/<char>/normal.png`（感情ごと `<char>/<emotion>.png`）を整える。name-name は立ち絵を**元絵基準の一律スケール `character_scale`（frontmatter `character_scale: 0.5`・name-name#378）** で表示する（個別縮小なし／#294）。よって **源画の縦ピクセル数がそのままキャラの身長**を表し、一律倍率なので背丈差（縦px比）がそのまま出る。足の裏を画面下端でそろえ上に伸びるので、源画を身長どおりに作れば背丈差が自動表現される。**画面基準の `character_height_ratio` は使わない**（表示高さを画面高に正規化＝源画の縦pxを割り消して身長差を潰す。2026-07-03 に character_height_ratio→character_scale へ是正）。
 
 前提ツール: **ImageMagick 7**（`magick`）。この開発機では Rog/PIL 不要でこの加工はできる（高解像度の LoRA 再生成だけが Rog 依存）。
 
@@ -48,7 +48,7 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
   - q85 固定（縮小表示前提でも 1 MiB に全く近づかないため画質は割り切らない）／alpha_q 100（透過エッジをロスレス保持）／m6（最良圧縮）／**リサイズしない**。実測で全立ち絵 112〜290KB に収まる（最重 spino/close=288KB・目標 ≤300KB）。
   - 参照側 name-name は `**Name** (char/key, 位置)` の**拡張子省略**参照を webp→png の順で解決する（name-name #376）。だから webp を置けば webp が使われる。
   - **正本は `studio-yokonami/LORA-PIPELINE.md`「立ち絵の webp 焼き＝配信フォーマット標準」節**（今後の全立ち絵・追加分も同一パラメータで焼く＝統一感）。**⚠️ PNG を消すのは name-name #376 が本番デプロイ済みを確認してから**（webp→png フォールバックの安全順序）。
-- name-name 原寸表示。幅が論理画面(9:16=450)を超えても**はみ出しOK**（縮小しない）。ToHeart 式に**下端（靴）が画面外に切れてよい**。
+- name-name は**元絵基準スケール `character_scale: 0.5` 表示**（#378）。配信 webp は Step 3 ネイティブ px の約2倍解像度なので、character_scale:0.5 で画面上ほぼネイティブ相当に戻しつつ縦px比（身長差）を保つ。幅が論理画面(9:16=450)を超えても**はみ出しOK**（個別縮小しない）。ToHeart 式に**下端（靴）が画面外に切れてよい**。
 
 ## 作り直し時の再現
 1. 新しい LoRA 立ち絵を用意。
@@ -70,4 +70,4 @@ done
 ```
 （`src/` は LoRA 出力置き場。bash は zsh では `${!CM[@]}` 連想配列が使える。**CM 値は `../02_characters/character_bible.md` 身長表が正本＝この配列は実行用の写し。表を変えたらここも合わせる。**）
 
-関連: name-name #294（原寸表示＋フィットオプション）, studio-yokonami #10（源画整備）/#11（白フチ）/#12（感情立ち絵）, `character_bible.md`（身長データ正本）。
+関連: name-name #294（個別縮小しない＋フィットオプション）/ **#378（元絵基準の一律スケール `character_scale`＝身長差保存。画面基準 `character_height_ratio` は身長差を潰す）**, studio-yokonami #10（源画整備）/#11（白フチ）/#12（感情立ち絵）, `character_bible.md`（身長データ正本）。
