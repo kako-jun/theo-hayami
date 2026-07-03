@@ -8,7 +8,7 @@ font_size: 26
 protagonist: "せお"
 character_y_ratio: 1.10
 character_fade_ms: 700
-character_height_ratio: 0.88
+character_scale: 0.5
 skip_enabled: false
 debug_enabled: true
 ---
