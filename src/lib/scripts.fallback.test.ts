@@ -50,6 +50,13 @@ describe("loadEpisodes: ファイル名規約 業__住人.md", () => {
     const { loadEpisodes } = await freshScripts();
     expect(() => loadEpisodes()).toThrow(/ファイル名規約/);
   });
+
+  it("3セグメント（`a__b__c.md`）は先頭2つに丸めず throw する", async () => {
+    fsMock.files = ["a__b__c.md"];
+    fsMock.contents = { "a__b__c.md": "## b-a: x\n" };
+    const { loadEpisodes } = await freshScripts();
+    expect(() => loadEpisodes()).toThrow(/ファイル名規約/);
+  });
 });
 
 describe("loadEpisodes: sceneId の2段フォールバック", () => {

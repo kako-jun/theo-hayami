@@ -50,9 +50,12 @@ export function loadEpisodes(): Episode[] {
   const files = readdirSync(FREE_DIR).filter((f) => f.endsWith(".md"));
   const episodes = files.map((file): Episode => {
     const slug = file.replace(/\.md$/, "");
-    const [theme, character] = slug.split("__");
-    if (!theme || !character) {
-      throw new Error(`free/${file} はファイル名規約 "業__住人.md" に反している`);
+    // "__" 区切りはちょうど2セグメント（業__住人）。3セグメント（a__b__c）を黙って
+    // 先頭2つに丸めず、ここで規約違反として明示的に弾く。
+    const parts = slug.split("__");
+    const [theme, character] = parts;
+    if (parts.length !== 2 || !theme || !character) {
+      throw new Error(`free/${file} はファイル名規約 "業__住人.md"（"__" 区切りちょうど2セグメント）に反している`);
     }
     const raw = readFileSync(path.join(FREE_DIR, file), "utf-8");
     const sceneId = parseSceneId(raw) || `${character}-${theme}`;
