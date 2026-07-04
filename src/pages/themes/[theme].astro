@@ -1,7 +1,7 @@
 ---
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
-import { RESIDENTS, findResident } from "../../data/residents";
+import { RESIDENTS } from "../../data/residents";
 import { loadThemes } from "../../lib/scripts";
 
 export function getStaticPaths() {
@@ -15,9 +15,7 @@ const { theme } = Astro.props;
 
 // 表示順は住人プロフィールの正典順（character_bible.md）で揃え、
 // このお題に実在する組み合わせだけに絞る（存在しない組み合わせは出さない＝カバレッジ地図）。
-const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug))
-  .map((r) => findResident(r.slug))
-  .filter((r): r is NonNullable<typeof r> => r !== undefined);
+const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug));
 ---
 
 <LibraryLayout
