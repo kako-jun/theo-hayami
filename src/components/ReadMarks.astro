@@ -1,6 +1,6 @@
 ---
 // 索引の既読反映（Issue #30・クライアント専用）。描画後に localStorage の既読集合を読み、
-// - 個別セル（`data-slug="業__住人"`）で既読のものに `.is-read` を付ける（金の「読了」印＋トーン落とし）。
+// - 個別セル（`data-slug="業__住人"`）で既読のものに `.is-read` を付ける（暗くせず、金の灯り＋金の「読了」蔵書印＝達成の印）。
 // - 集計カード（`data-read-group="slug,slug,..."`）で既読数を数え、`[data-read-count]` に「N/M 読了」を出す。
 //   全部読み終えたカードには `.is-read-all` を付ける。
 // localStorage はクライアント専用なので必ず描画後（module script は defer で DOM 構築後に走る）に実行する。

@@ -161,6 +161,16 @@ a {
     0 0 0 1px rgba(230, 196, 126, 0.22) inset,
     0 0 14px rgba(230, 196, 126, 0.14);
 }
+/* 既読カードもホバー/フォーカスで押せるアフォーダンスを保つ（.is-read が :hover を
+   詳細度タイで後勝ちして潰さないよう明示。金の灯りを保ちつつ浮き上がる）。 */
+.th-door.is-read:hover,
+.th-door.is-read:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  box-shadow:
+    0 0 0 1px rgba(230, 196, 126, 0.3) inset,
+    0 0 16px rgba(230, 196, 126, 0.18),
+    0 14px 30px rgba(0, 0, 0, 0.4);
+}
 /* 金の押印（蔵書印）。金地に濃墨＝押された勲章のように読了を祝う。 */
 .th-door.is-read::after {
   content: "読了";
