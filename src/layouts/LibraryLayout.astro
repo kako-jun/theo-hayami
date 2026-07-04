@@ -45,7 +45,17 @@ const ogImage = new URL("/images/shadow-library/entrance-hall.webp", SITE).href;
   </head>
   <body class="min-h-screen antialiased">
     <div class="th-backdrop" aria-hidden="true">
-      <img src={`/images/${bgImage}`} alt="" loading="eager" />
+      <img class="th-backdrop__base" src={`/images/${bgImage}`} alt="" loading="eager" />
+      {/* #20: ゲーム用素材の引き伸ばしで出るアップスケールの粗さを、同じ絵のぼかしコピーを
+          overlay 合成で軽く重ねて目立たなくする（name-name #316 の「平坦領域に階調＝高見え」を
+          CSS で薄く適用）。ぼかしが粗さをマスクし、overlay が平坦領域に階調を足す。 */}
+      <img
+        class="th-backdrop__glow"
+        src={`/images/${bgImage}`}
+        alt=""
+        loading="eager"
+        aria-hidden="true"
+      />
     </div>
     <div class="relative z-10 min-h-screen flex flex-col">
       <main class="flex-1 w-full">

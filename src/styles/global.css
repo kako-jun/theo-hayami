@@ -71,6 +71,20 @@ a {
   object-fit: cover;
   object-position: center;
 }
+/* #20 背景グロー: 引き伸ばしたゲーム素材のアップスケールの粗さを目立たせないため、
+   同じ絵のぼかしコピーを overlay で薄く重ねる（name-name #316 の結論＝overlay が平坦領域に
+   階調を足して「高見え」する。soft-light は白く霞むだけ／暖色 tint は夕方色化で不採用）。
+   - blur が粗い画素の境界をマスクする（＝擬似アンチエイリアス）
+   - mix-blend-mode: overlay ＋ 控えめ opacity で平坦領域に階調を軽く付ける（kako-jun「かるく」）
+   scale(1.06) はぼかしで生じる縁のにじみ（透明側への回り込み）を画面外へ押し出すため。 */
+.th-backdrop__glow {
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  filter: blur(7px) saturate(1.08);
+  transform: scale(1.06);
+  transform-origin: center;
+  pointer-events: none;
+}
 .th-backdrop::after {
   content: "";
   position: absolute;
