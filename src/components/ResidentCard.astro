@@ -9,17 +9,24 @@ interface Props {
 const { resident, themeCount } = Astro.props;
 ---
 
-<a href={`/residents/${resident.slug}`} class="th-door group block no-underline">
-  {/*
-    顔アップ専用素材はまだ無いため normal.webp（等身立ち絵）を上端基準でクロップして代用。
-    専用素材が来たら assets/images/<char>/face.webp 等に差し替える。
-  */}
-  <div class="th-face-crop mb-3">
-    <img src={`/images/${resident.slug}/normal.webp`} alt={`${resident.name}の立ち絵`} loading="lazy" />
-  </div>
-  <p class="text-lg" style="color: var(--color-th-gold-bright);">{resident.name}</p>
-  <p class="text-xs mt-1" style="color: var(--color-th-ivory-dim);">能力：{resident.ability}（{resident.thought}）</p>
-  <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">{themeCount}の業に答える</p>
-  {/* 将来: 参戦ムービー導線のスロット（studio-yokonami・Issue #21で後回し）。 */}
+{/*
+  display:contents のラッパで <a>（扉）を .th-grid の直接の grid item のまま保ち、
+  参戦ムービースロットを <a> の外側＝兄弟に置く。将来ここへ置くトリガー
+  （<a>/<button>）は <a> の入れ子にできない（不正HTML・非機能）ため。
+*/}
+<div class="contents">
+  <a href={`/residents/${resident.slug}`} class="th-door group block no-underline">
+    {/*
+      顔アップ専用素材はまだ無いため normal.webp（等身立ち絵）を上端基準でクロップして代用。
+      専用素材が来たら assets/images/<char>/face.webp 等に差し替える。
+    */}
+    <div class="th-face-crop mb-3">
+      <img src={`/images/${resident.slug}/normal.webp`} alt={`${resident.name}の立ち絵`} loading="lazy" />
+    </div>
+    <p class="text-lg" style="color: var(--color-th-gold-bright);">{resident.name}</p>
+    <p class="text-xs mt-1" style="color: var(--color-th-ivory-dim);">能力：{resident.ability}（{resident.thought}）</p>
+    <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">{themeCount}の業に答える</p>
+  </a>
+  {/* 将来: 参戦ムービー導線のスロット（studio-yokonami・Issue #21で後回し）。<a> の外側＝兄弟に置く。 */}
   <div data-slot="entrance-movie" hidden></div>
-</a>
+</div>
