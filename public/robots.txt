@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theo-hayami.llll-ll.com/sitemap-index.xml

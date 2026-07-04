@@ -1,0 +1,47 @@
+---
+// name-name（別リポ・PixiJSノベルエンジン）への遅延埋め込み。
+// Issue #20: 1ページ1PixiJSインスタンスだけ・遅延マウント・離脱でアンマウント。
+// このサイトはSPAルーティングを持たない（Astro static・ページ遷移=フルロード）ため、
+// 「離脱でアンマウント」は普通のページ遷移で自動的に満たされる。ここで対応するのは
+// 「タップするまでiframeを作らない」という遅延マウントだけでよい。
+//
+// 既知の懸念（name-name側の未対応事項・このサイト側では対処不要）:
+// iframe埋め込み時のX-Frame-Options/CSPをname-nameがまだ許可していない可能性がある
+// （theo-hayami #20 本文に明記済み）。ローカルdevで確認しブロックされる場合は
+// name-name側の別Issueが必要という所見だけ残し、サイト側の実装はそのまま進める。
+interface Props {
+  sceneId: string;
+  title: string;
+}
+const { sceneId, title } = Astro.props;
+
+const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
+const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponent(sceneId)}`;
+---
+
+<div class="th-reader">
+  <div class="th-reader__stage">
+    <button type="button" class="th-reader__cta" data-reader-start>
+      <span class="th-reader__cta-kanji">読む</span>
+      <span class="th-reader__cta-sub">タップして始める</span>
+    </button>
+  </div>
+</div>
+
+<script is:inline define:vars={{ embedSrc, title }}>
+  const reader = document.currentScript.previousElementSibling;
+  const stage = reader?.querySelector(".th-reader__stage");
+  const btn = stage?.querySelector("[data-reader-start]");
+  btn?.addEventListener(
+    "click",
+    () => {
+      const iframe = document.createElement("iframe");
+      iframe.src = embedSrc;
+      iframe.title = title;
+      iframe.loading = "eager";
+      iframe.allow = "autoplay";
+      stage.replaceChildren(iframe);
+    },
+    { once: true },
+  );
+</script>
