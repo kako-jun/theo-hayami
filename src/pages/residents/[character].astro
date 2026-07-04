@@ -33,8 +33,8 @@ const themes = loadThemes().filter((t) => themeSlugs.has(t.slug));
     />
 
     <header class="th-panel p-6 sm:p-8 my-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-      <div class="th-face-crop w-32 shrink-0" style="border: 1px solid rgba(184,147,79,0.45);">
-        <img src={`/images/${resident.slug}/normal.webp`} alt={`${resident.name}の立ち絵`} />
+      <div class="th-face-crop th-face-crop--bust w-32 shrink-0" style="border: 1px solid rgba(184,147,79,0.45);">
+        <img src={`/images/${resident.slug}/bust.webp`} alt={`${resident.name}`} />
       </div>
       <div>
         <h1 class="text-2xl" style="color: var(--color-th-theo);">{resident.name}</h1>

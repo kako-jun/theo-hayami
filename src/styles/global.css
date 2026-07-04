@@ -209,6 +209,19 @@ a {
   transform: translateX(-50%) scale(2.05);
   transform-origin: top center;
 }
+/* バストアップ専用素材（LoRA 元）は既に顔＋上半身の構図なので、立ち絵クロップ用の
+   2.05倍・上端基準スケールを使わず、1:1枠に cover で収める（顔がやや上寄りになるよう
+   object-position は上寄せ）。 */
+.th-face-crop--bust img {
+  position: absolute;
+  inset: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  object-fit: cover;
+  object-position: center 12%;
+}
 
 .th-grid {
   display: grid;

@@ -16,12 +16,10 @@ const { resident, themeCount } = Astro.props;
 */}
 <div class="contents">
   <a href={`/residents/${resident.slug}`} class="th-door group block no-underline">
-    {/*
-      顔アップ専用素材はまだ無いため normal.webp（等身立ち絵）を上端基準でクロップして代用。
-      専用素材が来たら assets/images/<char>/face.webp 等に差し替える。
-    */}
-    <div class="th-face-crop mb-3">
-      <img src={`/images/${resident.slug}/normal.webp`} alt={`${resident.name}の立ち絵`} loading="lazy" />
+    {/* 顔アップカードは LoRA 学習用のバストアップ絵（assets/images/<char>/bust.webp）を使う
+        （全身立ち絵の兼用ではない・Issue #20「顔アップカード＝LoRA 元の顔アップ」）。 */}
+    <div class="th-face-crop th-face-crop--bust mb-3">
+      <img src={`/images/${resident.slug}/bust.webp`} alt={`${resident.name}`} loading="lazy" />
     </div>
     <p class="text-lg" style="color: var(--color-th-gold-bright);">{resident.name}</p>
     <p class="text-xs mt-1" style="color: var(--color-th-ivory-dim);">能力：{resident.ability}（{resident.thought}）</p>
