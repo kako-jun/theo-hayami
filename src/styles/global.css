@@ -71,6 +71,14 @@ a {
   object-fit: cover;
   object-position: center;
 }
+/* #20: ベース画像も軽くぼかす。overlay グロー(.th-backdrop__glow)が効くのは明部中心で、
+   暗い平坦部にはアップスケールのドットが残るため、グローの恩恵が薄い領域のドットを
+   ベース側の弱いぼかしで溶かす（背景は装飾＝スクリム+パネルの奥なので多少眠くても可）。 */
+.th-backdrop__base {
+  filter: blur(0.4px);
+  transform: scale(1.01);
+  transform-origin: center;
+}
 /* #20 背景グロー: 引き伸ばしたゲーム素材のアップスケールの粗さを目立たせないため、
    同じ絵のぼかしコピーを overlay で薄く重ねる（name-name #316 の結論＝overlay が平坦領域に
    階調を足して「高見え」する。soft-light は白く霞むだけ／暖色 tint は夕方色化で不採用）。
