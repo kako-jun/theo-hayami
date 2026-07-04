@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+coverage/
+*.log
+.DS_Store
+
+# assets/images からの生成物（scripts/sync-assets.mjs が同期する）。
+# 正本は assets/images なので二重管理しない。
+public/images/
