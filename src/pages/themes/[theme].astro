@@ -1,0 +1,56 @@
+---
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import { RESIDENTS } from "../../data/residents";
+import { loadThemes } from "../../lib/scripts";
+
+export function getStaticPaths() {
+  return loadThemes().map((theme) => ({
+    params: { theme: theme.slug },
+    props: { theme },
+  }));
+}
+
+const { theme } = Astro.props;
+
+// 表示順は住人プロフィールの正典順（character_bible.md）で揃え、
+// このお題に実在する組み合わせだけに絞る（存在しない組み合わせは出さない＝カバレッジ地図）。
+const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug));
+---
+
+<LibraryLayout
+  title={`${theme.title} ── せおはやみ`}
+  description={`「${theme.title}」という業に、影の図書館の住人たちがそれぞれの思想で答える。`}
+  bgImage="shadow-library/grand-reading-room-v.webp"
+>
+  <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb
+      trail={[
+        { label: "影の図書館", href: "/" },
+        { label: "業から引く", href: "/anthology" },
+        { label: "業から選ぶ", href: "/themes" },
+        { label: theme.title },
+      ]}
+    />
+
+    <header class="text-center my-8 th-glow">
+      <h1 class="text-2xl sm:text-3xl" style="color: var(--color-th-theo);">「{theme.title}」</h1>
+      <p class="mt-2 text-sm" style="color: var(--color-th-ivory-dim);">この業を、誰に聞いてみよう。</p>
+    </header>
+
+    <ul class="grid gap-3 sm:grid-cols-2">
+      {
+        residents.map((resident) => (
+          <li>
+            <a href={`/free/${theme.slug}__${resident.slug}`} class="th-door block no-underline">
+              <p style="color: var(--color-th-ivory);">{resident.name}に聞く</p>
+              <p class="text-xs mt-1" style="color: var(--color-th-ivory-dim);">
+                能力：{resident.ability}（{resident.thought}）
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</LibraryLayout>

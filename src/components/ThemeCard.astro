@@ -1,0 +1,13 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  characterCount: number;
+}
+const { slug, title, characterCount } = Astro.props;
+---
+
+<a href={`/themes/${slug}`} class="th-door block no-underline">
+  <p class="text-base leading-relaxed" style="color: var(--color-th-ivory);">{title}</p>
+  <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">{characterCount}人の住人が答える</p>
+</a>

@@ -1,0 +1,306 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   theo-hayami デザインシステム ──「影の図書館」（Issue #20）
+
+   Webページに見せない。「図書館に迷い込んだゲーム画面」の没入感を狙う。
+   汎用UI chrome（角丸カード・原色ボタン・水平ナビバー等）は禁止。
+   面は半透明のガラス板＋真鍮/金の細線。文字は明朝（Hina Mincho）。
+   osaka-kenpo の兄弟だが、文学・静謐トーン（懐旧の紙・蝋燭の金）。
+   ========================================================================= */
+@theme {
+  /* 紺墨＝地の底（生成絵の下に敷くスクリムの色）。 */
+  --color-th-ink: #12111a;
+  --color-th-ink-deep: #0a0910;
+  /* アイボリー＝本文・地の紙色。 */
+  --color-th-ivory: #f1e8d6;
+  --color-th-ivory-dim: #cabfa8;
+  /* 真鍮/金＝細線・押印・扉の枠。 */
+  --color-th-gold: #b8934f;
+  --color-th-gold-bright: #e6c47e;
+  /* せお（主人公）色＝正典 #FFF6E6。せおのセリフ・せお関連要素の差し色にのみ使う。 */
+  --color-th-theo: #fff6e6;
+
+  --font-mincho: "Hina Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+html {
+  scrollbar-gutter: stable;
+  background: var(--color-th-ink-deep);
+}
+
+body {
+  font-family: var(--font-mincho);
+  color: var(--color-th-ivory);
+  background: var(--color-th-ink-deep);
+}
+
+/* 見出し・本文とも明朝で統一（汎用サンセリフに逃げない）。 */
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-mincho);
+  letter-spacing: 0.04em;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---------------------------------------------------------------------
+   図書館の背景（全ページ共通の下敷き）
+   生成絵（assets/images/shadow-library/*.webp）を fixed 全画面表示し、
+   読みやすさのため上下に紺墨のグラデーションスクリムを重ねる。ベタ塗り禁止。
+   --------------------------------------------------------------------- */
+.th-backdrop {
+  position: fixed;
+  inset: 0;
+  /* z-index: -1 にしない。body/html は独自のスタッキングコンテキストを持たないため、
+     負のz-indexはルート（キャンバス背景）の下に潜り込み、body の背景色に完全に
+     隠れてしまう（実機blinkで確認・生成絵が一切見えなくなる罠）。0にして、
+     手前のコンテンツ側（LibraryLayout の z-10 ラッパー）を確実に上へ出す。 */
+  z-index: 0;
+  overflow: hidden;
+}
+.th-backdrop img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* #20: ベース画像も軽くぼかす。overlay グロー(.th-backdrop__glow)が効くのは明部中心で、
+   暗い平坦部にはアップスケールのドットが残るため、グローの恩恵が薄い領域のドットを
+   ベース側の弱いぼかしで溶かす（背景は装飾＝スクリム+パネルの奥なので多少眠くても可）。 */
+.th-backdrop__base {
+  filter: blur(0.4px);
+  transform: scale(1.01);
+  transform-origin: center;
+}
+/* #20 背景グロー: 引き伸ばしたゲーム素材のアップスケールの粗さを目立たせないため、
+   同じ絵のぼかしコピーを overlay で薄く重ねる（name-name #316 の結論＝overlay が平坦領域に
+   階調を足して「高見え」する。soft-light は白く霞むだけ／暖色 tint は夕方色化で不採用）。
+   - blur が粗い画素の境界をマスクする（＝擬似アンチエイリアス）
+   - mix-blend-mode: overlay ＋ 控えめ opacity で平坦領域に階調を軽く付ける（kako-jun「かるく」）
+   scale(1.06) はぼかしで生じる縁のにじみ（透明側への回り込み）を画面外へ押し出すため。 */
+.th-backdrop__glow {
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  filter: blur(7px) saturate(1.08);
+  transform: scale(1.06);
+  transform-origin: center;
+  pointer-events: none;
+}
+.th-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* 生成絵を殺さない程度の弱いスクリム（Issue #20: ベタ塗り禁止・絵を敷く）。
+     文字の可読性はパネル（.th-panel/.th-door の半透明地）と .th-glow のtext-shadowで担保する。 */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 9, 16, 0.55) 0%,
+    rgba(10, 9, 16, 0.22) 30%,
+    rgba(10, 9, 16, 0.3) 70%,
+    rgba(10, 9, 16, 0.6) 100%
+  );
+}
+
+/* パネルの外＝生成絵の上に直接乗る文字（見出し・パンくず等）の可読性を確保する。 */
+.th-glow {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* ---------------------------------------------------------------------
+   半透明ガラス板＋真鍮の細線（汎用UIのカード/モーダルの代わり）
+   --------------------------------------------------------------------- */
+.th-panel {
+  position: relative;
+  background: rgba(18, 17, 26, 0.58);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(184, 147, 79, 0.45);
+  box-shadow: 0 1px 0 rgba(230, 196, 126, 0.12) inset, 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+/* 扉・カードなど「押せる」面。ホバーで金の線が灯る。 */
+.th-door {
+  display: block;
+  text-align: center;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid rgba(184, 147, 79, 0.5);
+  background: rgba(18, 17, 26, 0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.th-door:hover,
+.th-door:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  background: rgba(24, 22, 34, 0.72);
+  box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.25), 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* 真鍮の細線区切り。 */
+.th-hairline {
+  border: none;
+  border-top: 1px solid rgba(184, 147, 79, 0.4);
+}
+
+/* パンくず。地の文として静かに置く。 */
+.th-breadcrumb {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--color-th-ivory-dim);
+  /* パンくずは常に生成絵の上へ直接乗る（パネル無し）ため可読性を text-shadow で担保する。 */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 12px rgba(0, 0, 0, 0.7);
+}
+.th-breadcrumb a {
+  border-bottom: 1px solid rgba(184, 147, 79, 0.35);
+  padding-bottom: 1px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.th-breadcrumb a:hover {
+  color: var(--color-th-gold-bright);
+  border-color: var(--color-th-gold-bright);
+}
+
+/* 「読む」導線・戻り導線のボタン。 */
+.th-link-button {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid rgba(184, 147, 79, 0.5);
+  background: rgba(18, 17, 26, 0.5);
+  color: var(--color-th-ivory);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+.th-link-button:hover,
+.th-link-button:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  color: var(--color-th-gold-bright);
+  background: rgba(24, 22, 34, 0.68);
+}
+
+/* 顔アップカードの画像トリミング（顔アップ専用素材が来るまでの暫定処置）。
+   立ち絵は全身分（縦長・頭は上端付近）。正方形枠の上に寄せてズームし、
+   「顔アップ」に見える程度までクロップする。 */
+.th-face-crop {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: rgba(10, 9, 16, 0.4);
+}
+.th-face-crop img {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 92%;
+  max-width: none;
+  transform: translateX(-50%) scale(2.05);
+  transform-origin: top center;
+}
+/* バストアップ専用素材（LoRA 元）は既に顔＋上半身の構図なので、立ち絵クロップ用の
+   2.05倍・上端基準スケールを使わず、1:1枠に cover で収める（顔がやや上寄りになるよう
+   object-position は上寄せ）。 */
+.th-face-crop--bust img {
+  position: absolute;
+  inset: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  object-fit: cover;
+  object-position: center 12%;
+}
+
+.th-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .th-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 960px) {
+  .th-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.th-theme-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 640px) {
+  .th-theme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 960px) {
+  .th-theme-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* 読むページ：name-name 埋め込みの器。9:16のノベル画面に合わせる（frontmatter aspect_ratio）。 */
+.th-reader {
+  max-width: 30rem;
+  margin-inline: auto;
+}
+.th-reader__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background: var(--color-th-ink-deep);
+  border: 1px solid rgba(184, 147, 79, 0.5);
+  overflow: hidden;
+}
+.th-reader__stage iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.th-reader__cta {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 9, 16, 0.55);
+  color: var(--color-th-ivory);
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+.th-reader__cta:hover,
+.th-reader__cta:focus-visible {
+  background: rgba(10, 9, 16, 0.4);
+}
+.th-reader__cta-kanji {
+  font-size: 1.6rem;
+  letter-spacing: 0.3em;
+  color: var(--color-th-gold-bright);
+}
+.th-reader__cta-sub {
+  font-size: 0.8rem;
+  color: var(--color-th-ivory-dim);
+  letter-spacing: 0.08em;
+}

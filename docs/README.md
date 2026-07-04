@@ -33,6 +33,7 @@
 | `09_production/script_format.md` | 脚本MD形式・振り付け・画面 |
 | `09_production/art_and_voice.md` | 立ち絵“こびない”方針・**画風の確定（今風塗り＋ToHeart目パレット＋個別LoRA・2段パイプライン）**・口調 |
 | `09_production/delivery_platform.md` | **提供形態（name-name 埋め込み・ショーケースモード・ネタバレ防止シークバー・サイト＝置き場）** |
+| `09_production/site_structure.md` | **公開サイト（Astro 静的）の実装構造**（ルート・索引データ層・name-name 埋め込み契約・背景グロー・顔アップカード）。設計意図は Issue #20/#21 |
 | `09_production/current_questions.md` | **サイト別コーナー「現代の問い」**（時事的な悩み募集・公開待機列・本編の業テーマと分離） |
 | `09_production/naming.md` | 命名の由来 |
 | `09_production/cast_selection.md` | 配役の選考基準・外した人物 |

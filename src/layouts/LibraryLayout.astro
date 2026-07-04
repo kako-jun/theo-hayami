@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  /** /images/ 以下の相対パス（例: "shadow-library/entrance-hall.webp"）。 */
+  bgImage: string;
+}
+
+const { title, description, bgImage } = Astro.props;
+
+const SITE = Astro.site ?? new URL("https://theo-hayami.llll-ll.com");
+const canonical = new URL(Astro.url.pathname, SITE).href;
+
+// OGP/Twitter Card の画像＝耽美キービジュアル（本作の売り）。sync-assets.mjs が
+// assets/images/ を public/images/ へ複製するので配信URLは /images/...。
+// og:image は絶対URLが必須なので Astro.site を基準に絶対化する。
+const ogImage = new URL("/images/shadow-library/entrance-hall.webp", SITE).href;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#12111a" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="せおはやみ" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen antialiased">
+    <div class="th-backdrop" aria-hidden="true">
+      <img class="th-backdrop__base" src={`/images/${bgImage}`} alt="" loading="eager" />
+      {/* #20: ゲーム用素材の引き伸ばしで出るアップスケールの粗さを、同じ絵のぼかしコピーを
+          overlay 合成で軽く重ねて目立たなくする（name-name #316 の「平坦領域に階調＝高見え」を
+          CSS で薄く適用）。ぼかしが粗さをマスクし、overlay が平坦領域に階調を足す。 */}
+      {/* 親 .th-backdrop が既に aria-hidden なので、この img には付けない（冗長回避）。 */}
+      <img class="th-backdrop__glow" src={`/images/${bgImage}`} alt="" loading="eager" />
+    </div>
+    <div class="relative z-10 min-h-screen flex flex-col">
+      <main class="flex-1 w-full">
+        <slot />
+      </main>
+      <footer class="w-full py-6 px-4 text-center th-glow">
+        <p class="th-breadcrumb">
+          <a href="/">影の図書館</a> ── せおはやみ
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

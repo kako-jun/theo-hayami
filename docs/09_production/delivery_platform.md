@@ -21,7 +21,7 @@
 ## 役割分担
 
 - **会話劇本体 ＝ name-name プレイヤー**（ステートレス。渡された MD を1本再生して終わり）
-- **その外側 ＝ お題選択／回遊 UI**。当面は **エントリ `script.md` の「ハブ」シーン（選択肢メニュー）**で実現する（name-name のマルチMD再生＝各お題は別 MD、ハブの選択肢 `→ シーンID` でファイル横断ジャンプ。#285。theo-hayami は name-name にプロジェクト登録済み・`scriptsDir: content/scripts`）。theo-hayami 独自サイトは後回しでよい
+- **その外側 ＝ お題選択／回遊 UI**。当面は **エントリ `script.md` の「ハブ」シーン（選択肢メニュー）**で実現する（name-name のマルチMD再生＝各お題は別 MD、ハブの選択肢 `→ シーンID` でファイル横断ジャンプ。#285。theo-hayami は name-name にプロジェクト登録済み・`scriptsDir: content/scripts`）。theo-hayami 独自サイト（Astro 静的）は **実装済み**（`site_structure.md` が実装の正本。Issue #20/#21）。各読むページが `?scene=` ディープリンクで name-name を単独埋め込みする
 
 ## サイト（置き場）の方針
 
