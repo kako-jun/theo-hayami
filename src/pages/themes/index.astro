@@ -1,0 +1,30 @@
+---
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ThemeCard from "../../components/ThemeCard.astro";
+import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import { loadThemes } from "../../lib/scripts";
+
+const themes = loadThemes();
+---
+
+<LibraryLayout
+  title="業から選ぶ ── せおはやみ"
+  description="人が時を超えて抱え続ける業（テーマ）の一覧。答える住人が違う。"
+  bgImage="shadow-library/grand-reading-room-v.webp"
+>
+  <div class="max-w-5xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb trail={[{ label: "影の図書館", href: "/" }, { label: "業から引く", href: "/anthology" }, { label: "業から選ぶ" }]} />
+
+    <header class="text-center my-8 th-glow">
+      <h1 class="text-2xl sm:text-3xl" style="color: var(--color-th-theo);">業から選ぶ</h1>
+      <p class="mt-2 text-sm" style="color: var(--color-th-ivory-dim);">
+        棚に並んでいるのは、時を超えても人が抱え続けるお題。今、扉が開いているのはどれだろう。
+      </p>
+      <a href="/anthology" class="th-breadcrumb inline-block mt-3"> 住人から選ぶ ──こちら </a>
+    </header>
+
+    <div class="th-theme-grid">
+      {themes.map((theme) => <ThemeCard slug={theme.slug} title={theme.title} characterCount={theme.characters.length} />)}
+    </div>
+  </div>
+</LibraryLayout>

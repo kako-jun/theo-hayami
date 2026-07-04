@@ -1,0 +1,61 @@
+---
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ReaderFrame from "../../components/ReaderFrame.astro";
+import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import { findResident } from "../../data/residents";
+import { loadEpisodes } from "../../lib/scripts";
+
+export function getStaticPaths() {
+  return loadEpisodes().map((episode) => ({
+    params: { slug: episode.slug },
+    props: { episode },
+  }));
+}
+
+const { episode } = Astro.props;
+const resident = findResident(episode.character);
+if (!resident) {
+  throw new Error(`未知の住人スラッグ: ${episode.character}`);
+}
+
+// このセルが実際に開く場面の背景（脚本MD先頭の [背景: ...] から取得）を額縁の背景にも使う。
+// 見つからない場合は選択画面と同じ既定背景にフォールバックする。
+const bgImage = episode.background ?? "shadow-library/grand-reading-room-v.webp";
+---
+
+<LibraryLayout
+  title={`${episode.themeTitle} ── ${resident.name} ── せおはやみ`}
+  description={`「${episode.themeTitle}」を${resident.name}（能力：${resident.ability}）に聞く。`}
+  bgImage={bgImage}
+>
+  <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb
+      trail={[
+        { label: "影の図書館", href: "/" },
+        { label: "業から引く", href: "/anthology" },
+        { label: episode.themeTitle, href: `/themes/${episode.theme}` },
+        { label: resident.name },
+      ]}
+    />
+
+    <header class="text-center my-8 th-glow">
+      <h1 class="text-xl sm:text-2xl" style="color: var(--color-th-theo);">「{episode.themeTitle}」</h1>
+      <p class="mt-2 text-sm" style="color: var(--color-th-gold-bright);">
+        {resident.name}に聞く（能力：{resident.ability}）
+      </p>
+    </header>
+
+    <ReaderFrame sceneId={episode.sceneId} title={`${episode.themeTitle} ── ${resident.name}`} />
+
+    <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
+      <a href={`/themes/${episode.theme}`} class="th-link-button text-center no-underline">
+        同じ問いを、別の住人に聞く
+      </a>
+      <a href={`/residents/${episode.character}`} class="th-link-button text-center no-underline">
+        {resident.name}の別の業を聞く
+      </a>
+      <a href="/themes" class="th-link-button text-center no-underline">業一覧へ</a>
+      <a href="/anthology" class="th-link-button text-center no-underline">住人一覧へ</a>
+    </nav>
+  </div>
+</LibraryLayout>

@@ -1,0 +1,64 @@
+---
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import { RESIDENTS, findResident } from "../../data/residents";
+import { loadCharacterThemes, loadThemes } from "../../lib/scripts";
+
+export function getStaticPaths() {
+  return RESIDENTS.map((resident) => ({
+    params: { character: resident.slug },
+  }));
+}
+
+const { character } = Astro.params;
+const resident = findResident(character);
+// getStaticPaths は RESIDENTS からしか params を作らないため、ここに来る時点で必ず見つかる。
+if (!resident) {
+  throw new Error(`未知の住人スラッグ: ${character}`);
+}
+
+const themeSlugs = new Set(loadCharacterThemes().find((c) => c.slug === character)?.themes ?? []);
+// 業の日本語名・並び順はハブ(script.md)正本の loadThemes() から引く。
+const themes = loadThemes().filter((t) => themeSlugs.has(t.slug));
+---
+
+<LibraryLayout
+  title={`${resident.name} ── せおはやみ`}
+  description={`${resident.name}（能力：${resident.ability}）。${resident.blurb}`}
+  bgImage="shadow-library/grand-reading-room-v.webp"
+>
+  <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb
+      trail={[{ label: "影の図書館", href: "/" }, { label: "業から引く", href: "/anthology" }, { label: resident.name }]}
+    />
+
+    <header class="th-panel p-6 sm:p-8 my-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+      <div class="th-face-crop w-32 shrink-0" style="border: 1px solid rgba(184,147,79,0.45);">
+        <img src={`/images/${resident.slug}/normal.webp`} alt={`${resident.name}の立ち絵`} />
+      </div>
+      <div>
+        <h1 class="text-2xl" style="color: var(--color-th-theo);">{resident.name}</h1>
+        <p class="text-sm mt-1" style="color: var(--color-th-gold-bright);">
+          能力：{resident.ability}（{resident.thought}）
+        </p>
+        <p class="leading-loose text-sm mt-3" style="color: var(--color-th-ivory);">{resident.blurb}</p>
+        <p class="text-xs mt-3" style="color: var(--color-th-ivory-dim);">由来：{resident.origin}</p>
+      </div>
+    </header>
+
+    <h2 class="text-base mb-3" style="color: var(--color-th-gold-bright);">
+      {resident.name}が答える業（{themes.length}）
+    </h2>
+    <ul class="th-theme-grid">
+      {
+        themes.map((theme) => (
+          <li>
+            <a href={`/free/${theme.slug}__${resident.slug}`} class="th-door block no-underline">
+              <p style="color: var(--color-th-ivory);">{theme.title}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</LibraryLayout>

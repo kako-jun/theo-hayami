@@ -1,0 +1,23 @@
+---
+import Breadcrumb from "../components/Breadcrumb.astro";
+import LibraryLayout from "../layouts/LibraryLayout.astro";
+---
+
+<LibraryLayout
+  title="物語を辿る ── せおはやみ"
+  description="せおはやみ本編（四幕）。近日公開。"
+  bgImage="shadow-library/history-hall.webp"
+>
+  <div class="max-w-2xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb trail={[{ label: "影の図書館", href: "/" }, { label: "物語を辿る" }]} />
+
+    <section class="th-panel p-8 mt-8 text-center">
+      <h1 class="text-2xl mb-4" style="color: var(--color-th-theo);">物語を辿る</h1>
+      <p class="leading-loose text-sm" style="color: var(--color-th-ivory-dim);">
+        本編（四幕）はまだこの書架に並んでいません。近日、ここに置かれます。<br />
+        それまでは「業から引く」で、住人たちとの自由な問答をお楽しみください。
+      </p>
+      <a href="/anthology" class="th-link-button inline-block mt-6 no-underline">業から引く へ</a>
+    </section>
+  </div>
+</LibraryLayout>
