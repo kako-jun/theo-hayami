@@ -24,19 +24,19 @@ export interface Episode {
   background: string | null;
 }
 
-function parseFrontmatterTitle(raw: string): string {
+export function parseFrontmatterTitle(raw: string): string {
   const fm = raw.match(/^---\n([\s\S]*?)\n---/);
   if (!fm) return "";
   const titleLine = fm[1]?.match(/^title:\s*"([^"]*)"\s*$/m);
   return titleLine?.[1] ?? "";
 }
 
-function parseSceneId(raw: string): string {
+export function parseSceneId(raw: string): string {
   const heading = raw.match(/^## ([a-z0-9-]+):/m);
   return heading?.[1] ?? "";
 }
 
-function parseFirstBackground(raw: string): string | null {
+export function parseFirstBackground(raw: string): string | null {
   const bg = raw.match(/^\[背景:\s*([^\]]+)\]/m);
   return bg?.[1]?.trim() ?? null;
 }
@@ -131,7 +131,7 @@ interface HubEntry {
 
 let cachedHubOrder: HubEntry[] | null = null;
 
-function loadHubOrder(): HubEntry[] {
+export function loadHubOrder(): HubEntry[] {
   if (cachedHubOrder) return cachedHubOrder;
 
   const raw = readFileSync(HUB_FILE, "utf-8");
@@ -149,7 +149,7 @@ function loadHubOrder(): HubEntry[] {
   return entries;
 }
 
-function sortByHubOrder(themes: ThemeSummary[]): ThemeSummary[] {
+export function sortByHubOrder(themes: ThemeSummary[]): ThemeSummary[] {
   const order = loadHubOrder();
   const indexOf = new Map(order.map((e, i) => [e.themeSlug, i]));
   return [...themes].sort((a, b) => {
