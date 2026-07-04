@@ -5,8 +5,10 @@ interface Props {
   resident: ResidentMeta;
   /** その住人が答えている業の数（バッジ表示用）。 */
   themeCount: number;
+  /** この住人の全読むページ slug（`業__住人`）。既読数バッジ用（Issue #30・クライアントで集計）。 */
+  readGroup: string[];
 }
-const { resident, themeCount } = Astro.props;
+const { resident, themeCount, readGroup } = Astro.props;
 ---
 
 {/*
@@ -15,7 +17,11 @@ const { resident, themeCount } = Astro.props;
   （<a>/<button>）は <a> の入れ子にできない（不正HTML・非機能）ため。
 */}
 <div class="contents">
-  <a href={`/residents/${resident.slug}`} class="th-door group block no-underline">
+  <a
+    href={`/residents/${resident.slug}`}
+    class="th-door group block no-underline"
+    data-read-group={readGroup.join(",")}
+  >
     {/* 顔アップカードは LoRA 学習用のバストアップ絵（assets/images/<char>/bust.webp）を使う
         （全身立ち絵の兼用ではない・Issue #20「顔アップカード＝LoRA 元の顔アップ」）。 */}
     <div class="th-face-crop th-face-crop--bust mb-3">
@@ -24,6 +30,8 @@ const { resident, themeCount } = Astro.props;
     <p class="text-lg" style="color: var(--color-th-gold-bright);">{resident.name}</p>
     <p class="text-xs mt-1" style="color: var(--color-th-ivory-dim);">能力：{resident.ability}（{resident.thought}）</p>
     <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">{themeCount}の業に答える</p>
+    {/* 既読数の蔵書票（Issue #30）。既読0なら hidden のまま。クライアントで ReadMarks が埋める。 */}
+    <p class="th-read-badge text-xs mt-2" data-read-count hidden></p>
   </a>
   {/* 将来: 参戦ムービー導線のスロット（studio-yokonami・Issue #21で後回し）。<a> の外側＝兄弟に置く。 */}
   <div data-slot="entrance-movie" hidden></div>

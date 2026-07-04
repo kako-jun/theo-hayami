@@ -1,6 +1,7 @@
 ---
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import ReadMarks from "../../components/ReadMarks.astro";
 import { RESIDENTS, findResident } from "../../data/residents";
 import { loadCharacterThemes, loadThemes } from "../../lib/scripts";
 
@@ -53,7 +54,11 @@ const themes = loadThemes().filter((t) => themeSlugs.has(t.slug));
       {
         themes.map((theme) => (
           <li>
-            <a href={`/free/${theme.slug}__${resident.slug}`} class="th-door block no-underline">
+            <a
+              href={`/free/${theme.slug}__${resident.slug}`}
+              data-slug={`${theme.slug}__${resident.slug}`}
+              class="th-door block no-underline"
+            >
               <p style="color: var(--color-th-ivory);">{theme.title}</p>
             </a>
           </li>
@@ -61,4 +66,5 @@ const themes = loadThemes().filter((t) => themeSlugs.has(t.slug));
       }
     </ul>
   </div>
+  <ReadMarks />
 </LibraryLayout>

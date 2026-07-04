@@ -3,11 +3,15 @@ interface Props {
   slug: string;
   title: string;
   characterCount: number;
+  /** この業の全読むページ slug（`業__住人`）。既読数バッジ用（Issue #30・クライアントで集計）。 */
+  readGroup: string[];
 }
-const { slug, title, characterCount } = Astro.props;
+const { slug, title, characterCount, readGroup } = Astro.props;
 ---
 
-<a href={`/themes/${slug}`} class="th-door block no-underline">
+<a href={`/themes/${slug}`} class="th-door block no-underline" data-read-group={readGroup.join(",")}>
   <p class="text-base leading-relaxed" style="color: var(--color-th-ivory);">{title}</p>
   <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">{characterCount}人の住人が答える</p>
+  {/* 既読数の蔵書票（Issue #30）。既読0なら hidden のまま。クライアントで ReadMarks が埋める。 */}
+  <p class="th-read-badge text-xs mt-1" data-read-count hidden></p>
 </a>

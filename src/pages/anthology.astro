@@ -1,11 +1,15 @@
 ---
 import Breadcrumb from "../components/Breadcrumb.astro";
+import ReadMarks from "../components/ReadMarks.astro";
 import ResidentCard from "../components/ResidentCard.astro";
 import LibraryLayout from "../layouts/LibraryLayout.astro";
 import { RESIDENTS } from "../data/residents";
 import { loadCharacterThemes } from "../lib/scripts";
 
-const themeCounts = new Map(loadCharacterThemes().map((c) => [c.slug, c.themes.length]));
+const characterThemes = loadCharacterThemes();
+const themeCounts = new Map(characterThemes.map((c) => [c.slug, c.themes.length]));
+// 住人ごとの読むページ slug 群（`業__住人`）。クライアント（ReadMarks）が既読数を集計する。
+const readGroups = new Map(characterThemes.map((c) => [c.slug, c.themes.map((t) => `${t}__${c.slug}`)]));
 ---
 
 <LibraryLayout
@@ -27,9 +31,14 @@ const themeCounts = new Map(loadCharacterThemes().map((c) => [c.slug, c.themes.l
     <div class="th-grid">
       {
         RESIDENTS.map((resident) => (
-          <ResidentCard resident={resident} themeCount={themeCounts.get(resident.slug) ?? 0} />
+          <ResidentCard
+            resident={resident}
+            themeCount={themeCounts.get(resident.slug) ?? 0}
+            readGroup={readGroups.get(resident.slug) ?? []}
+          />
         ))
       }
     </div>
   </div>
+  <ReadMarks />
 </LibraryLayout>

@@ -146,6 +146,65 @@ a {
   box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.25), 0 14px 30px rgba(0, 0, 0, 0.4);
 }
 
+/* ---------------------------------------------------------------------
+   既読（読み終えた読むページ）の意匠（Issue #30）
+   読了は「達成」なので暗くしない（トーン落とし＝消化済みのネガ印象は不採用・kako-jun）。
+   逆に温かい金の灯りをともし、角に金の押印（蔵書印＝読了の勲章）を押す。派手にしない（#20）。
+   .is-read      = 個別セル（1つの 業__住人 への扉）が完読済み
+   .is-read-all  = 集計カード（住人カード・業カード）の束ねる全セルが完読済み
+   --------------------------------------------------------------------- */
+.th-door.is-read {
+  position: relative;
+  border-color: rgba(230, 196, 126, 0.7);
+  /* 温かい金のかすかな灯り＝達成。沈めない（暗く/半透明にしない）。 */
+  box-shadow:
+    0 0 0 1px rgba(230, 196, 126, 0.22) inset,
+    0 0 14px rgba(230, 196, 126, 0.14);
+}
+/* 既読カードもホバー/フォーカスで押せるアフォーダンスを保つ（.is-read が :hover を
+   詳細度タイで後勝ちして潰さないよう明示。金の灯りを保ちつつ浮き上がる）。 */
+.th-door.is-read:hover,
+.th-door.is-read:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  box-shadow:
+    0 0 0 1px rgba(230, 196, 126, 0.3) inset,
+    0 0 16px rgba(230, 196, 126, 0.18),
+    0 14px 30px rgba(0, 0, 0, 0.4);
+}
+/* 金の押印（蔵書印）。金地に濃墨＝押された勲章のように読了を祝う。 */
+.th-door.is-read::after {
+  content: "読了";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.14rem 0.42rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  color: var(--color-th-ink-deep);
+  background: linear-gradient(
+    145deg,
+    var(--color-th-gold-bright) 0%,
+    var(--color-th-gold) 100%
+  );
+  border: 1px solid rgba(245, 224, 170, 0.9);
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+}
+/* 束ねる全セルを読み終えたカードは金の灯りを強める（全読了の到達感）。 */
+.th-door.is-read-all {
+  border-color: rgba(245, 224, 170, 0.85);
+  box-shadow:
+    0 0 0 1px rgba(245, 224, 170, 0.3) inset,
+    0 0 20px rgba(230, 196, 126, 0.22);
+}
+/* 既読数の蔵書票（「3/8 読了」）。金で静かに、達成の記録として。 */
+.th-read-badge {
+  color: var(--color-th-gold-bright);
+  letter-spacing: 0.1em;
+}
+
 /* 真鍮の細線区切り。 */
 .th-hairline {
   border: none;

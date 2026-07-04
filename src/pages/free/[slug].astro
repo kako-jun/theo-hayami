@@ -45,7 +45,7 @@ const bgImage = episode.background ?? "shadow-library/grand-reading-room-v.webp"
       </p>
     </header>
 
-    <ReaderFrame sceneId={episode.sceneId} title={`${episode.themeTitle} ── ${resident.name}`} />
+    <ReaderFrame slug={episode.slug} sceneId={episode.sceneId} title={`${episode.themeTitle} ── ${resident.name}`} />
 
     <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
       <a href={`/themes/${episode.theme}`} class="th-link-button text-center no-underline">
