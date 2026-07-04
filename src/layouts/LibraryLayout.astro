@@ -12,6 +12,11 @@ const { title, description, bgImage } = Astro.props;
 
 const SITE = Astro.site ?? new URL("https://theo-hayami.llll-ll.com");
 const canonical = new URL(Astro.url.pathname, SITE).href;
+
+// OGP/Twitter Card の画像＝耽美キービジュアル（本作の売り）。sync-assets.mjs が
+// assets/images/ を public/images/ へ複製するので配信URLは /images/...。
+// og:image は絶対URLが必須なので Astro.site を基準に絶対化する。
+const ogImage = new URL("/images/shadow-library/entrance-hall.webp", SITE).href;
 ---
 
 <!doctype html>
@@ -31,9 +36,11 @@ const canonical = new URL(Astro.url.pathname, SITE).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <title>{title}</title>
   </head>
   <body class="min-h-screen antialiased">
