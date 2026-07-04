@@ -43,6 +43,14 @@ describe("loadEpisodes: 実データの取り込み", () => {
     expect(bad.map((e) => e.slug)).toEqual([]);
   });
 
+  it("sceneId は `${character}-${theme}` 規約に従う（name-name のメニュー/ディープリンクが依存）", () => {
+    // 見出し `## {character}-{theme}:` から取った実際の sceneId が規約通りかを全件検証する。
+    // フォールバック値との一致確認ではなく、実ファイルの見出しがリネームで規約を破って
+    // いないかの回帰ネット。ここが緑のまま別名にされると dead embed が出荷される。
+    const bad = episodes.filter((e) => e.sceneId !== `${e.character}-${e.theme}`);
+    expect(bad.map((e) => `${e.slug}:${e.sceneId}`)).toEqual([]);
+  });
+
   it("theme / character は小文字英数字（スラッグ規約）", () => {
     const bad = episodes.filter((e) => !/^[a-z0-9]+$/.test(e.theme) || !/^[a-z0-9]+$/.test(e.character));
     expect(bad.map((e) => e.slug)).toEqual([]);
