@@ -5,10 +5,13 @@
 // 「離脱でアンマウント」は普通のページ遷移で自動的に満たされる。ここで対応するのは
 // 「タップするまでiframeを作らない」という遅延マウントだけでよい。
 //
-// 既知の懸念（name-name側の未対応事項・このサイト側では対処不要）:
-// iframe埋め込み時のX-Frame-Options/CSPをname-nameがまだ許可していない可能性がある
-// （theo-hayami #20 本文に明記済み）。ローカルdevで確認しブロックされる場合は
-// name-name側の別Issueが必要という所見だけ残し、サイト側の実装はそのまま進める。
+// 埋め込み契約（name-name 側で実装済み・本番検証済み）:
+// - `?scene=` ディープリンクでハブでなく該当シーンから直接開始（name-name #386）、
+//   TitleOverlay も飛ばす（name-name #388）。
+// - name-name 本番は X-Frame-Options / frame-ancestors CSP を送らない＝iframe 埋め込み可。
+// - 対象 script ファイル外への choice ジャンプは confinement で終劇になるため、
+//   「別の住人に聞く／業一覧へ」は iframe 内でなく HTML リンクで用意する（free/[slug].astro）。
+// 詳細は docs/09_production/site_structure.md。
 interface Props {
   sceneId: string;
   title: string;

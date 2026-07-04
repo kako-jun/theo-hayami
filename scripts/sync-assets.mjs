@@ -22,6 +22,10 @@ if (!existsSync(srcPath)) {
 if (existsSync(destPath)) {
   rmSync(destPath, { recursive: true, force: true });
 }
-cpSync(srcPath, destPath, { recursive: true });
+// .DS_Store（macOS）等の不要ファイルは配信物（public/ -> dist -> CF Pages）に載せない。
+cpSync(srcPath, destPath, {
+  recursive: true,
+  filter: (src) => !src.endsWith(".DS_Store"),
+});
 
 console.log(`[sync-assets] assets/images/ -> public/images/ を同期しました (${root})`);
