@@ -146,6 +146,47 @@ a {
   box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.25), 0 14px 30px rgba(0, 0, 0, 0.4);
 }
 
+/* ---------------------------------------------------------------------
+   既読（読み終えた読むページ）の意匠（Issue #30）
+   図書館の蔵書印のように金の「読了」印を角に押し、面のトーンをわずかに落として
+   「もう開いた本」の落ち着きを出す。派手にしない（#20: 汎用UI chrome禁止）。
+   .is-read      = 個別セル（1つの 業__住人 への扉）が完読済み
+   .is-read-all  = 集計カード（住人カード・業カード）の束ねる全セルが完読済み
+   --------------------------------------------------------------------- */
+.th-door.is-read {
+  position: relative;
+  border-color: rgba(184, 147, 79, 0.75);
+  background: rgba(14, 13, 20, 0.66);
+}
+/* 中身をわずかに沈める（読了の落ち着き）。印（::after）はこの対象外。 */
+.th-door.is-read > * {
+  opacity: 0.8;
+}
+.th-door.is-read::after {
+  content: "読了";
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  padding: 0.12rem 0.35rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  color: var(--color-th-gold-bright);
+  border: 1px solid rgba(230, 196, 126, 0.6);
+  background: rgba(10, 9, 16, 0.55);
+  pointer-events: none;
+}
+/* 束ねる全セルを読み終えたカードは金の細線を灯す（全読了の到達感）。 */
+.th-door.is-read-all {
+  border-color: rgba(230, 196, 126, 0.7);
+  box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.18) inset;
+}
+/* 既読数の蔵書票（「3/8 読了」）。金で静かに。 */
+.th-read-badge {
+  color: var(--color-th-gold-bright);
+  letter-spacing: 0.1em;
+}
+
 /* 真鍮の細線区切り。 */
 .th-hairline {
   border: none;

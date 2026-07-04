@@ -1,6 +1,7 @@
 ---
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import ReadMarks from "../../components/ReadMarks.astro";
 import { RESIDENTS } from "../../data/residents";
 import { loadThemes } from "../../lib/scripts";
 
@@ -42,7 +43,11 @@ const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug));
       {
         residents.map((resident) => (
           <li>
-            <a href={`/free/${theme.slug}__${resident.slug}`} class="th-door block no-underline">
+            <a
+              href={`/free/${theme.slug}__${resident.slug}`}
+              data-slug={`${theme.slug}__${resident.slug}`}
+              class="th-door block no-underline"
+            >
               <p style="color: var(--color-th-ivory);">{resident.name}に聞く</p>
               <p class="text-xs mt-1" style="color: var(--color-th-ivory-dim);">
                 能力：{resident.ability}（{resident.thought}）
@@ -53,4 +58,5 @@ const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug));
       }
     </ul>
   </div>
+  <ReadMarks />
 </LibraryLayout>

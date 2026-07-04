@@ -15,14 +15,16 @@
 interface Props {
   sceneId: string;
   title: string;
+  /** このセルの読むページ slug（`業__住人`）。完読受信時に既読として記録する（Issue #30）。 */
+  slug: string;
 }
-const { sceneId, title } = Astro.props;
+const { sceneId, title, slug } = Astro.props;
 
 const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
 const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponent(sceneId)}`;
 ---
 
-<div class="th-reader">
+<div class="th-reader" data-reader-slug={slug}>
   <div class="th-reader__stage">
     <button type="button" class="th-reader__cta" data-reader-start>
       <span class="th-reader__cta-kanji">読む</span>
@@ -47,4 +49,24 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     },
     { once: true },
   );
+</script>
+
+<script>
+  // 完読受信スクリプト（Issue #30）。is:inline ではなく通常のバンドル module にすることで
+  // readStore.ts を import でき、キー/形式の二重定義を避ける。
+  // name-name は終劇（endStory）到達時、埋め込み時のみ親へ postMessage する（契約: name-name #395）。
+  // origin と source/type を検証し、このページの slug（scene ではなく確定値）を既読に記録する。
+  import { markRead } from "../lib/readStore";
+
+  const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
+  const slug = document.querySelector<HTMLElement>("[data-reader-slug]")?.dataset.readerSlug ?? "";
+
+  window.addEventListener("message", (event) => {
+    // 本番の name-name オリジンからのメッセージだけ受ける（他オリジンの偽装を弾く）。
+    if (event.origin !== NAME_NAME_ORIGIN) return;
+    const data = event.data as { source?: unknown; type?: unknown } | null;
+    if (data?.source !== "name-name" || data?.type !== "story-ended") return;
+    // scene ではなくページ自身の slug を使う（埋め込みは1セルなので確実・Issue #30）。
+    if (slug) markRead(slug);
+  });
 </script>

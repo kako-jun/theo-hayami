@@ -1,5 +1,6 @@
 ---
 import Breadcrumb from "../../components/Breadcrumb.astro";
+import ReadMarks from "../../components/ReadMarks.astro";
 import ThemeCard from "../../components/ThemeCard.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import { loadThemes } from "../../lib/scripts";
@@ -24,7 +25,17 @@ const themes = loadThemes();
     </header>
 
     <div class="th-theme-grid">
-      {themes.map((theme) => <ThemeCard slug={theme.slug} title={theme.title} characterCount={theme.characters.length} />)}
+      {
+        themes.map((theme) => (
+          <ThemeCard
+            slug={theme.slug}
+            title={theme.title}
+            characterCount={theme.characters.length}
+            readGroup={theme.characters.map((c) => `${theme.slug}__${c}`)}
+          />
+        ))
+      }
     </div>
   </div>
+  <ReadMarks />
 </LibraryLayout>
