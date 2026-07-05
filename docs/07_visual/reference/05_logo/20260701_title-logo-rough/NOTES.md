@@ -33,6 +33,13 @@ Use the original B direction as the main title logo route:
 - Prefer replacing the gear inside `O` with a closed eye + star-map ring. The gear reads too mechanical/engineering for the app's library/philosophy/question mood.
 - Give the second `A` in `HAYAMI` a quieter motif than the first `A` so it does not look like an untouched leftover. A small balance-scale crossbar works, but should be reduced during vector cleanup if it competes with readability.
 
+## Final Vectorized Version (2026-07-05)
+
+Manual cleanup of `o-eye-second-a-01.png` is complete and adopted into the site (Issue #32):
+
+- `theo-logo.png` (English mark + Japanese sub-logo `せおはやみ`) and `theo-logo_en.png` (English-only) — same navy background, chroma-keyed transparent and shipped as `assets/masters/logo/theo-logo{,-en}.png` (masters) / `assets/images/logo/theo-logo{,-en}.webp` (delivery). The JA version is wired into the homepage hero (`src/pages/index.astro`); the EN-only version is staged as an asset only, not yet wired anywhere.
+- `theo-icon2.png` — the app icon, derived separately per the rule below (a `T` glyph inside the star-map ring, not a shrink of the full logo). Shipped opaque (no transparency needed) as `assets/masters/icon/theo-icon.png`, resized into the `public/favicon*.png` / `public/apple-touch-icon.png` set referenced by `LibraryLayout.astro`.
+
 ## Manual Cleanup Needed
 
 - Preserve exact spelling: `THEO HAYAMI`.
