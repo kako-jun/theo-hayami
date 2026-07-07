@@ -15,6 +15,7 @@ skip_enabled: false
 ## ou-ikari: 怒り / 住人: オウ（能力:知行）
 
 [背景: shadow-library/spiral-stacks.webp]
+[登場: せお (theo/angry, 左)]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう、せお。眉のあいだに、火種をひとつ抱えてきたね。何かにやられて、腹の底が煮えている--そんな顔だ。さあ、奥に座る知行家にぶつけてごらん。声を荒げない男だが、退きもしない。

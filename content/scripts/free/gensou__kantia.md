@@ -15,6 +15,7 @@ skip_enabled: false
 ## kantia-gensou: 幻想 / 住人: カンティア（能力:認識）
 
 [背景: shadow-library/numbers-hall.webp]
+[登場: せお (theo/think, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 やあ、せお。また足元が夢みたいにふわふわしてるね。何が本物か分からなくなった？ --そんな顔だ。ちょうどいい、そこの几帳面な男に聞いてごらん。世界に枠をはめてから、世界を見る。理屈の建築家さ。

@@ -15,6 +15,7 @@ skip_enabled: false
 ## spino-mujun: 矛盾 / 住人: スピノ（能力:汎神）
 
 [背景: shadow-library/numbers-hall.webp]
+[登場: せお (theo/think, 左)]
 
 **スピノ** (spino/observe, 右):
 ……ああ、そこで足が止まっているね。急がずともいい。きみは今、二つのものの真ん中で、どちらにも進めずにいる。右を見れば左が惜しく、左を向けば右が呼ぶ。引き裂かれて、立ちすくんでいるのだろう。

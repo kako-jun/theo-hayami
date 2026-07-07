@@ -15,6 +15,7 @@ skip_enabled: false
 ## hegru-uso: 嘘 / 住人: ヘグル（能力:弁証）
 
 [背景: shadow-library/intimate-reading-room.webp]
+[登場: せお (theo/akarame, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。さっきから鏡の前で長いため息をついているね。人と話すときの自分と、ひとりきりの自分--どっちが嘘なのか、わからなくなった。そんな顔だ。さあ、そこの弁証家が、また階段を駆け上がりたそうにしているよ。

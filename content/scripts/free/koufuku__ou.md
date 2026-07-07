@@ -15,6 +15,7 @@ skip_enabled: false
 ## ou-koufuku: 幸福 / 住人: オウ（能力:知行）
 
 [背景: shadow-library/forbidden-archive-v.webp]
+[登場: せお (theo/soften, 左)]
 
 **ヴィンチア** (vincia/normal, 右):
 おや、せお。今日はずいぶん、何かを探して歩き疲れた目をしているね。手に入れても手に入れても満たされない--そんな、渇いた顔だ。ちょうどいい、そこの静かな男にぶつけてごらん。僕の見立てでは、この人は探し方そのものを問い直すよ。

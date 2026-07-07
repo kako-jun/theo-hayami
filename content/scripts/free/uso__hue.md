@@ -15,6 +15,7 @@ skip_enabled: false
 ## hue-uso: 嘘 / 住人: ヒュー（能力:経験）
 
 [背景: shadow-library/intimate-reading-room.webp]
+[登場: せお (theo/akarame, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう。今日のきみは、ずいぶん深いところを覗き込もうとしている顔だね、せお。被っている面の下に、何が隠れているのか確かめたい--そんなところかな。さあ、そこの経験家に話してごらん。心の中身を、いちばん奥まで剥がしてしまう男だよ。

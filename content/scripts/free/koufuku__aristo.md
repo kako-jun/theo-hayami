@@ -15,6 +15,7 @@ skip_enabled: false
 ## aristo-koufuku: 幸福 / 住人: アリスト（能力:観察）
 
 [背景: shadow-library/forbidden-archive-v.webp]
+[登場: せお (theo/soften, 左)]
 
 **ヴィンチア** (vincia/notice, 右):
 おや、せお。今日はずいぶん、つかんだそばから消えていくものを追いかけている目をしているね。しあわせって何だろう--そんな顔だ。ちょうどいい、そこの観察家にぶつけてごらん。あの男は、何でもまず棚に並べて分けてしまうから。

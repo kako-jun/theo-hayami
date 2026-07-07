@@ -15,6 +15,7 @@ skip_enabled: false
 ## makiya-kitai: 期待 / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/dream-corridor-v.webp]
+[登場: せお (theo/notice, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 おや、せお。今日はずいぶん未練がましい顔をしているね。誰かを思い浮かべては、今度こそ、今度こそと言い聞かせている--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。当てが外れる賭けに、いちばん冷たく値付けする男だよ。

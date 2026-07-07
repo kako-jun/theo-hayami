@@ -15,6 +15,7 @@ skip_enabled: false
 ## makiya-mujun: 矛盾 / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/numbers-hall.webp]
+[登場: せお (theo/think, 左)]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう、せお。ずいぶん思い詰めた顔だね。右を取れば左が泣く、左を取れば右が痛む--どちらにも踏み出せずに、その場で凍りついている。そんなところかな。さあ、その板挟み、ここの現実家にぶつけてごらん。

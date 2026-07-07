@@ -15,6 +15,7 @@ skip_enabled: false
 ## ou-ronpa: 論破 / 住人: オウ（能力:知行）
 
 [背景: shadow-library/wind-curtains.webp]
+[登場: せお (theo/firm, 左)]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう、せお。今日は舌の先が尖っているね。誰かを言い負かしたい--相手を黙らせて、勝ちきりたい。さあ、奥の知行家にぶつけてごらん。この男は、勝ち負けの外側に、ひとりで立っている人でね。

@@ -15,6 +15,7 @@ skip_enabled: false
 ## makiya-koufuku: 幸福 / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/forbidden-archive-v.webp]
+[登場: せお (theo/soften, 左)]
 
 **ヴィンチア** (vincia/explain, 右):
 おや、せお。今日はずいぶん、何か一つを握りしめたそうな目をしているね。これさえ手に入れば幸せになれる--そう信じて、けれど握った先がどうにも怖い。そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。心を国に見立てて測るなら、この男が一番冷たいよ。

@@ -15,6 +15,7 @@ skip_enabled: false
 ## aristo-uso: 嘘 / 住人: アリスト（能力:観察）
 
 [背景: shadow-library/intimate-reading-room.webp]
+[登場: せお (theo/akarame, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。今日は鏡の前で固まっているような顔だね。どれが本当の自分か、見失った--そんな目をしている。さあ、そこの観察家に並べてもらうといい。この男はね、写しと元を取り違えたりはしないんだよ。

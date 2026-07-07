@@ -15,6 +15,7 @@ skip_enabled: false
 ## hegru-netami: 嫉み / 住人: ヘグル（能力:弁証）
 
 [背景: shadow-library/shelf-canyon.webp]
+[登場: せお (theo/akarame, 左)]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう、せお。今日はずいぶん俯いているね。誰かの背中ばかり眩しく見えて、自分の足元だけ暗い--そんな顔だ。さあ、そこの弁証家が、もう前のめりになっているよ。

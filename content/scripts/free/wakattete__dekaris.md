@@ -15,6 +15,7 @@ skip_enabled: false
 ## dekaris-wakattete: わかってても / 住人: デカリス（能力:懐疑）
 
 [背景: shadow-library/mezzanine-gallery.webp]
+[登場: せお (theo/sad, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。鏡の間まで来てもなお、足が前に出ない--そんな立ち方だね。頭ではとっくに答えが出ているのに、体だけが置いてけぼり。さあ、その動けなさ、そこの懐疑家にぶつけてごらん。この男は、動けないものをまず二つに割って見せる。

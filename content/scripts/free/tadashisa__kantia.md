@@ -15,6 +15,7 @@ skip_enabled: false
 ## kantia-tadashisa: 正しさ / 住人: カンティア（能力:認識）
 
 [背景: shadow-library/forbidden-archive-v.webp]
+[登場: せお (theo/notice, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 やあ、せお。また何が正しいか分からず、その場で固まっているね。いっそ多数決でも取るかい？ 手を挙げた数が多いほうを正解にすれば、ずいぶん楽になれるよ。--まあ、そこの理屈屋に聞いてごらん。線の引き方にかけては、この街でいちばん几帳面な男だからね。
