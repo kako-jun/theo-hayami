@@ -23,7 +23,7 @@ const ogImage = new URL("/images/shadow-library/entrance-hall.webp", SITE).href;
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#12111a" />
@@ -67,5 +67,54 @@ const ogImage = new URL("/images/shadow-library/entrance-hall.webp", SITE).href;
         </p>
       </footer>
     </div>
+
+    <script>
+      // #34: スクロール量に応じて全画面背景（.th-backdrop）を滑らかに拡大し「奥へ進む」印象を出す。
+      // 併せて、モバイルのツールバー collapse による visual viewport 高さ変化で起きる被覆の
+      // 再計算（下端スクロールでガクッと拡大再描画される）を、同じ --th-zoom 更新経路で JS が
+      // 明示制御して吸収する。ReadMarks.astro と同じ作法（通常の module <script>・client 島なし）。
+
+      // 演出の上限 cap（+12%）。後でチューニングしやすいよう先頭に定数で置く。
+      const MAX_EXTRA = 0.12;
+
+      const backdrop = document.querySelector<HTMLElement>(".th-backdrop");
+      // reduced-motion を尊重する読者にはズームを掛けない（--th-zoom は CSS 既定の 1 のまま・リスナーも張らない）。
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (backdrop && !prefersReducedMotion) {
+        // クロージャ内での非null narrowing を確定させるためローカルに束ねる。
+        const el = backdrop;
+        let ticking = false;
+
+        function applyZoom() {
+          ticking = false;
+          // 進捗 p = scrollY / 残りスクロール可能量 を 0..1 にクランプ。
+          const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          const p = Math.min(1, Math.max(0, window.scrollY / max));
+          const zoom = 1 + p * MAX_EXTRA; // 1.0 .. 1.12（上限 cap）
+          el.style.setProperty("--th-zoom", String(zoom));
+        }
+
+        // scroll を rAF でスロットルし、1フレームにつき1回だけ --th-zoom を更新する。
+        function requestZoom() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(applyZoom);
+        }
+
+        window.addEventListener("scroll", requestZoom, { passive: true });
+
+        // ツールバー collapse で visual viewport が変化するタイミングでも --th-zoom を再適用し、
+        // ブラウザ都合のガクツキを JS の明示制御で吸収する。非対応環境（visualViewport なし）では
+        // 通常の scroll だけで動くフォールバック。
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener("resize", requestZoom, { passive: true });
+          window.visualViewport.addEventListener("scroll", requestZoom, { passive: true });
+        }
+
+        // 初期化: 現在のスクロール位置基準で1回反映（途中位置への復元リロードにも対応）。
+        applyZoom();
+      }
+    </script>
   </body>
 </html>
