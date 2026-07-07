@@ -21,7 +21,7 @@ layout:
   reader: "aspect 9/16, max-width 30rem"       # .th-reader（name-name 埋め込みの器）
 elevation:
   panel: "rgba(18,17,26,0.58) + backdrop-blur 14px + 真鍮枠 rgba(184,147,79,0.45) + inset金 + drop-shadow"
-  backdrop: "fixed 全画面の生成絵 + 紺墨グラデスクリム（ベタ塗り禁止）。__glow は overlay 合成・opacity 0.55・blur 7px"
+  backdrop: "fixed 全画面の生成絵 + 紺墨グラデスクリム（ベタ塗り禁止）。__glow は overlay 合成・opacity 0.55・blur 7px。スクロール連動微ズーム（--th-zoom を base/glow の scale に乗算・1→1.12）"
 shapes:
   radius: minimal   # 汎用の角丸カードにしない。読了の蔵書印だけ 2px、面は基本シャープ
 components:
@@ -64,6 +64,7 @@ theo-hayami の見た目の一言は **「影の図書館」**。Webページに
 ## Elevation & Depth
 
 - **背景はベタ塗りにしない。** 生成絵（`assets/images/shadow-library/*.webp`）を `position: fixed` で全画面に敷き、上下に紺墨のグラデーションスクリムを重ねて可読性を確保する。`__glow` は同じ絵のぼかしコピーを `mix-blend-mode: overlay`・opacity 0.55・blur 7px で薄く重ね、アップスケールの粗さを溶かす。
+- 背景はスクロール進捗に応じて微ズーム（`--th-zoom` を base/glow の既存 scale に乗算し 1→1.12、`transform-origin: center`、`prefers-reduced-motion` で無効化）。下端でツールバー collapse による再描画のガクツキを吸収する。
 - 面（パネル/扉）は**半透明ガラス**（`backdrop-filter: blur(14px)` ＋ 真鍮枠 ＋ inset の金の微光 ＋ drop-shadow）。ガラス越し・蝋燭の金の空気を出す。
 - backdrop に**負の z-index を使わない**（body 背景の下に潜り生成絵が消える罠。実機blinkで確認済み）。
 

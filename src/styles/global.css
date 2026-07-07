@@ -66,8 +66,10 @@ a {
   z-index: 0;
   overflow: hidden;
   /* #34: モバイルのツールバー collapse で visual viewport 高さが変わっても被覆基準が
-     縮まないよう、動的ビューポート高さ（dvh）で下限を張る（fixed/inset:0 はそのまま残す）。 */
-  min-height: 100dvh;
+     縮まないよう、大ビューポート高さ（lvh）で下限を張る。dvh はツールバー表示状態で
+     縮むが、被覆の「フロア」としては collapse で縮まない lvh の方が gap-proof
+     （fixed/inset:0 はそのまま残す）。 */
+  min-height: 100lvh;
 }
 .th-backdrop img {
   position: absolute;
