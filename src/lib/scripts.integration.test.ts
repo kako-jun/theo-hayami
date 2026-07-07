@@ -5,9 +5,11 @@ import { RESIDENTS } from "../data/residents.ts";
 import type { ThemeSummary } from "./scripts.ts";
 import {
   findEpisode,
+  findOhako,
   loadCharacterThemes,
   loadEpisodes,
   loadHubOrder,
+  loadOhako,
   loadThemes,
   sortByHubOrder,
 } from "./scripts.ts";
@@ -127,6 +129,67 @@ describe("findEpisode", () => {
 
   it("存在しないスラッグは undefined", () => {
     expect(findEpisode("nonexistent__slug")).toBeUndefined();
+  });
+});
+
+describe("loadOhako: おはこ（住人の初登場8本・main/ohako-*.md）の取り込み", () => {
+  const MAIN_DIR = fileURLToPath(new URL("../../content/scripts/main/", import.meta.url));
+  const MAIN_ENTRIES = readdirSync(MAIN_DIR);
+  const ohako = loadOhako();
+
+  it("おはこはちょうど8本（住人8人ぶん・.gitkeep 等の非 md を拾わない）", () => {
+    expect(ohako.length).toBe(8);
+    // main/ には .gitkeep も置かれている。ローダがそれを Entry 化していない証拠。
+    expect(MAIN_ENTRIES).toContain(".gitkeep");
+    expect(ohako.map((e) => e.slug)).not.toContain(".gitkeep");
+  });
+
+  it("住人スラッグは RESIDENTS の8人とちょうど一致（名前ドリフト検出）", () => {
+    const chars = new Set(ohako.map((e) => e.character));
+    expect(chars.size).toBe(8);
+    expect([...chars].sort()).toEqual([...KNOWN_CHARACTERS].sort());
+  });
+
+  it("全件 slug === `ohako-${character}` に正確に分解・復元できる", () => {
+    const bad = ohako.filter((e) => e.slug !== `ohako-${e.character}`);
+    expect(bad.map((e) => e.slug)).toEqual([]);
+  });
+
+  it("全件 sceneId === slug（`## ohako-<住人>:` 見出しが規約通り・ディープリンクが依存）", () => {
+    const bad = ohako.filter((e) => e.sceneId !== e.slug);
+    expect(bad.map((e) => `${e.slug}:${e.sceneId}`)).toEqual([]);
+  });
+
+  it("全件 title / background が非空（額縁の表題・背景が欠けていない）", () => {
+    const bad = ohako.filter((e) => !e.title.trim() || !e.background?.trim());
+    expect(bad.map((e) => e.slug)).toEqual([]);
+  });
+
+  it("おはこは slug 昇順にソートされている", () => {
+    const slugs = ohako.map((e) => e.slug);
+    expect(slugs).toEqual([...slugs].sort((a, b) => a.localeCompare(b)));
+  });
+});
+
+describe("findOhako", () => {
+  it("既知住人でその住人のおはこを引ける", () => {
+    const entry = findOhako("kantia");
+    expect(entry?.character).toBe("kantia");
+    expect(entry?.slug).toBe("ohako-kantia");
+  });
+
+  it("全既知住人が findOhako で引ける（導線が全住人ぶん張れる）", () => {
+    const missing = [...KNOWN_CHARACTERS].filter((slug) => !findOhako(slug));
+    expect(missing).toEqual([]);
+  });
+
+  it("未知の住人スラッグは undefined", () => {
+    expect(findOhako("nonexistent")).toBeUndefined();
+  });
+
+  it("おはこの slug（`ohako-kantia`）を住人スラッグと取り違えても引かない", () => {
+    // findOhako は character（`kantia`）で引く。slug をそのまま渡しても一致しない契約。
+    expect(findOhako("ohako-kantia")).toBeUndefined();
   });
 });
 
