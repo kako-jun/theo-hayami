@@ -15,6 +15,7 @@ skip_enabled: false
 ## makiya-taikutsu: 退屈 / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/glass-balcony.webp]
+[登場: せお (theo/think, 左)]
 
 **ヴィンチア** (vincia/notice, 右):
 おや、せお。今日はずいぶん空っぽな目をしているね。何を見ても胸が動かない、何をやっても張り合いがない--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。退屈の勘定書を、いちばん冷たく読み解く男だよ。

@@ -15,6 +15,7 @@ skip_enabled: false
 ## spino-ronpa: 論破 / 住人: スピノ（能力:汎神）
 
 [背景: shadow-library/wind-curtains.webp]
+[登場: せお (theo/firm, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。今日はやけに目つきが鋭いね。誰かを言い負かしてやろう--そう身構えた顔だ。さあ、その剣呑なものは、この穏やかな男の前に置いていくといい。僕の見るところ、彼はきみと斬り結ぶ気が、まるで無いから。

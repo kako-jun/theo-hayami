@@ -15,6 +15,7 @@ skip_enabled: false
 ## dekaris-henka: 変化 / 住人: デカリス（能力:懐疑）
 
 [背景: shadow-library/shelf-canyon.webp]
+[登場: せお (theo/akarame, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 やあ、せお。今日はずいぶん身をよじって歩いているね。今の自分が嫌で、別の誰かになりたい--けれど、どうしても変われない。そんな顔だ。ちょうどいい、そこの懐疑家にぶつけてごらん。変われない悩み、こいつは容赦なく腑分けするよ。

@@ -15,6 +15,7 @@ skip_enabled: false
 ## kantia-fushin: 不信 / 住人: カンティア（能力:認識）
 
 [背景: shadow-library/music-hall.webp]
+[登場: せお (theo/think, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 おや、せお。今日はずいぶん身構えた顔だね。誰かを信じたいのに、伸ばしかけた手が途中で止まる--そんな顔だ。ちょうどいい、そこの理屈屋にぶつけてごらん。こんがらがった心を、誰よりも冷たく腑分けする男だよ。

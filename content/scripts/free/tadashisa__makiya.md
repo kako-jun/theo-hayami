@@ -15,6 +15,7 @@ skip_enabled: false
 ## makiya-tadashisa: 正しさ / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/forbidden-archive-v.webp]
+[登場: せお (theo/notice, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 やあ、せお。今日は何やら、答えの出ない問いを抱えて、行ったり来たりしているね。どれが正しいのか、一つに決めきれない--そんな顔だ。ちょうどいい、そこの現実家に聞いてごらん。一つの正解を求める潔癖さを、いちばん笑う男だよ。

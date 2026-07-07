@@ -15,6 +15,7 @@ skip_enabled: false
 ## aristo-gouman: 傲慢 / 住人: アリスト（能力:観察）
 
 [背景: shadow-library/observation-deck.webp]
+[登場: せお (theo/firm, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 やあ、せお。今日はずいぶん胸を張っているね。誰と話しても、相手がひとまわり小さく感じる--そんな顔だ。ちょうどいい、そこの観察家に量ってもらうといい。この男はね、どんなものでも棚に分けて、目方まで言い当ててしまうんだよ。

@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const SCRIPTS_DIR = fileURLToPath(new URL("../../content/scripts/", import.meta.url));
 const FREE_DIR = path.join(SCRIPTS_DIR, "free");
+const MAIN_DIR = path.join(SCRIPTS_DIR, "main");
 const HUB_FILE = path.join(SCRIPTS_DIR, "script.md");
 
 export interface Episode {
@@ -119,6 +120,58 @@ export function loadCharacterThemes(): CharacterSummary[] {
 
 export function findEpisode(slug: string): Episode | undefined {
   return loadEpisodes().find((e) => e.slug === slug);
+}
+
+// --- おはこ（住人の初登場8本・main/ohako-*.md） ---
+//
+// free/*.md（業__住人・自由問答）とは別系統。main/ にある本編素材のうち、住人ごとの
+// 「初めての問答」1本ずつ（ohako-<住人>.md）を、住人ページ／story ページから到達可能に
+// するための索引。loadEpisodes() の "__"2分割規約は ohako には適用されない（ファイル名は
+// ohako-<住人> の1系統）ため、混ぜずに独立ローダにする。パーサ（title/sceneId/背景）は
+// free と同じものを流用する。
+
+export interface OhakoEntry {
+  /** 読むページの URL スラッグ (`ohako-aristo`)。ファイル名から拡張子を除いたもの。 */
+  slug: string;
+  /** 住人スラッグ (`aristo`)。slug から `ohako-` 接頭辞を落としたもの。 */
+  character: string;
+  /** 表題。frontmatter title（`分類 〜アリストの問い〜` 等）を正本にする。 */
+  title: string;
+  /** name-name の sceneId（`?scene=` に渡す）。`## ohako-<住人>:` 見出しから取る（= slug）。 */
+  sceneId: string;
+  /** 冒頭で指定される背景（`shadow-library/xxx.webp`）。読むページの額縁背景に使う。 */
+  background: string | null;
+}
+
+let cachedOhako: OhakoEntry[] | null = null;
+
+/** main/ohako-*.md 全件をスキャンして OhakoEntry[] を組み立てる（ビルド時1回・以後キャッシュ）。 */
+export function loadOhako(): OhakoEntry[] {
+  if (cachedOhako) return cachedOhako;
+
+  const files = readdirSync(MAIN_DIR).filter((f) => /^ohako-.+\.md$/.test(f));
+  const entries = files.map((file): OhakoEntry => {
+    const slug = file.replace(/\.md$/, "");
+    const character = slug.replace(/^ohako-/, "");
+    const raw = readFileSync(path.join(MAIN_DIR, file), "utf-8");
+    const sceneId = parseSceneId(raw) || slug;
+    return {
+      slug,
+      character,
+      title: parseFrontmatterTitle(raw),
+      sceneId,
+      background: parseFirstBackground(raw),
+    };
+  });
+
+  entries.sort((a, b) => a.slug.localeCompare(b.slug));
+  cachedOhako = entries;
+  return entries;
+}
+
+/** 住人スラッグからその住人の「初めての問答」を引く（無ければ undefined）。 */
+export function findOhako(character: string): OhakoEntry | undefined {
+  return loadOhako().find((e) => e.character === character);
 }
 
 // --- ハブ（script.md）の選択肢順序 ---

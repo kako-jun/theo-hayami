@@ -15,6 +15,7 @@ skip_enabled: false
 ## spino-koufuku: 幸福 / 住人: スピノ（能力:汎神）
 
 [背景: shadow-library/forbidden-archive-v.webp]
+[登場: せお (theo/soften, 左)]
 
 **ヴィンチア** (vincia/soften, 右):
 おや、せお。今日はずいぶん、遠くの一点をじっと見つめる目をしているね。いつか辿り着けば、ぜんぶ報われる--そんな約束の場所を探している顔だ。ちょうどいい、そこの汎神論者にぶつけてごらん。報酬の勘定なら、この男が一番やわらかく崩してくれるよ。

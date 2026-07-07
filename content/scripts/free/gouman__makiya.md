@@ -15,6 +15,7 @@ skip_enabled: false
 ## makiya-gouman: 傲慢 / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/observation-deck.webp]
+[登場: せお (theo/firm, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 おや、せお。今日はやけに鼻が高いね。誰かを心の中で「こいつは大したことない」と値踏みした--そんな涼しい顔だ。ちょうどいい、そこの現実家に勘定してもらいなよ。その見下しが、いくらの得になるのかをね。

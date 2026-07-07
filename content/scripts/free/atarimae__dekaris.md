@@ -15,6 +15,7 @@ skip_enabled: false
 ## dekaris-atarimae: あたりまえ / 住人: デカリス（能力:懐疑）
 
 [背景: shadow-library/forbidden-archive-v.webp]
+[登場: せお (theo/notice, 左)]
 
 **ヴィンチア** (vincia/think, 右):
 やあ、せお。今日は、何かに行き詰まって、でもどこで詰まったのか分からない--そんな顔だね。一つひとつ筋道は通したのに、なぜか出口がない。ちょうどいい、そこの懐疑家に聞いてごらん。『当たり前』を、いちばん信用しない男だよ。

@@ -15,6 +15,7 @@ skip_enabled: false
 ## makiya-uso: 嘘 / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/intimate-reading-room.webp]
+[登場: せお (theo/akarame, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう。今日のきみは、自分の手を裏返したり表に返したり、どっちが本物か見定めかねている--そんな顔だね。さあ、その迷い、ここの現実家にぶつけてごらん。看板と中身、どっちが効くかなら、この男が一番冷たく量るよ。

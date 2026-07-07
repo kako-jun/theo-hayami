@@ -1,0 +1,64 @@
+---
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import ReaderFrame from "../../components/ReaderFrame.astro";
+import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import { findResident } from "../../data/residents";
+import { loadOhako } from "../../lib/scripts";
+
+// おはこ（住人の初登場8本・main/ohako-*.md）の読むページ。free/[slug].astro を踏襲する
+// （額縁＋ReaderFrame 遅延埋め込み＋confinement 回避の「このあと」HTMLリンク＋既読受信）。
+// ohako は末尾 choice が `→ hub`（対象 script ファイル外）＝confinement で終劇になるため、
+// 「このあと」の遷移は iframe 内の choice ではなく HTML リンクで用意する。
+export function getStaticPaths() {
+  return loadOhako().map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const resident = findResident(entry.character);
+if (!resident) {
+  throw new Error(`未知の住人スラッグ: ${entry.character}`);
+}
+
+// このおはこが実際に開く場面の背景（脚本MD先頭の [背景: ...] から取得）を額縁の背景にも使う。
+// 見つからない場合は選択画面と同じ既定背景にフォールバックする。
+const bgImage = entry.background ?? "shadow-library/grand-reading-room-v.webp";
+---
+
+<LibraryLayout
+  title={`${entry.title} ── ${resident.name} ── せおはやみ`}
+  description={`${resident.name}（能力：${resident.ability}）が、せおと初めて交わした問答。`}
+  bgImage={bgImage}
+>
+  <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb
+      trail={[
+        { label: "影の図書館", href: "/" },
+        { label: "業から引く", href: "/anthology" },
+        { label: resident.name, href: `/residents/${resident.slug}` },
+        { label: "はじめての問答" },
+      ]}
+    />
+
+    <header class="text-center my-8 th-glow">
+      <p class="text-sm" style="color: var(--color-th-gold-bright);">はじめての問答（おはこ）</p>
+      <h1 class="mt-2 text-xl sm:text-2xl" style="color: var(--color-th-theo);">{entry.title}</h1>
+      <p class="mt-2 text-sm" style="color: var(--color-th-gold-bright);">
+        {resident.name}（能力：{resident.ability}）
+      </p>
+    </header>
+
+    <ReaderFrame slug={entry.slug} sceneId={entry.sceneId} title={`${entry.title} ── ${resident.name}`} />
+
+    <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
+      <a href={`/residents/${resident.slug}`} class="th-link-button text-center no-underline">
+        {resident.name}に、業を聞く
+      </a>
+      <a href="/story" class="th-link-button text-center no-underline">先に読める8編へ</a>
+      <a href="/themes" class="th-link-button text-center no-underline">業一覧へ</a>
+      <a href="/anthology" class="th-link-button text-center no-underline">住人一覧へ</a>
+    </nav>
+  </div>
+</LibraryLayout>

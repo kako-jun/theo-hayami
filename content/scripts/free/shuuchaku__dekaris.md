@@ -15,6 +15,7 @@ skip_enabled: false
 ## dekaris-shuuchaku: 執着 / 住人: デカリス（能力:懐疑）
 
 [背景: shadow-library/dream-corridor-v.webp]
+[登場: せお (theo/sad, 左)]
 
 **ヴィンチア** (vincia/observe, 右):
 おや、せお。何かを後生大事に握りしめた顔だね。指がすっかり白くなっているよ。捨てられない、離せない--そんな手をしている。ちょうどいい、そこの懐疑家にぶつけてごらん。お前が握っているそれの中身を、容赦なく開けて見せる男だよ。
