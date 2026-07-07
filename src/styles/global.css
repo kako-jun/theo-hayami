@@ -56,12 +56,20 @@ a {
 .th-backdrop {
   position: fixed;
   inset: 0;
+  /* #34: スクロール連動ズームの倍率。JS が scrollY 進捗から 1.0..(1+MAX_EXTRA) を書き込む。
+     SSR 直後のちらつきを避けるため CSS 既定は 1（＝素の被覆）。base/glow の既存 scale と掛ける。 */
+  --th-zoom: 1;
   /* z-index: -1 にしない。body/html は独自のスタッキングコンテキストを持たないため、
      負のz-indexはルート（キャンバス背景）の下に潜り込み、body の背景色に完全に
      隠れてしまう（実機blinkで確認・生成絵が一切見えなくなる罠）。0にして、
      手前のコンテンツ側（LibraryLayout の z-10 ラッパー）を確実に上へ出す。 */
   z-index: 0;
   overflow: hidden;
+  /* #34: モバイルのツールバー collapse で visual viewport 高さが変わっても被覆基準が
+     縮まないよう、大ビューポート高さ（lvh）で下限を張る。dvh はツールバー表示状態で
+     縮むが、被覆の「フロア」としては collapse で縮まない lvh の方が gap-proof
+     （fixed/inset:0 はそのまま残す）。 */
+  min-height: 100lvh;
 }
 .th-backdrop img {
   position: absolute;
@@ -76,8 +84,12 @@ a {
    ベース側の弱いぼかしで溶かす（背景は装飾＝スクリム+パネルの奥なので多少眠くても可）。 */
 .th-backdrop__base {
   filter: blur(0.4px);
-  transform: scale(1.01);
+  /* #34: 既存の 1.01（blur のにじみを画面外へ逃がす被覆マージン）を保持しつつ、
+     スクロール連動ズーム（--th-zoom）を掛け合わせて「奥へ進む」演出を足す。 */
+  transform: scale(calc(1.01 * var(--th-zoom)));
   transform-origin: center;
+  /* #34: ズームは transform だけを毎フレーム変えるので GPU 合成レイヤに載せて再描画を抑える。 */
+  will-change: transform;
 }
 /* #20 背景グロー: 引き伸ばしたゲーム素材のアップスケールの粗さを目立たせないため、
    同じ絵のぼかしコピーを overlay で薄く重ねる（name-name #316 の結論＝overlay が平坦領域に
@@ -89,9 +101,13 @@ a {
   mix-blend-mode: overlay;
   opacity: 0.55;
   filter: blur(7px) saturate(1.08);
-  transform: scale(1.06);
+  /* #34: 既存の 1.06（ぼかしの縁のにじみを画面外へ押し出す被覆マージン）を保持しつつ、
+     スクロール連動ズーム（--th-zoom）を掛け合わせる。 */
+  transform: scale(calc(1.06 * var(--th-zoom)));
   transform-origin: center;
   pointer-events: none;
+  /* #34: base と同様に transform 変化を GPU 合成に載せる。 */
+  will-change: transform;
 }
 .th-backdrop::after {
   content: "";
