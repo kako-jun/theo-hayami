@@ -1,11 +1,18 @@
 ---
 import Breadcrumb from "../components/Breadcrumb.astro";
 import LibraryLayout from "../layouts/LibraryLayout.astro";
+import { findResident } from "../data/residents";
+import { loadOhako } from "../lib/scripts";
+
+// 暫定導線（Issue #41）: 本編四幕（/story）はまだプレースホルダだが、各住人の「初登場
+// （おはこ）」8編は先に読める。ここで main/ohako-*.md 8本への入口を出しておく。
+// 四幕を実装したら、この「先に読める8編」節は畳んで本編（四幕）の目次に置き換える前提。
+const ohako = loadOhako();
 ---
 
 <LibraryLayout
   title="物語を辿る ── せおはやみ"
-  description="せおはやみ本編（四幕）。近日公開。"
+  description="せおはやみ本編（四幕）。近日公開。各住人の初登場は先に読めます。"
   bgImage="shadow-library/history-hall.webp"
 >
   <div class="max-w-2xl mx-auto px-4 pt-10 pb-16">
@@ -18,6 +25,32 @@ import LibraryLayout from "../layouts/LibraryLayout.astro";
         それまでは「業から引く」で、住人たちとの自由な問答をお楽しみください。
       </p>
       <a href="/anthology" class="th-link-button inline-block mt-6 no-underline">業から引く へ</a>
+    </section>
+
+    <section class="mt-12">
+      <h2 class="text-base mb-2 th-glow" style="color: var(--color-th-gold-bright);">先に読める8編</h2>
+      <p class="leading-loose text-sm mb-5 th-glow" style="color: var(--color-th-ivory-dim);">
+        本編は準備中ですが、各住人の「初登場」──せおと初めて交わした問答──は先に読めます。
+      </p>
+      <ul class="th-theme-grid">
+        {
+          ohako.map((entry) => {
+            const resident = findResident(entry.character);
+            return (
+              <li>
+                <a href={`/main/${entry.slug}`} class="th-door block no-underline">
+                  <p style="color: var(--color-th-ivory);">{entry.title}</p>
+                  {resident && (
+                    <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">
+                      {resident.name}（能力：{resident.ability}）
+                    </p>
+                  )}
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
     </section>
   </div>
 </LibraryLayout>

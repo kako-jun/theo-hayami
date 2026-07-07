@@ -3,7 +3,7 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import ReadMarks from "../../components/ReadMarks.astro";
 import { RESIDENTS, findResident } from "../../data/residents";
-import { loadCharacterThemes, loadThemes } from "../../lib/scripts";
+import { findOhako, loadCharacterThemes, loadThemes } from "../../lib/scripts";
 
 export function getStaticPaths() {
   return RESIDENTS.map((resident) => ({
@@ -21,6 +21,8 @@ if (!resident) {
 const themeSlugs = new Set(loadCharacterThemes().find((c) => c.slug === character)?.themes ?? []);
 // 業の日本語名・並び順はハブ(script.md)正本の loadThemes() から引く。
 const themes = loadThemes().filter((t) => themeSlugs.has(t.slug));
+// この住人の「初めての問答（おはこ）」への恒久導線（Issue #41）。無ければ節ごと出さない。
+const ohako = findOhako(character);
 ---
 
 <LibraryLayout
@@ -46,6 +48,22 @@ const themes = loadThemes().filter((t) => themeSlugs.has(t.slug));
         <p class="text-xs mt-3" style="color: var(--color-th-ivory-dim);">由来：{resident.origin}</p>
       </div>
     </header>
+
+    {
+      ohako && (
+        <section class="mb-10">
+          <h2 class="text-base mb-3" style="color: var(--color-th-gold-bright);">
+            はじめての問答（おはこ）
+          </h2>
+          <a href={`/main/${ohako.slug}`} class="th-door block no-underline">
+            <p style="color: var(--color-th-ivory);">{ohako.title}</p>
+            <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">
+              {resident.name}が、せおと初めて交わした問答
+            </p>
+          </a>
+        </section>
+      )
+    }
 
     <h2 class="text-base mb-3" style="color: var(--color-th-gold-bright);">
       {resident.name}が答える業（{themes.length}）
