@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/spiral-stacks.webp]
 [登場: せお (theo/angry, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう、せお。今日は眉間に火が点っているね。何かに、あるいは誰かに、腹の底を焼かれてきた--そんな顔だ。さあ、そこの弁証家が、もう階段を駆け上がりたそうにしているよ。

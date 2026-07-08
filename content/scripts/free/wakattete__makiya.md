@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/mezzanine-gallery.webp]
 [登場: せお (theo/sad, 左)]
+[待機: 500]
 
 **マキヤ** (makiya/firm, 右):
 丸腰だな、きみは。

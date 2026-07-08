@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/music-hall.webp]
 [登場: せお (theo/think, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう、せお。さっきから頭の中でそろばんを弾いているね。やろうとするたび、「これは得か、損か」と一拍止まる--そんな顔だ。さあ、そこの弁証家が、もう乗り出しているよ。

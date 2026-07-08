@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/numbers-hall.webp]
 [登場: せお (theo/think, 左)]
+[待機: 500]
 
 **アリスト** (aristo/observe, 右):
 やあ、せお。さっきから、右の足と左の足が、別々の方を向いているような顔だね。何かを選ぼうとして、選べずに、そこで固まっている--そう見えるよ。

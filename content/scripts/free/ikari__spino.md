@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/spiral-stacks.webp]
 [登場: せお (theo/angry, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう。こめかみが熱を持っているね、せお。誰かにやられて、胸の奥で何かが燃えている--そんな顔だ。さあ、その火を、ここの静かな男に見せてごらん。この人は、消せとは言わないよ。

@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/shelf-canyon.webp]
 [登場: せお (theo/akarame, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう。今日のきみは、よその芝生ばかり見ている顔だね、せお。隣の誰かが眩しくて仕方ない--そんなところかな。さあ、そこの経験家に話してごらん。心の中身を、生の絵の具まで分解しちゃう男だよ。

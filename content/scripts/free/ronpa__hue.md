@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/wind-curtains.webp]
 [登場: せお (theo/firm, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう。今日のきみは、誰かを言い負かしたくてうずうずしている顔だね、せお。さあ、そこの経験家に話してごらん。理屈の勝ち負けを、根っこから疑ってかかる男だよ。

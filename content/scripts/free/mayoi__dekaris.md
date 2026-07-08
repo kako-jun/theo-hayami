@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/intimate-reading-room.webp]
 [登場: せお (theo/think, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/notice, 右):
 やあ、せお。今日はずいぶん思い詰めた足取りだね。あれもこれも決めかねて、その場で立ち往生--そんな顔だ。ちょうどいい、そこの懐疑家に聞いてごらん。決められない悩みも、こいつは容赦なく刻むよ。

@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/spiral-stacks.webp]
 [登場: せお (theo/angry, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう。ずいぶん荒れた顔をしているね、せお。誰かに何かをされて、腹が煮えている--そんなところかな。さあ、その怒り、ここの現実家にぶつけてごらん。

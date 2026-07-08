@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/mezzanine-gallery.webp]
 [登場: せお (theo/angry, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/observe, 右):
 おや、せお。今日はずいぶん物騒な目をしているね。誰かの顔を思い浮かべては、奥歯を噛みしめている--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。仕返しの損得を、いちばん冷たく勘定する男だよ。

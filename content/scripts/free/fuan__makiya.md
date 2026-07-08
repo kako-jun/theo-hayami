@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/intimate-reading-room.webp]
 [登場: せお (theo/sad, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/observe, 右):
 おや、せお。今日はずいぶん先の方を見ている目だね。まだ来てもいない明日を覗き込んでは、足がすくんでいる--そんな顔だ。ちょうどいい、そこの現実家にぶつけてごらん。先のことを、いちばん醒めた目で勘定する男だよ。

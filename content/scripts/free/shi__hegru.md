@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/event-horizon.webp]
 [登場: せお (theo/sad, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。今日はやけに俯いているね。さあ、そこの弁証家のところへ。何を抱えていても、あの男は嬉しそうに受け取るよ。

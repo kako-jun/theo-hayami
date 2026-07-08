@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/shelf-canyon.webp]
 [登場: せお (theo/akarame, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/notice, 右):
 おや、せお。今日はずいぶん遠くを見ているね。手の届かない誰かの背中を、ずっと目で追っている--そんな顔だ。ちょうどいい、そこの静かな庭師にでも預けてごらん。この男は、叱りはしないよ。

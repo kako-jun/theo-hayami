@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/intimate-reading-room.webp]
 [登場: せお (theo/akarame, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。鏡の前で着替えるみたいに、いくつもの顔を持ち替えてきた顔だね。さあ、どれが本物か分からなくなったのなら、そこの静かな男に預けてごらん。この人は、嘘つきを責めたりはしないよ。
