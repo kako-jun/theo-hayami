@@ -15,8 +15,9 @@ skip_enabled: false
 ## hegru-shi: 死 / 住人: ヘグル（能力:弁証）
 
 [背景: shadow-library/event-horizon.webp]
+[待機: 700]
 [登場: せお (theo/sad, 左)]
-[待機: 500]
+[待機: 700]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。今日はやけに俯いているね。さあ、そこの弁証家のところへ。何を抱えていても、あの男は嬉しそうに受け取るよ。

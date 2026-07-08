@@ -15,8 +15,9 @@ skip_enabled: false
 ## aristo-mujun: 矛盾 / 住人: アリスト（能力:観察）
 
 [背景: shadow-library/numbers-hall.webp]
+[待機: 700]
 [登場: せお (theo/think, 左)]
-[待機: 500]
+[待機: 700]
 
 **アリスト** (aristo/observe, 右):
 やあ、せお。さっきから、右の足と左の足が、別々の方を向いているような顔だね。何かを選ぼうとして、選べずに、そこで固まっている--そう見えるよ。

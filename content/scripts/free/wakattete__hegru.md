@@ -15,8 +15,9 @@ skip_enabled: false
 ## hegru-wakattete: わかってても / 住人: ヘグル（能力:弁証）
 
 [背景: shadow-library/mezzanine-gallery.webp]
+[待機: 700]
 [登場: せお (theo/sad, 左)]
-[待機: 500]
+[待機: 700]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。手の中に正解を握りしめたまま、ずいぶん長いこと固まっているね。さあ、そこの弁証家が、もう答えを差し出したくてうずうずしているよ。

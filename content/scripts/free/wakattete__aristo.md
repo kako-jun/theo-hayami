@@ -15,8 +15,9 @@ skip_enabled: false
 ## aristo-wakattete: わかってても / 住人: アリスト（能力:観察）
 
 [背景: shadow-library/mezzanine-gallery.webp]
+[待機: 700]
 [登場: せお (theo/sad, 左)]
-[待機: 500]
+[待機: 700]
 
 **アリスト** (aristo/normal, 右):
 きみ、さっきから同じ頁を見つめたまま、指が止まっているね。やるべきことは分かっている--その顔に、ちゃんと書いてあるよ。分かっているのに、動けない。今日はそういう日だろう。
