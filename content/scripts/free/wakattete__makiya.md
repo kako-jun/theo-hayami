@@ -15,8 +15,9 @@ skip_enabled: false
 ## makiya-wakattete: わかってても / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/mezzanine-gallery.webp]
+[待機: 700]
 [登場: せお (theo/sad, 左)]
-[待機: 500]
+[待機: 700]
 
 **マキヤ** (makiya/firm, 右):
 丸腰だな、きみは。

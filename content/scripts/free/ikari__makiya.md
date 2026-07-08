@@ -15,8 +15,9 @@ skip_enabled: false
 ## makiya-ikari: 怒り / 住人: マキヤ（能力:現実）
 
 [背景: shadow-library/spiral-stacks.webp]
+[待機: 700]
 [登場: せお (theo/angry, 左)]
-[待機: 500]
+[待機: 700]
 
 **ヴィンチア** (vincia/notice, 右):
 ほう。ずいぶん荒れた顔をしているね、せお。誰かに何かをされて、腹が煮えている--そんなところかな。さあ、その怒り、ここの現実家にぶつけてごらん。
