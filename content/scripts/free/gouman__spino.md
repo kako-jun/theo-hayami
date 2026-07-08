@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/observation-deck.webp]
 [登場: せお (theo/firm, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/observe, 右):
 おや、せお。今日はやけに顎が上を向いているね。誰かを見下ろしたあとの、ちょっとだけ後ろめたい顔だ。ちょうどいい、そこの静かな庭師に預けてごらん。この男は、高いも低いも測らないよ。

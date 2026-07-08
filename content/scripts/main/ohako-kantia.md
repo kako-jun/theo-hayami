@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/celestial-observatory.webp]
 [登場: せお (theo/akarame, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/observe, 右):
 せお、ひとつ聞かせてくれ。きみは今、絵の自分で人と喋っている。あれは--嘘の自分だと思うかい？

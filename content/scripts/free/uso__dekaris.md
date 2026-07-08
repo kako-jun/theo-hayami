@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/intimate-reading-room.webp]
 [登場: せお (theo/akarame, 左)]
+[待機: 500]
 
 **ヴィンチア** (vincia/observe, 右):
 ほう、せお。今日は鏡の前で、映っている自分を睨んでいるね。どれが本当の顔か分からない--そんな迷子の目だ。ちょうどいい、そこの懐疑家にぶつけてごらん。この男は、本当か嘘か分からないものを、まず疑ってかかる。

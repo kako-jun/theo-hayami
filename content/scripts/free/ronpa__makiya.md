@@ -16,6 +16,7 @@ skip_enabled: false
 
 [背景: shadow-library/wind-curtains.webp]
 [登場: せお (theo/firm, 左)]
+[待機: 500]
 
 **マキヤ** (makiya/observe, 右):
 来たな。その顔は--誰かを言い負かしてやりたい、論破して鼻を明かしたい、そういう顔だ。隠さなくていい。で、きみは何を言い返したいんだ？
