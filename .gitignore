@@ -8,3 +8,6 @@ coverage/
 # assets/images からの生成物（scripts/sync-assets.mjs が同期する）。
 # 正本は assets/images なので二重管理しない。
 public/images/
+
+# 画像制作スクラッチは studio-yokonami が正本（二重管理防止・yokonami#26）
+tmp/
