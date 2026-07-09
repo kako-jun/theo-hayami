@@ -1,15 +1,6 @@
 ---
 engine: name-name
 title: "置いていかれる気がする"
-aspect_ratio: "9:16"
-dialog_style: "novel"
-font_family: "Hina Mincho, serif"
-font_size: 26
-protagonist: "せお"
-character_y_ratio: 1.10
-character_fade_ms: 700
-character_scale: 0.5
-skip_enabled: false
 ---
 
 ## spino-aseri: 焦り / 住人: スピノ（能力:汎神）

@@ -4,8 +4,8 @@
 
 theo-hayami は描画を name-name に流用するので、**脚本MD は最初から name-name の原稿形式で書く**（独自記法 `[話者]` は廃止＝変換器を持たない・パーサは name-name の1つだけ＝単一情報源）。形式の正本は name-name 側 `docs/spec/markdown-v0.1.md`。要点:
 
-- 先頭に frontmatter（`engine: name-name` 必須、`title` 等）
-- theo-hayami の novel 既定 frontmatter は `dialog_style: "novel"` / `font_size: 26` / `protagonist: "せお"` / `character_y_ratio: 1.10` / `character_fade_ms: 700` / `skip_enabled: false` / `debug_enabled: true`
+- 先頭に frontmatter。**各セル MD は `engine: name-name`（worker フィルタ必須）と `title`（索引用）の2行のみ**（#48）。描画設定はセルに書かない。
+- **描画設定はエントリ `script.md` に1回だけ書く**。theo-hayami の novel 既定 frontmatter（`aspect_ratio: "9:16"` / `dialog_style: "novel"` / `font_family: "Hina Mincho, serif"` / `font_size: 26` / `protagonist: "せお"` / `character_y_ratio: 1.10` / `character_fade_ms: 700` / `character_scale: 0.5` / `skip_enabled: false` / `debug_enabled: true`）は、すべて**エントリ `script.md` 側の設定**。name-name のマルチ MD 再生では描画設定はエントリ `script.md` の frontmatter からしか読まれず、各セル MD の描画設定 frontmatter は**無視される**（`?scene=` deep-link で個別セルに飛んでも同じ）。ゆえにセルには置かない（#48 で全304セルから撤去済み）。
 - 場面は `## scene-id: 見出し`
 - セリフは **`**話者**:`** の次行に本文（複数行可）。話者は `せお` / `ヴィンチア` / 住人名（`カンティア` 等）
 - 地の文は `> 本文`（ただし theo-hayami では今は使わない。下記）
@@ -54,7 +54,7 @@ title: "アバター 〜カンティアの問い〜"
 
 - 狙いは **背景（フェードイン）→ せお（フェードイン）→ 最初の話者（ヴィンチア）** を1つずつ立てること（#39/#46）。`[背景:]` の後に `[待機:]`、`[登場: せお ...]` の後にもう一度 `[待機:]` を置く。`[背景:]` `[登場:]` `[待機:]` はいずれも name-name 構文なので**半角のまま**書く（上記「本文は全角」ルールの対象外＝frontmatter や `[選択]` と同じ扱い）。
 - **なぜ待機が2つ要るか**: name-name は**非同期が既定**＝連続したディレクティブは並行フェードで「同時」に見える。逐次（背景を先に立ててからせお、せおを立ててから話者）にするために `[待機:]` を挟む（#43）。
-- **`[待機:]` は実時間待ちであり「フェード完了待ち」ではない**。ゆえに待機値は**フェード時間に合わせる**。**背景・立ち絵とも 700ms**（背景フェード＝エンジン既定、立ち絵フェード＝frontmatter `character_fade_ms: 700`。立ち絵は登場・退場・切り替えすべて同じ `character_fade_ms`）。**背景フェードを変えたら 1つ目の待機値も、立ち絵フェードを変えたら 2つ目の待機値も追随が要る**。
+- **`[待機:]` は実時間待ちであり「フェード完了待ち」ではない**。ゆえに待機値は**フェード時間に合わせる**。**背景・立ち絵とも 700ms**（背景フェード＝エンジン既定、立ち絵フェード＝エントリ `script.md` の frontmatter `character_fade_ms: 700`。立ち絵は登場・退場・切り替えすべて同じ `character_fade_ms`）。**背景フェードを変えたら 1つ目の待機値も、立ち絵フェードを変えたら 2つ目の待機値も追随が要る**。
 - **不変条件（テストで固定）**: `[登場: せお` 行の**直前も直後も** `[待機: N]`（N は正の整数）で、**2行上が `[背景:`**（背景→待機→登場せお→待機の並び）。`src/lib/scripts.seo-wait.test.ts` が `content/scripts/**/*.md` を全走査して検証する。新しいセル（未着手の `main/act*.md`・新規おはこ）を書くときも必ずこの2つの待機を入れる。入れ忘れるとこのテストが赤になる。
 - **N=700 は既定値で、本番実機で見て詰める前提**。テストは具体値に依存せず `[待機: N]` の構造と N>0 だけを見るので、フェード時間を変えて 700→600 等にしても壊れない（値を変えたら待機値も揃える）。
 - **せお開幕セル**（せお自身が最初の話者で `[登場: せお]` を持たないセル）は対象外＝待機不要。

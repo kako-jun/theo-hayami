@@ -1,15 +1,6 @@
 ---
 engine: name-name
 title: "わかっているのに動けない"
-aspect_ratio: "9:16"
-dialog_style: "novel"
-font_family: "Hina Mincho, serif"
-font_size: 26
-protagonist: "せお"
-character_y_ratio: 1.10
-character_fade_ms: 700
-character_scale: 0.5
-skip_enabled: false
 ---
 
 ## dekaris-wakattete: わかってても / 住人: デカリス（能力:懐疑）

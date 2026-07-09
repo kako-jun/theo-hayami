@@ -1,15 +1,6 @@
 ---
 engine: name-name
 title: "どうしても手放せない"
-aspect_ratio: "9:16"
-dialog_style: "novel"
-font_family: "Hina Mincho, serif"
-font_size: 26
-protagonist: "せお"
-character_y_ratio: 1.10
-character_fade_ms: 700
-character_scale: 0.5
-skip_enabled: false
 ---
 
 ## dekaris-shuuchaku: 執着 / 住人: デカリス（能力:懐疑）

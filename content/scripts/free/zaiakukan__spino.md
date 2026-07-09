@@ -1,15 +1,6 @@
 ---
 engine: name-name
 title: "自分を責めてしまう"
-aspect_ratio: "9:16"
-dialog_style: "novel"
-font_family: "Hina Mincho, serif"
-font_size: 26
-protagonist: "せお"
-character_y_ratio: 1.10
-character_fade_ms: 700
-character_scale: 0.5
-skip_enabled: false
 ---
 
 ## spino-zaiakukan: 罪悪感 / 住人: スピノ（能力:汎神）
