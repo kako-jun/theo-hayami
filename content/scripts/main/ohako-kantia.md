@@ -6,9 +6,9 @@ title: "アバター 〜カンティアの問い〜"
 ## ohako-kantia: アバター / 住人: カンティア（能力:認識）
 
 [背景: shadow-library/celestial-observatory.webp]
-[待機: 700]
+[待機: 表示完了]
 [登場: せお (theo/akarame, 左)]
-[待機: 700]
+[待機: 表示完了]
 
 **ヴィンチア** (vincia/observe, 右):
 せお、ひとつ聞かせてくれ。きみは今、絵の自分で人と喋っている。あれは--嘘の自分だと思うかい？
