@@ -18,3 +18,10 @@
 - 透過処理: ロゴ2点は紺背景がほぼフラット（(1,6,20)近辺）なので色距離ベースの chroma key（`low=18, high=55` の feather）で抜いた。**高解像度（3000px）のまま透過してから縮小**（縮小してからの透過はエッジがギザつく）。アイコンは背景ごと使うので透過なし。
 - 配信: `images/logo/theo-logo.webp`（1200×472・85KB）/ `images/logo/theo-logo-en.webp`（1200×337・65KB）。`cwebp -q 85 -alpha_q 100 -m 6`（立ち絵と同じ設定・透過エッジをロスレス保持）。アイコンは `assets/images/` を経由せず `public/favicon*.png` / `public/apple-touch-icon.png` を直接生成。
 - 配線: JA ロゴ→ホーム(`index.astro`)ヒーロー画像。EN ロゴ→未配線（資産化のみ）。アイコン→favicon一式（`LibraryLayout.astro`）。
+
+## 現状（nameplates・2026-07-12 キャラ名画像資産化・Issue #52）
+- マスター: `nameplates/ja/*.png` / `nameplates/en/*.png`。元画像は背景つき PNG のまま保持する。
+- 順番: `/Users/kako-jun/Downloads/text_ja` と `text_en` の更新時刻が古い順に、`theo`, `vincia`, `aristo`, `kantia`, `hegru`, `dekaris`, `spino`, `hue`, `makiya`, `ou` へ対応させた。
+- 透過処理: ロゴ同様、四隅から濃紺背景色を推定し、色距離ベースの chroma key（`low=18, high=55` の feather）で抜く。**高解像度のまま透過してから**外接矩形を測定する。
+- 正規化: 透過後の外接矩形を切り出し、コンテンツ高さを 420px、上下余白 40px、左右余白 56px に揃える。文字数が多い名前だけ小さく見えすぎないよう、キャンバス幅は名前ごとに可変とする。
+- 配信: `assets/images/nameplates/{ja,en}/*.webp`。`npm run build-nameplates` で再生成する。`npm run sync-assets` により `public/images/nameplates/` へ同期される。

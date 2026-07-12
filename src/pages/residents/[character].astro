@@ -45,7 +45,14 @@ const ohako = findOhako(character);
       />
       <div class="th-resident-feature__copy th-glow">
         <p class="th-resident-feature__kicker">Resident File / {resident.slug}</p>
-        <h1>{resident.name}</h1>
+        <h1 class="sr-only">{resident.name}</h1>
+        <img
+          src={`/images/nameplates/ja/${resident.slug}.webp`}
+          alt=""
+          class="th-resident-feature__nameplate"
+          loading="eager"
+          aria-hidden="true"
+        />
         <p class="th-resident-feature__ability">能力：{resident.ability}（{resident.thought}）</p>
       </div>
     </header>
