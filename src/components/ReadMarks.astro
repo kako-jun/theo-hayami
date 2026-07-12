@@ -6,7 +6,7 @@
 // localStorage はクライアント専用なので必ず描画後（module script は defer で DOM 構築後に走る）に実行する。
 //
 // import で readStore.ts を使い、キー/形式の二重定義を避ける（唯一の正本＝readStore.ts）。
-// このコンポーネントは索引ページに1つ置けばよい（Astro が <script> を1回だけ束ねる）。
+// このコンポーネントは索引ページに1つ置けばよい（Astro が module script を1回だけ束ねる）。
 ---
 
 <script>

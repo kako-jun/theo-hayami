@@ -16,7 +16,7 @@ const canonical = new URL(Astro.url.pathname, SITE).href;
 // OGP/Twitter Card の画像＝耽美キービジュアル（本作の売り）。sync-assets.mjs が
 // assets/images/ を public/images/ へ複製するので配信URLは /images/...。
 // og:image は絶対URLが必須なので Astro.site を基準に絶対化する。
-const ogImage = new URL("/images/shadow-library/entrance-hall.webp", SITE).href;
+const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SITE).href;
 ---
 
 <!doctype html>

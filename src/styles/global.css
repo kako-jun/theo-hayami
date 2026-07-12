@@ -221,6 +221,19 @@ a {
   letter-spacing: 0.1em;
 }
 
+.th-resident-card.is-read {
+  border-color: rgba(230, 196, 126, 0.7);
+  box-shadow:
+    0 0 0 1px rgba(230, 196, 126, 0.18) inset,
+    0 0 18px rgba(230, 196, 126, 0.15);
+}
+.th-resident-card.is-read-all {
+  border-color: rgba(245, 224, 170, 0.85);
+  box-shadow:
+    0 0 0 1px rgba(245, 224, 170, 0.24) inset,
+    0 0 24px rgba(230, 196, 126, 0.2);
+}
+
 /* 真鍮の細線区切り。 */
 .th-hairline {
   border: none;
@@ -296,6 +309,220 @@ a {
   transform: none;
   object-fit: cover;
   object-position: center 12%;
+}
+
+/* ---------------------------------------------------------------------
+   Magazine / gravure style surfaces (Issue #35)
+   正式な文字画像が来るまでは、画像上の文字はCSSの明朝・細罫・ノンブルで組む。
+   --------------------------------------------------------------------- */
+.th-cover {
+  position: relative;
+  min-height: min(86svh, 780px);
+  overflow: hidden;
+  border-bottom: 1px solid rgba(230, 196, 126, 0.42);
+  background: var(--color-th-ink-deep);
+}
+.th-cover__image {
+  position: absolute;
+  inset: 0;
+}
+.th-cover__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.95) contrast(1.04);
+}
+.th-cover__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(10, 9, 16, 0.82) 0%, rgba(10, 9, 16, 0.48) 38%, rgba(10, 9, 16, 0.14) 100%),
+    linear-gradient(180deg, rgba(10, 9, 16, 0.12) 0%, rgba(10, 9, 16, 0.3) 70%, rgba(10, 9, 16, 0.82) 100%);
+}
+.th-cover__copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: min(92vw, 42rem);
+  min-height: min(86svh, 780px);
+  padding: 5rem 1.25rem 3.25rem;
+  margin-inline: auto;
+}
+.th-cover__issue,
+.th-cover__tagline,
+.th-resident-feature__kicker,
+.th-magazine-section__folio,
+.th-resident-card__kicker {
+  color: var(--color-th-gold-bright);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.th-cover__issue {
+  padding-left: 0.8rem;
+  border-left: 1px solid rgba(230, 196, 126, 0.7);
+}
+.th-cover__logo {
+  width: min(100%, 34rem);
+  height: auto;
+  margin-top: 1.2rem;
+}
+.th-cover__tagline {
+  margin-top: 0.35rem;
+  text-transform: none;
+}
+.th-cover__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+}
+.th-magazine-section {
+  position: relative;
+  padding: 2.2rem 0 2.4rem;
+  border-top: 1px solid rgba(184, 147, 79, 0.48);
+  border-bottom: 1px solid rgba(184, 147, 79, 0.28);
+}
+.th-magazine-section--compact {
+  padding-block: 1.5rem;
+}
+.th-magazine-section h2 {
+  max-width: 20ch;
+  color: var(--color-th-theo);
+  font-size: clamp(1.6rem, 6vw, 3.6rem);
+  line-height: 1.18;
+  letter-spacing: 0.04em;
+}
+.th-magazine-section p {
+  max-width: 44rem;
+  margin-top: 1rem;
+  color: var(--color-th-ivory);
+  font-size: 0.95rem;
+  line-height: 2.05;
+}
+.th-magazine-section__folio {
+  margin-top: 0;
+}
+
+.th-resident-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(184, 147, 79, 0.38);
+  background: rgba(10, 9, 16, 0.58);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+.th-resident-card:hover,
+.th-resident-card:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(230, 196, 126, 0.18) inset;
+  transform: translateY(-2px);
+}
+.th-resident-card__art {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-th-ink-deep);
+}
+.th-resident-card__art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 9, 16, 0.02) 0%, rgba(10, 9, 16, 0.12) 45%, rgba(10, 9, 16, 0.86) 100%),
+    linear-gradient(90deg, rgba(230, 196, 126, 0.12), transparent 28%, transparent 72%, rgba(230, 196, 126, 0.12));
+}
+.th-resident-card__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s ease;
+}
+.th-resident-card:hover .th-resident-card__art img,
+.th-resident-card:focus-visible .th-resident-card__art img {
+  transform: scale(1.035);
+}
+.th-resident-card__body {
+  position: relative;
+  min-height: 10rem;
+  padding: 1.15rem 1rem 1.25rem;
+  text-align: left;
+}
+.th-resident-card__portrait {
+  position: absolute;
+  right: 0.85rem;
+  top: -2.4rem;
+  width: 4.8rem;
+  border: 1px solid rgba(230, 196, 126, 0.58);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.42);
+}
+.th-resident-card__name {
+  margin-top: 0.34rem;
+  color: var(--color-th-theo);
+  font-size: 1.38rem;
+  letter-spacing: 0.04em;
+}
+.th-resident-card__meta,
+.th-resident-card__count {
+  color: var(--color-th-ivory-dim);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+.th-resident-card__count {
+  margin-top: 0.55rem;
+  color: var(--color-th-gold-bright);
+}
+
+.th-resident-feature {
+  position: relative;
+  overflow: hidden;
+  min-height: clamp(22rem, 58vw, 34rem);
+  border: 1px solid rgba(184, 147, 79, 0.45);
+  background: var(--color-th-ink-deep);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
+}
+.th-resident-feature img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.96) contrast(1.04);
+}
+.th-resident-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(10, 9, 16, 0.06) 0%, rgba(10, 9, 16, 0.15) 48%, rgba(10, 9, 16, 0.86) 100%),
+    linear-gradient(90deg, rgba(10, 9, 16, 0.5) 0%, transparent 54%, rgba(10, 9, 16, 0.18) 100%);
+}
+.th-resident-feature__copy {
+  position: absolute;
+  left: clamp(1rem, 4vw, 2.5rem);
+  right: clamp(1rem, 4vw, 2.5rem);
+  bottom: clamp(1.1rem, 4vw, 2.4rem);
+  z-index: 1;
+}
+.th-resident-feature h1 {
+  margin-top: 0.35rem;
+  color: var(--color-th-theo);
+  font-size: clamp(2.4rem, 12vw, 5.4rem);
+  line-height: 1;
+}
+.th-resident-feature__ability {
+  margin-top: 0.5rem;
+  color: var(--color-th-ivory);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
 }
 
 .th-grid {

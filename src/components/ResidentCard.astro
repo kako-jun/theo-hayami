@@ -19,19 +19,31 @@ const { resident, themeCount, readGroup } = Astro.props;
 <div class="contents">
   <a
     href={`/residents/${resident.slug}`}
-    class="th-door group block no-underline"
+    class="th-resident-card group block no-underline"
     data-read-group={readGroup.join(",")}
   >
-    {/* 顔アップカードは LoRA 学習用のバストアップ絵（assets/images/<char>/bust.webp）を使う
-        （全身立ち絵の兼用ではない・Issue #20「顔アップカード＝LoRA 元の顔アップ」）。 */}
-    <div class="th-face-crop th-face-crop--bust mb-3">
-      <img src={`/images/${resident.slug}/bust.webp`} alt={`${resident.name}`} loading="lazy" />
+    <div class="th-resident-card__art">
+      <img
+        src={`/images/promotional/residents/${resident.slug}-feature.webp`}
+        alt=""
+        loading="lazy"
+        width="1672"
+        height="941"
+      />
     </div>
-    <p class="text-lg" style="color: var(--color-th-gold-bright);">{resident.name}</p>
-    <p class="text-xs mt-1" style="color: var(--color-th-ivory-dim);">能力：{resident.ability}（{resident.thought}）</p>
-    <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">{themeCount}の業に答える</p>
-    {/* 既読数の蔵書票（Issue #30）。既読0なら hidden のまま。クライアントで ReadMarks が埋める。 */}
-    <p class="th-read-badge text-xs mt-2" data-read-count hidden></p>
+    <div class="th-resident-card__body">
+      {/* 顔アップカードは LoRA 学習用のバストアップ絵（assets/images/<char>/bust.webp）を使う
+          （全身立ち絵の兼用ではない・Issue #20「顔アップカード＝LoRA 元の顔アップ」）。 */}
+      <div class="th-resident-card__portrait th-face-crop th-face-crop--bust">
+        <img src={`/images/${resident.slug}/bust.webp`} alt="" loading="lazy" />
+      </div>
+      <p class="th-resident-card__kicker">Resident File</p>
+      <p class="th-resident-card__name">{resident.name}</p>
+      <p class="th-resident-card__meta">能力：{resident.ability}（{resident.thought}）</p>
+      <p class="th-resident-card__count">{themeCount}の業に答える</p>
+      {/* 既読数の蔵書票（Issue #30）。既読0なら hidden のまま。クライアントで ReadMarks が埋める。 */}
+      <p class="th-read-badge text-xs mt-2" data-read-count hidden></p>
+    </div>
   </a>
   {/* 将来: 参戦ムービー導線のスロット（studio-yokonami・Issue #21で後回し）。<a> の外側＝兄弟に置く。 */}
   <div data-slot="entrance-movie" hidden></div>

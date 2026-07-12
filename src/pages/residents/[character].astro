@@ -35,19 +35,25 @@ const ohako = findOhako(character);
       trail={[{ label: "影の図書館", href: "/" }, { label: "業から引く", href: "/anthology" }, { label: resident.name }]}
     />
 
-    <header class="th-panel p-6 sm:p-8 my-8 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-      <div class="th-face-crop th-face-crop--bust w-32 shrink-0" style="border: 1px solid rgba(184,147,79,0.45);">
-        <img src={`/images/${resident.slug}/bust.webp`} alt={`${resident.name}`} />
-      </div>
-      <div>
-        <h1 class="text-2xl" style="color: var(--color-th-theo);">{resident.name}</h1>
-        <p class="text-sm mt-1" style="color: var(--color-th-gold-bright);">
-          能力：{resident.ability}（{resident.thought}）
-        </p>
-        <p class="leading-loose text-sm mt-3" style="color: var(--color-th-ivory);">{resident.blurb}</p>
-        <p class="text-xs mt-3" style="color: var(--color-th-ivory-dim);">由来：{resident.origin}</p>
+    <header class="th-resident-feature my-8">
+      <img
+        src={`/images/promotional/residents/${resident.slug}-feature.webp`}
+        alt=""
+        width="1672"
+        height="941"
+        loading="eager"
+      />
+      <div class="th-resident-feature__copy th-glow">
+        <p class="th-resident-feature__kicker">Resident File / {resident.slug}</p>
+        <h1>{resident.name}</h1>
+        <p class="th-resident-feature__ability">能力：{resident.ability}（{resident.thought}）</p>
       </div>
     </header>
+
+    <section class="th-magazine-section th-magazine-section--compact mb-10">
+      <p class="th-magazine-section__folio">{resident.origin}</p>
+      <p>{resident.blurb}</p>
+    </section>
 
     {
       ohako && (

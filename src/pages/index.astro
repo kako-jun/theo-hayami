@@ -5,51 +5,51 @@ import LibraryLayout from "../layouts/LibraryLayout.astro";
 <LibraryLayout
   title="せおはやみ ── 影の図書館"
   description="盲目の主人公せおはやみが「影の図書館」で、思想が人格化した住人たちに、人の業を自由に聞く哲学アンソロジー。駅間で読める短い会話劇。"
-  bgImage="shadow-library/entrance-hall.webp"
+  bgImage="promotional/cast/shadow-library-cast.webp"
 >
-  <div class="max-w-3xl mx-auto px-4 pt-16 pb-10 sm:pt-24">
-    <header class="text-center mb-12 th-glow">
+  <section class="th-cover">
+    <div class="th-cover__image" aria-hidden="true">
+      <img
+        src="/images/promotional/cast/shadow-library-cast.webp"
+        alt=""
+        width="1672"
+        height="941"
+        loading="eager"
+      />
+    </div>
+    <div class="th-cover__copy th-glow">
+      <p class="th-cover__issue">Shadow Library / First Edition</p>
       <h1 class="sr-only">せおはやみ</h1>
       <img
         src="/images/logo/theo-logo.webp"
         alt=""
-        class="mx-auto w-full max-w-md sm:max-w-lg h-auto"
+        class="th-cover__logo"
         width="1200"
         height="472"
         loading="eager"
       />
-      <p class="mt-3 text-sm sm:text-base tracking-widest" style="color: var(--color-th-gold-bright);">
-        影の図書館 ── 人の業を、時を超えた知性に聞く
-      </p>
-    </header>
+      <p class="th-cover__tagline">影の図書館 ── 人の業を、時を超えた知性に聞く</p>
+      <nav class="th-cover__nav" aria-label="扉">
+        <a href="/anthology" class="th-link-button no-underline">住人を選ぶ</a>
+        <a href="/story" class="th-link-button no-underline">物語を辿る</a>
+      </nav>
+    </div>
+  </section>
 
-    <section class="th-panel p-6 sm:p-8 mb-10">
-      <p class="leading-loose text-sm sm:text-base" style="color: var(--color-th-ivory);">
-        駅と駅のあいだで読める、小さな会話劇です。長編ゲームではありません。<br />
+  <div class="max-w-4xl mx-auto px-4 pb-14">
+    <section class="th-magazine-section">
+      <p class="th-magazine-section__folio">001 / Reading Guide</p>
+      <h2>一駅ぶんの問いを、ひとり選ぶ。</h2>
+      <p>
+        駅と駅のあいだで読める、小さな会話劇です。長編ゲームではありません。
         「消えるのが怖い」「人がうらやましい」「損得で動いてしまう」――誰もが抱える業を、
-        思想が人格化した住人たちに、好きな組み合わせで尋ねてください。ひとつの問答は数分、
-        ちょうど一駅ぶんの長さです。
+        思想が人格化した住人たちに、好きな組み合わせで尋ねてください。
       </p>
-    </section>
-
-    <nav class="grid gap-5 sm:grid-cols-2 mb-12" aria-label="扉">
-      <a href="/story" class="th-door no-underline">
-        <p class="text-lg" style="color: var(--color-th-ivory);">物語を辿る</p>
-        <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">本編（四幕）</p>
-      </a>
-      <a href="/anthology" class="th-door no-underline">
-        <p class="text-lg" style="color: var(--color-th-ivory);">業から引く</p>
-        <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">アンソロジー（住人・業から選ぶ）</p>
-      </a>
-    </nav>
-
-    <section class="th-panel p-6 sm:p-8">
-      <h2 class="text-base mb-3" style="color: var(--color-th-gold-bright);">読み方</h2>
-      <p class="leading-loose text-sm" style="color: var(--color-th-ivory-dim);">
-        「業から引く」で住人か業を選ぶと、その場で会話劇（name-name プレイヤー）が立ち上がります。
-        一本読み終えたら、「別の住人に聞く」「業一覧へ」からまた自由に選び直せます。
-        どこから読んでも、どの順で読んでも構いません。
+      <p>
+        「住人を選ぶ」で顔を見て入るか、「業（テーマ）から選ぶ」で悩みから入るか。
+        一本読み終えたら、また別の住人へ移れます。どこから読んでも、どの順で読んでも構いません。
       </p>
+      <a href="/themes" class="th-breadcrumb inline-block mt-5">業（テーマ）から選ぶ ──こちら</a>
     </section>
   </div>
 </LibraryLayout>

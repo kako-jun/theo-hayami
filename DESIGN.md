@@ -27,6 +27,10 @@ shapes:
 components:
   th-panel: 半透明ガラス板＋真鍮の細線（汎用UIのカード/モーダルの代わり）
   th-door: 押せる面（扉・カード）。ホバー/フォーカスで金の線が灯る
+  th-cover: トップ表紙。集合キービジュアルを全幅で使い、CSSの明朝組版と細罫で誌面風に重ねる
+  th-resident-card: 住人選択カード専用。販促絵を枠までブリードさせ、ボタンよりグラビア誌面に寄せる
+  th-resident-feature: 住人詳細の大判キービジュアル。正式文字画像まではCSS文字組みだけを重ねる
+  th-magazine-section: 本文の誌面風セクション。ノンブル/細罫/明朝見出し
   th-door.is-read: 読了セル。暗くせず温かい金の灯り＋右上に金の蔵書印「読了」
   th-door.is-read-all: 束ねる全セル完読で金の灯りを強める
   th-hairline: 真鍮の細線区切り
@@ -55,6 +59,7 @@ theo-hayami の見た目の一言は **「影の図書館」**。Webページに
 ## Typography
 
 - 見出しも本文も **Hina Mincho（明朝）で統一**する。**汎用サンセリフに逃げない**（文学トーンの核）。見出しは `letter-spacing: 0.04em`。
+- 正式なキャラ名タイポグラフィ画像が未配置の箇所では、仮の画像を作らず CSS 文字組みで留める。
 
 ## Layout
 
@@ -80,6 +85,7 @@ theo-hayami の見た目の一言は **「影の図書館」**。Webページに
 - **th-breadcrumb / th-glow**: パネル外で生成絵に直接乗る文字は `text-shadow` で可読性を担保する。
 - **th-reader**: name-name 埋め込みの 9:16 ステージ＋開始 CTA（金の漢字ラベル）。
 - **th-face-crop / --bust**: 立ち絵/LoRAバストアップの顔アップカード（正方形トリミング）。
+- **th-cover / th-resident-card / th-resident-feature / th-magazine-section**: Issue #35 の雑誌グラビア寄り意匠。`assets/images/promotional/` の集合絵・キャラ別ワイド絵を主役にし、正式な文字画像が来るまでは CSS の Hina Mincho、細罫、ノンブル風ラベルだけで誌面感を出す。文字画像を勝手に生成・代用しない。
 
 ## Do's and Don'ts
 
