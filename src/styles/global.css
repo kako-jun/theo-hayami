@@ -782,8 +782,8 @@ a {
   min-height: 7.2rem;
   overflow: hidden;
   padding: 1.05rem 1.05rem;
-  border-color: rgba(184, 147, 79, 0.3);
-  background: rgba(14, 13, 20, 0.58);
+  border-color: rgba(12, 10, 16, 0.42);
+  background: #f6f1e7;
   color: var(--color-th-ivory);
   text-align: left;
   backdrop-filter: none;
@@ -802,27 +802,27 @@ a {
 }
 .th-theme-resident-choice::before {
   z-index: 0;
-  margin-left: 43%;
-  background: linear-gradient(90deg, rgba(246, 241, 231, 0) 0%, rgba(246, 241, 231, 0.72) 22%, rgba(246, 241, 231, 0.98) 100%);
+  background:
+    linear-gradient(90deg, rgba(246, 241, 231, 0.36) 0%, rgba(246, 241, 231, 0.72) 54%, rgba(246, 241, 231, 0.98) 100%);
 }
 .th-theme-resident-choice::after {
   z-index: 2;
   background:
-    linear-gradient(90deg, rgba(11, 10, 16, 0.96) 0%, rgba(11, 10, 16, 0.86) 38%, rgba(11, 10, 16, 0.56) 68%, rgba(11, 10, 16, 0.18) 91%, rgba(11, 10, 16, 0.04) 100%),
-    linear-gradient(0deg, rgba(184, 147, 79, 0.08), rgba(255, 255, 255, 0));
+    linear-gradient(90deg, rgba(11, 10, 16, 0.96) 0%, rgba(11, 10, 16, 0.9) 34%, rgba(11, 10, 16, 0.68) 55%, rgba(11, 10, 16, 0.28) 76%, rgba(11, 10, 16, 0) 100%),
+    linear-gradient(0deg, rgba(184, 147, 79, 0.1), rgba(255, 255, 255, 0));
 }
 .th-theme-resident-choice:hover,
 .th-theme-resident-choice:focus-visible {
-  border-color: rgba(230, 196, 126, 0.46);
-  background: rgba(17, 16, 24, 0.66);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.34);
+  border-color: rgba(12, 10, 16, 0.52);
+  background: #fffaf0;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
 }
 .th-door.th-theme-resident-choice.is-read,
 .th-door.th-theme-resident-choice.is-read:hover,
 .th-door.th-theme-resident-choice.is-read:focus-visible {
-  border-color: rgba(230, 196, 126, 0.38);
-  background: rgba(17, 16, 24, 0.64);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.34);
+  border-color: rgba(12, 10, 16, 0.48);
+  background: #fff7e8;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
 }
 .th-theme-resident-choice[data-resident="aristo"] {
   --choice-image-right: -4.2rem;
