@@ -192,12 +192,16 @@ a {
     0 0 16px rgba(230, 196, 126, 0.18),
     0 14px 30px rgba(0, 0, 0, 0.4);
 }
-/* 金の押印（蔵書印）。金地に濃墨＝押された勲章のように読了を祝う。 */
-.th-door.is-read::after {
-  content: "読了";
+/* 金の押印（蔵書印）。金地に濃墨＝押された勲章のように読了を祝う。
+   角丸にせず、右上端をボタンの辺に密着させる（タブのように角へ貼り付く形）。
+   ::after ではなく ReadMarks.astro が挿す実要素にスタイルする：.th-theme-resident-choice
+   は演出用の ::before/::after を自前で使っており、同じ疑似要素を奪い合うと詳細度の高い
+   方が background 等を丸ごと上書きし、相手の演出ごと消してしまうため（実際に発生した破綻）。
+   実要素なら z-index だけ最前面に置けば、どの扉の内部演出とも衝突しない。 */
+.th-read-stamp {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  inset: 0 0 auto auto;
+  z-index: 5;
   padding: 0.14rem 0.42rem;
   font-size: 0.62rem;
   letter-spacing: 0.18em;
@@ -209,7 +213,6 @@ a {
     var(--color-th-gold) 100%
   );
   border: 1px solid rgba(245, 224, 170, 0.9);
-  border-radius: 2px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
   pointer-events: none;
 }
@@ -490,7 +493,6 @@ a {
   gap: 0.75rem;
   margin-top: 0.85rem;
   padding-left: 1rem;
-  border-left: 1px solid rgba(230, 196, 126, 0.38);
 }
 .th-path-tree__label {
   display: block;

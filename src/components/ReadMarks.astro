@@ -15,9 +15,16 @@
   function applyReadMarks() {
     const readSet = getReadSet();
 
-    // 個別セル: 既読なら .is-read（読了印）。
+    // 個別セル: 既読なら .is-read（読了印）。印は実DOM要素で挿す（::after だと
+    // .th-theme-resident-choice など独自の ::before/::after 演出を使う扉と衝突し、
+    // 詳細度の高い方が background 等を丸ごと上書きしてしまうため）。
     for (const el of document.querySelectorAll<HTMLElement>("[data-slug]")) {
-      if (readSet.has(el.dataset.slug ?? "")) el.classList.add("is-read");
+      if (!readSet.has(el.dataset.slug ?? "")) continue;
+      el.classList.add("is-read");
+      const stamp = document.createElement("span");
+      stamp.className = "th-read-stamp";
+      stamp.textContent = "読了";
+      el.appendChild(stamp);
     }
 
     // 集計カード: そのカードが束ねる読むページ群のうち何本読み終えたかを出す。
