@@ -283,14 +283,14 @@ a {
   width: min(100%, 22rem);
   margin: 0 auto 0.35rem;
 }
-/* QR自体は読み取り用の白地込みの画像なので、蔵書票らしい細い金枠だけ添える。 */
+/* 画像は透過・白モジュールのみなので、背景色と蔵書票らしい細い金枠はCSS側が持つ。 */
 .th-footer__qr {
   display: block;
   width: 120px;
   height: 120px;
   border: 1px solid rgba(184, 147, 79, 0.5);
   padding: 4px;
-  background: var(--color-th-ivory);
+  background: var(--color-th-ink);
 }
 .th-footer__author {
   display: flex;
