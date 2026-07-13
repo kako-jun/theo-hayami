@@ -346,15 +346,17 @@ a {
 }
 @media (max-width: 639px) {
   .th-cover--home .th-cover__image img {
-    object-position: 56% center;
+    width: auto;
+    min-width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: contain;
+    object-position: left center;
   }
 }
 @media (max-width: 639px) and (prefers-reduced-motion: no-preference) {
   .th-cover--home .th-cover__image img {
-    width: 138%;
-    max-width: none;
-    object-position: center;
-    animation: th-cover-mobile-pan 46s ease-in-out infinite alternate;
+    animation: th-cover-mobile-pan 26s linear infinite alternate;
     will-change: transform;
   }
 }
@@ -363,7 +365,7 @@ a {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-27.5%);
+    transform: translateX(calc(100vw - 100%));
   }
 }
 .th-cover__image::after {
