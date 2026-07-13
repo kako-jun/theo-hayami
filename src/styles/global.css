@@ -197,7 +197,8 @@ a {
    ::after ではなく ReadMarks.astro が挿す実要素にスタイルする：.th-theme-resident-choice
    は演出用の ::before/::after を自前で使っており、同じ疑似要素を奪い合うと詳細度の高い
    方が background 等を丸ごと上書きし、相手の演出ごと消してしまうため（実際に発生した破綻）。
-   実要素なら z-index だけ最前面に置けば、どの扉の内部演出とも衝突しない。 */
+   実要素なら z-index だけ最前面に置けば、どの扉の内部演出とも衝突しない。すべての扉で
+   このバッジ1種類だけを使う（扉ごとに縁取りの有無を変えない）。 */
 .th-read-stamp {
   position: absolute;
   inset: 0 0 auto auto;
@@ -784,7 +785,11 @@ a {
   min-height: 7.2rem;
   overflow: hidden;
   padding: 1.05rem 1.05rem;
-  border-color: rgba(12, 10, 16, 0.42);
+  /* この扉自身の地は生成り(#f6f1e7)なので、他の扉と同じ半透明の金（rgba+アルファ）を
+     border-color に使うと自分の明るい地に溶けて霞む。背景に依存しない不透明色を直接
+     指定する（rgba(184,147,79,.5) を暗い地に重ねた結果 ≒ rgb(101,82,53)）。border 自体は
+     .th-door と同じ仕組みのまま（幅・位置とも変更しない）＝読了印の重なり方も他の扉と揃う。 */
+  border-color: rgb(101, 82, 53);
   background: #f6f1e7;
   color: var(--color-th-ivory);
   text-align: left;
@@ -815,15 +820,22 @@ a {
 }
 .th-theme-resident-choice:hover,
 .th-theme-resident-choice:focus-visible {
-  border-color: rgba(12, 10, 16, 0.52);
+  border-color: var(--color-th-gold-bright);
   background: #fffaf0;
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
 }
-.th-door.th-theme-resident-choice.is-read,
+/* 既読は .th-door.is-read と同じ意匠語彙（金を明るくする）で達成を示す。不透明色の
+   考え方は通常時と同じ（rgba(230,196,126,.75) を暗い地に重ねた結果 ≒ rgb(177,151,101)）。
+   ホバー/フォーカスは通常時と同じ最明色に揃える（.th-door.is-read の構造と対応）。 */
+.th-door.th-theme-resident-choice.is-read {
+  border-color: rgb(177, 151, 101);
+  background: #fff7e8;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+}
 .th-door.th-theme-resident-choice.is-read:hover,
 .th-door.th-theme-resident-choice.is-read:focus-visible {
-  border-color: rgba(12, 10, 16, 0.48);
-  background: #fff7e8;
+  border-color: var(--color-th-gold-bright);
+  background: #fffaf0;
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
 }
 .th-theme-resident-choice[data-resident="aristo"] {
