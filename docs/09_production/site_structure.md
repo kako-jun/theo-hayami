@@ -123,6 +123,16 @@ name-name は終劇（endStory）到達時、**埋め込み時のみ**親へ pos
 
 `LibraryLayout.astro` が `og:image` に `promotional/cast/shadow-library-cast.webp` の絶対URL、`twitter:card: summary_large_image`（耽美キービジュアルが「本作の売り」＝delivery_platform.md）。
 
+## サイト共通フッタ（Issue #62）
+
+全ページ共通の下部情報は `src/components/SiteFooter.astro`（`LibraryLayout.astro` が全ページで使う）に集約する。既存のパンくず「叡智の星海 ── せおはやみ」の下に、真鍮の細線区切り（`.th-hairline`）を挟んで QR・作者導線・訪問カウンタ・版表示を並べる。書架の奥付のように控えめに（汎用UI chrome・ガラス板パネルは使わず、生成絵に直接乗せて `.th-glow` の text-shadow だけで可読性を担保する）。
+
+- **QR コード**: `assets/images/ui/qr-code.webp`（`https://theo-hayami.llll-ll.com/` を指す暫定画像。将来意匠に合わせて差し替え予定）を他の画像アセットと同じ `scripts/sync-assets.mjs` の仕組みで `/images/ui/qr-code.webp` として配信する。幅120px・`loading="lazy"`。白地込みの画像なのでそのまま可読、周囲に細い金枠（`.th-footer__qr`）だけ添える。
+- **訪問カウンタ**: `src/components/VisitorCounter.astro`。Nostalgic counter（`https://api.nostalgic.llll-ll.com`）の web component を使い、ID は `theo-hayami-0b7d9f8f`（visit・`type="total"`・`format="text"`）。`<nostalgic-counter>` を配置し、通常のバンドル `<script>`（`LibraryLayout.astro` 末尾のスクロールズームscriptと同じ作法・client島なし）で `https://nostalgic.llll-ll.com/components/visit.js` を動的ロードする。同一スクリプトが既にDOMにあれば再ロードしない（idempotent）。読み込み失敗は try/catch で握りつぶすだけで、`<nostalgic-counter>` が中身空のまま残る＝レイアウトは崩れない。
+- **版表示**: `vYYYY-MM-DD`（JST基準）。`package.json` の `"build"` スクリプトがシェルで `PUBLIC_BUILD_DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d)` を注入し、`SiteFooter.astro` の frontmatter が `process.env.PUBLIC_BUILD_DATE`（Node の実行時参照）をそのまま読む。`astro dev` では未設定のため `"dev"` にフォールバックする（`v dev` が出て壊れない）。
+  - `astro.config.mjs` の `vite.define`（`import.meta.env.PUBLIC_BUILD_DATE` や素のグローバル定数どちらも）は不採用。Astro の `output: "static"` プリレンダーが `astro.config.mjs` を `command` の値を変えながら複数回再評価するため、後の再評価が先の注入を上書きしてしまい実機で `vundefined`/`vdev` 化を確認した。`process.env` はシェルで一度設定すれば再評価に左右されないため、これで固定した。
+- **作者導線**: `https://llll-ll.com` へのリンク＋ `© kako-jun`。GitHub Sponsors 等の支援導線は含めない（作者サイトのみに絞る・kako-jun 合意済み）。
+
 ## 将来の余地（未実装・別Issue）
 
 - 参戦ムービー導線: `ResidentCard.astro` に `<div data-slot="entrance-movie" hidden>` を `<a>` の外（兄弟）に用意済み（`<a>` 入れ子の interactive trigger は不正HTMLになるため）。
