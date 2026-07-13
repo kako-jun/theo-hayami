@@ -82,6 +82,18 @@ export interface ThemeSummary {
   characters: string[];
 }
 
+export interface ThemeCategoryDefinition {
+  slug: string;
+  label: string;
+  description: string;
+  themeSlugs: readonly string[];
+}
+
+export interface ThemeCategorySummary {
+  category: ThemeCategoryDefinition;
+  themes: ThemeSummary[];
+}
+
 export interface CharacterSummary {
   slug: string;
   /** その住人が答えているお題スラッグ一覧。 */
@@ -101,6 +113,71 @@ export function loadThemes(): ThemeSummary[] {
     entry.characters.push(ep.character);
   }
   return sortByHubOrder([...byTheme.values()]);
+}
+
+// 業カテゴリの正本。初出は docs/09_production/combination_grid_drafts.md の
+// 「全テーマの口語タイトル」だが、サイト表示ではビルド時に安定して使える
+// 型付きデータとしてここに置く。業そのものの順序は loadThemes() のハブ順を保つ。
+export const THEME_CATEGORIES = [
+  {
+    slug: "desire",
+    label: "欲・むさぼり",
+    description: "ほしい、手放せない、よく見られたい。自分の内側から伸びる力。",
+    themeSlugs: ["moke", "netami", "gouman", "shihai", "shuuchaku", "izon", "namake", "mie"],
+  },
+  {
+    slug: "relations",
+    label: "対人",
+    description: "勝ちたい、信じたい、許せない。人とのあいだで生まれる揺れ。",
+    themeSlugs: ["ronpa", "uso", "kodoku", "ai", "fushin", "yurushi", "douchou", "kitai", "fukushuu"],
+  },
+  {
+    slug: "emotion",
+    label: "感情",
+    description: "怒り、不安、後悔。気持ちに振り回されるときの問い。",
+    themeSlugs: ["ikari", "fuan", "koukai", "taikutsu", "soushitsu", "zaiakukan", "aseri"],
+  },
+  {
+    slug: "existence",
+    label: "生きること",
+    description: "死、老い、意味、時間。生きることそのものに触れる問い。",
+    themeSlugs: ["shi", "oi", "imi", "jiyuu", "koufuku", "jikan", "henka"],
+  },
+  {
+    slug: "knowledge",
+    label: "認識・知",
+    description: "わかる、わからない、決められない。ものの見方を問う領域。",
+    themeSlugs: ["mujun", "wakattete", "gensou", "tadashisa", "mayoi", "atarimae", "wakeru"],
+  },
+] as const satisfies readonly ThemeCategoryDefinition[];
+
+const UNCATEGORIZED_THEME_CATEGORY = {
+  slug: "uncategorized",
+  label: "未分類",
+  description: "新しく追加され、まだカテゴリを決めていない業。",
+  themeSlugs: [],
+} as const satisfies ThemeCategoryDefinition;
+
+export function loadThemeCategories(): ThemeCategorySummary[] {
+  const themes = loadThemes();
+  const bySlug = new Map(themes.map((theme) => [theme.slug, theme]));
+  const used = new Set<string>();
+
+  const groups: ThemeCategorySummary[] = THEME_CATEGORIES.map((category) => {
+    const grouped = themes.filter((theme) => {
+      const belongs = (category.themeSlugs as readonly string[]).includes(theme.slug);
+      if (belongs) used.add(theme.slug);
+      return belongs;
+    });
+    return { category, themes: grouped };
+  }).filter((group) => group.themes.length > 0);
+
+  const uncategorized = themes.filter((theme) => bySlug.has(theme.slug) && !used.has(theme.slug));
+  if (uncategorized.length > 0) {
+    groups.push({ category: UNCATEGORIZED_THEME_CATEGORY, themes: uncategorized });
+  }
+
+  return groups;
 }
 
 /** 住人ごとにグルーピングした索引。 */

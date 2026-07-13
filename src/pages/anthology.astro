@@ -7,7 +7,6 @@ import { RESIDENTS } from "../data/residents";
 import { loadCharacterThemes } from "../lib/scripts";
 
 const characterThemes = loadCharacterThemes();
-const themeCounts = new Map(characterThemes.map((c) => [c.slug, c.themes.length]));
 // 住人ごとの読むページ slug 群（`業__住人`）。クライアント（ReadMarks）が既読数を集計する。
 const readGroups = new Map(characterThemes.map((c) => [c.slug, c.themes.map((t) => `${t}__${c.slug}`)]));
 ---
@@ -33,7 +32,6 @@ const readGroups = new Map(characterThemes.map((c) => [c.slug, c.themes.map((t) 
         RESIDENTS.map((resident) => (
           <ResidentCard
             resident={resident}
-            themeCount={themeCounts.get(resident.slug) ?? 0}
             readGroup={readGroups.get(resident.slug) ?? []}
           />
         ))

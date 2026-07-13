@@ -3,9 +3,9 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import ReadMarks from "../../components/ReadMarks.astro";
 import ThemeCard from "../../components/ThemeCard.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
-import { loadThemes } from "../../lib/scripts";
+import { loadThemeCategories } from "../../lib/scripts";
 
-const themes = loadThemes();
+const themeCategories = loadThemeCategories();
 ---
 
 <LibraryLayout
@@ -24,15 +24,27 @@ const themes = loadThemes();
       <a href="/anthology" class="th-breadcrumb inline-block mt-3"> 住人から選ぶ ──こちら </a>
     </header>
 
-    <div class="th-theme-grid">
+    <div class="th-theme-category-list">
       {
-        themes.map((theme) => (
-          <ThemeCard
-            slug={theme.slug}
-            title={theme.title}
-            characterCount={theme.characters.length}
-            readGroup={theme.characters.map((c) => `${theme.slug}__${c}`)}
-          />
+        themeCategories.map(({ category, themes }, index) => (
+          <section class="th-theme-category" aria-labelledby={`theme-category-${category.slug}`}>
+            <div class="th-theme-category__head">
+              <p class="th-magazine-section__folio">{`分類 ${String(index + 1).padStart(2, "0")}`}</p>
+              <h2 id={`theme-category-${category.slug}`}>{category.label}</h2>
+              <p>{category.description}</p>
+            </div>
+            <div class="th-theme-grid">
+              {
+                themes.map((theme) => (
+                  <ThemeCard
+                    slug={theme.slug}
+                    title={theme.title}
+                    readGroup={theme.characters.map((c) => `${theme.slug}__${c}`)}
+                  />
+                ))
+              }
+            </div>
+          </section>
         ))
       }
     </div>

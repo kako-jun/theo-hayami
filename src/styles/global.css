@@ -283,6 +283,12 @@ a {
   color: var(--color-th-gold-bright);
   background: rgba(24, 22, 34, 0.68);
 }
+.th-link-button--primary {
+  border-color: rgba(230, 196, 126, 0.82);
+  background: rgba(184, 147, 79, 0.18);
+  color: var(--color-th-theo);
+  box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.18) inset;
+}
 
 /* 顔アップカードの画像トリミング（顔アップ専用素材が来るまでの暫定処置）。
    立ち絵は全身分（縦長・頭は上端付近）。正方形枠の上に寄せてズームし、
@@ -416,6 +422,59 @@ a {
 }
 .th-magazine-section__folio {
   margin-top: 0;
+}
+
+.th-path-tree {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.6rem;
+}
+.th-path-tree__item,
+.th-path-tree__branch {
+  position: relative;
+  display: block;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(184, 147, 79, 0.42);
+  background: rgba(18, 17, 26, 0.5);
+  text-decoration: none;
+}
+.th-path-tree__item {
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.th-path-tree__item:hover,
+.th-path-tree__item:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  background: rgba(24, 22, 34, 0.68);
+  box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.18) inset;
+}
+.th-path-tree__item--main {
+  border-color: rgba(230, 196, 126, 0.75);
+}
+.th-path-tree__branch {
+  padding-top: 0.9rem;
+}
+.th-path-tree__children {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  padding-left: 1rem;
+  border-left: 1px solid rgba(230, 196, 126, 0.38);
+}
+.th-path-tree__label {
+  display: block;
+  color: var(--color-th-gold-bright);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+.th-path-tree__text {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--color-th-ivory);
+  font-size: 1rem;
+  letter-spacing: 0.04em;
 }
 
 .th-resident-card {
@@ -582,6 +641,30 @@ a {
   .th-theme-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+.th-theme-category-list {
+  display: grid;
+  gap: 2rem;
+}
+.th-theme-category {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(184, 147, 79, 0.38);
+}
+.th-theme-category__head {
+  margin-bottom: 1rem;
+}
+.th-theme-category__head h2 {
+  margin-top: 0.25rem;
+  color: var(--color-th-theo);
+  font-size: 1.35rem;
+}
+.th-theme-category__head p:not(.th-magazine-section__folio) {
+  max-width: 40rem;
+  margin-top: 0.45rem;
+  color: var(--color-th-ivory-dim);
+  font-size: 0.86rem;
+  line-height: 1.8;
 }
 
 /* 読むページ：name-name 埋め込みの器。9:16のノベル画面に合わせる（frontmatter aspect_ratio）。 */

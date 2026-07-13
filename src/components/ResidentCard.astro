@@ -3,12 +3,10 @@ import type { ResidentMeta } from "../data/residents";
 
 interface Props {
   resident: ResidentMeta;
-  /** その住人が答えている業の数（バッジ表示用）。 */
-  themeCount: number;
   /** この住人の全読むページ slug（`業__住人`）。既読数バッジ用（Issue #30・クライアントで集計）。 */
   readGroup: string[];
 }
-const { resident, themeCount, readGroup } = Astro.props;
+const { resident, readGroup } = Astro.props;
 ---
 
 {/*
@@ -40,9 +38,7 @@ const { resident, themeCount, readGroup } = Astro.props;
       <p class="th-resident-card__kicker">Resident File</p>
       <p class="th-resident-card__name">{resident.name}</p>
       <p class="th-resident-card__meta">叡智：{resident.ability}（{resident.thought}）</p>
-      <p class="th-resident-card__count">{themeCount}の業に答える</p>
-      {/* 既読数の蔵書票（Issue #30）。既読0なら hidden のまま。クライアントで ReadMarks が埋める。 */}
-      <p class="th-read-badge text-xs mt-2" data-read-count hidden></p>
+      <p class="th-read-badge text-xs mt-2" data-read-count>{`0/${readGroup.length} 読了`}</p>
     </div>
   </a>
   {/* 将来: 参戦ムービー導線のスロット（studio-yokonami・Issue #21で後回し）。<a> の外側＝兄弟に置く。 */}

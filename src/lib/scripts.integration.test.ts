@@ -10,7 +10,9 @@ import {
   loadEpisodes,
   loadHubOrder,
   loadOhako,
+  loadThemeCategories,
   loadThemes,
+  THEME_CATEGORIES,
   sortByHubOrder,
 } from "./scripts.ts";
 
@@ -108,6 +110,31 @@ describe("loadThemes: 業ごとのグルーピング＝カバレッジ地図", (
   it("業の総組み合わせ数はエピソード総数と一致（グルーピングで欠落・重複が起きない）", () => {
     const total = loadThemes().reduce((n, t) => n + t.characters.length, 0);
     expect(total).toBe(episodes.length);
+  });
+});
+
+describe("loadThemeCategories: 業カテゴリ", () => {
+  it("現行の全ての業が公開カテゴリへ分類される", () => {
+    const categorized = new Set<string>(
+      THEME_CATEGORIES.flatMap((category) => [...category.themeSlugs]),
+    );
+    const missing = loadThemes()
+      .map((theme) => theme.slug)
+      .filter((slug) => !categorized.has(slug));
+    expect(missing).toEqual([]);
+  });
+
+  it("カテゴリ内の業順はハブ順序を保つ", () => {
+    const hub = loadThemes().map((theme) => theme.slug);
+    for (const group of loadThemeCategories()) {
+      const indices = group.themes.map((theme) => hub.indexOf(theme.slug));
+      expect(indices).toEqual([...indices].sort((a, b) => a - b));
+    }
+  });
+
+  it("公開カテゴリ名は読者向けに難語を避ける", () => {
+    const labels = loadThemeCategories().map((group) => group.category.label);
+    expect(labels).toEqual(["欲・むさぼり", "対人", "感情", "生きること", "認識・知"]);
   });
 });
 

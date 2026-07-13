@@ -32,8 +32,8 @@ import LibraryLayout from "../layouts/LibraryLayout.astro";
       />
       <p class="th-cover__tagline">叡智の星海 ── 人の業を、時を超えた知性に聞く</p>
       <nav class="th-cover__nav" aria-label="扉">
-        <a href="/anthology" class="th-link-button no-underline">住人を選ぶ</a>
-        <a href="/story" class="th-link-button no-underline">物語を辿る</a>
+        <a href="/story" class="th-link-button th-link-button--primary no-underline">本編を読む</a>
+        <a href="/anthology" class="th-link-button no-underline">自由行動へ</a>
       </nav>
     </div>
   </section>
@@ -47,11 +47,25 @@ import LibraryLayout from "../layouts/LibraryLayout.astro";
         「消えるのが怖い」「人がうらやましい」「損得で動いてしまう」――誰もが抱える業を、
         思想が人格化した住人たちに、好きな組み合わせで尋ねてください。
       </p>
-      <p>
-        「住人を選ぶ」で顔を見て入るか、「業（テーマ）から選ぶ」で悩みから入るか。
-        一本読み終えたら、また別の住人へ移れます。どこから読んでも、どの順で読んでも構いません。
-      </p>
-      <a href="/themes" class="th-breadcrumb inline-block mt-5">業（テーマ）から選ぶ ──こちら</a>
+      <nav class="th-path-tree" aria-label="読み方">
+        <a href="/story" class="th-path-tree__item th-path-tree__item--main">
+          <span class="th-path-tree__label">本編</span>
+          <span class="th-path-tree__text">物語を辿る</span>
+        </a>
+        <div class="th-path-tree__branch" aria-label="自由行動">
+          <p class="th-path-tree__label">自由行動</p>
+          <div class="th-path-tree__children">
+            <a href="/anthology" class="th-path-tree__item">
+              <span class="th-path-tree__label">住人から</span>
+              <span class="th-path-tree__text">顔を見て選ぶ</span>
+            </a>
+            <a href="/themes" class="th-path-tree__item">
+              <span class="th-path-tree__label">業から</span>
+              <span class="th-path-tree__text">悩みから選ぶ</span>
+            </a>
+          </div>
+        </div>
+      </nav>
     </section>
   </div>
 </LibraryLayout>
