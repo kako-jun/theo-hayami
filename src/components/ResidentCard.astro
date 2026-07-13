@@ -35,7 +35,6 @@ const { resident, readGroup } = Astro.props;
       <div class="th-resident-card__portrait th-face-crop th-face-crop--bust">
         <img src={`/images/${resident.slug}/bust.webp`} alt="" loading="lazy" />
       </div>
-      <p class="th-resident-card__kicker">Resident File</p>
       <p class="th-resident-card__name">{resident.name}</p>
       <p class="th-resident-card__meta">叡智：{resident.ability}（{resident.thought}）</p>
       <p class="th-read-badge text-xs mt-2" data-read-count>{`0/${readGroup.length} 読了`}</p>
