@@ -1,8 +1,12 @@
 ---
 // Issue #62: Nostalgic counter（visit サービス）の web component を埋め込む訪問カウンタ。
 // ID は発行済み: theo-hayami-0b7d9f8f（https://api.nostalgic.llll-ll.com）。
-// 失敗してもレイアウトを壊さないことが受け入れ条件。web component の読み込みに失敗しても
-// <nostalgic-counter> は中身が空のまま静かに残るだけでよい（過剰なフォールバックUIは作らない）。
+// theo-hayami は output:"static" の MPA（クライアントルーターなし）で、このコンポーネントは
+// LibraryLayout.astro から1ページにつき1回しか描画されないため、hanoba
+// （src/components/SiteFooter.astro）と同じ素の is:inline スクリプトタグで足りる
+// （重複ロード防止ガードは構造的に発生しない事態への過剰実装だったため撤去）。
+// 読み込みに失敗しても <nostalgic-counter> は中身が空のまま静かに残るだけでレイアウトは壊れない
+// （未定義カスタム要素はブラウザの既定動作で空描画される）。
 const COUNTER_ID = "theo-hayami-0b7d9f8f";
 ---
 
@@ -11,20 +15,4 @@ const COUNTER_ID = "theo-hayami-0b7d9f8f";
   人が訪れた
 </span>
 
-<script>
-  // LibraryLayout.astro 末尾のスクロールズームscriptと同じ作法（通常の module <script>・client 島なし）。
-  // 同一スクリプトが既にDOMにあれば再ロードしない（idempotent）。
-  try {
-    if (!document.querySelector('script[src*="nostalgic"]')) {
-      const script = document.createElement("script");
-      script.src = "https://nostalgic.llll-ll.com/components/visit.js";
-      script.async = true;
-      document.head.appendChild(script);
-    }
-  } catch {
-    // 同期的なDOM操作の失敗に備える try/catch。<script src> の非同期読み込み失敗
-    // （404・ネットワーク断等）はここでは捕捉されないが、未定義カスタム要素は
-    // 中身空のまま描画されるだけなので <nostalgic-counter> が空で残りレイアウトは
-    // 崩れない（受け入れ条件）。
-  }
-</script>
+<script is:inline src="https://nostalgic.llll-ll.com/components/visit.js" defer></script>
