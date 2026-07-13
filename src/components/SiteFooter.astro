@@ -13,6 +13,7 @@ const buildDate = process.env.PUBLIC_BUILD_DATE ?? "dev";
 <footer class="w-full py-6 px-4 text-center th-glow">
   <p class="th-breadcrumb">
     <a href="/">叡智の星海</a> ── せおはやみ
+    <span class="th-breadcrumb__version">{`v${buildDate}`}</span>
   </p>
   <div class="th-footer">
     <img
@@ -29,6 +30,5 @@ const buildDate = process.env.PUBLIC_BUILD_DATE ?? "dev";
       <span>© kako-jun</span>
     </p>
     <VisitorCounter />
-    <p class="th-footer__version">{`v${buildDate}`}</p>
   </div>
 </footer>

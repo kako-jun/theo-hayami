@@ -266,6 +266,13 @@ a {
   color: var(--color-th-gold-bright);
   border-color: var(--color-th-gold-bright);
 }
+.th-breadcrumb__version {
+  margin-left: 0.6em;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--color-th-ivory-dim);
+  opacity: 0.7;
+}
 
 /* ---------------------------------------------------------------------
    サイト共通フッタ（Issue #62）── 書架の奥付のように、QR・作者導線・
@@ -312,12 +319,6 @@ a {
   letter-spacing: 0.04em;
   color: var(--color-th-ivory-dim);
   font-variant-numeric: tabular-nums;
-}
-.th-footer__version {
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  color: var(--color-th-ivory-dim);
-  opacity: 0.7;
 }
 
 /* 「読む」導線・戻り導線のボタン。 */
