@@ -267,6 +267,65 @@ a {
   border-color: var(--color-th-gold-bright);
 }
 
+/* ---------------------------------------------------------------------
+   サイト共通フッタ（Issue #62）── 書架の奥付のように、QR・作者導線・
+   訪問カウンタ・版表示を控えめに並べる。パンくずと同じく生成絵に直接
+   乗るため、囲みはガラス板にせず真鍮の細線区切りだけに留める。
+   --------------------------------------------------------------------- */
+.th-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1.25rem;
+}
+.th-footer__hairline {
+  width: min(100%, 22rem);
+  margin: 0 auto 0.35rem;
+}
+/* QR自体は読み取り用の白地込みの画像なので、蔵書票らしい細い金枠だけ添える。 */
+.th-footer__qr {
+  display: block;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(184, 147, 79, 0.5);
+  padding: 4px;
+  background: var(--color-th-ivory);
+}
+.th-footer__author {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--color-th-ivory-dim);
+}
+.th-footer__author a {
+  border-bottom: 1px solid rgba(184, 147, 79, 0.35);
+  padding-bottom: 1px;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+.th-footer__author a:hover {
+  color: var(--color-th-gold-bright);
+  border-color: var(--color-th-gold-bright);
+}
+.th-footer__visits {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--color-th-ivory-dim);
+  font-variant-numeric: tabular-nums;
+}
+.th-footer__version {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: var(--color-th-ivory-dim);
+  opacity: 0.7;
+}
+
 /* 「読む」導線・戻り導線のボタン。 */
 .th-link-button {
   display: inline-block;

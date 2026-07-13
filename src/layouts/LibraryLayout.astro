@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import SiteFooter from "../components/SiteFooter.astro";
 
 interface Props {
   title: string;
@@ -69,11 +70,7 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
       <main class="flex-1 w-full">
         <slot />
       </main>
-      <footer class="w-full py-6 px-4 text-center th-glow">
-        <p class="th-breadcrumb">
-          <a href="/">叡智の星海</a> ── せおはやみ
-        </p>
-      </footer>
+      <SiteFooter />
     </div>
 
     <script>
