@@ -10,7 +10,7 @@
     "build-nameplates": "node scripts/build-nameplates.mjs",
     "sync-assets": "node scripts/sync-assets.mjs",
     "dev": "npm run sync-assets && astro dev --host 127.0.0.1 --port 4321",
-    "build": "npm run sync-assets && astro build",
+    "build": "npm run sync-assets && PUBLIC_BUILD_DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d) astro build",
     "preview": "astro preview",
     "typecheck": "astro check",
     "test": "vitest run"
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@types/node": "^24.13.3",
     "sharp": "^0.34.5",
     "typescript": "^5.7.2",
     "vitest": "^3.2.6"

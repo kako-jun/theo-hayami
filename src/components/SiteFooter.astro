@@ -1,0 +1,36 @@
+---
+// Issue #62: サイト共通フッタ。LibraryLayout.astro から全ページで使う。
+// 既存のパンくず（「叡智の星海 ── せおはやみ」）はそのまま維持し、その下に
+// QR・作者導線・訪問カウンタ・版表示を「書架の奥付」のように控えめに並べる。
+// 汎用UI chrome（角丸カード・原色ボタン・水平ナビバー）は使わない（DESIGN.md）。
+import VisitorCounter from "./VisitorCounter.astro";
+import { formatVersion } from "../lib/version";
+
+// package.json の "build" スクリプトがシェルで process.env.PUBLIC_BUILD_DATE を設定する
+// （astro dev では未設定なので "dev" にフォールバック）。組み立てロジックは formatVersion
+// に抽出済み（src/lib/version.ts・vitest でテスト可能）。
+const buildDate = formatVersion(process.env.PUBLIC_BUILD_DATE);
+---
+
+<footer class="w-full py-6 px-4 text-center th-glow">
+  <p class="th-breadcrumb">
+    <a href="/">叡智の星海</a> ── せおはやみ
+    <span class="th-breadcrumb__version">{buildDate}</span>
+  </p>
+  <div class="th-footer">
+    <img
+      class="th-footer__qr"
+      src="/images/ui/qr-code.webp"
+      alt="このサイト（https://theo-hayami.llll-ll.com/）を開く QR コード"
+      width="120"
+      height="120"
+      loading="lazy"
+    />
+    <p class="th-footer__author">
+      <a href="https://llll-ll.com" target="_blank" rel="noopener noreferrer">llll-ll.com</a>
+      <span aria-hidden="true">──</span>
+      <span>© kako-jun</span>
+    </p>
+    <VisitorCounter />
+  </div>
+</footer>
