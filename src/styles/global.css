@@ -705,6 +705,106 @@ a {
   line-height: 1.8;
 }
 
+.th-theme-resident-choice {
+  position: relative;
+  min-height: 7.2rem;
+  overflow: hidden;
+  padding: 1.05rem 1.05rem;
+  border-color: rgba(184, 147, 79, 0.52);
+  background: #f6f1e7;
+  color: var(--color-th-ink);
+  text-align: left;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  isolation: isolate;
+  --choice-image-right: -2.3rem;
+  --choice-image-height: 145%;
+}
+.th-theme-resident-choice::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.th-theme-resident-choice::after {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(11, 10, 16, 0.92) 0%, rgba(11, 10, 16, 0.82) 34%, rgba(11, 10, 16, 0.42) 68%, rgba(11, 10, 16, 0.08) 92%, rgba(11, 10, 16, 0) 100%),
+    linear-gradient(0deg, rgba(184, 147, 79, 0.13), rgba(255, 255, 255, 0));
+}
+.th-theme-resident-choice:hover,
+.th-theme-resident-choice:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  background: #fffaf0;
+  box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.32), 0 14px 30px rgba(0, 0, 0, 0.36);
+}
+.th-theme-resident-choice[data-resident="aristo"] {
+  --choice-image-right: -4.2rem;
+}
+.th-theme-resident-choice[data-resident="kantia"] {
+  --choice-image-right: -1.15rem;
+}
+.th-theme-resident-choice[data-resident="hegru"] {
+  --choice-image-right: -3.2rem;
+}
+.th-theme-resident-choice[data-resident="dekaris"] {
+  --choice-image-right: -2.5rem;
+}
+.th-theme-resident-choice[data-resident="spino"] {
+  --choice-image-right: -2.8rem;
+}
+.th-theme-resident-choice[data-resident="hue"] {
+  --choice-image-right: -2.2rem;
+}
+.th-theme-resident-choice[data-resident="makiya"] {
+  --choice-image-right: -2.6rem;
+}
+.th-theme-resident-choice[data-resident="ou"] {
+  --choice-image-right: -2.7rem;
+}
+.th-theme-resident-choice__image {
+  position: absolute;
+  top: 50%;
+  right: var(--choice-image-right);
+  z-index: -2;
+  width: auto;
+  height: var(--choice-image-height);
+  max-width: none;
+  transform: translateY(-50%);
+  filter: saturate(0.96) contrast(0.98);
+}
+.th-theme-resident-choice__body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 4.8rem;
+  max-width: 52%;
+}
+.th-theme-resident-choice__name,
+.th-theme-resident-choice__meta {
+  display: block;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.86);
+}
+.th-theme-resident-choice__name {
+  color: var(--color-th-ivory);
+  font-size: 1rem;
+}
+.th-theme-resident-choice__meta {
+  margin-top: 0.35rem;
+  color: var(--color-th-ivory-dim);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+@media (max-width: 639px) {
+  .th-theme-resident-choice {
+    --choice-image-height: 138%;
+  }
+  .th-theme-resident-choice__body {
+    max-width: 56%;
+  }
+}
+
 /* 読むページ：name-name 埋め込みの器。9:16のノベル画面に合わせる（frontmatter aspect_ratio）。 */
 .th-reader {
   max-width: 30rem;

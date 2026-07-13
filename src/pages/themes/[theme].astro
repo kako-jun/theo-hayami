@@ -46,12 +46,19 @@ const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug));
             <a
               href={`/free/${theme.slug}__${resident.slug}`}
               data-slug={`${theme.slug}__${resident.slug}`}
-              class="th-door block no-underline"
+              data-resident={resident.slug}
+              class="th-door th-theme-resident-choice block no-underline"
             >
-              <p style="color: var(--color-th-ivory);">{resident.name}に聞く</p>
-              <p class="text-xs mt-1" style="color: var(--color-th-ivory-dim);">
-                叡智：{resident.ability}（{resident.thought}）
-              </p>
+              <img
+                class="th-theme-resident-choice__image"
+                src={`/images/theme-residents/${resident.slug}.webp`}
+                alt=""
+                loading="lazy"
+              />
+              <span class="th-theme-resident-choice__body">
+                <span class="th-theme-resident-choice__name">{resident.name}に聞く</span>
+                <span class="th-theme-resident-choice__meta">叡智：{resident.ability}（{resident.thought}）</span>
+              </span>
             </a>
           </li>
         ))
