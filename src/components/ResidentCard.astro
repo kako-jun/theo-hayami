@@ -39,7 +39,7 @@ const { resident, themeCount, readGroup } = Astro.props;
       </div>
       <p class="th-resident-card__kicker">Resident File</p>
       <p class="th-resident-card__name">{resident.name}</p>
-      <p class="th-resident-card__meta">能力：{resident.ability}（{resident.thought}）</p>
+      <p class="th-resident-card__meta">叡智：{resident.ability}（{resident.thought}）</p>
       <p class="th-resident-card__count">{themeCount}の業に答える</p>
       {/* 既読数の蔵書票（Issue #30）。既読0なら hidden のまま。クライアントで ReadMarks が埋める。 */}
       <p class="th-read-badge text-xs mt-2" data-read-count hidden></p>

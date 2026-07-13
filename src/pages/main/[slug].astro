@@ -29,13 +29,13 @@ const bgImage = entry.background ?? "shadow-library/grand-reading-room-v.webp";
 
 <LibraryLayout
   title={`${entry.title} ── ${resident.name} ── せおはやみ`}
-  description={`${resident.name}（能力：${resident.ability}）が、せおと初めて交わした問答。`}
+  description={`${resident.name}（叡智：${resident.ability}）が、せおと初めて交わした問答。`}
   bgImage={bgImage}
 >
   <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
     <Breadcrumb
       trail={[
-        { label: "影の図書館", href: "/" },
+        { label: "叡智の星海", href: "/" },
         { label: "業から引く", href: "/anthology" },
         { label: resident.name, href: `/residents/${resident.slug}` },
         { label: "はじめての問答" },
@@ -46,7 +46,7 @@ const bgImage = entry.background ?? "shadow-library/grand-reading-room-v.webp";
       <p class="text-sm" style="color: var(--color-th-gold-bright);">はじめての問答（おはこ）</p>
       <h1 class="mt-2 text-xl sm:text-2xl" style="color: var(--color-th-theo);">{entry.title}</h1>
       <p class="mt-2 text-sm" style="color: var(--color-th-gold-bright);">
-        {resident.name}（能力：{resident.ability}）
+        {resident.name}（叡智：{resident.ability}）
       </p>
     </header>
 

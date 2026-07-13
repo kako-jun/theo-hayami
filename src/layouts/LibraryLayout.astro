@@ -6,9 +6,13 @@ interface Props {
   description: string;
   /** /images/ 以下の相対パス（例: "shadow-library/entrance-hall.webp"）。 */
   bgImage: string;
+  /** 全画面背景の焦点位置。CSS object-position 形式。 */
+  bgPosition?: string;
+  /** モバイル幅だけの全画面背景焦点位置。 */
+  bgPositionMobile?: string;
 }
 
-const { title, description, bgImage } = Astro.props;
+const { title, description, bgImage, bgPosition = "center", bgPositionMobile } = Astro.props;
 
 const SITE = Astro.site ?? new URL("https://theo-hayami.llll-ll.com");
 const canonical = new URL(Astro.url.pathname, SITE).href;
@@ -49,7 +53,11 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
     <title>{title}</title>
   </head>
   <body class="min-h-screen antialiased">
-    <div class="th-backdrop" aria-hidden="true">
+    <div
+      class="th-backdrop"
+      aria-hidden="true"
+      style={`--th-backdrop-position: ${bgPosition}; ${bgPositionMobile ? `--th-backdrop-position-mobile: ${bgPositionMobile};` : ""}`}
+    >
       <img class="th-backdrop__base" src={`/images/${bgImage}`} alt="" loading="eager" />
       {/* #20: ゲーム用素材の引き伸ばしで出るアップスケールの粗さを、同じ絵のぼかしコピーを
           overlay 合成で軽く重ねて目立たなくする（name-name #316 の「平坦領域に階調＝高見え」を
@@ -63,7 +71,7 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
       </main>
       <footer class="w-full py-6 px-4 text-center th-glow">
         <p class="th-breadcrumb">
-          <a href="/">影の図書館</a> ── せおはやみ
+          <a href="/">叡智の星海</a> ── せおはやみ
         </p>
       </footer>
     </div>
@@ -84,22 +92,36 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
       if (backdrop && !prefersReducedMotion) {
         // クロージャ内での非null narrowing を確定させるためローカルに束ねる。
         const el = backdrop;
-        let ticking = false;
+        let targetZoom = 1;
+        let currentZoom = 1;
+        let frame = 0;
 
-        function applyZoom() {
-          ticking = false;
+        function calculateZoom() {
           // 進捗 p = scrollY / 残りスクロール可能量 を 0..1 にクランプ。
           const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
           const p = Math.min(1, Math.max(0, window.scrollY / max));
-          const zoom = 1 + p * MAX_EXTRA; // 1.0 .. 1.12（上限 cap）
-          el.style.setProperty("--th-zoom", String(zoom));
+          return 1 + p * MAX_EXTRA; // 1.0 .. 1.12（上限 cap）
         }
 
-        // scroll を rAF でスロットルし、1フレームにつき1回だけ --th-zoom を更新する。
+        function animateZoom() {
+          const delta = targetZoom - currentZoom;
+          if (Math.abs(delta) < 0.0004) {
+            currentZoom = targetZoom;
+            el.style.setProperty("--th-zoom", currentZoom.toFixed(4));
+            frame = 0;
+            return;
+          }
+
+          // 急スクロール時も一気に飛ばさず、少し遅れて追従させる。
+          currentZoom += delta * 0.14;
+          el.style.setProperty("--th-zoom", currentZoom.toFixed(4));
+          frame = requestAnimationFrame(animateZoom);
+        }
+
+        // scroll では目標値だけ更新し、描画値は rAF の lerp で滑らかに追従させる。
         function requestZoom() {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(applyZoom);
+          targetZoom = calculateZoom();
+          if (!frame) frame = requestAnimationFrame(animateZoom);
         }
 
         window.addEventListener("scroll", requestZoom, { passive: true });
@@ -113,7 +135,9 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
         }
 
         // 初期化: 現在のスクロール位置基準で1回反映（途中位置への復元リロードにも対応）。
-        applyZoom();
+        currentZoom = calculateZoom();
+        targetZoom = currentZoom;
+        el.style.setProperty("--th-zoom", currentZoom.toFixed(4));
       }
     </script>
   </body>
