@@ -1,0 +1,28 @@
+---
+// Issue #62: Nostalgic counter（visit サービス）の web component を埋め込む訪問カウンタ。
+// ID は発行済み: theo-hayami-0b7d9f8f（https://api.nostalgic.llll-ll.com）。
+// 失敗してもレイアウトを壊さないことが受け入れ条件。web component の読み込みに失敗しても
+// <nostalgic-counter> は中身が空のまま静かに残るだけでよい（過剰なフォールバックUIは作らない）。
+const COUNTER_ID = "theo-hayami-0b7d9f8f";
+---
+
+<span class="th-footer__visits">
+  <nostalgic-counter id={COUNTER_ID} type="total" format="text"></nostalgic-counter>
+  人が訪れた
+</span>
+
+<script>
+  // LibraryLayout.astro 末尾のスクロールズームscriptと同じ作法（通常の module <script>・client 島なし）。
+  // 同一スクリプトが既にDOMにあれば再ロードしない（idempotent）。
+  try {
+    if (!document.querySelector('script[src*="nostalgic"]')) {
+      const script = document.createElement("script");
+      script.src = "https://nostalgic.llll-ll.com/components/visit.js";
+      script.async = true;
+      document.head.appendChild(script);
+    }
+  } catch {
+    // 読み込み失敗はここで握りつぶす。<nostalgic-counter> が空のまま残るだけで
+    // レイアウトは崩れない（受け入れ条件）。
+  }
+</script>
