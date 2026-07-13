@@ -6,6 +6,7 @@ import type { ThemeSummary } from "./scripts.ts";
 import {
   findEpisode,
   findOhako,
+  groupThemesByCategory,
   loadCharacterThemes,
   loadEpisodes,
   loadHubOrder,
@@ -135,6 +136,27 @@ describe("loadThemeCategories: 業カテゴリ", () => {
   it("公開カテゴリ名は読者向けに難語を避ける", () => {
     const labels = loadThemeCategories().map((group) => group.category.label);
     expect(labels).toEqual(["欲・むさぼり", "対人", "感情", "生きること", "認識・知"]);
+  });
+
+  it("住人別の部分集合もカテゴリ順とハブ順を保って分類できる", () => {
+    const aristoThemeSlugs = new Set(loadCharacterThemes().find((c) => c.slug === "aristo")?.themes ?? []);
+    const aristoThemes = loadThemes().filter((theme) => aristoThemeSlugs.has(theme.slug));
+    const hub = loadThemes().map((theme) => theme.slug);
+    const groups = groupThemesByCategory(aristoThemes);
+    expect(groups.map((group) => group.category.label)).toEqual([
+      "欲・むさぼり",
+      "対人",
+      "感情",
+      "生きること",
+      "認識・知",
+    ]);
+    expect(new Set(groups.flatMap((group) => group.themes.map((theme) => theme.slug)))).toEqual(
+      new Set(aristoThemes.map((theme) => theme.slug)),
+    );
+    for (const group of groups) {
+      const indices = group.themes.map((theme) => hub.indexOf(theme.slug));
+      expect(indices).toEqual([...indices].sort((a, b) => a - b));
+    }
   });
 });
 

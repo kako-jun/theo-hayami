@@ -159,7 +159,10 @@ const UNCATEGORIZED_THEME_CATEGORY = {
 } as const satisfies ThemeCategoryDefinition;
 
 export function loadThemeCategories(): ThemeCategorySummary[] {
-  const themes = loadThemes();
+  return groupThemesByCategory(loadThemes());
+}
+
+export function groupThemesByCategory(themes: ThemeSummary[]): ThemeCategorySummary[] {
   const bySlug = new Map(themes.map((theme) => [theme.slug, theme]));
   const used = new Set<string>();
 

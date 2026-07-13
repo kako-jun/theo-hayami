@@ -349,6 +349,23 @@ a {
     object-position: 56% center;
   }
 }
+@media (max-width: 639px) and (prefers-reduced-motion: no-preference) {
+  .th-cover--home .th-cover__image img {
+    width: 138%;
+    max-width: none;
+    object-position: center;
+    animation: th-cover-mobile-pan 46s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+}
+@keyframes th-cover-mobile-pan {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-27.5%);
+  }
+}
 .th-cover__image::after {
   content: "";
   position: absolute;
@@ -647,6 +664,9 @@ a {
   display: grid;
   gap: 2rem;
 }
+.th-theme-category-list--compact {
+  gap: 1.5rem;
+}
 .th-theme-category {
   padding-top: 1.25rem;
   border-top: 1px solid rgba(184, 147, 79, 0.38);
@@ -658,6 +678,11 @@ a {
   margin-top: 0.25rem;
   color: var(--color-th-theo);
   font-size: 1.35rem;
+}
+.th-theme-category__head h3 {
+  margin-top: 0.25rem;
+  color: var(--color-th-theo);
+  font-size: 1rem;
 }
 .th-theme-category__head p:not(.th-magazine-section__folio) {
   max-width: 40rem;
