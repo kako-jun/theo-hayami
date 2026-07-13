@@ -16,8 +16,16 @@ const ohako = loadOhako();
   description="せおはやみ本編（四幕）。近日公開。各住人の初登場は先に読めます。"
   bgImage="shadow-library/history-hall.webp"
 >
-  <div class="max-w-2xl mx-auto px-4 pt-10 pb-16">
+  <div class="max-w-5xl mx-auto px-4 pt-10 pb-16">
     <Breadcrumb trail={[{ label: "叡智の星海", href: "/" }, { label: "物語を辿る" }]} />
+
+    <figure class="th-story-opening mt-8">
+      <img
+        src="/images/promotional/cast/story-opening.webp"
+        alt=""
+        loading="eager"
+      />
+    </figure>
 
     <section class="th-panel p-8 mt-8 text-center">
       <h1 class="text-2xl mb-4" style="color: var(--color-th-theo);">物語を辿る</h1>
@@ -36,7 +44,7 @@ const ohako = loadOhako();
       <p class="leading-loose text-sm mb-5 th-glow" style="color: var(--color-th-ivory-dim);">
         本編は準備中ですが、各住人の「初登場」──せおと初めて交わした問答──は先に読めます。
       </p>
-      <ul class="th-theme-grid">
+      <ul class="th-story-ohako-grid">
         {
           ohako.map((entry) => {
             const resident = findResident(entry.character);

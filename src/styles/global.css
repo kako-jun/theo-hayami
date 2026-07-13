@@ -705,6 +705,29 @@ a {
   line-height: 1.8;
 }
 
+.th-story-opening {
+  overflow: hidden;
+  border: 1px solid rgba(184, 147, 79, 0.5);
+  background: rgba(18, 17, 26, 0.62);
+  box-shadow: 0 1px 0 rgba(230, 196, 126, 0.12) inset, 0 18px 36px rgba(0, 0, 0, 0.38);
+}
+.th-story-opening img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.th-story-ohako-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 760px) {
+  .th-story-ohako-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .th-theme-resident-choice {
   position: relative;
   min-height: 7.2rem;
