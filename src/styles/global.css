@@ -279,10 +279,6 @@ a {
   gap: 0.85rem;
   margin-top: 1.25rem;
 }
-.th-footer__hairline {
-  width: min(100%, 22rem);
-  margin: 0 auto 0.35rem;
-}
 /* 画像は透過・白モジュールのみなので、背景色はCSS側が持つ。 */
 .th-footer__qr {
   display: block;
