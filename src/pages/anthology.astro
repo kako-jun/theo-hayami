@@ -29,9 +29,10 @@ const readGroups = new Map(characterThemes.map((c) => [c.slug, c.themes.map((t) 
 
     <div class="th-grid">
       {
-        RESIDENTS.map((resident) => (
+        RESIDENTS.map((resident, index) => (
           <ResidentCard
             resident={resident}
+            index={index}
             readGroup={readGroups.get(resident.slug) ?? []}
           />
         ))

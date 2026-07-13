@@ -3,10 +3,12 @@ import type { ResidentMeta } from "../data/residents";
 
 interface Props {
   resident: ResidentMeta;
+  index: number;
   /** この住人の全読むページ slug（`業__住人`）。既読数バッジ用（Issue #30・クライアントで集計）。 */
   readGroup: string[];
 }
-const { resident, readGroup } = Astro.props;
+const { resident, index, readGroup } = Astro.props;
+const residentNumber = String(index + 1).padStart(2, "0");
 ---
 
 {/*
@@ -35,6 +37,7 @@ const { resident, readGroup } = Astro.props;
       <div class="th-resident-card__portrait th-face-crop th-face-crop--bust">
         <img src={`/images/${resident.slug}/bust.webp`} alt="" loading="lazy" />
       </div>
+      <p class="th-resident-card__kicker">{`Resident ${residentNumber}`}</p>
       <p class="th-resident-card__name">{resident.name}</p>
       <p class="th-resident-card__meta">{resident.thought}</p>
       <p class="th-read-badge text-xs mt-2" data-read-count>{`0/${readGroup.length} 読了`}</p>
