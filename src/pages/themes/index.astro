@@ -29,7 +29,7 @@ const themeCategories = loadThemeCategories();
         themeCategories.map(({ category, themes }, index) => (
           <section class="th-theme-category" aria-labelledby={`theme-category-${category.slug}`}>
             <div class="th-theme-category__head">
-              <p class="th-magazine-section__folio">{`分類 ${String(index + 1).padStart(2, "0")}`}</p>
+              <p class="th-magazine-section__folio">{`CATEGORY ${String(index + 1).padStart(2, "0")}`}</p>
               <h2 id={`theme-category-${category.slug}`}>{category.label}</h2>
               <p>{category.description}</p>
             </div>
