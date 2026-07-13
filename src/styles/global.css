@@ -283,13 +283,11 @@ a {
   width: min(100%, 22rem);
   margin: 0 auto 0.35rem;
 }
-/* 画像は透過・白モジュールのみなので、背景色と蔵書票らしい細い金枠はCSS側が持つ。 */
+/* 画像は透過・白モジュールのみなので、背景色はCSS側が持つ。 */
 .th-footer__qr {
   display: block;
   width: 120px;
   height: 120px;
-  border: 1px solid rgba(184, 147, 79, 0.5);
-  padding: 4px;
   background: var(--color-th-ink);
 }
 .th-footer__author {
