@@ -25,7 +25,7 @@ const bgImage = episode.background ?? "shadow-library/grand-reading-room-v.webp"
 
 <LibraryLayout
   title={`${episode.themeTitle} ── ${resident.name} ── せおはやみ`}
-  description={`「${episode.themeTitle}」を${resident.name}（叡智：${resident.ability}）に聞く。`}
+  description={`「${episode.themeTitle}」を${resident.name}（${resident.thought}）に聞く。`}
   bgImage={bgImage}
 >
   <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
@@ -41,7 +41,7 @@ const bgImage = episode.background ?? "shadow-library/grand-reading-room-v.webp"
     <header class="text-center my-8 th-glow">
       <h1 class="text-xl sm:text-2xl" style="color: var(--color-th-theo);">「{episode.themeTitle}」</h1>
       <p class="mt-2 text-sm" style="color: var(--color-th-gold-bright);">
-        {resident.name}に聞く（叡智：{resident.ability}）
+        {resident.name}に聞く（{resident.thought}）
       </p>
     </header>
 
