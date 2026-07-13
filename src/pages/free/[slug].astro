@@ -47,15 +47,33 @@ const bgImage = episode.background ?? "shadow-library/grand-reading-room-v.webp"
 
     <ReaderFrame slug={episode.slug} sceneId={episode.sceneId} title={`${episode.themeTitle} ── ${resident.name}`} />
 
-    <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
-      <a href={`/themes/${episode.theme}`} class="th-link-button text-center no-underline">
-        同じ問いを、別の住人に聞く
-      </a>
-      <a href={`/residents/${episode.character}`} class="th-link-button text-center no-underline">
-        {resident.name}の別の業を聞く
-      </a>
-      <a href="/themes" class="th-link-button text-center no-underline">業一覧へ</a>
-      <a href="/anthology" class="th-link-button text-center no-underline">住人一覧へ</a>
+    <nav class="th-path-tree th-path-tree--after-reader" aria-label="このあと">
+      <div class="th-path-tree__branch" aria-label="住人から選ぶ">
+        <p class="th-path-tree__label">住人から選ぶ</p>
+        <div class="th-path-tree__children">
+          <a href={`/residents/${episode.character}`} class="th-path-tree__item th-path-tree__item--main">
+            <span class="th-path-tree__label">選択中の住人</span>
+            <span class="th-path-tree__text">{resident.name}の別の業を聞く</span>
+          </a>
+          <a href="/anthology" class="th-path-tree__item">
+            <span class="th-path-tree__label">住人一覧</span>
+            <span class="th-path-tree__text">別の住人を選ぶ</span>
+          </a>
+        </div>
+      </div>
+      <div class="th-path-tree__branch" aria-label="業から選ぶ">
+        <p class="th-path-tree__label">業から選ぶ</p>
+        <div class="th-path-tree__children">
+          <a href={`/themes/${episode.theme}`} class="th-path-tree__item">
+            <span class="th-path-tree__label">同じ業</span>
+            <span class="th-path-tree__text">「{episode.themeTitle}」を別の住人に聞く</span>
+          </a>
+          <a href="/themes" class="th-path-tree__item">
+            <span class="th-path-tree__label">業一覧</span>
+            <span class="th-path-tree__text">別の業を選ぶ</span>
+          </a>
+        </div>
+      </div>
     </nav>
   </div>
 </LibraryLayout>

@@ -452,6 +452,9 @@ a {
   gap: 0.85rem;
   margin-top: 1.6rem;
 }
+.th-path-tree--after-reader {
+  margin-top: 2.5rem;
+}
 .th-path-tree__item,
 .th-path-tree__branch {
   position: relative;
