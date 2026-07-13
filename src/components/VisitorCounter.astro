@@ -22,7 +22,9 @@ const COUNTER_ID = "theo-hayami-0b7d9f8f";
       document.head.appendChild(script);
     }
   } catch {
-    // 読み込み失敗はここで握りつぶす。<nostalgic-counter> が空のまま残るだけで
-    // レイアウトは崩れない（受け入れ条件）。
+    // 同期的なDOM操作の失敗に備える try/catch。<script src> の非同期読み込み失敗
+    // （404・ネットワーク断等）はここでは捕捉されないが、未定義カスタム要素は
+    // 中身空のまま描画されるだけなので <nostalgic-counter> が空で残りレイアウトは
+    // 崩れない（受け入れ条件）。
   }
 </script>
