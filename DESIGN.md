@@ -45,6 +45,7 @@ components:
   th-reader: name-name 埋め込みの 9:16 ステージ＋開始CTA
   th-glow: パネル外で生成絵に直接乗る文字の text-shadow
   th-pwa-overlay / th-pwa-overlay__panel: PWA更新検知〜reloadの短い通知overlay（Issue #59）。汎用UI chromeにせず th-panel と同じガラス＋真鍮トーンに寄せる
+  th-pwa-install-banner: PWAインストール促しバナー（Issue #67）。`beforeinstallprompt`発火時のみ最上部固定で出す。フッタ（末尾固定）と構造的に衝突しない位置。却下は恒久記憶し再表示しない
 ---
 
 ## Overview
@@ -92,6 +93,7 @@ theo-hayami の公開名としての舞台は **「叡智の星海」**。Webペ
 - **th-reader**: name-name 埋め込みの 9:16 ステージ＋開始 CTA（金の漢字ラベル）。
 - **th-face-crop / --bust**: 立ち絵/LoRAバストアップの顔アップカード（正方形トリミング）。
 - **th-cover / th-resident-card / th-resident-feature / th-magazine-section**: Issue #35 の雑誌グラビア寄り意匠。`assets/images/promotional/` の集合絵・キャラ別ワイド絵を主役にし、正式な文字画像が来るまでは CSS の Hina Mincho、細罫、ノンブル風ラベルだけで誌面感を出す。文字画像を勝手に生成・代用しない。
+- **th-pwa-install-banner**: `beforeinstallprompt` 発火時だけ出すインストール促しバナー（Issue #67）。フッタ（QR・訪問カウンタ・版表示）は常にページ末尾にあるため、最上部固定に統一して構造的に衝突を無くす。th-pwa-overlay と同じくガラス＋真鍮トーン。却下は localStorage に恒久記憶し再表示しない。
 
 ## Do's and Don'ts
 
