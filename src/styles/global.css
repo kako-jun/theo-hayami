@@ -1041,3 +1041,68 @@ a {
   font-size: 0.95rem;
   letter-spacing: 0.04em;
 }
+
+/* ---------------------------------------------------------------------
+   PWA インストール促しバナー（Issue #67）
+   `beforeinstallprompt` を捕まえた時だけ、画面最上部に薄い帯で出す。
+   フッタ（QR・訪問カウンタ・版表示、Issue #62/#63/#65）は常にページ末尾に
+   あるため、この帯は最上部固定に統一して衝突を構造的に無くす（スクロール位置
+   によってフッタと重なる下部固定にしない）。th-pwa-overlay と同じくガラス＋
+   真鍮トーンに寄せ、汎用UI chrome（角丸カード・原色ボタン・水平ナビ）にしない。
+   hidden 属性で表示制御するため、display:flex の詳細度タイに負けないよう
+   [hidden] を明示する（kako-jun 実機確認済みの罠・CLAUDE.md 作業規律）。
+   --------------------------------------------------------------------- */
+.th-pwa-install-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  display: flex;
+  justify-content: center;
+  padding-top: env(safe-area-inset-top, 0px);
+  pointer-events: none;
+}
+.th-pwa-install-banner[hidden] {
+  display: none;
+}
+.th-pwa-install-banner__panel {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  max-width: 40rem;
+  margin: 0.6rem;
+  padding: 0.7rem 1rem;
+  pointer-events: auto;
+}
+.th-pwa-install-banner__message {
+  flex: 1;
+  color: var(--color-th-ivory);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+}
+.th-pwa-install-banner__install {
+  flex-shrink: 0;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.82rem;
+  /* .th-link-button は元々 <a> 用（story.astro等）。<button> は既定で
+     cursor:pointer にならないブラウザがあるため明示する。 */
+  cursor: pointer;
+}
+.th-pwa-install-banner__dismiss {
+  flex-shrink: 0;
+  padding: 0.3rem 0.4rem;
+  color: var(--color-th-ivory-dim);
+  font-size: 0.95rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.th-pwa-install-banner__dismiss:hover,
+.th-pwa-install-banner__dismiss:focus-visible {
+  color: var(--color-th-gold-bright);
+}

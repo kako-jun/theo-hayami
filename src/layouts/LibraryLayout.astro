@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import SiteFooter from "../components/SiteFooter.astro";
+import PwaInstallBanner from "../components/PwaInstallBanner.astro";
 
 interface Props {
   title: string;
@@ -79,6 +80,7 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
       </main>
       <SiteFooter />
     </div>
+    <PwaInstallBanner />
 
     <script>
       // #34: スクロール量に応じて全画面背景（.th-backdrop）を滑らかに拡大し「奥へ進む」印象を出す。

@@ -1,0 +1,93 @@
+---
+// Issue #67: PWAインストール促しUI。mypace（repos/2025/mypace/apps/web/src/hooks/ui/usePWAInstall.ts
+// + components/pwa/InstallBanner.tsx）と同じ流れをAstro/vanilla JSに移植する
+// （theo-hayamiはReact等のUIフレームワークを持たない静的サイトのため、React hookではなく
+// 通常の <script> + 素のDOMで組む。#59のPWA更新reload・LibraryLayout.astroと同じ作法）。
+//
+// - `beforeinstallprompt` を preventDefault() で捕まえ、独自バナーで「追加する」を促す
+// - 却下（明示の閉じるボタン、または prompt() 後の userChoice が "dismissed"）は
+//   localStorage に恒久記憶し、以後は出さない（判定/記憶ロジックは ../lib/pwa-install.ts）
+// - 既にインストール済み（display-mode: standalone）なら何もしない
+// - 表示位置は最上部固定（フッタの QR/カウンタ/版表示と構造的に衝突しない。詳細は
+//   global.css の .th-pwa-install-banner コメント参照）
+---
+
+<div id="th-pwa-install-banner" class="th-pwa-install-banner" hidden>
+  <div class="th-pwa-install-banner__panel th-panel">
+    <p class="th-pwa-install-banner__message">ホーム画面に追加すると、次からすぐ開けます。</p>
+    <button
+      type="button"
+      id="th-pwa-install-btn"
+      class="th-link-button th-link-button--primary th-pwa-install-banner__install"
+    >
+      追加する
+    </button>
+    <button type="button" id="th-pwa-install-dismiss" class="th-pwa-install-banner__dismiss" aria-label="閉じる">
+      ×
+    </button>
+  </div>
+</div>
+
+<script>
+  import { getInstallDismissed, setInstallDismissed, shouldShowInstallPrompt } from "../lib/pwa-install";
+
+  interface BeforeInstallPromptEvent extends Event {
+    readonly platforms: string[];
+    readonly userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
+    prompt(): Promise<void>;
+  }
+
+  const banner = document.getElementById("th-pwa-install-banner");
+  const installBtn = document.getElementById("th-pwa-install-btn");
+  const dismissBtn = document.getElementById("th-pwa-install-dismiss");
+
+  if (banner && installBtn && dismissBtn) {
+    // display-mode: standalone（既にインストール済み）は iOS の navigator.standalone も見る
+    // （mypace usePWAInstall.ts と同じ判定）。
+    const isStandalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      (window.navigator as Navigator & { standalone?: boolean }).standalone === true;
+
+    // 既にインストール済みならリスナーすら張らない（表示する余地を最初から作らない）。
+    if (!isStandalone) {
+      let deferredEvent: BeforeInstallPromptEvent | null = null;
+
+      const hideBanner = () => {
+        banner.hidden = true;
+        deferredEvent = null;
+      };
+
+      window.addEventListener("beforeinstallprompt", (e: Event) => {
+        e.preventDefault();
+        deferredEvent = e as BeforeInstallPromptEvent;
+        if (shouldShowInstallPrompt(true, isStandalone, getInstallDismissed())) {
+          banner.hidden = false;
+        }
+      });
+
+      window.addEventListener("appinstalled", hideBanner);
+
+      installBtn.addEventListener("click", () => {
+        void (async () => {
+          if (!deferredEvent) return;
+          const event = deferredEvent;
+          try {
+            await event.prompt();
+            const { outcome } = await event.userChoice;
+            if (outcome === "dismissed") {
+              setInstallDismissed();
+            }
+          } catch {
+            // prompt() が既に消費済み等の失敗は握りつぶす（バナーは閉じるだけでよい）。
+          }
+          hideBanner();
+        })();
+      });
+
+      dismissBtn.addEventListener("click", () => {
+        setInstallDismissed();
+        hideBanner();
+      });
+    }
+  }
+</script>
