@@ -150,11 +150,13 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
       // onNeedRefresh で overlay を出し、sessionStorage に記録し（reload loop 防止のcooldown用）、
       // controllerchange リスナーを張ってから updateSW(true)（=skipWaiting）を呼び、新SWが制御を
       // 握った時点でreloadする。controllerchange が来ない環境向けにfallback reloadも用意する。
-      // cooldown 判定（純粋関数）は ../lib/pwa-update.ts に切り出してvitestでテストする
-      // （dev-doctrine: 索引・判定ロジックは純粋関数に切り出し、.astro は組み立てだけにする）。
+      // cooldown 判定・reload多重発火防止ガード（#68）はいずれも純粋関数として ../lib/pwa-update.ts
+      // に切り出してvitestでテストする（dev-doctrine: 索引・判定ロジックは純粋関数に切り出し、
+      // .astro は組み立てだけにする）。
       import { registerSW } from "virtual:pwa-register";
       import {
         PWA_UPDATE_COOLDOWN_MS,
+        createReloadOnce,
         getLastUpdateAt,
         recordUpdateAt,
         shouldSkipUpdate,
@@ -173,8 +175,9 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
           // 補足: vite-plugin-pwa（registerType: "prompt"）は内部でも wb の 'controlling'
           // イベントで reload する経路を1つ持つ。ここで手動の controllerchange リスナーと
           // fallback timeout を重ねて張っているのは意図的な冗長化（mypace/apps/web/src/main.tsx
-          // と同じ構成）で、reload の多重発火自体は無害。ライブラリ内蔵経路が万一発火しない
-          // 環境向けの保険として明示的に持たせている。
+          // と同じ構成）。三重発火の実害はゼロに近いが（#68）、低速回線・大きい背景画像との
+          // 組み合わせで無駄な二重ナビゲーションが起きうるため、念のため reloaded フラグで
+          // 実際の reload を1回だけに絞る（orber/hanoba/3min と同じガード）。
           if (shouldSkipUpdate(getLastUpdateAt(), Date.now(), PWA_UPDATE_COOLDOWN_MS)) {
             // 直近に更新済み（cooldown中）。reload loop 防止のため今回は何もしない。
             return;
@@ -191,23 +194,21 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
           overlay.appendChild(panel);
           document.body.appendChild(overlay);
 
+          // controllerchange・updateSW(true)のcatch・fallback timeoutの3経路から呼ばれうるが、
+          // 実際にreloadするのは一度だけにする（#68、ガード判定は ../lib/pwa-update.ts でテスト）。
+          const reloadOnce = createReloadOnce(() => window.location.reload());
+
           // updateSW(true) が発火させる controllerchange を待ってから reload する
           // （呼び出す前にリスナーを張っておく）。
-          navigator.serviceWorker.addEventListener(
-            "controllerchange",
-            () => {
-              window.location.reload();
-            },
-            { once: true },
-          );
+          navigator.serviceWorker.addEventListener("controllerchange", reloadOnce, { once: true });
 
           updateSW(true).catch(() => {
-            window.location.reload();
+            reloadOnce();
           });
 
           // controllerchange が来ない環境向けのfallback。
           setTimeout(() => {
-            window.location.reload();
+            reloadOnce();
           }, FALLBACK_RELOAD_MS);
         },
       });
