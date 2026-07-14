@@ -293,8 +293,11 @@ a {
    意匠の作り直しが必要なので安易に「直さない」こと。 */
 .th-footer__qr {
   display: block;
+  box-sizing: content-box;
   width: 120px;
   height: 120px;
+  padding: 10px;
+  border-radius: 8px;
   background: var(--color-th-ink);
 }
 .th-footer__author {
