@@ -10,9 +10,14 @@
 // - 既にインストール済み（display-mode: standalone）なら何もしない
 // - 表示位置は最上部固定（フッタの QR/カウンタ/版表示と構造的に衝突しない。詳細は
 //   global.css の .th-pwa-install-banner コメント参照）
+// - role="status"/aria-live="polite" は th-pwa-overlay（LibraryLayout.astro、#59）と揃える。
+//   本要素は生成時ではなく hidden 属性の付け外しで出し入れするが、live region 自体は
+//   ページ読み込み時から常時DOMに存在させておく（表示時に初めて挿入する overlay とは
+//   その点だけ異なる。挿入済みの live region の中身/可視状態が変わった時にも
+//   読み上げられるのは同じ仕組み）。
 ---
 
-<div id="th-pwa-install-banner" class="th-pwa-install-banner" hidden>
+<div id="th-pwa-install-banner" class="th-pwa-install-banner" role="status" aria-live="polite" hidden>
   <div class="th-pwa-install-banner__panel th-panel">
     <p class="th-pwa-install-banner__message">ホーム画面に追加すると、次からすぐ開けます。</p>
     <button
