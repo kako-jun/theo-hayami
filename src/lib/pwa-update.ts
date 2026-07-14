@@ -48,3 +48,24 @@ export function recordUpdateAt(now: number): void {
     // 握りつぶす。
   }
 }
+
+/**
+ * PWA更新のreload多重発火防止ガード（Issue #68）。
+ *
+ * LibraryLayout.astro の onNeedRefresh は controllerchange リスナー・updateSW(true) の catch・
+ * fallback timeout の3経路から reload を呼びうる。ライブラリ内蔵の 'controlling' イベント経路と
+ * 合わせると三重発火の実害はゼロに近いが、低速回線・大きい背景画像（35MB超）と組み合わさると
+ * 無駄な二重ナビゲーションが起きうるため、念のため実行を1回だけに絞る
+ * （orber/hanoba/3min と同じ reloaded フラグ方式）。
+ *
+ * 実際に副作用を起こす `action`（通常は `() => window.location.reload()`）を注入する形にして、
+ * ガード判定そのものを DOM 無しで vitest からテストできるようにする。
+ */
+export function createReloadOnce(action: () => void): () => void {
+  let reloaded = false;
+  return () => {
+    if (reloaded) return;
+    reloaded = true;
+    action();
+  };
+}

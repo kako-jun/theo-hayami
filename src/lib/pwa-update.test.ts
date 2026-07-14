@@ -1,5 +1,11 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { PWA_UPDATE_COOLDOWN_MS, getLastUpdateAt, recordUpdateAt, shouldSkipUpdate } from "./pwa-update.ts";
+import {
+  PWA_UPDATE_COOLDOWN_MS,
+  createReloadOnce,
+  getLastUpdateAt,
+  recordUpdateAt,
+  shouldSkipUpdate,
+} from "./pwa-update.ts";
 
 // shouldSkipUpdate は PWA 更新 overlay の reload loop 防止 cooldown 判定（純粋関数）。
 // sessionStorage I/O やタイマーは含まないため node 環境でそのままテストできる。
@@ -153,6 +159,57 @@ describe("recordUpdateAt", () => {
     errorSpy.mockRestore();
     warnSpy.mockRestore();
     logSpy.mockRestore();
+  });
+});
+
+describe("createReloadOnce（#68: reload多重発火防止ガード）", () => {
+  it("1回目の呼び出しでactionが実行される", () => {
+    const action = vi.fn();
+    const reloadOnce = createReloadOnce(action);
+
+    reloadOnce();
+
+    expect(action).toHaveBeenCalledTimes(1);
+  });
+
+  it("2回目以降の呼び出しはno-op（actionは1回しか呼ばれない）", () => {
+    const action = vi.fn();
+    const reloadOnce = createReloadOnce(action);
+
+    reloadOnce();
+    reloadOnce();
+    reloadOnce();
+
+    expect(action).toHaveBeenCalledTimes(1);
+  });
+
+  it("controllerchange・updateSW(true)のcatch・fallback timeoutの3経路を模した呼び出し順でも1回のみ実行される", () => {
+    const action = vi.fn();
+    const reloadOnce = createReloadOnce(action);
+
+    // controllerchange が最初に発火
+    reloadOnce();
+    // updateSW(true).catch() 経由（reject していれば呼ばれる想定の経路）
+    reloadOnce();
+    // fallback timeout 経由
+    reloadOnce();
+
+    expect(action).toHaveBeenCalledTimes(1);
+  });
+
+  it("異なる createReloadOnce インスタンスは互いに独立している（closureがグローバル状態を共有しない）", () => {
+    const actionA = vi.fn();
+    const actionB = vi.fn();
+    const reloadOnceA = createReloadOnce(actionA);
+    const reloadOnceB = createReloadOnce(actionB);
+
+    reloadOnceA();
+    reloadOnceB();
+    reloadOnceA();
+    reloadOnceB();
+
+    expect(actionA).toHaveBeenCalledTimes(1);
+    expect(actionB).toHaveBeenCalledTimes(1);
   });
 });
 
