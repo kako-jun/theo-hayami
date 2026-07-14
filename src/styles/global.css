@@ -290,7 +290,10 @@ a {
    注意: 白モジュール×暗背景は標準QR配色（暗モジュール×明背景）の反転。
    zbar系デコーダでは反転配色を読み取れないことを確認済みだが、世界観優先で
    kako-jun が明示的に採用（site_structure.md 参照）。標準配色への変更は
-   意匠の作り直しが必要なので安易に「直さない」こと。 */
+   意匠の作り直しが必要なので安易に「直さない」こと。
+   注意: padding は border-radius 以上を保つこと。img は replaced element
+   のため border-radius は背景だけでなく画像コンテンツ自体もクリップする。
+   値を逆転させる（padding < border-radius）とQRモジュールが角丸で欠ける。 */
 .th-footer__qr {
   display: block;
   box-sizing: content-box;

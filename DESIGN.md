@@ -23,7 +23,7 @@ elevation:
   panel: "rgba(18,17,26,0.58) + backdrop-blur 14px + 真鍮枠 rgba(184,147,79,0.45) + inset金 + drop-shadow"
   backdrop: "fixed 全画面の生成絵 + 紺墨グラデスクリム（ベタ塗り禁止）。__glow は overlay 合成・opacity 0.55・blur 7px。スクロール連動微ズーム（--th-zoom を base/glow の scale に乗算・1→1.12）"
 shapes:
-  radius: minimal   # 汎用の角丸カードにしない。読了の蔵書印だけ 2px、面は基本シャープ
+  radius: minimal   # 汎用の角丸カードにしない。読了の蔵書印だけ 2px、フッタQRの黒ベタパディング枠だけ 8px、面は基本シャープ
 components:
   th-panel: 半透明ガラス板＋真鍮の細線（汎用UIのカード/モーダルの代わり）
   th-door: 押せる面（扉・カード）。ホバー/フォーカスで金の線が灯る
@@ -37,7 +37,7 @@ components:
   th-breadcrumb: パンくず（生成絵の上に直接乗るため text-shadow で可読性担保）
   th-breadcrumb__version: パンくず行右に添える版表示（`vYYYY-MM-DD`）
   th-footer: サイト共通フッタのコンテナ（QR・作者導線・訪問カウンタを縦積み）
-  th-footer__qr: QRコード画像。透過・白モジュールのみの画像に、CSS側で背景色（`var(--color-th-ink)`）を持たせる
+  th-footer__qr: QRコード画像。透過・白モジュールのみの画像に、CSS側で背景色（`var(--color-th-ink)`）を持たせる。周囲に黒ベタパディング（10px）＋角丸8px（Issue #64、スキャン性を損なわない黒ベタ余白として例外許可）
   th-footer__author: 作者導線（`llll-ll.com`リンク＋copyright）
   th-footer__visits: 訪問カウンタのラベル行
   th-link-button: 「読む」・戻り導線のボタン
@@ -80,7 +80,7 @@ theo-hayami の公開名としての舞台は **「叡智の星海」**。Webペ
 
 ## Shapes
 
-- 汎用の角丸カードに揃えない。面は基本シャープ、読了の蔵書印だけ `border-radius: 2px`。
+- 汎用の角丸カードに揃えない。面は基本シャープ、読了の蔵書印だけ `border-radius: 2px`。フッタQRコードの黒ベタパディング枠だけ `border-radius: 8px`（Issue #64、スキャン性を損なわない黒ベタ余白として明示許可された例外）。
 
 ## Components
 
