@@ -44,6 +44,7 @@ components:
   th-face-crop / th-face-crop--bust: 顔アップ/LoRAバストアップカードの正方形トリミング
   th-reader: name-name 埋め込みの 9:16 ステージ＋開始CTA
   th-glow: パネル外で生成絵に直接乗る文字の text-shadow
+  th-pwa-overlay / th-pwa-overlay__panel: PWA更新検知〜reloadの短い通知overlay（Issue #59）。汎用UI chromeにせず th-panel と同じガラス＋真鍮トーンに寄せる
 ---
 
 ## Overview

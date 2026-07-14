@@ -1,3 +1,7 @@
+// Issue #59: virtual:pwa-register（registerSW）の型解決用。LibraryLayout.astro の
+// <script> が `import { registerSW } from "virtual:pwa-register"` するために必要。
+/// <reference types="vite-plugin-pwa/client" />
+
 // Issue #62: 版表示 `vYYYY-MM-DD` 用のビルド日。package.json の "build" スクリプトが
 // シェルで process.env.PUBLIC_BUILD_DATE に設定する（SiteFooter.astro の frontmatter が
 // Node の実行時参照として読む。astro dev では未設定＝"dev" にフォールバックする）。

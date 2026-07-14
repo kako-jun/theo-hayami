@@ -1019,3 +1019,25 @@ a {
   color: var(--color-th-ivory-dim);
   letter-spacing: 0.08em;
 }
+
+/* ---------------------------------------------------------------------
+   PWA 更新通知 overlay（Issue #59）
+   新SW検知〜reloadまでの短い間だけ出す。汎用UI chromeにせず、th-panel と
+   同じ半透明ガラス＋真鍮枠のトーンに寄せる（LibraryLayout.astro から生成）。
+   --------------------------------------------------------------------- */
+.th-pwa-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 9, 16, 0.72);
+}
+.th-pwa-overlay__panel {
+  padding: 1.5rem 2.25rem;
+  text-align: center;
+  color: var(--color-th-ivory);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
