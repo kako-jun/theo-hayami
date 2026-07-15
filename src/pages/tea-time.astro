@@ -1,7 +1,7 @@
 ---
 import Breadcrumb from "../components/Breadcrumb.astro";
 import LibraryLayout from "../layouts/LibraryLayout.astro";
-import { teaTimeQuestions } from "../data/teaTime";
+import { featuredTeaTimeQuestion, teaTimeQuestions } from "../data/teaTime";
 ---
 
 <LibraryLayout
@@ -22,15 +22,26 @@ import { teaTimeQuestions } from "../data/teaTime";
     </section>
 
     <section class="mt-10">
+      <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">第一弾</h2>
+      <a href={`/tea-time/${featuredTeaTimeQuestion.slug}`} class="th-door th-current-question th-current-question--featured block no-underline">
+        <span class="th-story-button__number">01</span>
+        <p class="text-base" style="color: var(--color-th-ivory);">{featuredTeaTimeQuestion.title}</p>
+        <p class="text-sm mt-2" style="color: var(--color-th-ivory-dim);">{featuredTeaTimeQuestion.question}</p>
+        <p class="text-xs mt-3" style="color: var(--color-th-gold-bright);">話す住人は未定</p>
+      </a>
+    </section>
+
+    <section class="mt-10">
       <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">待機中の話題</h2>
       <ol class="grid gap-3">
         {
           teaTimeQuestions.map((entry, index) => (
             <li class="th-door th-current-question">
-              <span class="th-story-button__number">{String(index + 1).padStart(2, "0")}</span>
-              <p style="color: var(--color-th-ivory);">{entry.question}</p>
+              <span class="th-story-button__number">{String(index + 2).padStart(2, "0")}</span>
+              <p style="color: var(--color-th-ivory);">{entry.title}</p>
+              <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">{entry.question}</p>
               <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">
-                採用時に、話す住人を三人ほど選びます。
+                住人はまだ選びません。
               </p>
             </li>
           ))

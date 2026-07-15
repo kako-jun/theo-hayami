@@ -979,6 +979,9 @@ a {
   min-height: 7rem;
   padding: 1rem 1rem 1rem 3.25rem;
 }
+.th-current-question--featured {
+  min-height: 9rem;
+}
 .th-current-question .th-story-button__number {
   position: absolute;
   left: 1rem;
