@@ -3,7 +3,13 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import ReadMarks from "../../components/ReadMarks.astro";
 import { RESIDENTS, findResident } from "../../data/residents";
-import { findOhako, groupThemesByCategory, loadCharacterThemes, loadThemes } from "../../lib/scripts";
+import {
+  findOhako,
+  groupThemesByCategory,
+  loadCharacterThemes,
+  loadThemes,
+  themeSymbolImage,
+} from "../../lib/scripts";
 
 export function getStaticPaths() {
   return RESIDENTS.map((resident) => ({
@@ -96,15 +102,20 @@ const ohako = findOhako(character);
             </div>
             <div class="th-theme-grid">
               {
-                themes.map((theme) => (
-                  <a
-                    href={`/free/${theme.slug}__${resident.slug}`}
-                    data-slug={`${theme.slug}__${resident.slug}`}
-                    class="th-door block no-underline"
-                  >
-                    <p style="color: var(--color-th-ivory);">{theme.title}</p>
-                  </a>
-                ))
+                themes.map((theme) => {
+                  // 象徴画像（Issue #73）: ThemeCard と同じロジック。画像が実在する業だけ背景に敷く。
+                  const symbolImage = themeSymbolImage(theme.slug);
+                  return (
+                    <a
+                      href={`/free/${theme.slug}__${resident.slug}`}
+                      data-slug={`${theme.slug}__${resident.slug}`}
+                      class={`th-door block no-underline${symbolImage ? " th-door--symbol" : ""}`}
+                      style={symbolImage ? `background-image: url(${symbolImage})` : undefined}
+                    >
+                      <p style="color: var(--color-th-ivory);">{theme.title}</p>
+                    </a>
+                  );
+                })
               }
             </div>
           </section>

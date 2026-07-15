@@ -15,6 +15,7 @@ import {
   loadThemes,
   THEME_CATEGORIES,
   sortByHubOrder,
+  themeSymbolImage,
 } from "./scripts.ts";
 
 // 実 content/scripts/free/*.md を loadEpisodes() で実際に読み、名前ドリフト・見出し崩れ・
@@ -291,5 +292,15 @@ describe("ハブ順序（script.md の [選択] 正本）", () => {
       { slug: real, title: "", characters: [] },
     ];
     expect(sortByHubOrder(input).map((t) => t.slug)).toEqual([real, "zzz-not-in-hub"]);
+  });
+});
+
+describe("themeSymbolImage: 実データの安全網（Issue #73）", () => {
+  it("netami の象徴画像は実在する（誤って削除・リネームされたら検出する回帰ネット）", () => {
+    expect(themeSymbolImage("netami")).toBe("/images/theme-symbols/netami.webp");
+  });
+
+  it("存在しない業スラッグは実データに対しても null", () => {
+    expect(themeSymbolImage("nonexistent-theme-slug-zzz")).toBeNull();
   });
 });

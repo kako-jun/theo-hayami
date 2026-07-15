@@ -1,4 +1,6 @@
 ---
+import { themeSymbolImage } from "../lib/scripts";
+
 interface Props {
   slug: string;
   title: string;
@@ -6,9 +8,19 @@ interface Props {
   readGroup: string[];
 }
 const { slug, title, readGroup } = Astro.props;
+// 象徴画像（Issue #73）: 画像が実在する業だけ背景に敷く。今のところ netami のみ。
+const symbolImage = themeSymbolImage(slug);
 ---
 
-<a href={`/themes/${slug}`} class="th-door block no-underline" data-read-group={readGroup.join(",")}>
+<a
+  href={`/themes/${slug}`}
+  class={`th-door block no-underline${symbolImage ? " th-door--symbol" : ""}`}
+  style={symbolImage ? `background-image: url(${symbolImage})` : undefined}
+  data-read-group={readGroup.join(",")}
+>
   <p class="text-base leading-relaxed" style="color: var(--color-th-ivory);">{title}</p>
-  <p class="th-read-badge text-xs mt-2" data-read-count>{`0/${readGroup.length} 読了`}</p>
+  <div class="th-read-meter">
+    <span class="th-read-gauge" aria-hidden="true"><span class="th-read-gauge__fill"></span></span>
+    <p class="th-read-badge text-xs" data-read-count>{`0/${readGroup.length} 完読`}</p>
+  </div>
 </a>

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
-import { getReadSet, isRead, markRead } from "./readStore.ts";
+import { getReadSet, isRead, markRead, readRatioPercent } from "./readStore.ts";
 
 // readStore は localStorage しか触らないクライアント専用ストア。vitest は node 環境なので
 // localStorage が無い（→ ガードの検証）。DOM を持ち込まず、最小の in-memory localStorage を
@@ -110,5 +110,45 @@ describe("破損データのフォールバック", () => {
     installStorage(makeStorage({ [STORAGE_KEY]: "not-json" }));
     markRead("ai__aristo");
     expect(JSON.parse(globalThis.localStorage.getItem(STORAGE_KEY) as string)).toEqual(["ai__aristo"]);
+  });
+});
+
+describe("readRatioPercent", () => {
+  it("母数が負でもゼロ除算せず0（境界-1）", () => {
+    expect(readRatioPercent(0, -1)).toBe(0);
+  });
+
+  it("母数0・完読0は0（ゼロ除算ガードの本丸）", () => {
+    expect(readRatioPercent(0, 0)).toBe(0);
+  });
+
+  it("母数1・完読0は0、母数1・完読1は100（境界+1）", () => {
+    expect(readRatioPercent(0, 1)).toBe(0);
+    expect(readRatioPercent(1, 1)).toBe(100);
+  });
+
+  it("完読0・母数8は0（未読0%）", () => {
+    expect(readRatioPercent(0, 8)).toBe(0);
+  });
+
+  it("完読4・母数8は50（途中%）", () => {
+    expect(readRatioPercent(4, 8)).toBe(50);
+  });
+
+  it("完読数が母数と一致（8/8）すれば100（全読了境界）", () => {
+    expect(readRatioPercent(8, 8)).toBe(100);
+  });
+
+  it("12.5ちょうどは13に切り上がる（Math.round の丸め方向をロック）", () => {
+    expect(readRatioPercent(1, 8)).toBe(13);
+  });
+
+  it("完読数が母数を超えても100%にクランプしない（現仕様の固定）", () => {
+    // 5/3 * 100 = 166.66...→ Math.round で 167（100 に頭打ちしない）。
+    expect(readRatioPercent(5, 3)).toBe(167);
+  });
+
+  it("純粋関数：同じ引数を2回渡しても同じ戻り値", () => {
+    expect(readRatioPercent(4, 8)).toBe(readRatioPercent(4, 8));
   });
 });

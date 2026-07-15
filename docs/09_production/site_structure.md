@@ -77,12 +77,21 @@ name-name は終劇（endStory）到達時、**埋め込み時のみ**親へ pos
 各索引ページに `<ReadMarks />` を1つ置く（バンドル `<script>` が `getReadSet()` を読み、描画後＝module script は defer で DOM 構築後に走る）:
 
 - **個別セル**（1つの `業__住人` への扉）に `data-slug="業__住人"` を持たせ、既読なら `.is-read` を付与。対象は `themes/[theme].astro`（ある業に答える住人一覧）と `residents/[character].astro`（ある住人が答える業一覧）＝**最低限ここで既読印を出す**。
-- **集計カード**に `data-read-group="slug,slug,..."`（束ねる読むページ群）と `[data-read-count]` を持たせ、既読数を数えて「N/M 読了」を常時出す。未読0件でも `0/M 読了` を表示し、総数と進捗を分数で把握できるようにする。全読了なら `.is-read-all`。対象は `anthology.astro`（住人カード＝その住人の全業）と `themes/index.astro`（業カード＝その業に答える全住人）。
+- **集計カード**に `data-read-group="slug,slug,..."`（束ねる読むページ群）と `[data-read-count]` を持たせ、既読数を数えて「N/M 完読」を常時出す（Issue #73で「読了」から改称＝個別セルの読了印と同じ語を使うと全読了時の意味が重複するため）。未読0件でも `0/M 完読` を表示し、総数と進捗を分数で把握できるようにする。分数の左には既読ゲージ（`.th-read-gauge`／幅は `readStore.ts` の `readRatioPercent(readCount, total)` で計算）を添え、`.th-read-meter` としてカード左下に配置する（右上の個別読了印と対角）。全読了なら `.is-read-all`。対象は `anthology.astro`（住人カード＝その住人の全業）と `themes/index.astro`（業カード＝その業に答える全住人）。
 - 未読/既読でセルをロック・並べ替えはしない（どこからでも読める・#14）。
 
 ### 意匠（`.is-read` / `.is-read-all` / `.th-read-badge`・`global.css`）
 
-既読は「達成」なので**暗くしない**（トーン落とし＝消化済みのネガ印象は不採用・kako-jun 指示）。個別セルには温かい金の灯り（金 border＋金グロー）をともし、角に金地の「読了」蔵書印（`::after`・金地×濃墨＝押された勲章）を押す。面は沈めない。全読了カードは金の灯りを強める。既読数バッジは金で静かに。派手にしない（#20: 汎用 UI chrome 禁止）。
+既読は「達成」なので**暗くしない**（トーン落とし＝消化済みのネガ印象は不採用・kako-jun 指示）。個別セルには温かい金の灯り（金 border＋金グロー）をともし、角に金地の「読了」蔵書印（`::after`ではなく`ReadMarks.astro`が挿す実DOM要素 `.th-read-stamp`・金地×濃墨＝押された勲章）を押す。面は沈めない。全読了カードは金の灯りを強める。集計カードの既読ゲージ+分数バッジ（`.th-read-meter`「N/M 完読」）は金で静かに。派手にしない（#20: 汎用 UI chrome 禁止）。
+
+### 業を象徴する背景画像（Issue #73）
+
+業ボタン（`.th-door`）の悩みの内容を直感させるため、業を象徴する生成絵を背景に敷ける。素材は `assets/images/theme-symbols/<slug>.webp`（黒背景ベース＋下1/3は無地の暗幕・意味内容は上2/3に収める構図。build時 `sync-assets.mjs` で `public/images/theme-symbols/` に複製）。
+
+- `src/lib/scripts.ts` の `themeSymbolImage(slug)` が実在チェック（Node `fs.existsSync`）を行い、配信パス or `null` を返す。**ハードコードの許可リストにしない**＝画像を追加するたびにコード側を触らずに済む。現時点で実在するのは `netami`（人がうらやましい）1点のみ。
+- 適用箇所は `ThemeCard.astro`（業一覧の集計扉）と `residents/[character].astro`（住人が答える業一覧の個別扉）の2箇所。どちらも画像が実在する業だけ `.th-door--symbol` クラス＋インライン `background-image` を付与する。
+- `background-position: center top`（上端基準クロップ）。同じ1枚の画像を、集計扉（住人ぶんの集計バッジがあり高い）と個別扉（1話=1扉で低い）の両方の高さで使い回すため、絵の意味内容を上2/3に収め下1/3を暗幕にする構図と対で成立する。
+- `.th-door:hover, .th-door:focus-visible` の `background` はショートハンドでなく `background-color` のlonghandにしてある（ショートハンドは暗黙に `background-image: none` を巻き込み、ホバー時に象徴画像が消える）。
 
 ## 意匠（`src/styles/global.css`）
 
