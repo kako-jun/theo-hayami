@@ -605,7 +605,7 @@ a {
   line-height: 1.18;
   letter-spacing: 0.04em;
 }
-.th-magazine-section p {
+.th-magazine-section p:not(.th-magazine-section__folio) {
   max-width: 44rem;
   margin-top: 1rem;
   color: var(--color-th-ivory);
@@ -613,7 +613,9 @@ a {
   line-height: 2.05;
 }
 .th-magazine-section__folio {
-  margin-top: 0;
+  display: block;
+  margin: 0;
+  color: var(--color-th-gold-bright);
 }
 
 .th-path-tree {
