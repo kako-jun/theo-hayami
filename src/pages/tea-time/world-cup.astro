@@ -1,6 +1,7 @@
 ---
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import ReaderFrame from "../../components/ReaderFrame.astro";
 import { featuredTeaTimeQuestion } from "../../data/teaTime";
 ---
 
@@ -26,8 +27,16 @@ import { featuredTeaTimeQuestion } from "../../data/teaTime";
 
     <section class="th-panel mt-8">
       <p class="text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
-        この話題で、住人たちが三人ほど話します。席につく住人は、まだ決まっていません。
+        この話題では、マキヤ・スピノ・オウの三人がお茶の席につきます。
       </p>
+    </section>
+
+    <section class="mt-8">
+      <ReaderFrame
+        slug="tea-world-cup"
+        sceneId="tea-wc-luck"
+        title={featuredTeaTimeQuestion.title}
+      />
     </section>
   </div>
 </LibraryLayout>
