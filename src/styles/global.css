@@ -1051,7 +1051,7 @@ a {
 
   .th-story-opening::after {
     background:
-      linear-gradient(180deg, rgba(10, 9, 16, 0.04) 0%, rgba(10, 9, 16, 0.16) 34%, rgba(10, 9, 16, 0.6) 70%, rgba(10, 9, 16, 0.84) 100%),
+      linear-gradient(180deg, rgba(10, 9, 16, 0.04) 0%, rgba(10, 9, 16, 0.16) 34%, rgba(10, 9, 16, 0.56) 70%, rgba(10, 9, 16, 0.82) 88%, rgba(10, 9, 16, 0.96) 100%),
       linear-gradient(90deg, rgba(10, 9, 16, 0.12) 0%, transparent 50%, rgba(10, 9, 16, 0.16) 100%);
   }
 
