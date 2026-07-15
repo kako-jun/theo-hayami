@@ -666,11 +666,8 @@ a {
 .th-tea-answer {
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   gap: 0.9rem;
-  max-width: 44rem;
-}
-.th-tea-answer .th-tea-speakers {
-  justify-content: flex-start;
 }
 .th-tea-speakers {
   display: flex;
@@ -715,9 +712,10 @@ a {
   color: var(--color-th-ivory-dim);
   font-size: 0.72rem;
 }
-.th-tea-mark--answer {
-  font-size: clamp(2.2rem, 7vw, 3.2rem);
-  margin-bottom: 0.4rem;
+.th-tea-answer .th-tea-mark {
+  flex: none;
+  font-size: clamp(2.6rem, 9vw, 4rem);
+  margin-top: -0.1em;
 }
 
 .th-path-tree {
