@@ -924,8 +924,8 @@ a {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(10, 9, 16, 0.04) 0%, rgba(10, 9, 16, 0.16) 44%, rgba(10, 9, 16, 0.82) 100%),
-    linear-gradient(90deg, rgba(10, 9, 16, 0.1) 0%, rgba(10, 9, 16, 0.08) 42%, rgba(10, 9, 16, 0.62) 100%);
+    linear-gradient(180deg, rgba(10, 9, 16, 0.03) 0%, rgba(10, 9, 16, 0.12) 48%, rgba(10, 9, 16, 0.58) 100%),
+    linear-gradient(90deg, rgba(10, 9, 16, 0.08) 0%, rgba(10, 9, 16, 0.06) 42%, rgba(10, 9, 16, 0.44) 100%);
 }
 .th-story-opening__copy {
   position: absolute;
@@ -1051,8 +1051,8 @@ a {
 
   .th-story-opening::after {
     background:
-      linear-gradient(180deg, rgba(10, 9, 16, 0.04) 0%, rgba(10, 9, 16, 0.2) 28%, rgba(10, 9, 16, 0.84) 52%, rgba(10, 9, 16, 0.98) 100%),
-      linear-gradient(90deg, rgba(10, 9, 16, 0.18) 0%, transparent 50%, rgba(10, 9, 16, 0.22) 100%);
+      linear-gradient(180deg, rgba(10, 9, 16, 0.03) 0%, rgba(10, 9, 16, 0.12) 34%, rgba(10, 9, 16, 0.52) 68%, rgba(10, 9, 16, 0.72) 100%),
+      linear-gradient(90deg, rgba(10, 9, 16, 0.12) 0%, transparent 50%, rgba(10, 9, 16, 0.16) 100%);
   }
 
   .th-story-opening__copy {
