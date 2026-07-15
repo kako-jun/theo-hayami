@@ -1,13 +1,15 @@
 // 索引データの正本＝ content/scripts/ のファイル群そのもの（296本のfree/*.mdとscript.md）。
 // ここで手作業の一覧をハードコードしない。ビルド時にファイルシステムをスキャンして
 // 業(theme) × 住人(character) の索引を組み立てる（Issue #20指示: 296本を手で列挙しない）。
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 const SCRIPTS_DIR = path.join(process.cwd(), "content", "scripts");
 const FREE_DIR = path.join(SCRIPTS_DIR, "free");
 const MAIN_DIR = path.join(SCRIPTS_DIR, "main");
 const HUB_FILE = path.join(SCRIPTS_DIR, "script.md");
+// 業を象徴する生成絵の正本置き場（Issue #73）。sync-assets.mjs が public/images/ に複製する。
+const THEME_SYMBOLS_DIR = path.join(process.cwd(), "assets", "images", "theme-symbols");
 
 export interface Episode {
   /** ファイル名から拡張子を除いたもの＝サイトのURLスラッグ (`ai__aristo`)。 */
@@ -112,6 +114,17 @@ export function loadThemes(): ThemeSummary[] {
     entry.characters.push(ep.character);
   }
   return sortByHubOrder([...byTheme.values()]);
+}
+
+/**
+ * 業の象徴画像（Issue #73）の配信パスを返す。assets/images/theme-symbols/{slug}.webp が
+ * 実在する業だけ `/images/theme-symbols/{slug}.webp` を返し、無ければ null。
+ * ハードコードの許可リストにしない＝画像を追加するたびにコード側を触らずに済む
+ * （loadThemes() 同様、ファイルシステムの実在を正本にする）。
+ */
+export function themeSymbolImage(slug: string): string | null {
+  const filePath = path.join(THEME_SYMBOLS_DIR, `${slug}.webp`);
+  return existsSync(filePath) ? `/images/theme-symbols/${slug}.webp` : null;
 }
 
 // 業カテゴリの正本。初出は docs/09_production/combination_grid_drafts.md の

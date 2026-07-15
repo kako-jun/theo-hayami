@@ -36,6 +36,15 @@ export function isRead(slug: string): boolean {
   return getReadSet().has(slug);
 }
 
+/**
+ * 完読数と母数から達成率（0〜100の整数%）を返す（Issue #73・既読ゲージの幅計算）。
+ * 母数0はゼロ除算を避けて0を返す。副作用なしの純粋関数（ReadMarks.astro から呼ぶ）。
+ */
+export function readRatioPercent(readCount: number, total: number): number {
+  if (total <= 0) return 0;
+  return Math.round((readCount / total) * 100);
+}
+
 /** slug を完読として記録する（冪等・追加のみ）。localStorage 無し・空 slug は何もしない。 */
 export function markRead(slug: string): void {
   if (!hasStorage() || !slug) return;

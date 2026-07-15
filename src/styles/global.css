@@ -148,6 +148,7 @@ a {
 
 /* 扉・カードなど「押せる」面。ホバーで金の線が灯る。 */
 .th-door {
+  position: relative;
   display: block;
   text-align: center;
   padding: 1.75rem 1.5rem;
@@ -160,11 +161,46 @@ a {
     background-color 0.3s ease,
     box-shadow 0.3s ease;
 }
+/* Issue #73: background は longhand の background-color にする。ショートハンドの
+   background: rgba(...) は暗黙に background-image を none に戻すため、.th-door--symbol
+   がインラインで敷く象徴画像がホバーした瞬間に消える地雷になる（実装前に判明・回避）。 */
 .th-door:hover,
 .th-door:focus-visible {
   border-color: var(--color-th-gold-bright);
-  background: rgba(24, 22, 34, 0.72);
+  background-color: rgba(24, 22, 34, 0.72);
   box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.25), 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------------------------------------------------------------
+   業を象徴する画像を背景に敷く扉（Issue #73・netamiで実証）
+   assets/images/theme-symbols/{slug}.webp が存在する業だけ、Astro側が
+   background-image をインラインで敷く（インライン宣言はどのセレクタ由来の
+   ショートハンドより優先度が高く、:hover 等に巻き込まれない）。本クラスは
+   上端基準クロップ（画像の意味内容は上2/3・下1/3は無地の暗幕という前提の
+   画像側規約と対で成立＝集計扉/個別扉の高さ違いに同じ1枚を使い回せる）と、
+   可読性用の下方向グラデーション（.th-resident-card__art::after と同じ語彙）
+   だけを持つ。 */
+.th-door--symbol {
+  overflow: hidden;
+  background-size: cover;
+  background-position: center top;
+}
+.th-door--symbol::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 9, 16, 0.05) 0%,
+    rgba(10, 9, 16, 0.24) 55%,
+    rgba(10, 9, 16, 0.88) 100%
+  );
+}
+.th-door--symbol > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ---------------------------------------------------------------------
@@ -224,10 +260,44 @@ a {
     0 0 0 1px rgba(245, 224, 170, 0.3) inset,
     0 0 20px rgba(230, 196, 126, 0.22);
 }
-/* 既読数の蔵書票（「3/8 読了」）。金で静かに、達成の記録として。 */
+/* 既読数の蔵書票（「3/8 完読」）。金で静かに、達成の記録として。 */
 .th-read-badge {
+  margin: 0;
   color: var(--color-th-gold-bright);
   letter-spacing: 0.1em;
+}
+
+/* ---------------------------------------------------------------------
+   既読ゲージ+分数（Issue #73）
+   集計扉（ThemeCard/ResidentCard）の左下に置く。右上の読了印（.th-read-stamp）
+   と対角にバランスさせる語彙として、ゲージ・バッジとも角丸は使わない
+   （DESIGN.md shapes: radius: minimal・読了印2pxのみ例外）。汎用の
+   <progress> 風にせず、真鍮の細線＋金グラデーションで書架の計器のように組む。
+   --------------------------------------------------------------------- */
+.th-read-meter {
+  position: absolute;
+  left: 0.85rem;
+  bottom: 0.75rem;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.th-read-gauge {
+  position: relative;
+  display: block;
+  width: 2.75rem;
+  height: 0.3rem;
+  border: 1px solid rgba(184, 147, 79, 0.55);
+  background: rgba(10, 9, 16, 0.5);
+  overflow: hidden;
+}
+.th-read-gauge__fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-th-gold) 0%, var(--color-th-gold-bright) 100%);
+  transition: width 0.4s ease;
 }
 
 .th-resident-card.is-read {
