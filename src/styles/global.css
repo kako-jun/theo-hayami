@@ -314,10 +314,23 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
+  gap: 0.35rem 0.55rem;
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   color: var(--color-th-ivory-dim);
+}
+.th-footer__author > * + * {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.th-footer__author > * + *::before {
+  content: "";
+  display: inline-block;
+  width: 1.8em;
+  height: 1px;
+  background: rgba(184, 147, 79, 0.45);
+  box-shadow: 0 0 8px rgba(230, 196, 126, 0.18);
 }
 .th-footer__author a {
   border-bottom: 1px solid rgba(184, 147, 79, 0.35);
