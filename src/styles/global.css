@@ -661,6 +661,10 @@ a {
   color: var(--color-th-ivory);
   font-size: clamp(1.05rem, 3.4vw, 1.35rem);
   line-height: 1.9;
+  /* 折り返し行を「の幅ぶん字下げ（ぶら下げインデント）。1行目の「が左へ逃げ、
+     2行目以降は「直後の文字位置に揃う。 */
+  padding-left: 1em;
+  text-indent: -1em;
 }
 /* 回答ブロック: 「A」を Q の真下（左端の定位置）に絶対配置し、顔3つは埋め込み
    （.th-reader は margin-inline:auto で中央）と中心を揃えるため中央寄せのまま。
