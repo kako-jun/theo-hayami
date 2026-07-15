@@ -302,6 +302,12 @@ a {
   padding: 10px;
   border-radius: 8px;
   background: var(--color-th-ink);
+  /* パンくず等のtext-shadow（Issue #62由来、生成絵に直接乗る要素向け）と同じ
+     二層構成で輪郭をぼんやりさせる。QR画像自体はfilter:blurで滲ませない
+     （モジュールが読み取れなくなるため）。 */
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.7),
+    0 0 16px rgba(0, 0, 0, 0.45);
 }
 .th-footer__author {
   display: flex;
