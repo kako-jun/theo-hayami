@@ -24,6 +24,8 @@
     for (const el of document.querySelectorAll<HTMLElement>("[data-slug]")) {
       if (!readSet.has(el.dataset.slug ?? "")) continue;
       el.classList.add("is-read");
+      // 冪等ガード: applyReadMarks の再実行でも完読印を二重に挿さない（集計ループと対称）。
+      if (el.querySelector(".th-read-stamp")) continue;
       const stamp = document.createElement("span");
       stamp.className = "th-read-stamp";
       stamp.textContent = "完読";
