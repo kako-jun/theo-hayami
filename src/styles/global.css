@@ -217,7 +217,10 @@ a {
    ソース順（本ルールより後方で宣言されている＝現状は勝つ）に依存してしまう。
    将来CSSブロックを並べ替えると無警告で position: relative に負けて壊れるため、
    :not() で最初から対象外にしてソース順依存を断つ。 */
-.th-door--symbol > :not(.th-read-meter) {
+/* 完読印(.th-read-stamp)も除外する。含めると position:relative に上書きされ、右上固定
+   (.th-read-stamp の absolute)が外れて中央下へ落ちる（象徴画像付き業ボタンの完読が
+   タイトル下センタリングになる不具合）。ゲージ(meter)と完読印は象徴レイヤの重ね対象にしない。 */
+.th-door--symbol > :not(.th-read-meter):not(.th-read-stamp) {
   position: relative;
   z-index: 1;
 }
@@ -688,7 +691,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.4rem;
+  gap: 0.8rem;
 }
 .th-tea-speaker {
   display: flex;
@@ -726,6 +729,20 @@ a {
   margin-top: 0.15rem;
   color: var(--color-th-ivory-dim);
   font-size: 0.72rem;
+}
+/* スマホ幅: A は絶対配置の左ガターに置いたまま（上へ動かさない）。中央寄せの顔クラスタが
+   幅いっぱいに広がると左端の顔が A に重なるので、顔を小さく＋間隔を詰めてクラスタ幅を縮め、
+   A の左ガターに掛からないようにする。顔中心＝埋め込み中心は維持。 */
+@media (max-width: 640px) {
+  .th-tea-speakers {
+    gap: 0.5rem;
+  }
+  .th-tea-speaker {
+    width: 4.8rem;
+  }
+  .th-tea-speaker__face {
+    width: 4rem;
+  }
 }
 .th-tea-answer .th-tea-mark {
   flex: none;
