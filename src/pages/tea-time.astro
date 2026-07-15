@@ -3,6 +3,16 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 import LibraryLayout from "../layouts/LibraryLayout.astro";
 import ReadMarks from "../components/ReadMarks.astro";
 import { featuredTeaTimeQuestion, teaTimeQuestions } from "../data/teaTime";
+import { findResident } from "../data/residents";
+
+// 索引の話者紹介文は world-cup 側と同じ residents 配列から生成する（二重管理を避ける）。
+const featuredNames = (featuredTeaTimeQuestion.residents ?? [])
+  .map((slug) => findResident(slug)?.name)
+  .filter((name): name is string => Boolean(name));
+const featuredSpeakerLine =
+  featuredNames.length > 0
+    ? `${featuredNames.join("・")}の${featuredNames.length}人がお茶の席につきます。`
+    : "住人たちがお茶の席につきます。";
 ---
 
 <LibraryLayout
@@ -38,7 +48,7 @@ import { featuredTeaTimeQuestion, teaTimeQuestions } from "../data/teaTime";
         <span class="th-story-button__number">01</span>
         <p class="text-base" style="color: var(--color-th-ivory);">{featuredTeaTimeQuestion.title}</p>
         <p class="text-sm mt-2" style="color: var(--color-th-ivory-dim);">{featuredTeaTimeQuestion.question}</p>
-        <p class="text-xs mt-3" style="color: var(--color-th-gold-bright);">マキヤ・スピノ・オウの三人がお茶の席につきます。</p>
+        <p class="text-xs mt-3" style="color: var(--color-th-gold-bright);">{featuredSpeakerLine}</p>
       </a>
     </section>
 
