@@ -1022,7 +1022,7 @@ a {
 }
 @media (max-width: 639px) {
   .th-story-opening {
-    min-height: clamp(16.5rem, 68vw, 20rem);
+    min-height: clamp(10.5rem, 56vw, 21rem);
   }
 
   .th-story-opening img {
