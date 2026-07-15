@@ -11,6 +11,7 @@ import {
   loadEpisodes,
   loadHubOrder,
   loadOhako,
+  loadStoryButtons,
   loadThemeCategories,
   loadThemes,
   THEME_CATEGORIES,
@@ -240,6 +241,19 @@ describe("findOhako", () => {
   it("おはこの slug（`ohako-kantia`）を住人スラッグと取り違えても引かない", () => {
     // findOhako は character（`kantia`）で引く。slug をそのまま渡しても一致しない契約。
     expect(findOhako("ohako-kantia")).toBeUndefined();
+  });
+});
+
+describe("loadStoryButtons: 本編ボタンの順序", () => {
+  const buttons = loadStoryButtons();
+
+  it("現段階ではおはこ8本を第一幕の本編ボタンとして並べる", () => {
+    expect(buttons.length).toBe(8);
+    expect(buttons.map((entry) => entry.slug)).toEqual([...KNOWN_CHARACTERS].map((slug) => `ohako-${slug}`));
+  });
+
+  it("幕内の表示順は1始まりで付く", () => {
+    expect(buttons.map((entry) => entry.orderInAct)).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
   });
 });
 

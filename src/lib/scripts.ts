@@ -3,6 +3,7 @@
 // 業(theme) × 住人(character) の索引を組み立てる（Issue #20指示: 296本を手で列挙しない）。
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { RESIDENTS } from "../data/residents";
 
 const SCRIPTS_DIR = path.join(process.cwd(), "content", "scripts");
 const FREE_DIR = path.join(SCRIPTS_DIR, "free");
@@ -237,7 +238,13 @@ export interface OhakoEntry {
   background: string | null;
 }
 
+export interface StoryButtonEntry extends OhakoEntry {
+  /** 幕内の表示順。1始まり。 */
+  orderInAct: number;
+}
+
 let cachedOhako: OhakoEntry[] | null = null;
+let cachedStoryButtons: StoryButtonEntry[] | null = null;
 
 /** main/ohako-*.md 全件をスキャンして OhakoEntry[] を組み立てる（ビルド時1回・以後キャッシュ）。 */
 export function loadOhako(): OhakoEntry[] {
@@ -266,6 +273,28 @@ export function loadOhako(): OhakoEntry[] {
 /** 住人スラッグからその住人の「初めての問答」を引く（無ければ undefined）。 */
 export function findOhako(character: string): OhakoEntry | undefined {
   return loadOhako().find((e) => e.character === character);
+}
+
+/**
+ * `/story` に並べる本編ボタン。現段階では、住人と初めて会う `main/ohako-*.md`
+ * 8本を第一幕の本編ボタンとして扱う。ボタンごとの文量は揃えない。
+ */
+export function loadStoryButtons(): StoryButtonEntry[] {
+  if (cachedStoryButtons) return cachedStoryButtons;
+
+  const byCharacter = new Map(loadOhako().map((entry) => [entry.character, entry]));
+  cachedStoryButtons = RESIDENTS.map((resident, index) => {
+    const entry = byCharacter.get(resident.slug);
+    if (!entry) {
+      throw new Error(`本編ボタンに対応するおはこが見つからない: ${resident.slug}`);
+    }
+    return { ...entry, orderInAct: index + 1 };
+  });
+  return cachedStoryButtons;
+}
+
+export function findStoryButton(slug: string): StoryButtonEntry | undefined {
+  return loadStoryButtons().find((entry) => entry.slug === slug);
 }
 
 // --- ハブ（script.md）の選択肢順序 ---
