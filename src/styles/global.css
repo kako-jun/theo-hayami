@@ -266,7 +266,7 @@ a {
     0 0 0 1px rgba(245, 224, 170, 0.3) inset,
     0 0 20px rgba(230, 196, 126, 0.22);
 }
-/* 既読数の蔵書票（「3/8 完読」）。金で静かに、達成の記録として。 */
+/* 既読数の蔵書票（「3/8 読了」）。金で静かに、達成の記録として。 */
 .th-read-badge {
   margin: 0;
   color: var(--color-th-gold-bright);
@@ -275,14 +275,14 @@ a {
 
 /* ---------------------------------------------------------------------
    既読ゲージ+分数（Issue #73）
-   集計扉（ThemeCard/ResidentCard）の左下に置く。右上の読了印（.th-read-stamp）
-   と対角にバランスさせる語彙として、ゲージ・バッジとも角丸は使わない
+   集計扉（ThemeCard/ResidentCard）の右下に置く。途中経過の語彙として、
+   ゲージ・バッジとも角丸は使わない
    （DESIGN.md shapes: radius: minimal・読了印2pxのみ例外）。汎用の
    <progress> 風にせず、真鍮の細線＋金グラデーションで書架の計器のように組む。
    --------------------------------------------------------------------- */
 .th-read-meter {
   position: absolute;
-  left: 0.85rem;
+  right: 0.85rem;
   bottom: 0.75rem;
   z-index: 4;
   display: flex;
