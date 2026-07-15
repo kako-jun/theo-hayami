@@ -1,6 +1,6 @@
 ---
 // Issue #62: サイト共通フッタ。LibraryLayout.astro から全ページで使う。
-// 既存のパンくず（「叡智の星海 ── せおはやみ」）はそのまま維持し、その下に
+// サイト名と、その下に
 // QR・作者導線・訪問カウンタ・版表示を「書架の奥付」のように控えめに並べる。
 // 汎用UI chrome（角丸カード・原色ボタン・水平ナビバー）は使わない（DESIGN.md）。
 import VisitorCounter from "./VisitorCounter.astro";
@@ -14,7 +14,7 @@ const buildDate = formatVersion(process.env.PUBLIC_BUILD_DATE);
 
 <footer class="w-full py-6 px-4 text-center th-glow">
   <p class="th-breadcrumb">
-    <a href="/">叡智の星海</a> ── せおはやみ
+    <a href="/">せおはやみ</a>
     <span class="th-breadcrumb__version">{buildDate}</span>
   </p>
   <div class="th-footer">
