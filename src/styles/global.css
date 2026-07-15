@@ -660,6 +660,7 @@ a {
   background: transparent;
 }
 .th-path-tree__branch .th-path-tree__item {
+  padding-left: 1.85rem;
   border: none;
   border-top: 1px solid rgba(184, 147, 79, 0.42);
   background: transparent;
