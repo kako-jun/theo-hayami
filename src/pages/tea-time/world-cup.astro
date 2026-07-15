@@ -36,31 +36,36 @@ const speakers = (featuredTeaTimeQuestion.residents ?? [])
     </section>
 
     <section class="mt-8">
-      <p class="th-tea-mark th-tea-mark--answer th-glow" aria-hidden="true">A</p>
-      {
-        speakers.length > 0 && (
-          <ul class="th-tea-speakers mt-4">
-            {speakers.map((r) => (
-              <li class="th-tea-speaker">
-                <span class="th-tea-speaker__face">
-                  <img
-                    src={`/images/theme-residents/${r.slug}.webp`}
-                    alt={r.name}
-                    loading="lazy"
-                  />
-                </span>
-                <span class="th-tea-speaker__name">{r.name}</span>
-                <span class="th-tea-speaker__meta">叡智：{r.ability}</span>
-              </li>
-            ))}
-          </ul>
-        )
-      }
-      <ReaderFrame
-        slug="tea-world-cup"
-        sceneId="tea-wc-luck"
-        title={featuredTeaTimeQuestion.title}
-      />
+      <div class="th-tea-answer">
+        <p class="th-tea-mark th-tea-mark--answer th-glow" aria-hidden="true">A</p>
+        {
+          speakers.length > 0 && (
+            <ul class="th-tea-speakers">
+              {speakers.map((r) => (
+                <li class="th-tea-speaker">
+                  <span class="th-tea-speaker__face">
+                    <img
+                      src={`/images/theme-residents/${r.slug}.webp`}
+                      alt={r.name}
+                      loading="lazy"
+                    />
+                  </span>
+                  <span class="th-tea-speaker__name">{r.name}</span>
+                  <span class="th-tea-speaker__meta">叡智：{r.ability}</span>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+
+      <div class="mt-8">
+        <ReaderFrame
+          slug="tea-world-cup"
+          sceneId="tea-wc-luck"
+          title={featuredTeaTimeQuestion.title}
+        />
+      </div>
     </section>
   </div>
 </LibraryLayout>

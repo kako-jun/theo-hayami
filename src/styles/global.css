@@ -650,8 +650,6 @@ a {
   align-items: flex-start;
   gap: 0.9rem;
   max-width: 44rem;
-  padding-left: 1.1rem;
-  border-left: 2px solid var(--color-th-gold);
 }
 .th-tea-quote .th-tea-mark {
   flex: none;
@@ -663,6 +661,16 @@ a {
   color: var(--color-th-ivory);
   font-size: clamp(1.05rem, 3.4vw, 1.35rem);
   line-height: 1.9;
+}
+/* 回答ブロックの見出し行: 「A」の右に回答者(住人)の顔を並べる（Q行と対称）。 */
+.th-tea-answer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  max-width: 44rem;
+}
+.th-tea-answer .th-tea-speakers {
+  justify-content: flex-start;
 }
 .th-tea-speakers {
   display: flex;
