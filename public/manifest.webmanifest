@@ -1,0 +1,26 @@
+{
+  "name": "せおはやみ",
+  "short_name": "せおはやみ",
+  "description": "「叡智の星海」──人類の知見が蓄えられた星海に迷い込んだ読書体験",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0910",
+  "theme_color": "#0a0910",
+  "lang": "ja",
+  "scope": "/",
+  "id": "/",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

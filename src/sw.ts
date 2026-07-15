@@ -1,5 +1,4 @@
 /// <reference lib="webworker" />
-/// <reference types="vite-plugin-pwa/client" />
 // Issue #59: mypace（repos/2025/mypace/apps/web/src/sw.ts）と同じ最小構成。
 // push通知・share targetはtheo-hayami（静的読み物サイト）には不要なので持ち込まない。
 //

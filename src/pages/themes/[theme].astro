@@ -36,7 +36,7 @@ const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug));
 
     <header class="text-center my-8 th-glow">
       <h1 class="text-2xl sm:text-3xl" style="color: var(--color-th-theo);">「{theme.title}」</h1>
-      <p class="mt-2 text-sm" style="color: var(--color-th-ivory-dim);">この業を、誰に聞いてみよう。</p>
+      <p class="mt-2 text-sm" style="color: var(--color-th-ivory-dim);">この業を、誰に訊いてみよう。</p>
     </header>
 
     <ul class="grid gap-3 sm:grid-cols-2">
@@ -56,7 +56,7 @@ const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug));
                 loading="lazy"
               />
               <span class="th-theme-resident-choice__body">
-                <span class="th-theme-resident-choice__name">{resident.name}に聞く</span>
+                <span class="th-theme-resident-choice__name">{resident.name}に訊く</span>
                 <span class="th-theme-resident-choice__meta">叡智：{resident.ability}（{resident.thought}）</span>
               </span>
             </a>

@@ -3,9 +3,8 @@
 // 業(theme) × 住人(character) の索引を組み立てる（Issue #20指示: 296本を手で列挙しない）。
 import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
-const SCRIPTS_DIR = fileURLToPath(new URL("../../content/scripts/", import.meta.url));
+const SCRIPTS_DIR = path.join(process.cwd(), "content", "scripts");
 const FREE_DIR = path.join(SCRIPTS_DIR, "free");
 const MAIN_DIR = path.join(SCRIPTS_DIR, "main");
 const HUB_FILE = path.join(SCRIPTS_DIR, "script.md");
