@@ -665,11 +665,11 @@ a {
 }
 .th-path-tree__hint {
   max-width: none;
-  margin: 0 0 0.2rem;
-  color: var(--color-th-gold-bright);
+  margin: 0.25rem 0 0;
+  color: var(--color-th-ivory-dim);
   font-size: 0.68rem;
   line-height: 1.6;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
 }
 .th-path-tree__text {
   display: block;
