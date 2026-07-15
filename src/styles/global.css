@@ -677,10 +677,24 @@ a {
   width: 6.5rem;
   text-align: center;
 }
+/* 話者顔チップ。素材は 960×540 の 16:9 バストアップ（顔は上寄り中央、
+   ou のみ頭頂に髷があり顔がやや下）。立ち絵用 th-face-crop は使わず、正方枠に
+   cover で収めてから face 位置へズームする close-up 専用ルールで顎・目を切らない。 */
 .th-tea-speaker__face {
   width: 5.2rem;
-  border: 1px solid rgba(230, 196, 126, 0.55);
-  box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.14) inset;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid rgba(230, 196, 126, 0.55); /* =gold-bright #e6c47e */
+  box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.14) inset; /* =gold-bright #e6c47e */
+  background: rgba(10, 9, 16, 0.4);
+}
+.th-tea-speaker__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 34%;
+  transform: scale(1.5);
+  transform-origin: center 34%;
 }
 .th-tea-speaker__name {
   margin-top: 0.55rem;
