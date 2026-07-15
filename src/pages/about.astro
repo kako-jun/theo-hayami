@@ -1,0 +1,69 @@
+---
+import Breadcrumb from "../components/Breadcrumb.astro";
+import LibraryLayout from "../layouts/LibraryLayout.astro";
+---
+
+<LibraryLayout
+  title="About ── せおはやみ"
+  description="せおはやみがどんな読み物なのか、遊び方とサポート先を現実視点でまとめた案内。"
+  bgImage="shadow-library/grand-reading-room-v.webp"
+>
+  <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb trail={[{ label: "トップ", href: "/" }, { label: "About" }]} />
+
+    <header class="text-center my-8 th-glow">
+      <p class="th-magazine-section__folio">Guide / About</p>
+      <h1 class="text-2xl sm:text-3xl" style="color: var(--color-th-theo);">この星海の読み方</h1>
+      <p class="mt-3 text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
+        ここだけは、少しだけ現実の言葉で案内します。
+      </p>
+    </header>
+
+    <div class="space-y-6">
+      <section class="th-panel p-6 sm:p-7">
+        <h2 class="text-xl" style="color: var(--color-th-theo);">これは何ですか</h2>
+        <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+          「せおはやみ」は、思想を人格化した住人たちに、人の業を訊く短い会話劇です。
+          長編ゲームのように長時間を要求するものではありません。駅と駅のあいだ、眠る前の数分、
+          ひとつの問いだけを選んで読めるように作っています。
+        </p>
+      </section>
+
+      <section class="th-panel p-6 sm:p-7">
+        <h2 class="text-xl" style="color: var(--color-th-theo);">どう読めばいいですか</h2>
+        <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+          物語として読むなら「本編を読む」から。いま気になる悩みだけを拾うなら「自由行動」からどうぞ。
+          住人の顔で選んでも、業の名前で選んでも、同じ星海の別の入口につながっています。
+        </p>
+      </section>
+
+      <section class="th-panel p-6 sm:p-7">
+        <h2 class="text-xl" style="color: var(--color-th-theo);">開発スタッフ</h2>
+        <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
+          llll-ll / Planning Div. 42
+        </p>
+        <dl class="mt-4 grid gap-3 text-sm leading-loose" style="color: var(--color-th-ivory);">
+          <div>
+            <dt style="color: var(--color-th-gold-bright);">企画・プログラム</dt>
+            <dd>kako-jun</dd>
+          </div>
+          <div>
+            <dt style="color: var(--color-th-gold-bright);">イラストレーション</dt>
+            <dd>jokin</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="th-panel p-6 sm:p-7">
+        <h2 class="text-xl" style="color: var(--color-th-theo);">サポート</h2>
+        <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+          表示が崩れる、読めないページがある、内容について伝えたいことがある場合は、
+          作者サイトから連絡してください。制作物の一覧や連絡先も同じ場所にまとめています。
+        </p>
+        <a href="https://llll-ll.com" target="_blank" rel="noopener noreferrer" class="th-link-button inline-block mt-5 no-underline">
+          llll-ll.com
+        </a>
+      </section>
+    </div>
+  </div>
+</LibraryLayout>
