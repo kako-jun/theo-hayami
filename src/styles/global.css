@@ -506,6 +506,9 @@ a {
 .th-magazine-section--plain {
   border-top: 0;
 }
+.th-magazine-section--home-guide {
+  border-bottom: 0;
+}
 .th-magazine-section h2 {
   max-width: 20ch;
   color: var(--color-th-theo);
@@ -570,6 +573,14 @@ a {
   color: var(--color-th-gold-bright);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
+}
+.th-path-tree__hint {
+  max-width: none;
+  margin: 0 0 0.2rem;
+  color: var(--color-th-gold-bright);
+  font-size: 0.68rem;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
 }
 .th-path-tree__text {
   display: block;
