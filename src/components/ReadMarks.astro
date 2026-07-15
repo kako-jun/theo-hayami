@@ -1,6 +1,6 @@
 ---
 // 索引の既読反映（Issue #30・クライアント専用）。描画後に localStorage の既読集合を読み、
-// - 個別セル（`data-slug="業__住人"`）で既読のものに `.is-read` を付ける（暗くせず、金の灯り＋金の「読了」蔵書印＝達成の印）。
+// - 個別セル（`data-slug="業__住人"`）で既読のものに `.is-read` を付ける（暗くせず、金の灯り＋金の「完読」蔵書印＝達成の印）。
 // - 集計カード（`data-read-group="slug,slug,..."`）で既読数を数え、`[data-read-count]` に「N/M 読了」を出し、
 //   同じカード内の `.th-read-gauge__fill` の幅も進捗率で更新する（Issue #73）。
 //   全部読み終えたカードには `.is-read-all` を付ける。
@@ -18,7 +18,7 @@
   function applyReadMarks() {
     const readSet = getReadSet();
 
-    // 個別セル: 既読なら .is-read（読了印）。印は実DOM要素で挿す（::after だと
+    // 個別セル: 既読なら .is-read（完読印）。印は実DOM要素で挿す（::after だと
     // .th-theme-resident-choice など独自の ::before/::after 演出を使う扉と衝突し、
     // 詳細度の高い方が background 等を丸ごと上書きしてしまうため）。
     for (const el of document.querySelectorAll<HTMLElement>("[data-slug]")) {
@@ -26,7 +26,7 @@
       el.classList.add("is-read");
       const stamp = document.createElement("span");
       stamp.className = "th-read-stamp";
-      stamp.textContent = "読了";
+      stamp.textContent = "完読";
       el.appendChild(stamp);
     }
 

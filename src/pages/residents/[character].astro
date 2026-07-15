@@ -77,7 +77,7 @@ const ohako = findOhako(character);
               はじめての問答（おはこ）
             </h2>
             {/* data-slug は ReaderFrame が完読時に markRead する slug（= ohako.slug = `ohako-${character}`）
-                と同一。free の扉と同じ規約で ReadMarks が既読なら金の読了印（.th-door.is-read）を付ける。 */}
+                と同一。free の扉と同じ規約で ReadMarks が既読なら金の完読印（.th-door.is-read）を付ける。 */}
             <a href={`/main/${ohako.slug}`} data-slug={ohako.slug} class="th-door block no-underline">
               <p style="color: var(--color-th-ivory);">{ohako.title}</p>
               <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">
