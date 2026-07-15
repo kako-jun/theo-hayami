@@ -191,12 +191,25 @@ a {
   inset: 0;
   z-index: 0;
   pointer-events: none;
+  /* kako-jun実機フィードバック: 元は「下1/3（既読ゲージ帯）を暗くする」前提で
+     0%〜55%をほぼ透明にしていたが、日本語タイトル<p>は扉上部（padding-top直後、
+     高さのおよそ26〜50%あたり）に乗るため、絵が明るい/ディテールが多いと文字が
+     読みにくかった。上部の帯もしっかり暗くしつつ、下端（既読ゲージ帯）は従来通り
+     強く暗くする。 */
   background: linear-gradient(
     180deg,
-    rgba(10, 9, 16, 0.05) 0%,
-    rgba(10, 9, 16, 0.24) 55%,
-    rgba(10, 9, 16, 0.88) 100%
+    rgba(10, 9, 16, 0.3) 0%,
+    rgba(10, 9, 16, 0.4) 30%,
+    rgba(10, 9, 16, 0.45) 55%,
+    rgba(10, 9, 16, 0.9) 100%
   );
+}
+/* 暗幕を通過してもなお絵のディテールが強い場合に備え、タイトル<p>には控えめな
+   text-shadowも重ねる（.th-glowと同じ考え方だが、既に暗幕がある分は弱める＝
+   二重に効きすぎない強さ）。.th-door--symbol > p は各ページの直下タイトルにのみ
+   一致し、孫要素の .th-read-badge（.th-read-meter配下）は対象外。 */
+.th-door--symbol > p {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75), 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 /* .th-read-meter を除外する: ThemeCard.astro では .th-read-meter が .th-door--symbol の
    直下子になるため、除外しないと本セレクタにも一致する。.th-read-meter 自身は
