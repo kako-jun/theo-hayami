@@ -1,6 +1,7 @@
 ---
 import Breadcrumb from "../components/Breadcrumb.astro";
 import LibraryLayout from "../layouts/LibraryLayout.astro";
+import ReadMarks from "../components/ReadMarks.astro";
 import { featuredTeaTimeQuestion, teaTimeQuestions } from "../data/teaTime";
 ---
 
@@ -33,11 +34,11 @@ import { featuredTeaTimeQuestion, teaTimeQuestions } from "../data/teaTime";
 
     <section class="mt-10">
       <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">第一弾</h2>
-      <a href={`/tea-time/${featuredTeaTimeQuestion.slug}`} class="th-door th-current-question th-current-question--featured block no-underline">
+      <a href={`/tea-time/${featuredTeaTimeQuestion.slug}`} data-slug="tea-world-cup" class="th-door th-current-question th-current-question--featured block no-underline">
         <span class="th-story-button__number">01</span>
         <p class="text-base" style="color: var(--color-th-ivory);">{featuredTeaTimeQuestion.title}</p>
         <p class="text-sm mt-2" style="color: var(--color-th-ivory-dim);">{featuredTeaTimeQuestion.question}</p>
-        <p class="text-xs mt-3" style="color: var(--color-th-gold-bright);">席につく住人は、まだ決まっていません。</p>
+        <p class="text-xs mt-3" style="color: var(--color-th-gold-bright);">マキヤ・スピノ・オウの三人がお茶の席につきます。</p>
       </a>
     </section>
 
@@ -59,4 +60,6 @@ import { featuredTeaTimeQuestion, teaTimeQuestions } from "../data/teaTime";
       </ol>
     </section>
   </div>
+
+  <ReadMarks />
 </LibraryLayout>
