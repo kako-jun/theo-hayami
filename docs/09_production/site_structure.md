@@ -128,6 +128,7 @@ name-name は終劇（endStory）到達時、**埋め込み時のみ**親へ pos
 - `promotional/cast/shadow-library-reading-guide.webp`: トップページの本文背景に使う図版。first viewport の集合キービジュアルと同じ絵が下に続いて見えないよう、`index.astro` の `bgImage` はこれを指定する。
 - `promotional/cast/story-opening.webp`: `/story` 冒頭に置く本編導入用の集合絵。横長のまま 1600x900 WebP に正規化する。
 - `/story` 冒頭の本編導入絵は、スマホ幅でも横を見切らせない。モバイルでは縦長枠へ `cover` せず `object-fit: contain` で全体を表示する。
+- `promotional/cast/tea-time-cast.webp`: `/tea-time`（けふのティータイム）冒頭に置くキービジュアル。`/story` と同じ `.th-story-opening` の表紙表現（16:9・object-fit cover・右下寄せの折込コピー）を流用する。
 
 ## 本編読了ゲート（Issue #60）
 
