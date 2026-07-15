@@ -28,44 +28,44 @@ const speakers = (featuredTeaTimeQuestion.residents ?? [])
     <section class="th-magazine-section th-magazine-section--plain mt-8">
       <p class="th-magazine-section__folio">004-01 / TEA TIME</p>
       <h1 class="mt-2">{featuredTeaTimeQuestion.title}</h1>
-
-      <figure class="th-tea-quote th-glow mt-6">
-        <span class="th-tea-mark" aria-hidden="true">Q</span>
-        <blockquote>「{featuredTeaTimeQuestion.question}」</blockquote>
-      </figure>
     </section>
 
-    <section class="mt-8">
-      <div class="th-tea-answer">
-        <p class="th-tea-mark th-glow" aria-hidden="true">A</p>
-        {
-          speakers.length > 0 && (
-            <ul class="th-tea-speakers">
-              {speakers.map((r) => (
-                <li class="th-tea-speaker">
-                  <span class="th-tea-speaker__face">
-                    <img
-                      src={`/images/theme-residents/${r.slug}.webp`}
-                      alt={r.name}
-                      loading="lazy"
-                    />
-                  </span>
-                  <span class="th-tea-speaker__name">{r.name}</span>
-                  <span class="th-tea-speaker__meta">叡智：{r.ability}</span>
-                </li>
-              ))}
-            </ul>
-          )
-        }
-      </div>
+    <figure class="th-tea-quote th-glow mt-6">
+      <span class="th-tea-mark" aria-hidden="true">Q</span>
+      <blockquote>「{featuredTeaTimeQuestion.question}」</blockquote>
+    </figure>
 
-      <div class="mt-8">
-        <ReaderFrame
-          slug="tea-world-cup"
-          sceneId="tea-wc-luck"
-          title={featuredTeaTimeQuestion.title}
-        />
-      </div>
-    </section>
+    <hr class="th-tea-rule mt-6" aria-hidden="true" />
+
+    <div class="th-tea-answer th-glow mt-6">
+      <span class="th-tea-mark" aria-hidden="true">A</span>
+      {
+        speakers.length > 0 && (
+          <ul class="th-tea-speakers">
+            {speakers.map((r) => (
+              <li class="th-tea-speaker">
+                <span class="th-tea-speaker__face">
+                  <img
+                    src={`/images/theme-residents/${r.slug}.webp`}
+                    alt={r.name}
+                    loading="lazy"
+                  />
+                </span>
+                <span class="th-tea-speaker__name">{r.name}</span>
+                <span class="th-tea-speaker__meta">叡智：{r.ability}</span>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+
+    <div class="mt-8">
+      <ReaderFrame
+        slug="tea-world-cup"
+        sceneId="tea-wc-luck"
+        title={featuredTeaTimeQuestion.title}
+      />
+    </div>
   </div>
 </LibraryLayout>

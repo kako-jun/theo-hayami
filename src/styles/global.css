@@ -662,12 +662,23 @@ a {
   font-size: clamp(1.05rem, 3.4vw, 1.35rem);
   line-height: 1.9;
 }
-/* 回答ブロックの見出し行: 「A」の右に回答者(住人)の顔を並べる（Q行と対称）。 */
+/* 回答ブロック: 「A」を Q の真下（左端の定位置）に絶対配置し、顔3つは埋め込み
+   （.th-reader は margin-inline:auto で中央）と中心を揃えるため中央寄せのまま。
+   A を通常フローに入れると顔が A の幅ぶん右へずれて埋め込みと中心がずれるため out-of-flow にする。 */
+/* Q と A の区切り（旧 magazine-section 下辺の真鍮罫を踏襲）。 */
+.th-tea-rule {
+  border: 0;
+  border-top: 1px solid rgba(184, 147, 79, 0.28); /* =gold #b8934f */
+}
 .th-tea-answer {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.9rem;
+  position: relative;
+}
+.th-tea-answer .th-tea-mark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: clamp(2.6rem, 9vw, 4rem);
+  margin-top: -0.1em;
 }
 .th-tea-speakers {
   display: flex;
