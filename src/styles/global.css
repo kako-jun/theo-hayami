@@ -627,7 +627,7 @@ a {
   margin-top: 2.5rem;
 }
 .th-path-tree__item,
-.th-path-tree__branch {
+.th-path-tree__branch-head {
   position: relative;
   display: block;
   padding: 1rem 1.1rem;
@@ -651,7 +651,7 @@ a {
   border-color: rgba(230, 196, 126, 0.75);
 }
 .th-path-tree__branch {
-  padding-top: 0.9rem;
+  display: block;
 }
 .th-path-tree__children {
   display: grid;
@@ -666,12 +666,24 @@ a {
   letter-spacing: 0.16em;
 }
 .th-path-tree__hint {
+  display: block;
   max-width: none;
   margin: 0.25rem 0 0;
-  color: var(--color-th-ivory-dim);
+  color: var(--color-th-ivory);
   font-size: 0.68rem;
   line-height: 1.6;
   letter-spacing: 0.06em;
+}
+.th-path-tree__branch-head .th-path-tree__label {
+  display: block;
+  color: var(--color-th-gold-bright);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+.th-path-tree__branch-head .th-path-tree__hint {
+  display: block;
+  color: var(--color-th-ivory);
+  font-size: 0.68rem;
 }
 .th-path-tree__text {
   display: block;
