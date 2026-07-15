@@ -49,7 +49,9 @@ const bgImage = episode.background ?? "shadow-library/grand-reading-room-v.webp"
 
     <nav class="th-path-tree th-path-tree--after-reader" aria-label="このあと">
       <div class="th-path-tree__branch" aria-label="住人から選ぶ">
-        <p class="th-path-tree__label">住人から選ぶ</p>
+        <div class="th-path-tree__branch-head">
+          <p class="th-path-tree__label">住人から選ぶ</p>
+        </div>
         <div class="th-path-tree__children">
           <a href={`/residents/${episode.character}`} class="th-path-tree__item th-path-tree__item--main">
             <span class="th-path-tree__label">選択中の住人</span>
@@ -62,7 +64,9 @@ const bgImage = episode.background ?? "shadow-library/grand-reading-room-v.webp"
         </div>
       </div>
       <div class="th-path-tree__branch" aria-label="業から選ぶ">
-        <p class="th-path-tree__label">業から選ぶ</p>
+        <div class="th-path-tree__branch-head">
+          <p class="th-path-tree__label">業から選ぶ</p>
+        </div>
         <div class="th-path-tree__children">
           <a href={`/themes/${episode.theme}`} class="th-path-tree__item">
             <span class="th-path-tree__label">選択中の業</span>
