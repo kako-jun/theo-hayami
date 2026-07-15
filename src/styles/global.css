@@ -1052,7 +1052,7 @@ a {
   .th-story-opening::after {
     background:
       linear-gradient(180deg, rgba(10, 9, 16, 0.04) 0%, rgba(10, 9, 16, 0.16) 34%, rgba(10, 9, 16, 0.6) 70%, rgba(10, 9, 16, 0.84) 100%),
-      linear-gradient(90deg, rgba(10, 9, 16, 0.28) 0%, rgba(10, 9, 16, 0.04) 34%, rgba(10, 9, 16, 0.04) 66%, rgba(10, 9, 16, 0.32) 100%);
+      linear-gradient(90deg, rgba(10, 9, 16, 0.12) 0%, transparent 50%, rgba(10, 9, 16, 0.16) 100%);
   }
 
   .th-story-opening__copy {
