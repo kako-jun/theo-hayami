@@ -3,6 +3,12 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import ReaderFrame from "../../components/ReaderFrame.astro";
 import { featuredTeaTimeQuestion } from "../../data/teaTime";
+import { findResident } from "../../data/residents";
+
+// この話題でお茶の席につく住人（residents.ts から name/ability を引く）。
+const speakers = (featuredTeaTimeQuestion.residents ?? [])
+  .map((slug) => findResident(slug))
+  .filter((r): r is NonNullable<typeof r> => r !== undefined);
 ---
 
 <LibraryLayout
@@ -19,19 +25,40 @@ import { featuredTeaTimeQuestion } from "../../data/teaTime";
       ]}
     />
 
-    <section class="th-magazine-section mt-8">
+    <section class="th-magazine-section th-magazine-section--plain mt-8">
       <p class="th-magazine-section__folio">004-01 / TEA TIME</p>
-      <h1>{featuredTeaTimeQuestion.title}</h1>
-      <p>{featuredTeaTimeQuestion.question}</p>
+      <h1 class="mt-2">{featuredTeaTimeQuestion.title}</h1>
+
+      <figure class="th-tea-quote th-glow mt-6">
+        <span class="th-tea-mark" aria-hidden="true">Q</span>
+        <blockquote>「{featuredTeaTimeQuestion.question}」</blockquote>
+      </figure>
     </section>
 
-    <section class="th-panel mt-8">
-      <p class="text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
-        この話題では、マキヤ・スピノ・オウの三人がお茶の席につきます。
-      </p>
-    </section>
+    {
+      speakers.length > 0 && (
+        <section class="mt-8">
+          <ul class="th-tea-speakers">
+            {speakers.map((r) => (
+              <li class="th-tea-speaker">
+                <span class="th-face-crop th-tea-speaker__face">
+                  <img
+                    src={`/images/theme-residents/${r.slug}.webp`}
+                    alt={r.name}
+                    loading="lazy"
+                  />
+                </span>
+                <span class="th-tea-speaker__name">{r.name}</span>
+                <span class="th-tea-speaker__meta">叡智：{r.ability}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     <section class="mt-8">
+      <p class="th-tea-mark th-tea-mark--answer th-glow" aria-hidden="true">A</p>
       <ReaderFrame
         slug="tea-world-cup"
         sceneId="tea-wc-luck"

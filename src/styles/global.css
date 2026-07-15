@@ -634,6 +634,70 @@ a {
   color: var(--color-th-gold-bright);
 }
 
+/* ---------------------------------------------------------------------
+   けふのティータイム（Issue #105）
+   お題をQ&Aの引用体裁で見せ、喋る住人の顔絵を横並びにする。
+   意匠語彙は既存の magazine / face-crop に揃える（金・明朝・細罫）。
+   --------------------------------------------------------------------- */
+.th-tea-mark {
+  font-family: var(--font-mincho);
+  color: var(--color-th-gold-bright);
+  line-height: 1;
+  font-weight: 400;
+}
+.th-tea-quote {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  max-width: 44rem;
+  padding-left: 1.1rem;
+  border-left: 2px solid var(--color-th-gold);
+}
+.th-tea-quote .th-tea-mark {
+  flex: none;
+  font-size: clamp(2.6rem, 9vw, 4rem);
+  margin-top: -0.1em;
+}
+.th-tea-quote blockquote {
+  margin: 0;
+  color: var(--color-th-ivory);
+  font-size: clamp(1.05rem, 3.4vw, 1.35rem);
+  line-height: 1.9;
+}
+.th-tea-speakers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.4rem;
+}
+.th-tea-speaker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 6.5rem;
+  text-align: center;
+}
+.th-tea-speaker__face {
+  width: 5.2rem;
+  border: 1px solid rgba(230, 196, 126, 0.55);
+  box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.14) inset;
+}
+.th-tea-speaker__name {
+  margin-top: 0.55rem;
+  color: var(--color-th-gold-bright);
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+}
+.th-tea-speaker__meta {
+  margin-top: 0.15rem;
+  color: var(--color-th-ivory-dim);
+  font-size: 0.72rem;
+}
+.th-tea-mark--answer {
+  font-size: clamp(2.2rem, 7vw, 3.2rem);
+  margin-bottom: 0.4rem;
+}
+
 .th-path-tree {
   display: grid;
   gap: 0.85rem;

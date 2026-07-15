@@ -2,6 +2,8 @@ export interface TeaTimeQuestion {
   slug: string;
   title: string;
   question: string;
+  /** この話題でお茶の席につく住人のスラッグ（表示順）。未指定＝待機列。 */
+  residents?: string[];
 }
 
 export const featuredTeaTimeQuestion: TeaTimeQuestion = {
@@ -9,6 +11,7 @@ export const featuredTeaTimeQuestion: TeaTimeQuestion = {
   title: "ワールドカップの悔しさ",
   question:
     "ワールドカップで運やけがや判定に泣いた悔しさを、どう受け止めればよいでしょうか。",
+  residents: ["makiya", "spino", "ou"],
 };
 
 export const teaTimeQuestions: TeaTimeQuestion[] = [
