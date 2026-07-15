@@ -61,7 +61,7 @@ const firstStoryId = storyIds[0] ?? "";
                     </p>
                   )}
                   <span class="th-story-button__lock" data-story-lock-label>
-                    {initiallyUnlocked ? "解放中" : "未解放"}
+                    {initiallyUnlocked ? "解放済み" : "未解放"}
                   </span>
                 </a>
               </li>
@@ -95,7 +95,7 @@ const firstStoryId = storyIds[0] ?? "";
         link.removeAttribute("href");
       }
       const label = link.querySelector<HTMLElement>("[data-story-lock-label]");
-      if (label) label.textContent = isUnlocked ? "解放中" : "未解放";
+      if (label) label.textContent = isUnlocked ? "解放済み" : "未解放";
     }
   }
 
