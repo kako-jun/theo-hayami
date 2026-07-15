@@ -598,6 +598,9 @@ a {
 .th-magazine-section--home-guide {
   border-bottom: 0;
 }
+.th-magazine-section--home-guide .th-magazine-section__folio {
+  margin-bottom: 0.45rem;
+}
 .th-magazine-section h2 {
   max-width: 20ch;
   color: var(--color-th-theo);
