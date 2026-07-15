@@ -35,7 +35,7 @@ components:
   th-door.is-read-all: 束ねる全セル完読で金の灯りを強める
   th-hairline: 真鍮の細線区切り
   th-breadcrumb: パンくず（生成絵の上に直接乗るため text-shadow で可読性担保）
-  th-breadcrumb__version: パンくず行右に添える版表示（`vYYYY-MM-DD`）
+  th-breadcrumb__version: フッタのサイト名行右に添える版表示（`vYYYY-MM-DD`）
   th-footer: サイト共通フッタのコンテナ（QR・作者導線・訪問カウンタを縦積み）
   th-footer__qr: QRコード画像。透過・白モジュールのみの画像に、CSS側で背景色（`var(--color-th-ink)`）を持たせる。周囲に黒ベタパディング（10px）＋角丸8px（Issue #64、スキャン性を損なわない黒ベタ余白として例外許可）
   th-footer__author: 作者導線（`llll-ll.com`リンク＋copyright）
