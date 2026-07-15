@@ -997,7 +997,7 @@ a {
 .th-current-question {
   position: relative;
   min-height: 7rem;
-  padding: 1.75rem 1.5rem;
+  padding: 1.25rem 1.5rem;
 }
 .th-current-question--featured {
   min-height: 9rem;
