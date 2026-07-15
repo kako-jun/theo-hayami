@@ -238,12 +238,41 @@ export interface OhakoEntry {
   background: string | null;
 }
 
-export interface StoryButtonEntry extends OhakoEntry {
-  /** 幕内の表示順。1始まり。 */
+// --- 本筋（act1-*.md・第一幕の地の物語。住人はいない） ---
+//
+// おはこ（住人の初対面8本）とは別系統。main/act1-01.md〜act1-04.md のような
+// 「到着・入口・違和感・一幕締め」の地の物語。住人に紐づかないため character を持たない。
+// ファイル名規約 `act<幕>-<通し>.md`（`/^act\d+-\d+\.md$/`）でスキャンし、ohako ローダとは
+// 混ぜない。title/sceneId/背景のパーサは free/ohako と同じものを流用する。
+
+export interface MainStoryEntry {
+  /** 読むページの URL スラッグ (`act1-01`)。ファイル名から拡張子を除いたもの。 */
+  slug: string;
+  /** 表題。frontmatter title（`到着 〜影の図書館へ〜` 等）を正本にする。 */
+  title: string;
+  /** name-name の sceneId（`?scene=` に渡す）。`## act1-01:` 見出しから取る（= slug）。 */
+  sceneId: string;
+  /** 冒頭で指定される背景（`shadow-library/xxx.webp`）。読むページの額縁背景に使う。 */
+  background: string | null;
+}
+
+/**
+ * `/story` に並べる本編ボタン1件。おはこ（住人あり）と本筋（住人なし）を同じ順序ゲートに
+ * 並べるため character は optional。本筋 md では undefined になる。
+ */
+export interface StoryButtonEntry {
+  slug: string;
+  /** 住人スラッグ。おはこは住人slug・本筋mdでは undefined。 */
+  character?: string;
+  title: string;
+  sceneId: string;
+  background: string | null;
+  /** 幕内の表示順。1始まりの通し番号（第一幕は 1..12）。 */
   orderInAct: number;
 }
 
 let cachedOhako: OhakoEntry[] | null = null;
+let cachedMainStories: MainStoryEntry[] | null = null;
 let cachedStoryButtons: StoryButtonEntry[] | null = null;
 
 /** main/ohako-*.md 全件をスキャンして OhakoEntry[] を組み立てる（ビルド時1回・以後キャッシュ）。 */
@@ -275,21 +304,81 @@ export function findOhako(character: string): OhakoEntry | undefined {
   return loadOhako().find((e) => e.character === character);
 }
 
+/** main/act1-*.md 全件をスキャンして MainStoryEntry[] を組み立てる（ビルド時1回・以後キャッシュ）。 */
+export function loadMainStories(): MainStoryEntry[] {
+  if (cachedMainStories) return cachedMainStories;
+
+  const files = readdirSync(MAIN_DIR).filter((f) => /^act\d+-\d+\.md$/.test(f));
+  const entries = files.map((file): MainStoryEntry => {
+    const slug = file.replace(/\.md$/, "");
+    const raw = readFileSync(path.join(MAIN_DIR, file), "utf-8");
+    const sceneId = parseSceneId(raw) || slug;
+    return {
+      slug,
+      title: parseFrontmatterTitle(raw),
+      sceneId,
+      background: parseFirstBackground(raw),
+    };
+  });
+
+  entries.sort((a, b) => a.slug.localeCompare(b.slug));
+  cachedMainStories = entries;
+  return entries;
+}
+
+/** 本筋スラッグから MainStoryEntry を引く（無ければ undefined）。 */
+export function findMainStory(slug: string): MainStoryEntry | undefined {
+  return loadMainStories().find((e) => e.slug === slug);
+}
+
 /**
- * `/story` に並べる本編ボタン。現段階では、住人と初めて会う `main/ohako-*.md`
- * 8本を第一幕の本編ボタンとして扱う。ボタンごとの文量は揃えない。
+ * `/story` に並べる第一幕の本編ボタン。順序ゲートの厳密な並びは
+ * [act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04] の通し12件。
+ * 到着→入口で文脈を与えてから、住人8人との初対面（おはこ）、そして違和感→一幕締めで閉じる。
+ * `orderInAct` は 1 始まりの通し番号（1..12）。本筋mdには住人がいないので character は付かない。
  */
 export function loadStoryButtons(): StoryButtonEntry[] {
   if (cachedStoryButtons) return cachedStoryButtons;
 
-  const byCharacter = new Map(loadOhako().map((entry) => [entry.character, entry]));
-  cachedStoryButtons = RESIDENTS.map((resident, index) => {
-    const entry = byCharacter.get(resident.slug);
+  const mainBySlug = new Map(loadMainStories().map((entry) => [entry.slug, entry]));
+  const requireMain = (slug: string): MainStoryEntry => {
+    const entry = mainBySlug.get(slug);
     if (!entry) {
-      throw new Error(`本編ボタンに対応するおはこが見つからない: ${resident.slug}`);
+      throw new Error(`第一幕シーケンスに対応する本筋mdが見つからない: ${slug}`);
     }
-    return { ...entry, orderInAct: index + 1 };
+    return entry;
+  };
+  const asButton = (entry: MainStoryEntry): Omit<StoryButtonEntry, "orderInAct"> => ({
+    slug: entry.slug,
+    title: entry.title,
+    sceneId: entry.sceneId,
+    background: entry.background,
   });
+
+  const ohakoByCharacter = new Map(loadOhako().map((entry) => [entry.character, entry]));
+
+  // 順序ゲートの厳密な並び（住人分はハードコードせず RESIDENTS 配列順で差し込む）。
+  const sequence: Omit<StoryButtonEntry, "orderInAct">[] = [
+    asButton(requireMain("act1-01")),
+    asButton(requireMain("act1-02")),
+    ...RESIDENTS.map((resident) => {
+      const entry = ohakoByCharacter.get(resident.slug);
+      if (!entry) {
+        throw new Error(`本編ボタンに対応するおはこが見つからない: ${resident.slug}`);
+      }
+      return {
+        slug: entry.slug,
+        character: entry.character,
+        title: entry.title,
+        sceneId: entry.sceneId,
+        background: entry.background,
+      };
+    }),
+    asButton(requireMain("act1-03")),
+    asButton(requireMain("act1-04")),
+  ];
+
+  cachedStoryButtons = sequence.map((entry, index) => ({ ...entry, orderInAct: index + 1 }));
   return cachedStoryButtons;
 }
 

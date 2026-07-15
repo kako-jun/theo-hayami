@@ -244,16 +244,38 @@ describe("findOhako", () => {
   });
 });
 
-describe("loadStoryButtons: 本編ボタンの順序", () => {
+describe("loadStoryButtons: 第一幕シーケンスの順序ゲート", () => {
   const buttons = loadStoryButtons();
 
-  it("現段階ではおはこ8本を第一幕の本編ボタンとして並べる", () => {
-    expect(buttons.length).toBe(8);
-    expect(buttons.map((entry) => entry.slug)).toEqual([...KNOWN_CHARACTERS].map((slug) => `ohako-${slug}`));
+  it("[act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04] の通し12件を並べる", () => {
+    const expected = [
+      "act1-01",
+      "act1-02",
+      ...RESIDENTS.map((r) => `ohako-${r.slug}`),
+      "act1-03",
+      "act1-04",
+    ];
+    expect(buttons.length).toBe(12);
+    expect(buttons.map((entry) => entry.slug)).toEqual(expected);
   });
 
-  it("幕内の表示順は1始まりで付く", () => {
-    expect(buttons.map((entry) => entry.orderInAct)).toEqual([1, 2, 3, 4, 5, 6, 7, 8]);
+  it("幕内の表示順は1始まりの通し番号（1..12）", () => {
+    expect(buttons.map((entry) => entry.orderInAct)).toEqual(
+      Array.from({ length: 12 }, (_, i) => i + 1),
+    );
+  });
+
+  it("本筋md（act1-*）は character を持たず、おはこは住人slugを持つ", () => {
+    const withoutChar = buttons.filter((entry) => entry.character === undefined).map((e) => e.slug);
+    expect(withoutChar).toEqual(["act1-01", "act1-02", "act1-03", "act1-04"]);
+    const ohakoButtons = buttons.filter((entry) => entry.character !== undefined);
+    expect(ohakoButtons.map((e) => e.character)).toEqual(RESIDENTS.map((r) => r.slug));
+    expect(ohakoButtons.every((e) => e.slug === `ohako-${e.character}`)).toBe(true);
+  });
+
+  it("全ボタンが title / sceneId / background を持つ（額縁・埋め込みが欠けない）", () => {
+    const bad = buttons.filter((e) => !e.title.trim() || !e.sceneId.trim() || !e.background?.trim());
+    expect(bad.map((e) => e.slug)).toEqual([]);
   });
 });
 

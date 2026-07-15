@@ -32,16 +32,16 @@ const firstStoryId = storyIds[0] ?? "";
 
     <section class="th-story-index-intro mt-8">
       <p class="th-story-index__intro">
-        ひとつ読み終えると、次の書架が開きます。各住人との初めての問答も、序盤の本編としてここから辿ります。
+        影の図書館への到着から、物語は始まります。ひとつ読み終えると、次の書架が開きます。住人たちとの初めての問答も、この第一幕の流れの中で辿ります。
       </p>
     </section>
 
     <section class="mt-10" data-story-index data-story-ids={JSON.stringify(storyIds)}>
-      <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">第一幕　はじめての問答</h2>
+      <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">第一幕　到着とはじめての問答</h2>
       <ol class="th-story-button-grid">
         {
           storyButtons.map((entry) => {
-            const resident = findResident(entry.character);
+            const resident = entry.character ? findResident(entry.character) : undefined;
             const initiallyUnlocked = entry.slug === firstStoryId;
             return (
               <li>

@@ -3,62 +3,86 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import ReaderFrame from "../../components/ReaderFrame.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import { findResident } from "../../data/residents";
-import { loadOhako, loadStoryButtons } from "../../lib/scripts";
+import { loadMainStories, loadOhako, loadStoryButtons } from "../../lib/scripts";
 
-// おはこ（住人の初登場8本・main/ohako-*.md）の読むページ。free/[slug].astro を踏襲する
+// 本編（第一幕）の読むページ。free/[slug].astro を踏襲する
 // （額縁＋ReaderFrame 遅延埋め込み＋confinement 回避の「このあと」HTMLリンク＋既読受信）。
-// ohako は末尾 choice が `→ hub`（対象 script ファイル外）＝confinement で終劇になるため、
+// 末尾 choice が `→ hub`（対象 script ファイル外）＝confinement で終劇になるため、
 // 「このあと」の遷移は iframe 内の choice ではなく HTML リンクで用意する。
+//
+// getStaticPaths はおはこ（住人の初対面8本・main/ohako-*.md）＋本筋（main/act1-*.md）の
+// 和集合。住人が引ける（おはこ）→住人ヘッダ／引けない（本筋）→タイトルのみの汎用ヘッダに分岐する。
 export function getStaticPaths() {
-  return loadOhako().map((entry) => ({
+  const ohako = loadOhako().map((entry) => ({
     params: { slug: entry.slug },
-    props: { entry },
+    props: { slug: entry.slug, character: entry.character, title: entry.title, sceneId: entry.sceneId, background: entry.background },
   }));
+  const main = loadMainStories().map((entry) => ({
+    params: { slug: entry.slug },
+    props: { slug: entry.slug, character: undefined, title: entry.title, sceneId: entry.sceneId, background: entry.background },
+  }));
+  return [...ohako, ...main];
 }
 
-const { entry } = Astro.props;
-const resident = findResident(entry.character);
-if (!resident) {
-  throw new Error(`未知の住人スラッグ: ${entry.character}`);
-}
+const { slug, character, title, sceneId, background } = Astro.props;
+const resident = character ? findResident(character) : undefined;
 
-// このおはこが実際に開く場面の背景（脚本MD先頭の [背景: ...] から取得）を額縁の背景にも使う。
+// このセルが実際に開く場面の背景（脚本MD先頭の [背景: ...] から取得）を額縁の背景にも使う。
 // 見つからない場合は選択画面と同じ既定背景にフォールバックする。
-const bgImage = entry.background ?? "shadow-library/grand-reading-room-v.webp";
+const bgImage = background ?? "shadow-library/grand-reading-room-v.webp";
 const storyIds = loadStoryButtons().map((entry) => entry.slug);
 ---
 
 <LibraryLayout
-  title={`${entry.title} ── ${resident.name} ── せおはやみ`}
-  description={`${resident.name}（叡智：${resident.ability}）が、せおと初めて交わした問答。`}
+  title={resident ? `${title} ── ${resident.name} ── せおはやみ` : `${title} ── せおはやみ`}
+  description={resident
+    ? `${resident.name}（叡智：${resident.ability}）が、せおと初めて交わした問答。`
+    : `せおはやみ本編・第一幕「${title}」。`}
   bgImage={bgImage}
 >
   <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
-    <Breadcrumb
-      trail={[
-        { label: "トップ", href: "/" },
-        { label: "物語を辿る", href: "/story" },
-        { label: resident.name, href: `/residents/${resident.slug}` },
-        { label: "はじめての問答" },
-      ]}
-    />
+    {resident ? (
+      <Breadcrumb
+        trail={[
+          { label: "トップ", href: "/" },
+          { label: "物語を辿る", href: "/story" },
+          { label: resident.name, href: `/residents/${resident.slug}` },
+          { label: "はじめての問答" },
+        ]}
+      />
+    ) : (
+      <Breadcrumb
+        trail={[
+          { label: "トップ", href: "/" },
+          { label: "物語を辿る", href: "/story" },
+          { label: title },
+        ]}
+      />
+    )}
 
-    <header class="text-center my-8 th-glow">
-      <p class="text-sm" style="color: var(--color-th-gold-bright);">はじめての問答（おはこ）</p>
-      <h1 class="mt-2 text-xl sm:text-2xl" style="color: var(--color-th-theo);">{entry.title}</h1>
-      <p class="mt-2 text-sm" style="color: var(--color-th-gold-bright);">
-        {resident.name}（叡智：{resident.ability}）
-      </p>
-    </header>
+    {resident ? (
+      <header class="text-center my-8 th-glow">
+        <p class="text-sm" style="color: var(--color-th-gold-bright);">はじめての問答（おはこ）</p>
+        <h1 class="mt-2 text-xl sm:text-2xl" style="color: var(--color-th-theo);">{title}</h1>
+        <p class="mt-2 text-sm" style="color: var(--color-th-gold-bright);">
+          {resident.name}（叡智：{resident.ability}）
+        </p>
+      </header>
+    ) : (
+      <header class="text-center my-8 th-glow">
+        <p class="text-sm" style="color: var(--color-th-gold-bright);">第一幕</p>
+        <h1 class="mt-2 text-xl sm:text-2xl" style="color: var(--color-th-theo);">{title}</h1>
+      </header>
+    )}
 
     <section
       class="th-story-readable"
       data-story-readable
-      data-story-id={entry.slug}
+      data-story-id={slug}
       data-story-ids={JSON.stringify(storyIds)}
       hidden
     >
-      <ReaderFrame slug={entry.slug} sceneId={entry.sceneId} title={`${entry.title} ── ${resident.name}`} />
+      <ReaderFrame slug={slug} sceneId={sceneId} title={resident ? `${title} ── ${resident.name}` : title} />
     </section>
 
     <section class="th-story-locked th-glow" data-story-locked hidden>
@@ -70,9 +94,11 @@ const storyIds = loadStoryButtons().map((entry) => entry.slug);
     </section>
 
     <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
-      <a href={`/residents/${resident.slug}`} class="th-link-button text-center no-underline">
-        {resident.name}に、業を訊く
-      </a>
+      {resident && (
+        <a href={`/residents/${resident.slug}`} class="th-link-button text-center no-underline">
+          {resident.name}に、業を訊く
+        </a>
+      )}
       <a href="/story" class="th-link-button text-center no-underline">物語を辿る</a>
       <a href="/themes" class="th-link-button text-center no-underline">業一覧へ</a>
       <a href="/anthology" class="th-link-button text-center no-underline">住人一覧へ</a>

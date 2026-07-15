@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { loadStoryButtons } from "./scripts";
 import {
   completeStoryEntryInProgress,
   createInitialStoryProgress,
@@ -64,5 +65,30 @@ describe("storyProgress", () => {
     expect(progress.unlockedStoryIds).toEqual(["ohako-aristo", "ohako-kantia"]);
     expect(progress.completedStoryIds).toEqual(["ohako-aristo"]);
     expect(progress.currentStoryId).toBe("ohako-kantia");
+  });
+});
+
+describe("storyProgress: 第一幕12件の順序ゲート回帰（id数非依存）", () => {
+  const STORY_IDS = loadStoryButtons().map((entry) => entry.slug);
+
+  it("12件でも初期状態は先頭（act1-01）のみ解放", () => {
+    expect(STORY_IDS.length).toBe(12);
+    const initial = createInitialStoryProgress(STORY_IDS);
+    expect(initial.unlockedStoryIds).toEqual(["act1-01"]);
+    expect(initial.currentStoryId).toBe("act1-01");
+    expect(initial.completed).toBe(false);
+  });
+
+  it("先頭から順に読了すると1件ずつ次だけが解放され、12件目で完了する", () => {
+    let progress = createInitialStoryProgress(STORY_IDS);
+    for (let i = 0; i < STORY_IDS.length; i++) {
+      const id = STORY_IDS[i]!;
+      // 読了前は i+1 件が解放済み（現在地まで）。
+      expect(progress.unlockedStoryIds).toEqual(STORY_IDS.slice(0, i + 1));
+      progress = completeStoryEntryInProgress(progress, id, STORY_IDS);
+    }
+    expect(progress.completedStoryIds).toEqual(STORY_IDS);
+    expect(progress.completed).toBe(true);
+    expect(progress.currentStoryId).toBeNull();
   });
 });
