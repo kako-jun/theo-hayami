@@ -625,7 +625,7 @@ a {
   letter-spacing: 0.04em;
 }
 .th-magazine-section p:not(.th-magazine-section__folio) {
-  max-width: 44rem;
+  max-width: 54rem;
   margin-top: 1rem;
   color: var(--color-th-ivory);
   font-size: 0.95rem;
@@ -1042,7 +1042,7 @@ a {
   font-size: 1rem;
 }
 .th-theme-category__head p:not(.th-magazine-section__folio) {
-  max-width: 40rem;
+  max-width: 54rem;
   margin-top: 0.45rem;
   color: var(--color-th-ivory-dim);
   font-size: 0.86rem;
@@ -1111,7 +1111,7 @@ a {
   border-bottom: 1px solid rgba(184, 147, 79, 0.28);
 }
 .th-story-index__intro {
-  max-width: 44rem;
+  max-width: 54rem;
   color: var(--color-th-ivory);
   font-size: 0.95rem;
   line-height: 2.05;
