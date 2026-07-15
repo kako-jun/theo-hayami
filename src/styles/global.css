@@ -651,6 +651,19 @@ a {
   background: rgba(18, 17, 26, 0.5);
   text-decoration: none;
 }
+.th-path-tree__branch {
+  border: 1px solid rgba(184, 147, 79, 0.42);
+  background: rgba(18, 17, 26, 0.5);
+}
+.th-path-tree__branch .th-path-tree__branch-head {
+  border: none;
+  background: transparent;
+}
+.th-path-tree__branch .th-path-tree__item {
+  border: none;
+  border-top: 1px solid rgba(184, 147, 79, 0.42);
+  background: transparent;
+}
 .th-path-tree__item {
   transition:
     border-color 0.25s ease,
@@ -671,9 +684,6 @@ a {
 }
 .th-path-tree__children {
   display: grid;
-  gap: 0.75rem;
-  margin-top: 0.85rem;
-  padding-left: 1rem;
 }
 .th-path-tree__label {
   display: block;
