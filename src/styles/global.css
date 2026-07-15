@@ -963,9 +963,12 @@ a {
   gap: 0.85rem;
   grid-template-columns: minmax(0, 1fr);
 }
+.th-story-index-intro {
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid rgba(184, 147, 79, 0.28);
+}
 .th-story-index__intro {
   max-width: 44rem;
-  margin-bottom: 1.25rem;
   color: var(--color-th-ivory);
   font-size: 0.95rem;
   line-height: 2.05;

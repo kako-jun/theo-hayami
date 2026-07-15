@@ -30,10 +30,13 @@ const firstStoryId = storyIds[0] ?? "";
       </div>
     </section>
 
-    <section class="mt-12" data-story-index data-story-ids={JSON.stringify(storyIds)}>
+    <section class="th-story-index-intro mt-8">
       <p class="th-story-index__intro">
         ひとつ読み終えると、次の書架が開きます。各住人との初めての問答も、序盤の本編としてここから辿ります。
       </p>
+    </section>
+
+    <section class="mt-10" data-story-index data-story-ids={JSON.stringify(storyIds)}>
       <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">第一幕　はじめての問答</h2>
       <ol class="th-story-button-grid">
         {
