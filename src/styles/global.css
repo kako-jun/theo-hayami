@@ -665,6 +665,9 @@ a {
   border-top: 1px solid rgba(184, 147, 79, 0.42);
   background: transparent;
 }
+.th-path-tree__branch .th-path-tree__item--main {
+  border-color: rgba(230, 196, 126, 0.75);
+}
 .th-path-tree__item {
   transition:
     border-color 0.25s ease,
