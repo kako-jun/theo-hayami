@@ -10,7 +10,8 @@
     "build-nameplates": "node scripts/build-nameplates.mjs",
     "sync-assets": "node scripts/sync-assets.mjs",
     "dev": "npm run sync-assets && astro dev --host 127.0.0.1 --port 4321",
-    "build": "npm run sync-assets && PUBLIC_BUILD_DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d) astro build",
+    "build": "npm run sync-assets && PUBLIC_BUILD_DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d) astro build && npm run build:sw",
+    "build:sw": "node scripts/build-sw.mjs",
     "preview": "astro preview",
     "typecheck": "astro check",
     "test": "vitest run"
@@ -18,15 +19,15 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "@tailwindcss/vite": "^4.0.0",
-    "astro": "^5.1.0",
+    "astro": "^7.0.9",
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@types/node": "^24.13.3",
-    "@vite-pwa/astro": "^0.5.1",
     "sharp": "^0.34.5",
     "typescript": "^5.7.2",
+    "vite": "^7.3.6",
     "vitest": "^3.2.6",
     "workbox-precaching": "^7.4.1"
   }

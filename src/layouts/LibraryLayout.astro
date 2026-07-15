@@ -45,8 +45,7 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <!-- @vite-pwa/astro は manifest.webmanifest を生成するが <link rel="manifest"> 自体は
-         注入しない（各生成ページのheadへの注入は担わない）ため明示する。無いとブラウザが
+    <!-- manifest は public/manifest.webmanifest の静的ファイル。明示しないとブラウザが
          manifest を発見できずインストール可能と認識されない（実機で確認済み）。 -->
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta property="og:type" content="website" />
@@ -150,12 +149,11 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
     <script>
       // #59: PWA更新検知〜自動reload。mypace（repos/2025/mypace/apps/web/src/main.tsx）と同じ流れ:
       // onNeedRefresh で overlay を出し、sessionStorage に記録し（reload loop 防止のcooldown用）、
-      // controllerchange リスナーを張ってから updateSW(true)（=skipWaiting）を呼び、新SWが制御を
+      // controllerchange リスナーを張ってから SKIP_WAITING を送り、新SWが制御を
       // 握った時点でreloadする。controllerchange が来ない環境向けにfallback reloadも用意する。
       // cooldown 判定・reload多重発火防止ガード（#68）はいずれも純粋関数として ../lib/pwa-update.ts
       // に切り出してvitestでテストする（dev-doctrine: 索引・判定ロジックは純粋関数に切り出し、
       // .astro は組み立てだけにする）。
-      import { registerSW } from "virtual:pwa-register";
       import {
         PWA_UPDATE_COOLDOWN_MS,
         createReloadOnce,
@@ -167,53 +165,66 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
       // controllerchange が来ない場合に備えたfallback reloadまでの待ち時間。
       const FALLBACK_RELOAD_MS = 2000;
 
-      const updateSW = registerSW({
-        immediate: true,
-        onRegisteredSW(_swScriptUrl, registration) {
-          // 起動時に一度だけ更新チェックする。オフライン等の失敗は無視（次回起動時に再試行される）。
-          registration?.update().catch(() => {});
-        },
-        onNeedRefresh() {
-          // 補足: vite-plugin-pwa（registerType: "prompt"）は内部でも wb の 'controlling'
-          // イベントで reload する経路を1つ持つ。ここで手動の controllerchange リスナーと
-          // fallback timeout を重ねて張っているのは意図的な冗長化（mypace/apps/web/src/main.tsx
-          // と同じ構成）。三重発火の実害はゼロに近いが（#68）、低速回線・大きい背景画像との
-          // 組み合わせで無駄な二重ナビゲーションが起きうるため、念のため reloaded フラグで
-          // 実際の reload を1回だけに絞る（orber/hanoba/3min と同じガード）。
-          if (shouldSkipUpdate(getLastUpdateAt(), Date.now(), PWA_UPDATE_COOLDOWN_MS)) {
-            // 直近に更新済み（cooldown中）。reload loop 防止のため今回は何もしない。
-            return;
-          }
-          recordUpdateAt(Date.now());
+      if ("serviceWorker" in navigator) {
+        registerServiceWorker().catch(() => {});
+      }
 
-          const overlay = document.createElement("div");
-          overlay.className = "th-pwa-overlay";
-          overlay.setAttribute("role", "status");
-          overlay.setAttribute("aria-live", "polite");
-          const panel = document.createElement("div");
-          panel.className = "th-pwa-overlay__panel th-panel";
-          panel.textContent = "新しい版があります。再起動します…";
-          overlay.appendChild(panel);
-          document.body.appendChild(overlay);
+      async function registerServiceWorker() {
+        const registration = await navigator.serviceWorker.register("/sw.js");
+        // 起動時に一度だけ更新チェックする。オフライン等の失敗は無視（次回起動時に再試行される）。
+        registration.update().catch(() => {});
 
-          // controllerchange・updateSW(true)のcatch・fallback timeoutの3経路から呼ばれうるが、
-          // 実際にreloadするのは一度だけにする（#68、ガード判定は ../lib/pwa-update.ts でテスト）。
-          const reloadOnce = createReloadOnce(() => window.location.reload());
+        if (registration.waiting && navigator.serviceWorker.controller) {
+          refreshWith(registration.waiting);
+        }
 
-          // updateSW(true) が発火させる controllerchange を待ってから reload する
-          // （呼び出す前にリスナーを張っておく）。
-          navigator.serviceWorker.addEventListener("controllerchange", reloadOnce, { once: true });
-
-          updateSW(true).catch(() => {
-            reloadOnce();
+        registration.addEventListener("updatefound", () => {
+          const worker = registration.installing;
+          if (!worker) return;
+          worker.addEventListener("statechange", () => {
+            if (worker.state === "installed" && navigator.serviceWorker.controller) {
+              refreshWith(worker);
+            }
           });
+        });
+      }
 
-          // controllerchange が来ない環境向けのfallback。
-          setTimeout(() => {
-            reloadOnce();
-          }, FALLBACK_RELOAD_MS);
-        },
-      });
+      function refreshWith(worker: ServiceWorker) {
+        if (shouldSkipUpdate(getLastUpdateAt(), Date.now(), PWA_UPDATE_COOLDOWN_MS)) {
+          // 直近に更新済み（cooldown中）。reload loop 防止のため今回は何もしない。
+          return;
+        }
+        recordUpdateAt(Date.now());
+
+        const overlay = document.createElement("div");
+        overlay.className = "th-pwa-overlay";
+        overlay.setAttribute("role", "status");
+        overlay.setAttribute("aria-live", "polite");
+        const panel = document.createElement("div");
+        panel.className = "th-pwa-overlay__panel th-panel";
+        panel.textContent = "新しい版があります。再起動します…";
+        overlay.appendChild(panel);
+        document.body.appendChild(overlay);
+
+        // controllerchange・postMessage失敗・fallback timeoutの3経路から呼ばれうるが、
+        // 実際にreloadするのは一度だけにする（#68、ガード判定は ../lib/pwa-update.ts でテスト）。
+        const reloadOnce = createReloadOnce(() => window.location.reload());
+
+        // SKIP_WAITING が発火させる controllerchange を待ってから reload する
+        // （呼び出す前にリスナーを張っておく）。
+        navigator.serviceWorker.addEventListener("controllerchange", reloadOnce, { once: true });
+
+        try {
+          worker.postMessage({ type: "SKIP_WAITING" });
+        } catch {
+          reloadOnce();
+        }
+
+        // controllerchange が来ない環境向けのfallback。
+        setTimeout(() => {
+          reloadOnce();
+        }, FALLBACK_RELOAD_MS);
+      }
     </script>
   </body>
 </html>
