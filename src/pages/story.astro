@@ -24,11 +24,13 @@ const firstStoryId = storyIds[0] ?? "";
         alt=""
         loading="eager"
       />
+      <div class="th-story-opening__copy th-glow">
+        <p class="th-magazine-section__folio">002 / Story</p>
+        <h1>物語を辿る</h1>
+      </div>
     </section>
 
     <section class="mt-12" data-story-index data-story-ids={JSON.stringify(storyIds)}>
-      <p class="th-magazine-section__folio">002 / Story</p>
-      <h1 class="text-xl sm:text-2xl mb-2 th-glow" style="color: var(--color-th-theo);">物語を辿る</h1>
       <p class="leading-loose text-sm mb-5 th-glow" style="color: var(--color-th-ivory-dim);">
         ひとつ読み終えると、次の書架が開きます。各住人との初めての問答も、序盤の本編としてここから辿ります。
       </p>

@@ -1,0 +1,33 @@
+---
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import { featuredTeaTimeQuestion } from "../../data/teaTime";
+---
+
+<LibraryLayout
+  title={`${featuredTeaTimeQuestion.title} ── けふのティータイム`}
+  description={featuredTeaTimeQuestion.question}
+  bgImage="shadow-library/history-hall.webp"
+>
+  <div class="max-w-4xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb
+      trail={[
+        { label: "トップ", href: "/" },
+        { label: "けふのティータイム", href: "/tea-time" },
+        { label: featuredTeaTimeQuestion.title },
+      ]}
+    />
+
+    <section class="th-magazine-section mt-8">
+      <p class="th-magazine-section__folio">004-01 / Tea Time</p>
+      <h1>{featuredTeaTimeQuestion.title}</h1>
+      <p>{featuredTeaTimeQuestion.question}</p>
+    </section>
+
+    <section class="th-panel mt-8">
+      <p class="text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
+        この話題で、住人たちが三人ほど話します。どの住人にするかは、まだ決めません。
+      </p>
+    </section>
+  </div>
+</LibraryLayout>

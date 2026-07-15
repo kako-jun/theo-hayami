@@ -212,7 +212,7 @@ a {
 /* ---------------------------------------------------------------------
    既読（読み終えた読むページ）の意匠（Issue #30）
    読了は「達成」なので暗くしない（トーン落とし＝消化済みのネガ印象は不採用・kako-jun）。
-   逆に温かい金の灯りをともし、角に金の押印（蔵書印＝読了の勲章）を押す。派手にしない（#20）。
+   逆に温かい金の灯りをともし、角に金の押印（蔵書印＝完読の勲章）を押す。派手にしない（#20）。
    .is-read      = 個別セル（1つの 業__住人 への扉）が完読済み
    .is-read-all  = 集計カード（住人カード・業カード）の束ねる全セルが完読済み
    --------------------------------------------------------------------- */
@@ -234,7 +234,7 @@ a {
     0 0 16px rgba(230, 196, 126, 0.18),
     0 14px 30px rgba(0, 0, 0, 0.4);
 }
-/* 金の押印（蔵書印）。金地に濃墨＝押された勲章のように読了を祝う。
+/* 金の押印（蔵書印）。金地に濃墨＝押された勲章のように完読を祝う。
    角丸にせず、右上端をボタンの辺に密着させる（タブのように角へ貼り付く形）。
    ::after ではなく ReadMarks.astro が挿す実要素にスタイルする：.th-theme-resident-choice
    は演出用の ::before/::after を自前で使っており、同じ疑似要素を奪い合うと詳細度の高い
@@ -277,7 +277,7 @@ a {
    既読ゲージ+分数（Issue #73）
    集計扉（ThemeCard/ResidentCard）の右下に置く。途中経過の語彙として、
    ゲージ・バッジとも角丸は使わない
-   （DESIGN.md shapes: radius: minimal・読了印2pxのみ例外）。汎用の
+   （DESIGN.md shapes: radius: minimal・完読印2pxのみ例外）。汎用の
    <progress> 風にせず、真鍮の細線＋金グラデーションで書架の計器のように組む。
    --------------------------------------------------------------------- */
 .th-read-meter {
@@ -922,7 +922,13 @@ a {
   color: var(--color-th-theo);
   font-size: clamp(1.55rem, 4vw, 2.7rem);
 }
-.th-story-opening__copy p {
+.th-story-opening__copy .th-magazine-section__folio {
+  margin: 0 0 0.45rem;
+  color: var(--color-th-gold-bright);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+.th-story-opening__copy > p:not(.th-magazine-section__folio) {
   margin-top: 0.9rem;
   color: var(--color-th-ivory);
   font-size: 0.88rem;
@@ -974,6 +980,19 @@ a {
   margin: 0;
   color: var(--color-th-ivory-dim);
 }
+.th-current-question {
+  position: relative;
+  min-height: 7rem;
+  padding: 1rem 1rem 1rem 3.25rem;
+}
+.th-current-question--featured {
+  min-height: 9rem;
+}
+.th-current-question .th-story-button__number {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
 .th-story-readable[hidden],
 .th-story-locked[hidden] {
   display: none;
@@ -1012,7 +1031,7 @@ a {
   .th-story-opening__copy {
     max-width: calc(100% - 2rem);
   }
-  .th-story-opening__copy p {
+  .th-story-opening__copy > p:not(.th-magazine-section__folio) {
     font-size: 0.8rem;
     line-height: 1.8;
   }
@@ -1026,7 +1045,7 @@ a {
   /* この扉自身の地は生成り(#f6f1e7)なので、他の扉と同じ半透明の金（rgba+アルファ）を
      border-color に使うと自分の明るい地に溶けて霞む。背景に依存しない不透明色を直接
      指定する（rgba(184,147,79,.5) を暗い地に重ねた結果 ≒ rgb(101,82,53)）。border 自体は
-     .th-door と同じ仕組みのまま（幅・位置とも変更しない）＝読了印の重なり方も他の扉と揃う。 */
+     .th-door と同じ仕組みのまま（幅・位置とも変更しない）＝完読印の重なり方も他の扉と揃う。 */
   border-color: rgb(101, 82, 53);
   background: #f6f1e7;
   color: var(--color-th-ivory);
