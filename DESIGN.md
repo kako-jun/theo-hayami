@@ -33,6 +33,8 @@ components:
   th-magazine-section: 本文の誌面風セクション。ノンブル/細罫/明朝見出し
   th-door.is-read: 読了セル。暗くせず温かい金の灯り＋右上に金の蔵書印「読了」
   th-door.is-read-all: 束ねる全セル完読で金の灯りを強める
+  th-door--symbol: 業を象徴する生成絵（`assets/images/theme-symbols/<slug>.webp`）を背景に敷く扉（Issue #73）。上端基準クロップ＋下方向の黒グラデーション。画像実在は Astro ビルド時に fs でチェックし、無い業には適用しない（ハードコード許可リストにしない）
+  th-read-meter / th-read-gauge / th-read-gauge__fill: 集計扉（ThemeCard/ResidentCard）の左下に置く既読ゲージ+分数「N/M 完読」（Issue #73）。右上の読了印（th-read-stamp）と対角配置。真鍮枠＋金グラデーションの計器語彙、角丸なし
   th-hairline: 真鍮の細線区切り
   th-breadcrumb: パンくず（生成絵の上に直接乗るため text-shadow で可読性担保）
   th-breadcrumb__version: パンくず行右に添える版表示（`vYYYY-MM-DD`）
@@ -89,6 +91,8 @@ theo-hayami の公開名としての舞台は **「叡智の星海」**。Webペ
 - **th-panel**: 半透明ガラス板＋真鍮の細線。汎用UIのカード/モーダルの代わり。
 - **th-door**: 押せる面（扉・カード）。ホバー/フォーカスで金の線が灯る。
 - **th-door.is-read（読了）**: 読了は「達成」なので**暗くしない**（トーン落とし＝消化済みのネガ印象は不採用）。逆に温かい金の灯りをともし、右上に金の蔵書印「読了」を押す。派手にしない。`.is-read-all` は束ねる全セル完読で灯りを強める。
+- **th-door--symbol（Issue #73）**: 業を象徴する生成絵を背景に敷く扉。`background-image` は Astro 側がインラインで指定する（ホバー等のショートハンド `background:` に巻き込まれないよう、`.th-door:hover` は longhand の `background-color` に直してある）。`background-position: center top` で上端基準クロップ＝画像側は意味内容（シルエット・星・英単語）を上2/3、下1/3を無地の暗幕にする前提と対で成立し、集計扉（高い）・個別扉（低い）の高さ違いに同じ1枚を使い回せる。
+- **th-read-meter / th-read-gauge / th-read-gauge__fill（Issue #73）**: 集計扉の左下に置く既読ゲージ+分数「N/M 完読」。右上の読了印と対角にバランスさせる。汎用の `<progress>` 風にせず、真鍮の細線枠＋金グラデーションの計器として組む（角丸なし）。
 - **th-breadcrumb / th-glow**: パネル外で生成絵に直接乗る文字は `text-shadow` で可読性を担保する。
 - **th-reader**: name-name 埋め込みの 9:16 ステージ＋開始 CTA（金の漢字ラベル）。
 - **th-face-crop / --bust**: 立ち絵/LoRAバストアップの顔アップカード（正方形トリミング）。
