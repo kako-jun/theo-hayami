@@ -117,6 +117,7 @@ name-name は終劇（endStory）到達時、**埋め込み時のみ**親へ pos
 - トップ表紙の集合キービジュアルは横長構図のため、スマホ幅では全員を小さく詰め込まず、`prefers-reduced-motion` を尊重した低速の横パンで端の住人も順に見えるようにする。
 - `promotional/cast/shadow-library-reading-guide.webp`: トップページの本文背景に使う図版。first viewport の集合キービジュアルと同じ絵が下に続いて見えないよう、`index.astro` の `bgImage` はこれを指定する。
 - `promotional/cast/story-opening.webp`: `/story` 冒頭に置く本編導入用の集合絵。横長のまま 1600x900 WebP に正規化する。
+- `/story` 冒頭の本編導入絵は、スマホ幅でも横を見切らせない。モバイルでは縦長枠へ `cover` せず `object-fit: contain` で全体を表示し、コピー量で下側が伸びる分は黒いグラデーションでなじませる。
 - `promotional/residents/<slug>-feature.webp`: 住人選択カードと住人詳細ページに使うキャラ別ワイド絵。2026-07-11 18:54:56〜19:02:07 の生成画像を古い順に `ou` → `makiya` → `hue` → `spino` → `dekaris` → `hegru` → `kantia` → `aristo` → `vincia` → `theo` と対応させた。
 - `nameplates/{ja,en}/<slug>.webp`: キャラ名タイポグラフィ画像。キャラ別ページの大判キービジュアル上に重ねる題字として使う。本文・読むページ内の見出しはテキストのまま維持し、画像文字は記事内へ持ち込まない。将来の多言語化では同じ位置で `ja` / `en` を切り替える。
 

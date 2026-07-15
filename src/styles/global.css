@@ -862,9 +862,25 @@ a {
   }
 }
 @media (max-width: 639px) {
-  .th-story-opening img {
-    aspect-ratio: 4 / 5;
+  .th-story-opening {
+    min-height: clamp(27rem, 120vw, 34rem);
   }
+
+  .th-story-opening img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: contain;
+    object-position: top center;
+  }
+
+  .th-story-opening::after {
+    background:
+      linear-gradient(180deg, rgba(10, 9, 16, 0.04) 0%, rgba(10, 9, 16, 0.18) 36%, rgba(10, 9, 16, 0.92) 72%, rgba(10, 9, 16, 0.98) 100%),
+      linear-gradient(90deg, rgba(10, 9, 16, 0.18) 0%, transparent 50%, rgba(10, 9, 16, 0.22) 100%);
+  }
+
   .th-story-opening__copy {
     max-width: calc(100% - 2rem);
   }
