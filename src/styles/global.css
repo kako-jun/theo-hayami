@@ -198,7 +198,13 @@ a {
     rgba(10, 9, 16, 0.88) 100%
   );
 }
-.th-door--symbol > * {
+/* .th-read-meter を除外する: ThemeCard.astro では .th-read-meter が .th-door--symbol の
+   直下子になるため、除外しないと本セレクタにも一致する。.th-read-meter 自身は
+   position: absolute; z-index: 4; を別途持つが、詳細度が本セレクタと同じ (0,1,0) のため
+   ソース順（本ルールより後方で宣言されている＝現状は勝つ）に依存してしまう。
+   将来CSSブロックを並べ替えると無警告で position: relative に負けて壊れるため、
+   :not() で最初から対象外にしてソース順依存を断つ。 */
+.th-door--symbol > :not(.th-read-meter) {
   position: relative;
   z-index: 1;
 }
@@ -691,6 +697,14 @@ a {
 .th-resident-card:focus-visible .th-resident-card__art img {
   transform: scale(1.035);
 }
+/* padding-bottom は .th-read-meter（絶対配置・下端 bottom:0.75rem=12px、行の高さは
+   .th-read-badge の text-xs 行送り16pxが .th-read-gauge の高さ4.8pxより勝つため16px）の
+   専有領域と衝突しないよう計算すること。メーター上端＝box下端から 12px+16px=28px。
+   justify-content:flex-end により最後の in-flow 要素（.th-resident-card__meta、thought文言。
+   .th-read-meter は絶対配置でフローから外れるため対象外）の下端は content-box 下端＝
+   padding-bottom の位置に張り付く。padding-bottom を28px未満にすると thought文言の下端が
+   メーター上端より下（=内側）に来て重なる（実際に1.25rem=20pxで8px重なっていた・must-1）。
+   2rem=32pxならメーター上端(28px)との間に4pxの隙間ができる。 */
 .th-resident-card__body {
   position: relative;
   display: flex;
@@ -698,7 +712,7 @@ a {
   align-items: flex-end;
   justify-content: flex-end;
   min-height: 10rem;
-  padding: 1.15rem 1rem 1.25rem;
+  padding: 1.15rem 1rem 2rem;
   text-align: right;
 }
 .th-resident-card__portrait {

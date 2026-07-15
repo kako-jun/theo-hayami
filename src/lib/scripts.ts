@@ -121,6 +121,8 @@ export function loadThemes(): ThemeSummary[] {
  * 実在する業だけ `/images/theme-symbols/{slug}.webp` を返し、無ければ null。
  * ハードコードの許可リストにしない＝画像を追加するたびにコード側を触らずに済む
  * （loadThemes() 同様、ファイルシステムの実在を正本にする）。
+ * fs.existsSync を呼ぶビルド時I/O関数であり、readRatioPercent() のような
+ * 副作用なしの純粋関数ではない（同じ引数でも配置ファイルの有無で戻り値が変わる）。
  */
 export function themeSymbolImage(slug: string): string | null {
   const filePath = path.join(THEME_SYMBOLS_DIR, `${slug}.webp`);
