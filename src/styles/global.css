@@ -960,6 +960,13 @@ a {
   gap: 0.85rem;
   grid-template-columns: minmax(0, 1fr);
 }
+.th-story-index__intro {
+  max-width: 44rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-th-ivory);
+  font-size: 0.95rem;
+  line-height: 2.05;
+}
 .th-story-button {
   min-height: 8.25rem;
 }
