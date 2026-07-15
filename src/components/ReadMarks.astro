@@ -1,7 +1,7 @@
 ---
 // 索引の既読反映（Issue #30・クライアント専用）。描画後に localStorage の既読集合を読み、
 // - 個別セル（`data-slug="業__住人"`）で既読のものに `.is-read` を付ける（暗くせず、金の灯り＋金の「読了」蔵書印＝達成の印）。
-// - 集計カード（`data-read-group="slug,slug,..."`）で既読数を数え、`[data-read-count]` に「N/M 完読」を出し、
+// - 集計カード（`data-read-group="slug,slug,..."`）で既読数を数え、`[data-read-count]` に「N/M 読了」を出し、
 //   同じカード内の `.th-read-gauge__fill` の幅も進捗率で更新する（Issue #73）。
 //   全部読み終えたカードには `.is-read-all` を付ける。
 // localStorage はクライアント専用なので必ず描画後（module script は defer で DOM 構築後に走る）に実行する。
@@ -9,8 +9,7 @@
 // import で readStore.ts を使い、キー/形式の二重定義を避ける（唯一の正本＝readStore.ts）。
 // このコンポーネントは索引ページに1つ置けばよい（Astro が module script を1回だけ束ねる）。
 //
-// 個別セルの読了印（.th-read-stamp）は「読了」のまま変更しない。集計カードの分数バッジだけ
-// 「完読」に改称する（同じ語を両方で使うと全読了状態の意味が重複して紛らわしいため・Issue #73）。
+// 集計カードの分数バッジは途中経過なので「読了」。分子=分母の到達状態が「完読」。
 ---
 
 <script>
@@ -38,7 +37,7 @@
       const readCount = members.filter((s) => readSet.has(s)).length;
       const badge = el.querySelector<HTMLElement>("[data-read-count]");
       if (badge) {
-        badge.textContent = `${readCount}/${members.length} 完読`;
+        badge.textContent = `${readCount}/${members.length} 読了`;
         badge.hidden = false;
       }
       const gaugeFill = el.querySelector<HTMLElement>(".th-read-gauge__fill");

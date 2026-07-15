@@ -3,17 +3,16 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 import LibraryLayout from "../layouts/LibraryLayout.astro";
 import ReadMarks from "../components/ReadMarks.astro";
 import { findResident } from "../data/residents";
-import { loadOhako } from "../lib/scripts";
+import { loadStoryButtons } from "../lib/scripts";
 
-// 暫定導線（Issue #41）: 本編四幕（/story）はまだプレースホルダだが、各住人の「初登場
-// （おはこ）」8編は先に読める。ここで main/ohako-*.md 8本への入口を出しておく。
-// 四幕を実装したら、この「先に読める8編」節は畳んで本編（四幕）の目次に置き換える前提。
-const ohako = loadOhako();
+const storyButtons = loadStoryButtons();
+const storyIds = storyButtons.map((entry) => entry.slug);
+const firstStoryId = storyIds[0] ?? "";
 ---
 
 <LibraryLayout
   title="物語を辿る ── せおはやみ"
-  description="せおはやみ本編（四幕）。近日公開。各住人の初登場は先に読めます。"
+  description="せおはやみ本編。ひとつ読み終えるたびに次の書架が開きます。"
   bgImage="shadow-library/history-hall.webp"
 >
   <div class="max-w-5xl mx-auto px-4 pt-10 pb-16">
@@ -25,46 +24,79 @@ const ohako = loadOhako();
         alt=""
         loading="eager"
       />
-      <div class="th-story-opening__copy th-glow">
-        <h1>物語を辿る</h1>
-        <p>
-          本編（四幕）はまだこの書架に並んでいません。近日、ここに置かれます。<br />
-          それまでは自由行動として、住人から、または業から問答を選べます。
-        </p>
-        <div class="th-story-opening__links">
-          <a href="/anthology" class="th-link-button no-underline">住人から選ぶ</a>
-          <a href="/themes" class="th-link-button no-underline">業から選ぶ</a>
-        </div>
-      </div>
     </section>
 
-    <section class="mt-12">
-      <h2 class="text-base mb-2 th-glow" style="color: var(--color-th-gold-bright);">先に読める8編</h2>
+    <section class="mt-12" data-story-index data-story-ids={JSON.stringify(storyIds)}>
+      <p class="th-magazine-section__folio">002 / Story</p>
+      <h1 class="text-xl sm:text-2xl mb-2 th-glow" style="color: var(--color-th-theo);">物語を辿る</h1>
       <p class="leading-loose text-sm mb-5 th-glow" style="color: var(--color-th-ivory-dim);">
-        本編は準備中ですが、各住人の「初登場」──せおと初めて交わした問答──は先に読めます。
+        ひとつ読み終えると、次の書架が開きます。各住人との初めての問答も、序盤の本編としてここから辿ります。
       </p>
-      <ul class="th-story-ohako-grid">
+      <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">第一幕　はじめての問答</h2>
+      <ol class="th-story-button-grid">
         {
-          ohako.map((entry) => {
+          storyButtons.map((entry) => {
             const resident = findResident(entry.character);
+            const initiallyUnlocked = entry.slug === firstStoryId;
             return (
               <li>
-                {/* data-slug は ReaderFrame が完読時に markRead する slug（= entry.slug）と同一。
-                    free の扉と同じ規約で ReadMarks が既読なら金の読了印（.th-door.is-read）を付ける。 */}
-                <a href={`/main/${entry.slug}`} data-slug={entry.slug} class="th-door block no-underline">
+                <a
+                  href={initiallyUnlocked ? `/main/${entry.slug}` : undefined}
+                  data-href={`/main/${entry.slug}`}
+                  data-story-link={entry.slug}
+                  data-slug={entry.slug}
+                  class:list={["th-door th-story-button block no-underline", !initiallyUnlocked && "is-locked"]}
+                  aria-disabled={initiallyUnlocked ? "false" : "true"}
+                >
+                  <span class="th-story-button__number">{String(entry.orderInAct).padStart(2, "0")}</span>
                   <p style="color: var(--color-th-ivory);">{entry.title}</p>
                   {resident && (
                     <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">
                       {resident.name}（叡智：{resident.ability}）
                     </p>
                   )}
+                  <span class="th-story-button__lock" data-story-lock-label>
+                    {initiallyUnlocked ? "解放中" : "未解放"}
+                  </span>
                 </a>
               </li>
             );
           })
         }
-      </ul>
+      </ol>
     </section>
   </div>
   <ReadMarks />
 </LibraryLayout>
+
+<script>
+  import { getStoryProgress } from "../lib/storyProgress";
+
+  function applyStoryGate() {
+    const root = document.querySelector<HTMLElement>("[data-story-index]");
+    if (!root) return;
+    const storyIds = JSON.parse(root.dataset.storyIds ?? "[]") as string[];
+    const progress = getStoryProgress(storyIds);
+    const unlocked = new Set(progress.unlockedStoryIds);
+
+    for (const link of root.querySelectorAll<HTMLAnchorElement>("[data-story-link]")) {
+      const storyId = link.dataset.storyLink ?? "";
+      const isUnlocked = unlocked.has(storyId);
+      link.classList.toggle("is-locked", !isUnlocked);
+      link.setAttribute("aria-disabled", isUnlocked ? "false" : "true");
+      if (isUnlocked) {
+        link.href = link.dataset.href ?? link.href;
+      } else {
+        link.removeAttribute("href");
+      }
+      const label = link.querySelector<HTMLElement>("[data-story-lock-label]");
+      if (label) label.textContent = isUnlocked ? "解放中" : "未解放";
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applyStoryGate);
+  } else {
+    applyStoryGate();
+  }
+</script>

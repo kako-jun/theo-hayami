@@ -2,7 +2,7 @@
 // Issue #67: PWAインストール促しUI。mypace（repos/2025/mypace/apps/web/src/hooks/ui/usePWAInstall.ts
 // + components/pwa/InstallBanner.tsx）と同じ流れをAstro/vanilla JSに移植する
 // （theo-hayamiはReact等のUIフレームワークを持たない静的サイトのため、React hookではなく
-// 通常の <script> + 素のDOMで組む。#59のPWA更新reload・LibraryLayout.astroと同じ作法）。
+// 通常の script タグ + 素のDOMで組む。#59のPWA更新reload・LibraryLayout.astroと同じ作法）。
 //
 // - `beforeinstallprompt` を preventDefault() で捕まえ、独自バナーで「追加する」を促す
 // - 却下（明示の閉じるボタン、または prompt() 後の userChoice が "dismissed"）は
