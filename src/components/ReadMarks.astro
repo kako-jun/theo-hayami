@@ -3,7 +3,7 @@
 // - 個別セル（`data-slug="業__住人"`）で既読のものに `.is-read` を付ける（暗くせず、金の灯り＋金の「完読」蔵書印＝達成の印）。
 // - 集計カード（`data-read-group="slug,slug,..."`）で既読数を数え、`[data-read-count]` に「N/M 読了」を出し、
 //   同じカード内の `.th-read-gauge__fill` の幅も進捗率で更新する（Issue #73）。
-//   全部読み終えたカードには `.is-read-all` を付ける。
+//   全部読み終えたカードには `.is-read-all` を付け、個別扉と同じ右上の完読印（`.th-read-stamp`）を出す（右下ゲージと共存）。
 // localStorage はクライアント専用なので必ず描画後（module script は defer で DOM 構築後に走る）に実行する。
 //
 // import で readStore.ts を使い、キー/形式の二重定義を避ける（唯一の正本＝readStore.ts）。
@@ -44,7 +44,17 @@
       if (gaugeFill) {
         gaugeFill.style.width = `${readRatioPercent(readCount, members.length)}%`;
       }
-      if (readCount === members.length) el.classList.add("is-read-all");
+      if (readCount === members.length) {
+        el.classList.add("is-read-all");
+        // 全読了の集計扉にも個別扉と同じ右上の完読印を出す（右下ゲージと共存）。
+        // 再実行で二重に付かないよう既存の .th-read-stamp 有無を確認する。
+        if (!el.querySelector(".th-read-stamp")) {
+          const stamp = document.createElement("span");
+          stamp.className = "th-read-stamp";
+          stamp.textContent = "完読";
+          el.appendChild(stamp);
+        }
+      }
     }
   }
 
