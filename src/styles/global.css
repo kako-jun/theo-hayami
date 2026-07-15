@@ -976,12 +976,14 @@ a {
 .th-story-button {
   min-height: 8.25rem;
 }
-.th-story-button.is-locked {
+.th-story-button.is-locked,
+.th-current-question--pending {
   cursor: default;
   opacity: 0.56;
   filter: grayscale(0.35);
 }
-.th-story-button.is-locked::after {
+.th-story-button.is-locked::after,
+.th-current-question--pending::after {
   content: "";
   position: absolute;
   inset: 0;
