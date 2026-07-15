@@ -974,6 +974,16 @@ a {
   margin: 0;
   color: var(--color-th-ivory-dim);
 }
+.th-current-question {
+  position: relative;
+  min-height: 7rem;
+  padding: 1rem 1rem 1rem 3.25rem;
+}
+.th-current-question .th-story-button__number {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
 .th-story-readable[hidden],
 .th-story-locked[hidden] {
   display: none;

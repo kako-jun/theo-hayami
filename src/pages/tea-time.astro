@@ -1,0 +1,41 @@
+---
+import Breadcrumb from "../components/Breadcrumb.astro";
+import LibraryLayout from "../layouts/LibraryLayout.astro";
+import { teaTimeQuestions } from "../data/teaTime";
+---
+
+<LibraryLayout
+  title="けふのティータイム ── せおはやみ"
+  description="時事的な問いを、住人たちが三人ほどでゆるく眺める更新コーナー。"
+  bgImage="shadow-library/history-hall.webp"
+>
+  <div class="max-w-5xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb trail={[{ label: "トップ", href: "/" }, { label: "けふのティータイム" }]} />
+
+    <section class="th-magazine-section mt-8">
+      <p class="th-magazine-section__folio">004 / Tea Time</p>
+      <h1>けふのティータイム</h1>
+      <p>
+        時事的な問いを、住人たちが三人ほどでゆるく眺める場所です。
+        本編や自由行動のように一人へ答えを求めるのではなく、いくつかの視点をお茶の席に並べます。
+      </p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">待機中の話題</h2>
+      <ol class="grid gap-3">
+        {
+          teaTimeQuestions.map((entry, index) => (
+            <li class="th-door th-current-question">
+              <span class="th-story-button__number">{String(index + 1).padStart(2, "0")}</span>
+              <p style="color: var(--color-th-ivory);">{entry.question}</p>
+              <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">
+                採用時に、話す住人を三人ほど選びます。
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </div>
+</LibraryLayout>
