@@ -1,8 +1,14 @@
 ---
+import ReadMarks from "../components/ReadMarks.astro";
 import LibraryLayout from "../layouts/LibraryLayout.astro";
 import { publishedTeaTimeQuestions } from "../data/teaTime";
+import { loadEpisodes, loadStoryButtons } from "../lib/scripts";
 
 const latestTeaTime = publishedTeaTimeQuestions[0];
+const storyButtons = loadStoryButtons();
+const storyIds = storyButtons.map((entry) => entry.slug);
+const storyTitles = Object.fromEntries(storyButtons.map((entry) => [entry.slug, entry.title]));
+const freeReadGroup = loadEpisodes().map((episode) => episode.slug);
 ---
 
 <LibraryLayout
@@ -56,15 +62,33 @@ const latestTeaTime = publishedTeaTimeQuestions[0];
         哲学が人格化した住人たちに、好きな組み合わせで尋ねてください。
       </p>
       <nav class="th-path-tree" aria-label="読み方">
-        <a href="/story" class="th-path-tree__item">
-          <span class="th-path-tree__label">002 / STORY</span>
-          <span class="th-path-tree__text">物語を辿る</span>
+        <a
+          href="/story"
+          class="th-path-tree__item th-path-tree__item--story-progress"
+          data-story-progress
+          data-story-ids={JSON.stringify(storyIds)}
+          data-story-titles={JSON.stringify(storyTitles)}
+        >
+          <span class="th-path-tree__main">
+            <span class="th-path-tree__label">002 / STORY</span>
+            <span class="th-path-tree__text">物語を辿る</span>
+          </span>
+          <span class="th-path-tree__progress-note" aria-live="polite">
+            <span class="th-path-tree__progress-label">本編の完読</span>
+            <span class="th-path-tree__progress-list" data-story-completed-list>まだ完読なし</span>
+          </span>
         </a>
         <div class="th-path-tree__branch" aria-label="自由行動">
-          <div class="th-path-tree__branch-head">
-            <span class="th-path-tree__label">003 / FREE ACTION</span>
-            <span class="th-path-tree__text">自由行動</span>
-            <span class="th-path-tree__hint">じっくり読む時間がないときは</span>
+          <div class="th-path-tree__branch-head th-path-tree__branch-head--progress" data-read-group={freeReadGroup.join(",")}>
+            <span class="th-path-tree__main">
+              <span class="th-path-tree__label">003 / FREE ACTION</span>
+              <span class="th-path-tree__text">自由行動</span>
+              <span class="th-path-tree__hint">じっくり読む時間がないときは</span>
+            </span>
+            <span class="th-read-meter th-read-meter--path">
+              <span class="th-read-gauge" aria-hidden="true"><span class="th-read-gauge__fill"></span></span>
+              <span class="th-read-badge text-xs" data-read-count>{`0/${freeReadGroup.length} 読了`}</span>
+            </span>
           </div>
           <div class="th-path-tree__children">
             <a href="/anthology" class="th-path-tree__item">
@@ -95,9 +119,12 @@ const latestTeaTime = publishedTeaTimeQuestions[0];
       </nav>
     </section>
   </div>
+  <ReadMarks />
 </LibraryLayout>
 
 <script>
+  import { getStoryProgress } from "../lib/storyProgress";
+
   const cover = document.querySelector<HTMLElement>(".th-cover--home");
   const coverImage = cover?.querySelector<HTMLElement>("[data-cover-pan]");
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -183,5 +210,28 @@ const latestTeaTime = publishedTeaTimeQuestions[0];
         frame = window.requestAnimationFrame(tick);
       }
     });
+  }
+
+  function applyHomeStoryProgress() {
+    const root = document.querySelector<HTMLElement>("[data-story-progress]");
+    const target = root?.querySelector<HTMLElement>("[data-story-completed-list]");
+    if (!root || !target) return;
+
+    const storyIds = JSON.parse(root.dataset.storyIds ?? "[]") as string[];
+    const titles = JSON.parse(root.dataset.storyTitles ?? "{}") as Record<string, string>;
+    const progress = getStoryProgress(storyIds);
+    const completedTitles = progress.completedStoryIds
+      .map((id) => titles[id])
+      .filter((title): title is string => Boolean(title));
+
+    target.textContent = completedTitles.length > 0
+      ? completedTitles.join(" / ")
+      : "まだ完読なし";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", applyHomeStoryProgress);
+  } else {
+    applyHomeStoryProgress();
   }
 </script>
