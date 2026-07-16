@@ -9,7 +9,7 @@ colors:
   ivory-dim: "#cabfa8"    # 弱いアイボリー。パンくず・sub テキスト
   gold: "#b8934f"         # 真鍮/金＝細線・押印・扉の枠
   gold-bright: "#e6c47e"  # 明るい金。ホバーで灯る線・読了の灯り
-  theo: "#fff6e6"         # せお（主人公）色。せおのセリフ・せお関連要素の差し色にのみ使う
+  theo: "#fff6e6"         # warm off-white の強調色。見出し（誌面/業カテゴリ/開幕コピー）・住人名ラベル・主要CTAに使う（せお専用ではない）
 typography:
   mincho:
     fontFamily: '"Hina Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif'
@@ -63,7 +63,7 @@ theo-hayami の公開名としての舞台は **「叡智の星海」**。Webペ
 - **ink `#12111a` / ink-deep `#0a0910`**: 地の底。生成絵の下のスクリム、html/body 背景、reader stage の地。
 - **ivory `#f1e8d6` / ivory-dim `#cabfa8`**: 本文の紙色と、その弱め（パンくず・sub）。
 - **gold `#b8934f` / gold-bright `#e6c47e`**: 真鍮の細線・扉の枠・押印。ホバーで gold-bright が灯る。読了の金の灯りもこれ。
-- **theo `#fff6e6`**: せお（主人公）専用の差し色。**せお関連要素以外に使わない。**
+- **theo `#fff6e6`**: warm off-white の強調色。誌面見出し（`th-magazine-section h2`）・業カテゴリ見出し（`th-theme-category__head h2/h3`）・開幕コピー見出し（`th-story-opening__copy h1`）・住人名ラベル（`th-resident-card__name`、せお以外の住人も含む）・主要CTA（`th-link-button--primary`）に横断的に使う。gold/gold-bright（細線・枠・押印）とは役割が分かれ、theo は文字色の強調に使う。
 
 ## Typography
 
@@ -105,7 +105,7 @@ theo-hayami の公開名としての舞台は **「叡智の星海」**。Webペ
 - 「図書館に迷い込んだゲーム画面」の没入を最優先にする。面は半透明ガラス＋真鍮/金の細線、文字は明朝。
 - 背景は生成絵を fixed 全画面＋紺墨グラデスクリムで敷く。
 - 読了は温かい金の灯り＋金の蔵書印で祝う（暗くしない）。
-- せお色 `#fff6e6` はせお関連の差し色にだけ使う。
+- theo色 `#fff6e6` は見出し・住人名ラベル・主要CTAの強調色として使う（せお専用ではない）。
 
 **Don't:**
 - **汎用UI chrome を使わない**（角丸カード・原色ボタン・水平ナビバー等）。
