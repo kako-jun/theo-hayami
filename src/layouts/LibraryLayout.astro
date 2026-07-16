@@ -60,10 +60,10 @@ const seoJsonLd = {
     <meta name="description" content={description} />
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonical} />
-    <!-- Issue #59: astro.config.mjs の manifest.theme_color/background_color と同じ #0a0910
-         （--color-th-ink-deep）に揃える。ここが manifest と別値だと、起動スプラッシュ→本描画の
-         切り替わりで色が変わって継ぎ目が出る（hanoba #478 と同種の色ズレ）ため統一する。 -->
-    <meta name="theme-color" content="#0a0910" />
+    <!-- Issue #59: manifest.theme_color/background_color と同じ色に揃える。
+         PWA 起動スプラッシュではアイコン外周の #001231 と背景色を一致させ、
+         アイコンの四辺が黒い額縁のように見えないようにする。 -->
+    <meta name="theme-color" content="#001231" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap" />
