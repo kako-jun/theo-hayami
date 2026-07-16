@@ -2,18 +2,27 @@
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import ReaderFrame from "../../components/ReaderFrame.astro";
-import { featuredTeaTimeQuestion } from "../../data/teaTime";
+import type { TeaTimeQuestion } from "../../data/teaTime";
+import { publishedTeaTimeQuestions } from "../../data/teaTime";
 import { findResident } from "../../data/residents";
 
-// この話題でお茶の席につく住人（residents.ts から name/ability を引く）。
-const speakers = (featuredTeaTimeQuestion.residents ?? [])
+export function getStaticPaths() {
+  return publishedTeaTimeQuestions.map((question, index) => ({
+    params: { slug: question.slug },
+    props: { question, index },
+  }));
+}
+
+const { question, index } = Astro.props as { question: TeaTimeQuestion; index: number };
+const speakers = (question.residents ?? [])
   .map((slug) => findResident(slug))
   .filter((r): r is NonNullable<typeof r> => r !== undefined);
+const sceneId = question.sceneId ?? `tea-${question.slug}`;
 ---
 
 <LibraryLayout
-  title={`${featuredTeaTimeQuestion.title} ── けふのティータイム`}
-  description={featuredTeaTimeQuestion.question}
+  title={`${question.title} ── けふのティータイム`}
+  description={question.question}
   bgImage="shadow-library/history-hall.webp"
 >
   <div class="max-w-4xl mx-auto px-4 pt-10 pb-16">
@@ -21,18 +30,18 @@ const speakers = (featuredTeaTimeQuestion.residents ?? [])
       trail={[
         { label: "トップ", href: "/" },
         { label: "けふのティータイム", href: "/tea-time" },
-        { label: featuredTeaTimeQuestion.title },
+        { label: question.title },
       ]}
     />
 
     <section class="th-magazine-section th-magazine-section--plain mt-8" style="border-bottom: 0; padding-bottom: 0;">
-      <p class="th-magazine-section__folio">004-01 / TEA TIME</p>
-      <h1 class="mt-2">{featuredTeaTimeQuestion.title}</h1>
+      <p class="th-magazine-section__folio">004-{String(index + 1).padStart(2, "0")} / TEA TIME</p>
+      <h1 class="mt-2">{question.title}</h1>
     </section>
 
     <figure class="th-tea-quote th-glow mt-6">
       <span class="th-tea-mark" aria-hidden="true">Q</span>
-      <blockquote>「{featuredTeaTimeQuestion.question}」</blockquote>
+      <blockquote>「{question.question}」</blockquote>
     </figure>
 
     <hr class="th-tea-rule mt-6" aria-hidden="true" />
@@ -62,9 +71,9 @@ const speakers = (featuredTeaTimeQuestion.residents ?? [])
 
     <div class="mt-8">
       <ReaderFrame
-        slug="tea-world-cup"
-        sceneId="tea-wc-luck"
-        title={featuredTeaTimeQuestion.title}
+        slug={`tea-${question.slug}`}
+        sceneId={sceneId}
+        title={question.title}
       />
     </div>
 

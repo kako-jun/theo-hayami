@@ -2,20 +2,39 @@ export interface TeaTimeQuestion {
   slug: string;
   title: string;
   question: string;
+  /** 公開済み話題の表示順。時事枠なので新しいものほど上に出す。 */
+  publishedAt?: string;
+  sceneId?: string;
   /** この話題でお茶の席につく住人のスラッグ（表示順）。未指定＝待機列。 */
   residents?: string[];
 }
 
-export const featuredTeaTimeQuestion: TeaTimeQuestion = {
-  slug: "world-cup",
-  title: "ワールドカップの悔しさ",
-  question:
-    "ワールドカップで運やけがや判定に泣いた悔しさを、どう受け止めればよいでしょうか。",
-  residents: ["makiya", "spino", "ou"],
-};
+export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
+  {
+    slug: "genius",
+    title: "天才にはかなわない",
+    question: "天才にはかなわないと感じるとき、どう生きればよいでしょうか。",
+    publishedAt: "2026-07-17",
+    sceneId: "tea-genius",
+    residents: ["kantia", "hue", "dekaris"],
+  },
+  {
+    slug: "world-cup",
+    title: "ワールドカップの悔しさ",
+    question:
+      "ワールドカップで運やけがや判定に泣いた悔しさを、どう受け止めればよいでしょうか。",
+    publishedAt: "2026-07-16",
+    sceneId: "tea-wc-luck",
+    residents: ["makiya", "spino", "ou"],
+  },
+];
+
+export function findTeaTimeQuestion(slug: string): TeaTimeQuestion | undefined {
+  return publishedTeaTimeQuestions.find((entry) => entry.slug === slug)
+    ?? teaTimeQuestions.find((entry) => entry.slug === slug);
+}
 
 export const teaTimeQuestions: TeaTimeQuestion[] = [
-  { slug: "genius", title: "天才にかなわない", question: "天才にはかなわないと感じるとき、どう生きればよいでしょうか。" },
   { slug: "ai-job", title: "人工知能と仕事", question: "人工知能に仕事を奪われるかもしれない不安と、どう向き合えばよいでしょうか。" },
   { slug: "ai-extinction", title: "人工知能と人類", question: "人工知能が人類を滅ぼすかもしれない恐怖を、どう考えればよいでしょうか。" },
   { slug: "confession", title: "告白する怖さ", question: "好きな人に気持ちを伝えるのが怖いとき、どうすればよいでしょうか。" },
