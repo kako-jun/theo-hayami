@@ -12,17 +12,19 @@ interface Props {
   bgPosition?: string;
   /** モバイル幅だけの全画面背景焦点位置。 */
   bgPositionMobile?: string;
+  /** OGP/Twitter Card に使う /images/ 以下の相対パス。未指定ならサイト共通キービジュアル。 */
+  ogImage?: string;
 }
 
-const { title, description, bgImage, bgPosition = "center", bgPositionMobile } = Astro.props;
+const { title, description, bgImage, bgPosition = "center", bgPositionMobile, ogImage: ogImagePath } = Astro.props;
 
 const SITE = Astro.site ?? new URL("https://theo-hayami.llll-ll.com");
 const canonical = new URL(Astro.url.pathname, SITE).href;
 
-// OGP/Twitter Card の画像＝耽美キービジュアル（本作の売り）。sync-assets.mjs が
+// OGP/Twitter Card の既定画像＝耽美キービジュアル（本作の売り）。sync-assets.mjs が
 // assets/images/ を public/images/ へ複製するので配信URLは /images/...。
 // og:image は絶対URLが必須なので Astro.site を基準に絶対化する。
-const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SITE).href;
+const ogImage = new URL(`/images/${ogImagePath ?? "promotional/cast/shadow-library-cast.webp"}`, SITE).href;
 const siteUrl = new URL("/", SITE).href;
 const seoJsonLd = {
   "@context": "https://schema.org",
