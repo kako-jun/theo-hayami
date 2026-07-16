@@ -1,5 +1,8 @@
 ---
 import LibraryLayout from "../layouts/LibraryLayout.astro";
+import { publishedTeaTimeQuestions } from "../data/teaTime";
+
+const latestTeaTime = publishedTeaTimeQuestions[0];
 ---
 
 <LibraryLayout
@@ -73,10 +76,20 @@ import LibraryLayout from "../layouts/LibraryLayout.astro";
             </a>
           </div>
         </div>
-        <a href="/tea-time" class="th-path-tree__item">
-          <span class="th-path-tree__label">004 / TEA TIME</span>
-          <span class="th-path-tree__text">けふのティータイム</span>
-          <span class="th-path-tree__hint">いまの話題が、住人たちのお茶の席に並ぶ</span>
+        <a href="/tea-time" class="th-path-tree__item th-path-tree__item--tea-time">
+          <span class="th-path-tree__main">
+            <span class="th-path-tree__label">004 / TEA TIME</span>
+            <span class="th-path-tree__text">けふのティータイム</span>
+            <span class="th-path-tree__hint">いまの話題が、住人たちのお茶の席に並ぶ</span>
+          </span>
+          {
+            latestTeaTime && (
+              <span class="th-path-tree__latest" aria-label={`最新の話題: ${latestTeaTime.title}`}>
+                <span class="th-path-tree__latest-label">新着</span>
+                <span class="th-path-tree__latest-title">{latestTeaTime.title}</span>
+              </span>
+            )
+          }
         </a>
       </nav>
     </section>

@@ -787,6 +787,13 @@ a {
     background-color 0.25s ease,
     box-shadow 0.25s ease;
 }
+.th-path-tree__item--tea-time {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(10rem, 15rem);
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+}
 .th-path-tree__item:hover,
 .th-path-tree__item:focus-visible {
   border-color: var(--color-th-gold-bright);
@@ -831,6 +838,70 @@ a {
   color: var(--color-th-ivory);
   font-size: 1rem;
   letter-spacing: 0.04em;
+}
+.th-path-tree__latest {
+  position: relative;
+  display: block;
+  justify-self: end;
+  max-width: 100%;
+  border: 1px solid rgba(95, 64, 34, 0.55);
+  background:
+    linear-gradient(135deg, rgba(255, 249, 226, 0.96), rgba(225, 196, 139, 0.92)),
+    #ead5a2;
+  padding: 0.68rem 0.82rem 0.7rem;
+  text-align: right;
+  transform: rotate(-3.4deg);
+  transform-origin: 50% 50%;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.45) inset;
+}
+.th-path-tree__latest::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -0.42rem;
+  width: 3.2rem;
+  height: 0.78rem;
+  background: rgba(241, 232, 214, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transform: translateX(-50%) rotate(4deg);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16);
+}
+.th-path-tree__latest-label {
+  display: block;
+  color: #7b1e1e;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.14em;
+}
+.th-path-tree__latest-title {
+  display: block;
+  overflow: hidden;
+  margin-top: 0.22rem;
+  color: #2b1b12;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transform: rotate(1.2deg);
+}
+@media (max-width: 639px) {
+  .th-path-tree__item--tea-time {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+  .th-path-tree__latest {
+    justify-self: stretch;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    transform: rotate(-1.8deg);
+    text-align: left;
+  }
+  .th-path-tree__latest-title {
+    white-space: normal;
+  }
 }
 
 .th-resident-card {
