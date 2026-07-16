@@ -23,6 +23,31 @@ const canonical = new URL(Astro.url.pathname, SITE).href;
 // assets/images/ を public/images/ へ複製するので配信URLは /images/...。
 // og:image は絶対URLが必須なので Astro.site を基準に絶対化する。
 const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SITE).href;
+const siteUrl = new URL("/", SITE).href;
+const seoJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      name: "せおはやみ",
+      alternateName: "Theo Hayami",
+      url: siteUrl,
+      inLanguage: "ja",
+      description: "「叡智の星海」で、哲学が人格化した住人たちに人の業を訊く、短い会話劇の哲学アンソロジー。",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonical}#webpage`,
+      url: canonical,
+      name: title,
+      description,
+      inLanguage: "ja",
+      isPartOf: { "@id": `${siteUrl}#website` },
+      image: ogImage,
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -31,6 +56,7 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonical} />
     <!-- Issue #59: astro.config.mjs の manifest.theme_color/background_color と同じ #0a0910
          （--color-th-ink-deep）に揃える。ここが manifest と別値だと、起動スプラッシュ→本描画の
@@ -49,6 +75,7 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
          manifest を発見できずインストール可能と認識されない（実機で確認済み）。 -->
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ja_JP" />
     <meta property="og:site_name" content="せおはやみ" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -58,6 +85,7 @@ const ogImage = new URL("/images/promotional/cast/shadow-library-cast.webp", SIT
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(seoJsonLd)} />
     <title>{title}</title>
   </head>
   <body class="min-h-screen antialiased">
