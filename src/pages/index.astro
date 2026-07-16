@@ -74,8 +74,8 @@ const freeReadGroup = loadEpisodes().map((episode) => episode.slug);
             <span class="th-path-tree__text">物語を辿る</span>
           </span>
           <span class="th-path-tree__progress-note" aria-live="polite">
-            <span class="th-path-tree__progress-label">本編の完読</span>
-            <span class="th-path-tree__progress-list" data-story-completed-list>まだ完読なし</span>
+            <span class="th-path-tree__progress-label">本編の進み</span>
+            <span class="th-path-tree__progress-list" data-story-completed-latest>まだ完読なし</span>
           </span>
         </a>
         <div class="th-path-tree__branch" aria-label="自由行動">
@@ -214,19 +214,16 @@ const freeReadGroup = loadEpisodes().map((episode) => episode.slug);
 
   function applyHomeStoryProgress() {
     const root = document.querySelector<HTMLElement>("[data-story-progress]");
-    const target = root?.querySelector<HTMLElement>("[data-story-completed-list]");
+    const target = root?.querySelector<HTMLElement>("[data-story-completed-latest]");
     if (!root || !target) return;
 
     const storyIds = JSON.parse(root.dataset.storyIds ?? "[]") as string[];
     const titles = JSON.parse(root.dataset.storyTitles ?? "{}") as Record<string, string>;
     const progress = getStoryProgress(storyIds);
-    const completedTitles = progress.completedStoryIds
-      .map((id) => titles[id])
-      .filter((title): title is string => Boolean(title));
+    const latestCompletedId = [...progress.completedStoryIds].pop();
+    const latestCompletedTitle = latestCompletedId ? titles[latestCompletedId] : undefined;
 
-    target.textContent = completedTitles.length > 0
-      ? completedTitles.join(" / ")
-      : "まだ完読なし";
+    target.textContent = latestCompletedTitle ?? "まだ完読なし";
   }
 
   if (document.readyState === "loading") {

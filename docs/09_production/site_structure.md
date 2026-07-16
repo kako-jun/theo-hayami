@@ -124,7 +124,7 @@ name-name は終劇（endStory）到達時、**埋め込み時のみ**親へ pos
 `assets/images/promotional/` をサイト採用版の置き場にする。元解像度・プロンプト・採否管理は #38 側で続け、サイトが読む軽量版だけをここへ置く。
 
 - `promotional/cast/shadow-library-cast.webp`: トップ表紙と OGP に使う集合キービジュアル。
-- トップ表紙の集合キービジュアルは横長構図のため、スマホ幅では全員を小さく詰め込まず、`prefers-reduced-motion` を尊重した低速の横パンで端の住人も順に見えるようにする。
+- トップ表紙の集合キービジュアルは横長構図のため、スマホ幅では全員を小さく詰め込まず、`prefers-reduced-motion` を尊重した低速の横パンで端の住人も順に見えるようにする。スマホ幅では指で横へスワイプして任意位置を見られ、指を離すとその位置から端でイーズする自動パンへ戻る。
 - `promotional/cast/shadow-library-reading-guide.webp`: トップページの本文背景に使う図版。first viewport の集合キービジュアルと同じ絵が下に続いて見えないよう、`index.astro` の `bgImage` はこれを指定する。
 - `promotional/cast/story-opening.webp`: `/story` 冒頭に置く本編導入用の集合絵。横長のまま 1600x900 WebP に正規化する。
 - `/story` 冒頭の本編導入絵は、スマホ幅でも横を見切らせない。モバイルでは縦長枠へ `cover` せず `object-fit: contain` で全体を表示する。
@@ -137,12 +137,27 @@ name-name は終劇（endStory）到達時、**埋め込み時のみ**親へ pos
 - 初期状態では最初の本編ボタンだけを解放する。
 - `name-name` 埋め込みから `story-ended` を受け取ると、該当ボタンを完了済みにし、次の本編ボタンを解放する。
 - `/main/<slug>` の直URLでも未解放の本編ボタンは読ませない。静的サイトなのでサーバー側リダイレクトではなく、初期状態で Reader を隠し、クライアント側で進捗判定してから Reader またはロック案内を表示する。
+- トップページの `002 / STORY` には、本編の進みとして「最も先まで完読した1件」だけを右側に出す。総数や分母は出さない。理由は、本編総量が未確定であり、残り量を読者へ知らせたくないため。
+- トップページの `003 / FREE ACTION` には、自由行動全体の読了ゲージを1つだけ右側に出す。住人から選んでも業から選んでも総数は同じなので、子導線ごとにゲージを増やさない。
 - `promotional/residents/<slug>-feature.webp`: 住人選択カードと住人詳細ページに使うキャラ別ワイド絵。2026-07-11 18:54:56〜19:02:07 の生成画像を古い順に `ou` → `makiya` → `hue` → `spino` → `dekaris` → `hegru` → `kantia` → `aristo` → `vincia` → `theo` と対応させた。
 - `nameplates/{ja,en}/<slug>.webp`: キャラ名タイポグラフィ画像。キャラ別ページの大判キービジュアル上に重ねる題字として使う。本文・読むページ内の見出しはテキストのまま維持し、画像文字は記事内へ持ち込まない。将来の多言語化では同じ位置で `ja` / `en` を切り替える。
 
 ## OGP
 
-`LibraryLayout.astro` が `og:image` に `promotional/cast/shadow-library-cast.webp` の絶対URL、`twitter:card: summary_large_image`（耽美キービジュアルが「本作の売り」＝delivery_platform.md）。
+`LibraryLayout.astro` が `og:image` を組み立てる。既定は `promotional/cast/shadow-library-cast.webp` の絶対URL、`twitter:card: summary_large_image`（耽美キービジュアルが「本作の売り」＝delivery_platform.md）。
+
+- `/story` と `/main/*`: `promotional/cast/story-opening.webp`
+- `/tea-time` と `/tea-time/*`: `promotional/cast/tea-time-cast.webp`
+- `/residents/<slug>` と `/free/*`: 該当住人の `promotional/residents/<slug>-feature.webp`
+- その他ページ: 既定の `promotional/cast/shadow-library-cast.webp`
+
+おはこ `/main/ohako-*` は住人に紐づくが、本編扱いなので `story-opening.webp` を使う。
+
+## シェア導線
+
+全ページ共通で `LibraryLayout.astro` が右上固定の「シェア」ボタンを出す。パンくずは各ページ本文の左上に置くため、シェアは右上固定にして重なりを避ける。文言は用途が即座に分かることを優先して短く「シェア」とする。見た目は紙札ではなく、既存のガラス板＋真鍮線の小さな蔵書票に寄せる。
+
+クリック時は `navigator.share` が使える環境なら OS の共有シートを開く。非対応環境では canonical URL をクリップボードへコピーし、短時間だけラベルを「頁のURLを写しました」に変える。共有URLは各ページの canonical を使うため、見た目と場所は全ページ共通で URL だけが変わる。
 
 ## サイト共通フッタ（Issue #62）
 

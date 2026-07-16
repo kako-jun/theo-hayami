@@ -366,6 +366,45 @@ a {
   opacity: 0.7;
 }
 
+/* 全ページ共通のシェア導線。パンくずは各ページ本文の左上に出るため、右上固定で
+   視線の邪魔をしない小さな蔵書票として置く。言葉は用途優先で短く「シェア」。 */
+.th-share-page {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 0.85rem);
+  right: calc(env(safe-area-inset-right, 0px) + 0.85rem);
+  z-index: 80;
+  border: 1px solid rgba(184, 147, 79, 0.55);
+  background: rgba(18, 17, 26, 0.68);
+  color: var(--color-th-gold-bright);
+  padding: 0.45rem 0.68rem;
+  font-family: var(--font-mincho);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(230, 196, 126, 0.12) inset, 0 10px 24px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.th-share-page:hover,
+.th-share-page:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  background-color: rgba(24, 22, 34, 0.78);
+  color: var(--color-th-ivory);
+}
+@media (max-width: 639px) {
+  .th-share-page {
+    top: calc(env(safe-area-inset-top, 0px) + 0.55rem);
+    right: calc(env(safe-area-inset-right, 0px) + 0.55rem);
+    padding: 0.42rem 0.58rem;
+    font-size: 0.68rem;
+  }
+}
+
 /* ---------------------------------------------------------------------
    サイト共通フッタ（Issue #62）── 書架の奥付のように、QR・作者導線・
    訪問カウンタ・版表示を控えめに並べる。パンくずと同じく生成絵に直接
@@ -789,7 +828,7 @@ a {
 .th-path-tree__item--story-progress,
 .th-path-tree__branch-head--progress {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(10rem, 15rem);
+  grid-template-columns: minmax(0, 1fr) minmax(8rem, 14rem);
   align-items: center;
   gap: 1rem;
 }
@@ -841,7 +880,7 @@ a {
 .th-path-tree__progress-note {
   display: block;
   justify-self: end;
-  max-width: 15rem;
+  width: min(14rem, 100%);
   border-left: 1px solid rgba(184, 147, 79, 0.3);
   padding-left: 1rem;
   text-align: right;
@@ -867,6 +906,8 @@ a {
   position: static;
   justify-self: end;
   align-self: center;
+  min-width: 8.8rem;
+  justify-content: flex-end;
 }
 .th-read-meter--path .th-read-gauge {
   width: 4rem;

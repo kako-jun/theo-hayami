@@ -109,6 +109,17 @@ const seoJsonLd = {
       </main>
       <SiteFooter />
     </div>
+    <button
+      class="th-share-page"
+      type="button"
+      data-share-page
+      data-share-title={title}
+      data-share-text={description}
+      data-share-url={canonical}
+      aria-label="このページをシェア"
+    >
+      <span class="th-share-page__text" data-share-label>シェア</span>
+    </button>
     <PwaInstallBanner />
 
     <script>
@@ -254,6 +265,42 @@ const seoJsonLd = {
         setTimeout(() => {
           reloadOnce();
         }, FALLBACK_RELOAD_MS);
+      }
+    </script>
+
+    <script>
+      const shareButton = document.querySelector<HTMLButtonElement>("[data-share-page]");
+      const shareLabel = shareButton?.querySelector<HTMLElement>("[data-share-label]");
+
+      if (shareButton && shareLabel) {
+        const defaultLabel = shareLabel.textContent ?? "シェア";
+        let resetTimer = 0;
+
+        const setTemporaryLabel = (label: string) => {
+          shareLabel.textContent = label;
+          window.clearTimeout(resetTimer);
+          resetTimer = window.setTimeout(() => {
+            shareLabel.textContent = defaultLabel;
+          }, 1800);
+        };
+
+        shareButton.addEventListener("click", async () => {
+          const title = shareButton.dataset.shareTitle ?? document.title;
+          const text = shareButton.dataset.shareText ?? "";
+          const url = shareButton.dataset.shareUrl ?? window.location.href;
+
+          try {
+            if (navigator.share) {
+              await navigator.share({ title, text, url });
+              return;
+            }
+            await navigator.clipboard.writeText(url);
+            setTemporaryLabel("頁のURLを写しました");
+          } catch (error) {
+            if ((error as DOMException | undefined)?.name === "AbortError") return;
+            setTemporaryLabel("写せませんでした");
+          }
+        });
       }
     </script>
   </body>
