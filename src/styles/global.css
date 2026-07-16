@@ -884,7 +884,6 @@ a {
   line-height: 1.45;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transform: rotate(1.2deg);
 }
 @media (max-width: 639px) {
   .th-path-tree__item--tea-time {
