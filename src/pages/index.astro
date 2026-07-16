@@ -15,6 +15,7 @@ const latestTeaTime = publishedTeaTimeQuestions[0];
   <section class="th-cover th-cover--home">
     <div
       class="th-cover__image"
+      data-cover-pan
       aria-hidden="true"
       style="--th-cover-image: url('/images/promotional/cast/shadow-library-cast.webp');"
     >
@@ -95,3 +96,82 @@ const latestTeaTime = publishedTeaTimeQuestions[0];
     </section>
   </div>
 </LibraryLayout>
+
+<script>
+  const cover = document.querySelector<HTMLElement>(".th-cover--home");
+  const coverImage = cover?.querySelector<HTMLElement>("[data-cover-pan]");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (cover && coverImage) {
+    let pan = 0;
+    let direction = 1;
+    let dragging = false;
+    let pointerId = -1;
+    let lastX = 0;
+    let lastTime = performance.now();
+    let frame = 0;
+
+    const isMobilePan = () => window.matchMedia("(max-width: 639px)").matches;
+    const clampPan = (value: number) => Math.max(0, Math.min(100, value));
+    const setPan = (value: number) => {
+      pan = clampPan(value);
+      coverImage.style.setProperty("--th-cover-pan", `${pan.toFixed(3)}%`);
+    };
+    const overflowWidth = () => {
+      const rect = cover.getBoundingClientRect();
+      return Math.max(1, rect.height * (1672 / 941) - rect.width);
+    };
+
+    const tick = (now: number) => {
+      const delta = Math.min(64, now - lastTime);
+      lastTime = now;
+
+      if (isMobilePan() && !prefersReducedMotion && !dragging) {
+        const next = pan + direction * delta * 0.0042;
+        if (next >= 100 || next <= 0) direction *= -1;
+        setPan(next);
+      }
+
+      frame = window.requestAnimationFrame(tick);
+    };
+
+    const stopDrag = () => {
+      if (!dragging) return;
+      dragging = false;
+      pointerId = -1;
+      lastTime = performance.now();
+    };
+
+    cover.addEventListener("pointerdown", (event) => {
+      if (!isMobilePan() || event.pointerType === "mouse") return;
+      if ((event.target as Element | null)?.closest("a, button")) return;
+      dragging = true;
+      pointerId = event.pointerId;
+      lastX = event.clientX;
+      cover.setPointerCapture(pointerId);
+    });
+
+    cover.addEventListener("pointermove", (event) => {
+      if (!dragging || event.pointerId !== pointerId) return;
+      const dx = event.clientX - lastX;
+      lastX = event.clientX;
+      setPan(pan - (dx / overflowWidth()) * 100);
+    });
+
+    cover.addEventListener("pointerup", stopDrag);
+    cover.addEventListener("pointercancel", stopDrag);
+    window.addEventListener("resize", () => setPan(pan));
+
+    setPan(0);
+    frame = window.requestAnimationFrame(tick);
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        window.cancelAnimationFrame(frame);
+      } else {
+        lastTime = performance.now();
+        frame = window.requestAnimationFrame(tick);
+      }
+    });
+  }
+</script>

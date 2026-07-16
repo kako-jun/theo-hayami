@@ -531,24 +531,16 @@ a {
     background-image: var(--th-cover-image);
     background-repeat: no-repeat;
     background-size: auto 100%;
-    background-position: left center;
+    background-position: var(--th-cover-pan, 0%) center;
   }
   .th-cover--home .th-cover__image img {
     opacity: 0;
   }
-}
-@media (max-width: 639px) and (prefers-reduced-motion: no-preference) {
+  .th-cover--home {
+    touch-action: pan-y;
+  }
   .th-cover--home .th-cover__image {
-    animation: th-cover-mobile-pan 24s ease-in-out infinite alternate;
     will-change: background-position;
-  }
-}
-@keyframes th-cover-mobile-pan {
-  from {
-    background-position: left center;
-  }
-  to {
-    background-position: right center;
   }
 }
 .th-cover__image::after {
