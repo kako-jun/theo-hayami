@@ -60,12 +60,13 @@ name-name は終劇（endStory）到達時、**埋め込み時のみ**親へ pos
 
 `targetOrigin` は `"*"`（受け手が origin を検証する前提）。このメッセージ契約は name-name と共有＝勝手に変えない。
 
-### 記録ストア（`src/lib/readStore.ts`・クライアント専用）
+### 記録ストア（`src/lib/appStorage.ts` / `readStore.ts`・クライアント専用）
 
-- localStorage キー **`theo-hayami:read`** ＝既読 slug（`業__住人`）の JSON 配列。slug は読むページ（`free/[slug]`）の URL スラッグ。
-- `markRead(slug)`（冪等・追加のみ）／`isRead(slug)`／`getReadSet(): Set<string>`。
-- `typeof localStorage === "undefined"` ガード（ビルド時評価・vitest node 環境で壊れない）。JSON 破損・非配列は空集合にフォールバック（try/catch）＝次の書き込みで自己修復。
-- **キーと形式の唯一の正本**。索引側も ReaderFrame 側も、直書きせず必ずこの module を import する（二重定義の齟齬を避ける）。
+- localStorage のトップキーは **`theo-hayami` 1つだけ**。後方互換は持たず、旧 `theo-hayami:read` / `theo-hayami:story-progress` / `theo-hayami:pwa-install-dismissed` は読まない。
+- 保存構造は `{ read: { completedSlugs }, storyProgress, pwa: { installDismissed } }`。sessionStorage の PWA 更新 cooldown は一時状態なので別扱い。
+- `src/lib/appStorage.ts` が localStorage I/O の唯一の境界。機能側は `readStore.ts` / `storyProgress.ts` / `pwa-install.ts` 経由で読む。
+- `readStore.ts` は `markRead(slug)`（冪等・追加のみ）／`isRead(slug)`／`getReadSet(): Set<string>` を提供する。slug は読むページ（`free/[slug]`）の URL スラッグ。
+- `typeof localStorage === "undefined"` ガード（ビルド時評価・vitest node 環境で壊れない）。JSON 破損・非オブジェクトは空状態にフォールバックし、次の書き込みで自己修復。
 
 ### 完読の記録（`src/components/ReaderFrame.astro`）
 
@@ -132,7 +133,7 @@ name-name は終劇（endStory）到達時、**埋め込み時のみ**親へ pos
 
 ## 本編読了ゲート（Issue #60）
 
-- 進捗ストアは `theo-hayami:story-progress`。自由行動の既読 `theo-hayami:read` とは分離する。
+- 進捗ストアは `localStorage["theo-hayami"].storyProgress`。自由行動の既読は同じトップキー内の `read.completedSlugs`。
 - 保存する主な値は `unlockedStoryIds` / `completedStoryIds` / `currentStoryId` / `disappearedResidents` / `completed`。
 - 初期状態では最初の本編ボタンだけを解放する。
 - `name-name` 埋め込みから `story-ended` を受け取ると、該当ボタンを完了済みにし、次の本編ボタンを解放する。

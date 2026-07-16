@@ -1,12 +1,46 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { APP_STORAGE_KEY } from "./appStorage";
 import { loadStoryButtons } from "./scripts";
 import {
+  completeStoryEntry,
   completeStoryEntryInProgress,
   createInitialStoryProgress,
+  getStoryProgress,
   normalizeStoryProgress,
 } from "./storyProgress";
 
 const STORY_IDS = ["ohako-aristo", "ohako-kantia", "ohako-hegru"] as const;
+
+function makeStorage(initial: Record<string, string> = {}): Storage {
+  const map = new Map<string, string>(Object.entries(initial));
+  return {
+    getItem: (k: string) => (map.has(k) ? (map.get(k) as string) : null),
+    setItem: (k: string, v: string) => void map.set(k, String(v)),
+    removeItem: (k: string) => void map.delete(k),
+    clear: () => map.clear(),
+    key: (i: number) => [...map.keys()][i] ?? null,
+    get length() {
+      return map.size;
+    },
+  } as Storage;
+}
+
+function installStorage(storage: Storage | undefined): void {
+  if (storage === undefined) {
+    // @ts-expect-error テストのため localStorage を未定義に戻す（typeof ガードの検証）。
+    delete globalThis.localStorage;
+  } else {
+    Object.defineProperty(globalThis, "localStorage", {
+      value: storage,
+      configurable: true,
+      writable: true,
+    });
+  }
+}
+
+afterEach(() => {
+  installStorage(undefined);
+});
 
 describe("storyProgress", () => {
   it("初期状態では最初の本編ボタンだけを解放する", () => {
@@ -65,6 +99,46 @@ describe("storyProgress", () => {
     expect(progress.unlockedStoryIds).toEqual(["ohako-aristo", "ohako-kantia"]);
     expect(progress.completedStoryIds).toEqual(["ohako-aristo"]);
     expect(progress.currentStoryId).toBe("ohako-kantia");
+  });
+});
+
+describe("storyProgress storage", () => {
+  beforeEach(() => installStorage(makeStorage()));
+
+  it("localStorage 未対応環境なら初期状態を返し、保存は no-op", () => {
+    installStorage(undefined);
+    expect(getStoryProgress(STORY_IDS)).toEqual(createInitialStoryProgress(STORY_IDS));
+    expect(() => completeStoryEntry("ohako-aristo", STORY_IDS)).not.toThrow();
+  });
+
+  it("本編進捗はアプリ単一キーの storyProgress に保存される", () => {
+    completeStoryEntry("ohako-aristo", STORY_IDS);
+    const raw = globalThis.localStorage.getItem(APP_STORAGE_KEY);
+    expect(raw).not.toBeNull();
+    expect(JSON.parse(raw as string).storyProgress).toMatchObject({
+      unlockedStoryIds: ["ohako-aristo", "ohako-kantia"],
+      completedStoryIds: ["ohako-aristo"],
+      currentStoryId: "ohako-kantia",
+      completed: false,
+    });
+  });
+
+  it("既存の read / pwa 状態を壊さず storyProgress だけを更新する", () => {
+    installStorage(
+      makeStorage({
+        [APP_STORAGE_KEY]: '{"read":{"completedSlugs":["ai__aristo"]},"pwa":{"installDismissed":true}}',
+      }),
+    );
+
+    completeStoryEntry("ohako-aristo", STORY_IDS);
+
+    expect(JSON.parse(globalThis.localStorage.getItem(APP_STORAGE_KEY) as string)).toMatchObject({
+      read: { completedSlugs: ["ai__aristo"] },
+      pwa: { installDismissed: true },
+      storyProgress: {
+        completedStoryIds: ["ohako-aristo"],
+      },
+    });
   });
 });
 

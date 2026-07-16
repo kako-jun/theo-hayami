@@ -1,4 +1,4 @@
-const STORY_PROGRESS_KEY = "theo-hayami:story-progress";
+import { getAppStorage, updateAppStorage } from "./appStorage";
 
 export interface StoryProgress {
   unlockedStoryIds: string[];
@@ -78,21 +78,14 @@ export function completeStoryEntryInProgress(
 }
 
 export function getStoryProgress(storyIds: readonly string[]): StoryProgress {
-  if (!hasStorage()) return createInitialStoryProgress(storyIds);
-  try {
-    return normalizeStoryProgress(JSON.parse(localStorage.getItem(STORY_PROGRESS_KEY) ?? "null"), storyIds);
-  } catch {
-    return createInitialStoryProgress(storyIds);
-  }
+  return normalizeStoryProgress(getAppStorage().storyProgress, storyIds);
 }
 
 export function saveStoryProgress(progress: StoryProgress): void {
-  if (!hasStorage()) return;
-  try {
-    localStorage.setItem(STORY_PROGRESS_KEY, JSON.stringify(progress));
-  } catch {
-    // 進捗表示が今回保存されないだけで、読む体験は壊さない。
-  }
+  updateAppStorage((current) => ({
+    ...current,
+    storyProgress: progress,
+  }));
 }
 
 export function isStoryEntryUnlocked(storyId: string, storyIds: readonly string[]): boolean {
@@ -109,10 +102,6 @@ export function resetStoryProgress(storyIds: readonly string[]): StoryProgress {
   const next = createInitialStoryProgress(storyIds);
   saveStoryProgress(next);
   return next;
-}
-
-function hasStorage(): boolean {
-  return typeof localStorage !== "undefined";
 }
 
 function filterKnownStrings(value: unknown, known: Set<string>): string[] {

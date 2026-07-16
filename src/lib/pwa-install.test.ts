@@ -1,12 +1,11 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { APP_STORAGE_KEY } from "./appStorage.ts";
 import { getInstallDismissed, setInstallDismissed, shouldShowInstallPrompt } from "./pwa-install.ts";
 
 // getInstallDismissed/setInstallDismissed は localStorage しか触らないクライアント専用ストア
 // （readStore.test.ts と同じ最小 in-memory localStorage を差し込むパターン）。
 // shouldShowInstallPrompt は DOM/ブラウザAPIを含まない純粋関数なので node 環境でそのままテストできる
 // （pwa-update.test.ts の shouldSkipUpdate と同じ方針）。
-
-const STORAGE_KEY = "theo-hayami:pwa-install-dismissed";
 
 /** 最小の localStorage 互換（getItem/setItem だけ使う）。 */
 function makeStorage(initial: Record<string, string> = {}): Storage {
@@ -65,19 +64,19 @@ describe("getInstallDismissed", () => {
     expect(getInstallDismissed()).toBe(false);
   });
 
-  it("\"1\" が保存されていれば true", () => {
-    installStorage(makeStorage({ [STORAGE_KEY]: "1" }));
+  it("pwa.installDismissed が true なら true", () => {
+    installStorage(makeStorage({ [APP_STORAGE_KEY]: '{"pwa":{"installDismissed":true}}' }));
     expect(getInstallDismissed()).toBe(true);
   });
 
-  it("\"1\" 以外の値（壊れた/古い形式）は false（例: \"0\", \"true\", 空文字）", () => {
-    installStorage(makeStorage({ [STORAGE_KEY]: "0" }));
+  it("true 以外の値（壊れた/古い形式）は false", () => {
+    installStorage(makeStorage({ [APP_STORAGE_KEY]: '{"pwa":{"installDismissed":false}}' }));
     expect(getInstallDismissed()).toBe(false);
 
-    installStorage(makeStorage({ [STORAGE_KEY]: "true" }));
+    installStorage(makeStorage({ [APP_STORAGE_KEY]: '{"pwa":{"installDismissed":"true"}}' }));
     expect(getInstallDismissed()).toBe(false);
 
-    installStorage(makeStorage({ [STORAGE_KEY]: "" }));
+    installStorage(makeStorage({ [APP_STORAGE_KEY]: "" }));
     expect(getInstallDismissed()).toBe(false);
   });
 });
@@ -88,11 +87,11 @@ describe("setInstallDismissed", () => {
     expect(() => setInstallDismissed()).not.toThrow();
   });
 
-  it("setItem が成功する場合、\"1\" が保存される", () => {
+  it("setItem が成功する場合、アプリ単一キーに pwa.installDismissed=true が保存される", () => {
     const storage = makeStorage();
     installStorage(storage);
     setInstallDismissed();
-    expect(storage.getItem(STORAGE_KEY)).toBe("1");
+    expect(JSON.parse(storage.getItem(APP_STORAGE_KEY) as string)).toEqual({ pwa: { installDismissed: true } });
   });
 
   it("setItem が例外を投げても（quota超過相当）握りつぶし、console.error 等でログ汚染しない", () => {

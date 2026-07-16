@@ -1,11 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
+import { APP_STORAGE_KEY } from "./appStorage.ts";
 import { getReadSet, isRead, markRead, readRatioPercent } from "./readStore.ts";
 
 // readStore は localStorage しか触らないクライアント専用ストア。vitest は node 環境なので
 // localStorage が無い（→ ガードの検証）。DOM を持ち込まず、最小の in-memory localStorage を
 // 差し込んで冪等・破損フォールバック・境界を守る。
-
-const STORAGE_KEY = "theo-hayami:read";
 
 /** 最小の localStorage 互換（getItem/setItem だけ使う）。 */
 function makeStorage(initial: Record<string, string> = {}): Storage {
@@ -80,36 +79,38 @@ describe("markRead / isRead / getReadSet", () => {
     expect(getReadSet().size).toBe(0);
   });
 
-  it("localStorage には JSON 配列で保存される（索引側と同じキー/形式）", () => {
+  it("localStorage にはアプリ単一キーの read.completedSlugs として保存される", () => {
     markRead("ai__aristo");
     markRead("shi__hugo");
-    const raw = globalThis.localStorage.getItem(STORAGE_KEY);
+    const raw = globalThis.localStorage.getItem(APP_STORAGE_KEY);
     expect(raw).not.toBeNull();
-    expect(JSON.parse(raw as string)).toEqual(["ai__aristo", "shi__hugo"]);
+    expect(JSON.parse(raw as string)).toEqual({ read: { completedSlugs: ["ai__aristo", "shi__hugo"] } });
   });
 });
 
 describe("破損データのフォールバック", () => {
   it("JSON として壊れていれば空集合（例外を投げない）", () => {
-    installStorage(makeStorage({ [STORAGE_KEY]: "{壊れたJSON" }));
+    installStorage(makeStorage({ [APP_STORAGE_KEY]: "{壊れたJSON" }));
     expect(getReadSet().size).toBe(0);
     expect(isRead("ai__aristo")).toBe(false);
   });
 
   it("配列でない JSON（オブジェクト等）は空集合", () => {
-    installStorage(makeStorage({ [STORAGE_KEY]: '{"ai__aristo":true}' }));
+    installStorage(makeStorage({ [APP_STORAGE_KEY]: '{"read":{"completedSlugs":{"ai__aristo":true}}}' }));
     expect(getReadSet().size).toBe(0);
   });
 
   it("配列内の非文字列要素は無視して文字列だけ拾う", () => {
-    installStorage(makeStorage({ [STORAGE_KEY]: '["ai__aristo",123,null,"shi__hugo"]' }));
+    installStorage(makeStorage({ [APP_STORAGE_KEY]: '{"read":{"completedSlugs":["ai__aristo",123,null,"shi__hugo"]}}' }));
     expect(getReadSet()).toEqual(new Set(["ai__aristo", "shi__hugo"]));
   });
 
-  it("破損状態から markRead すると健全な配列で自己修復する", () => {
-    installStorage(makeStorage({ [STORAGE_KEY]: "not-json" }));
+  it("破損状態から markRead すると健全な単一キー構造で自己修復する", () => {
+    installStorage(makeStorage({ [APP_STORAGE_KEY]: "not-json" }));
     markRead("ai__aristo");
-    expect(JSON.parse(globalThis.localStorage.getItem(STORAGE_KEY) as string)).toEqual(["ai__aristo"]);
+    expect(JSON.parse(globalThis.localStorage.getItem(APP_STORAGE_KEY) as string)).toEqual({
+      read: { completedSlugs: ["ai__aristo"] },
+    });
   });
 });
 

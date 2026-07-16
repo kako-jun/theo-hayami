@@ -969,19 +969,20 @@ a {
     gap: 0.75rem;
   }
   .th-path-tree__progress-note {
-    justify-self: stretch;
-    max-width: none;
+    justify-self: end;
+    width: fit-content;
+    max-width: 100%;
     border-top: 1px solid rgba(184, 147, 79, 0.24);
     border-left: 0;
     padding-top: 0.75rem;
     padding-left: 0;
-    text-align: left;
+    text-align: right;
   }
   .th-path-tree__progress-list {
     white-space: normal;
   }
   .th-read-meter--path {
-    justify-self: start;
+    justify-self: end;
   }
   .th-path-tree__latest {
     justify-self: stretch;
