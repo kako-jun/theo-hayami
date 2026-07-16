@@ -18,7 +18,7 @@
   /* 真鍮/金＝細線・押印・扉の枠。 */
   --color-th-gold: #b8934f;
   --color-th-gold-bright: #e6c47e;
-  /* せお（主人公）色＝正典 #FFF6E6。せおのセリフ・せお関連要素の差し色にのみ使う。 */
+  /* warm off-white の強調色。誌面/カテゴリ見出し・住人名・主要CTA・各ページ見出しに横断的に使う（せお専用ではない。詳細は DESIGN.md）。 */
   --color-th-theo: #fff6e6;
 
   --font-mincho: "Hina Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
