@@ -10,8 +10,9 @@
     "build-nameplates": "node scripts/build-nameplates.mjs",
     "sync-assets": "node scripts/sync-assets.mjs",
     "dev": "npm run sync-assets && astro dev --host 127.0.0.1 --port 4321",
-    "build": "npm run sync-assets && PUBLIC_BUILD_DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d) astro build && npm run build:sw",
+    "build": "npm run sync-assets && PUBLIC_BUILD_DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d) astro build && npm run check-sitemap && npm run build:sw",
     "build:sw": "node scripts/build-sw.mjs",
+    "check-sitemap": "node scripts/check-sitemap.mjs",
     "preview": "astro preview",
     "typecheck": "astro check",
     "test": "vitest run"
