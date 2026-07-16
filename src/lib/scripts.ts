@@ -241,7 +241,7 @@ export interface OhakoEntry {
 // --- 本筋（act1-*.md・第一幕の地の物語。住人はいない） ---
 //
 // おはこ（住人の初対面8本）とは別系統。main/act1-01.md〜act1-04.md のような
-// 「到着・入口・違和感・一幕締め」の地の物語。住人に紐づかないため character を持たない。
+// 「到着・入口・違和感・返却口の灯」の地の物語。住人に紐づかないため character を持たない。
 // ファイル名規約 `act<幕>-<通し>.md`（`/^act\d+-\d+\.md$/`）でスキャンし、ohako ローダとは
 // 混ぜない。title/sceneId/背景のパーサは free/ohako と同じものを流用する。
 
@@ -334,7 +334,7 @@ export function findMainStory(slug: string): MainStoryEntry | undefined {
 /**
  * `/story` に並べる第一幕の本編ボタン。順序ゲートの厳密な並びは
  * [act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04] の通し12件。
- * 到着→入口で文脈を与えてから、住人8人との初対面（おはこ）、そして違和感→一幕締めで閉じる。
+ * 到着→入口で文脈を与えてから、住人8人との初対面（おはこ）、そして違和感→返却口の灯で閉じる。
  * `orderInAct` は 1 始まりの通し番号（1..12）。本筋mdには住人がいないので character は付かない。
  */
 export function loadStoryButtons(): StoryButtonEntry[] {
