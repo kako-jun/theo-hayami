@@ -63,7 +63,7 @@ theo-hayami の公開名としての舞台は **「叡智の星海」**。Webペ
 - **ink `#12111a` / ink-deep `#0a0910`**: 地の底。生成絵の下のスクリム、html/body 背景、reader stage の地。
 - **ivory `#f1e8d6` / ivory-dim `#cabfa8`**: 本文の紙色と、その弱め（パンくず・sub）。
 - **gold `#b8934f` / gold-bright `#e6c47e`**: 真鍮の細線・扉の枠・押印。ホバーで gold-bright が灯る。読了の金の灯りもこれ。
-- **theo `#fff6e6`**: warm off-white の強調色。誌面見出し（`th-magazine-section h2`）・業カテゴリ見出し（`th-theme-category__head h2/h3`）・開幕コピー見出し（`th-story-opening__copy h1`）・住人名ラベル（`th-resident-card__name`、せお以外の住人も含む）・主要CTA（`th-link-button--primary`）に横断的に使う。gold/gold-bright（細線・枠・押印）とは役割が分かれ、theo は文字色の強調に使う。
+- **theo `#fff6e6`**: warm off-white の強調色。誌面見出し（`th-magazine-section h2`）・業カテゴリ見出し（`th-theme-category__head h2/h3`）・開幕コピー見出し（`th-story-opening__copy h1`）・住人名ラベル（`th-resident-card__name`、せお以外の住人も含む）・主要CTA（`th-link-button--primary`）のほか、各ページの主見出し（`about.astro`・`404.astro`・`anthology.astro`・`themes/index.astro`・`themes/[theme].astro`・`free/[slug].astro`・`main/[slug].astro` などの `<h1>` インラインスタイル）にも横断的に使う（せお専用ではない）。gold/gold-bright もノンブル・添え字・バッジ等の文字色として広く使われており、theo との違いは「文字色かどうか」ではなく、**主見出し（theo）と副次ラベル（gold-bright）という強調レベルの階層差**にある。
 
 ## Typography
 
