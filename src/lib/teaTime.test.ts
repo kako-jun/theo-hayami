@@ -26,6 +26,16 @@ describe("publishedTeaTimeQuestions", () => {
     expect(timestamps).toEqual(sorted);
   });
 
+  it("公開済み番号は公開時固定で、表示順から再計算しない", () => {
+    const numbers = publishedTeaTimeQuestions.map((entry) => entry.number);
+    expect(numbers.every((number) => typeof number === "number" && Number.isInteger(number) && number > 0)).toBe(true);
+    expect(new Set(numbers).size).toBe(numbers.length);
+
+    const sorted = [...publishedTeaTimeQuestions].sort((a, b) => (a.number ?? 0) - (b.number ?? 0));
+    expect(sorted[0]?.slug).toBe("world-cup");
+    expect(sorted[0]?.number).toBe(1);
+  });
+
   it("公開済みと待機中の slug が重複しない", () => {
     const published = new Set(publishedTeaTimeQuestions.map((entry) => entry.slug));
     const duplicates = teaTimeQuestions

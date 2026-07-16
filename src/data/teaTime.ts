@@ -2,6 +2,8 @@ export interface TeaTimeQuestion {
   slug: string;
   title: string;
   question: string;
+  /** 公開時に固定される通番。公開順ソートで位置が変わってもこの番号は変えない。 */
+  number?: number;
   /** 公開済み話題の表示順。時事枠なので新しいものほど上に出す。 */
   publishedAt?: string;
   sceneId?: string;
@@ -14,6 +16,7 @@ export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
     slug: "genius",
     title: "天才にはかなわない",
     question: "天才にはかなわないと感じるとき、どう生きればよいでしょうか。",
+    number: 2,
     publishedAt: "2026-07-17",
     sceneId: "tea-genius",
     residents: ["kantia", "hue", "dekaris"],
@@ -23,6 +26,7 @@ export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
     title: "ワールドカップの悔しさ",
     question:
       "ワールドカップで運やけがや判定に泣いた悔しさを、どう受け止めればよいでしょうか。",
+    number: 1,
     publishedAt: "2026-07-16",
     sceneId: "tea-wc-luck",
     residents: ["makiya", "spino", "ou"],
