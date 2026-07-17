@@ -781,6 +781,30 @@ a {
   margin-top: -0.1em;
 }
 
+/* ---------------------------------------------------------------------
+   みんなの声（Issue #131）
+   Nostalgic Ranking の embed component は read-only なので、投票UIは自前で組む。
+   汎用ボタンにせず .th-link-button を流用する（DESIGN.md: 原色ボタン不採用）。
+   --------------------------------------------------------------------- */
+.th-vote-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: 0.6rem;
+}
+.th-vote-button {
+  cursor: pointer;
+}
+.th-vote-button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.th-vote-status {
+  min-height: 1.4em;
+  color: var(--color-th-gold-bright);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
 .th-path-tree {
   display: grid;
   gap: 0.85rem;

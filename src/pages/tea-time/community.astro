@@ -1,0 +1,174 @@
+---
+// みんなの声（Issue #131）。/tea-time の下の参加型サブページ。
+// - 上部: 好きな住人ランキング（Nostalgic Ranking。read-onlyのwidgetに自前の投票UIを添える）
+// - 下部: お題の希望を投稿できるBBS（Nostalgic BBS。post機能込みの単一widget）
+// 004 / TEA TIME の枝ページ。folio番号は独立させない（Issue #131 本文の指示）。
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import LibraryLayout from "../../layouts/LibraryLayout.astro";
+import { RESIDENTS } from "../../data/residents";
+import { RANKING_ID } from "../../lib/rankingVote";
+
+// RANKING_ID は client script の投票APIとも共有するため ../../lib/rankingVote.ts を
+// 唯一の正本にする（この widget 埋め込み属性だけの値なら二重管理になる）。
+// BBS は投票ロジックを持たず、この widget 属性でしか使わないためローカル定数でよい
+// （Nostalgic側で作成済み・再作成不要。値がRANKING_IDと同じ文字列なのはランキングと
+// BBSが別サービス・別ID空間だからで、偶然の一致に過ぎない）。
+const BBS_ID = "theo-hayami-fc727d17";
+---
+
+<LibraryLayout
+  title="みんなの声 ── けふのティータイム"
+  description="好きな住人ランキングに投票したり、次のお題の希望を書き込んだりできる場所。"
+  bgImage="shadow-library/history-hall.webp"
+  ogImage="promotional/cast/tea-time-cast.webp"
+>
+  <div class="max-w-3xl mx-auto px-4 pt-10 pb-16">
+    <Breadcrumb
+      trail={[
+        { label: "トップ", href: "/" },
+        { label: "けふのティータイム", href: "/tea-time" },
+        { label: "みんなの声" },
+      ]}
+    />
+
+    <header class="mt-8 th-glow">
+      <p class="th-magazine-section__folio">004 / TEA TIME</p>
+      <h1 class="text-2xl sm:text-3xl mt-2" style="color: var(--color-th-theo);">みんなの声</h1>
+      <p class="mt-3 text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
+        住人への一票と、次のお題への希望を残せる場所です。
+      </p>
+    </header>
+
+    <section class="th-panel p-6 sm:p-7 mt-8">
+      <h2 class="text-xl" style="color: var(--color-th-theo);">好きな住人ランキング</h2>
+      <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+        好きな住人に一票どうぞ。何度でも押せますが、連続投票には少し間隔が必要です。
+      </p>
+
+      <div class="mt-5">
+        <nostalgic-ranking id={RANKING_ID} limit="10" theme="dark" lang="ja"></nostalgic-ranking>
+      </div>
+      <!-- 読み込みに失敗しても <nostalgic-ranking> は中身が空のまま静かに残るだけで
+           レイアウトは壊れない（VisitorCounter.astro と同じ is:inline パターン）。 -->
+      <script is:inline src="https://nostalgic.llll-ll.com/components/ranking.js" defer></script>
+
+      <div class="th-vote-buttons mt-6" data-vote-buttons>
+        {
+          RESIDENTS.map((resident) => (
+            <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name}>
+              {resident.name}に投票
+            </button>
+          ))
+        }
+      </div>
+      <p class="th-vote-status mt-3" role="status" aria-live="polite" data-vote-status></p>
+    </section>
+
+    <script>
+      import {
+        RANKING_ID,
+        buildRankingGetUrl,
+        buildRankingSubmitUrl,
+        findCurrentScore,
+        formatVoteWaitMessage,
+        parseVoteRateLimitSeconds,
+      } from "../../lib/rankingVote";
+      import type { RankingEntry } from "../../lib/rankingVote";
+
+      const buttonsRoot = document.querySelector<HTMLElement>("[data-vote-buttons]");
+      const statusEl = document.querySelector<HTMLElement>("[data-vote-status]");
+      const rankingWidget = document.querySelector<HTMLElement>("nostalgic-ranking");
+
+      if (buttonsRoot && statusEl) {
+        const status = statusEl;
+        const buttons = Array.from(buttonsRoot.querySelectorAll<HTMLButtonElement>("[data-vote-name]"));
+
+        function setButtonsDisabled(disabled: boolean) {
+          for (const button of buttons) button.disabled = disabled;
+        }
+
+        function setStatus(message: string) {
+          status.textContent = message;
+        }
+
+        // ranking.js（read-only embed component）に公式リフレッシュAPIは無い。
+        // 要素を一度DOMから外して同じ場所に挿し直すと connectedCallback が再発火し、
+        // 最新データを取り直す（実装前にソースを読み、connectedCallback() が
+        // loadRankingData() を呼ぶ経路を確認済み。当て推量ではない）。
+        function refreshRankingWidget() {
+          const el = rankingWidget;
+          const parent = el?.parentElement;
+          if (!el || !parent) return;
+          const next = el.nextSibling;
+          parent.removeChild(el);
+          requestAnimationFrame(() => {
+            parent.insertBefore(el, next);
+          });
+        }
+
+        async function fetchCurrentScore(name: string): Promise<number> {
+          const res = await fetch(buildRankingGetUrl(RANKING_ID, 100));
+          const data: { success?: boolean; data?: { entries?: RankingEntry[] } } = await res.json();
+          if (!res.ok || !data.success) return 0;
+          return findCurrentScore(data.data?.entries ?? [], name);
+        }
+
+        async function vote(name: string) {
+          setButtonsDisabled(true);
+          setStatus(`${name}に投票しています…`);
+          try {
+            const currentScore = await fetchCurrentScore(name);
+            const submitRes = await fetch(buildRankingSubmitUrl(RANKING_ID, name, currentScore + 1));
+            const submitData: { success?: boolean; error?: string } = await submitRes.json();
+
+            if (submitRes.status === 429) {
+              const seconds = parseVoteRateLimitSeconds(submitData.error ?? "");
+              setStatus(
+                seconds !== null
+                  ? formatVoteWaitMessage(seconds)
+                  : "投票が集中しています。しばらくしてからもう一度お試しください。"
+              );
+              return;
+            }
+
+            if (!submitRes.ok || !submitData.success) {
+              setStatus("投票に失敗しました。しばらくしてからもう一度お試しください。");
+              return;
+            }
+
+            setStatus(`${name}に投票しました。`);
+            refreshRankingWidget();
+          } catch {
+            setStatus("投票に失敗しました。通信状況をご確認ください。");
+          } finally {
+            setButtonsDisabled(false);
+          }
+        }
+
+        for (const button of buttons) {
+          const name = button.dataset.voteName;
+          if (!name) continue;
+          button.addEventListener("click", () => {
+            void vote(name);
+          });
+        }
+      }
+    </script>
+
+    <section class="th-panel p-6 sm:p-7 mt-10">
+      <h2 class="text-xl" style="color: var(--color-th-theo);">お題の希望</h2>
+      <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+        次のお茶の席で扱ってほしい話題を書き込めます。名前は省略できます。
+      </p>
+      <div class="mt-5">
+        <nostalgic-bbs id={BBS_ID} theme="dark" lang="ja" width="100%"></nostalgic-bbs>
+      </div>
+      <!-- bbs.js も読み込み失敗時は中身が空のまま静かに残るだけ（ranking.jsと同じフェイルセーフ）。 -->
+      <script is:inline src="https://nostalgic.llll-ll.com/components/bbs.js" defer></script>
+    </section>
+
+    <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
+      <a href="/tea-time" class="th-link-button text-center no-underline">けふのティータイム</a>
+    </nav>
+  </div>
+</LibraryLayout>
