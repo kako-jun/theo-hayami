@@ -4,11 +4,22 @@ import LibraryLayout from "../layouts/LibraryLayout.astro";
 import ReadMarks from "../components/ReadMarks.astro";
 import { findResident } from "../data/residents";
 import { groupStoryButtonsByAct, loadStoryButtons } from "../lib/scripts";
+import {
+  createInitialStoryProgress,
+  isStorySectionVisible,
+  selectVisibleStoryIds,
+} from "../lib/storyProgress";
 
 const storyButtons = loadStoryButtons();
 const storyIds = storyButtons.map((entry) => entry.slug);
-const firstStoryId = storyIds[0] ?? "";
 const storySections = groupStoryButtonsByAct(storyButtons);
+
+// SSR の初期可視集合は「クライアントで進捗を読む前」の状態＝先頭ボタンだけ解放。
+// 表示すべき storyId 集合・幕見出しの可視判定はどちらも storyProgress.ts の
+// 純粋関数（selectVisibleStoryIds / isStorySectionVisible）に寄せ、client 側の
+// applyStoryGate と同じ経路を通す（doctrine 規律3・テストが本番退行を捕まえる）。
+const initialUnlockedStoryIds = createInitialStoryProgress(storyIds).unlockedStoryIds;
+const initialVisibleStoryIds = new Set(selectVisibleStoryIds(storyIds, initialUnlockedStoryIds));
 
 // 幕見出しの表示文言。分割ロジック自体は scripts.ts の groupStoryButtonsByAct() が正本
 // （ここは各幕番号にどの見出し文言を当てるかという表示コピーだけを持つ）。
@@ -49,8 +60,11 @@ const ACT_SECTION_HEADINGS: Record<number, string> = {
       {
         storySections.map((section, sectionIndex) => {
           // 幕見出しセクションは、配下に表示ボタンが1つでもあるときだけ出す。
-          // 初期 SSR は先頭ボタン（firstStoryId）を含む幕だけが可視。
-          const sectionInitiallyVisible = section.buttons.some((entry) => entry.slug === firstStoryId);
+          // 判定は client 側 applyStoryGate と同じ純粋関数（isStorySectionVisible）。
+          const sectionInitiallyVisible = isStorySectionVisible(
+            section.buttons.map((entry) => entry.slug),
+            initialUnlockedStoryIds,
+          );
           return (
             <div class:list={[sectionIndex > 0 && "mt-10"]} data-story-section hidden={!sectionInitiallyVisible}>
               <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">
@@ -60,7 +74,7 @@ const ACT_SECTION_HEADINGS: Record<number, string> = {
                 {
                   section.buttons.map((entry) => {
                     const resident = entry.character ? findResident(entry.character) : undefined;
-                    const initiallyUnlocked = entry.slug === firstStoryId;
+                    const initiallyUnlocked = initialVisibleStoryIds.has(entry.slug);
                     return (
                       <li data-story-item={entry.slug} hidden={!initiallyUnlocked}>
                         <a
@@ -93,19 +107,25 @@ const ACT_SECTION_HEADINGS: Record<number, string> = {
 </LibraryLayout>
 
 <script>
-  import { getStoryProgress } from "../lib/storyProgress";
+  import {
+    getStoryProgress,
+    isStorySectionVisible,
+    selectVisibleStoryIds,
+  } from "../lib/storyProgress";
 
   function applyStoryGate() {
     const root = document.querySelector<HTMLElement>("[data-story-index]");
     if (!root) return;
     const storyIds = JSON.parse(root.dataset.storyIds ?? "[]") as string[];
-    const progress = getStoryProgress(storyIds);
-    const unlocked = new Set(progress.unlockedStoryIds);
+    const { unlockedStoryIds } = getStoryProgress(storyIds);
 
-    // 未解放ボタンは非表示（見せない）。表示するのは読了済み＋次の1つ（unlockedStoryIds）だけ。
+    // 表示すべき storyId 集合・可視セクション判定はどちらも純粋関数で計算し、
+    // その結果で hidden を付け外しする（SSR と同一経路・テストが本番退行を捕まえる）。
+    // 未解放ボタンは非表示（見せない）。表示するのは読了済み＋次の1つだけ。
+    const visible = new Set(selectVisibleStoryIds(storyIds, unlockedStoryIds));
     for (const item of root.querySelectorAll<HTMLElement>("[data-story-item]")) {
       const storyId = item.dataset.storyItem ?? "";
-      const isVisible = unlocked.has(storyId);
+      const isVisible = visible.has(storyId);
       item.hidden = !isVisible;
       const link = item.querySelector<HTMLAnchorElement>("[data-story-link]");
       if (link) {
@@ -119,7 +139,10 @@ const ACT_SECTION_HEADINGS: Record<number, string> = {
 
     // 幕見出しセクションは、配下に表示ボタンが1つも無ければ見出しごと非表示。
     for (const section of root.querySelectorAll<HTMLElement>("[data-story-section]")) {
-      section.hidden = !section.querySelector("[data-story-item]:not([hidden])");
+      const sectionStoryIds = [...section.querySelectorAll<HTMLElement>("[data-story-item]")].map(
+        (item) => item.dataset.storyItem ?? "",
+      );
+      section.hidden = !isStorySectionVisible(sectionStoryIds, unlockedStoryIds);
     }
   }
 
