@@ -77,6 +77,30 @@ export function completeStoryEntryInProgress(
   };
 }
 
+/**
+ * `/story` で表示すべき本編ボタンの storyId 集合（＝読了済み＋次の1つ）を、
+ * 元の並び順を保ったまま返す。未解放は非表示（見せない）ので unlocked のみ。
+ */
+export function selectVisibleStoryIds(
+  storyIds: readonly string[],
+  unlockedStoryIds: readonly string[],
+): string[] {
+  const unlocked = new Set(unlockedStoryIds);
+  return storyIds.filter((id) => unlocked.has(id));
+}
+
+/**
+ * 幕見出しセクションを表示するか。配下ボタンに表示（unlocked）が1つでもあれば true。
+ * 1つも無ければ見出しごと非表示にする。
+ */
+export function isStorySectionVisible(
+  sectionStoryIds: readonly string[],
+  unlockedStoryIds: readonly string[],
+): boolean {
+  const unlocked = new Set(unlockedStoryIds);
+  return sectionStoryIds.some((id) => unlocked.has(id));
+}
+
 export function getStoryProgress(storyIds: readonly string[]): StoryProgress {
   return normalizeStoryProgress(getAppStorage().storyProgress, storyIds);
 }
