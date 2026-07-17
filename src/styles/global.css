@@ -365,6 +365,12 @@ a {
   color: var(--color-th-ivory-dim);
   opacity: 0.7;
 }
+/* 折丁 005 として About を版表示の右に並べる。折丁見た目（金・大文字・字間広め）は
+   .th-magazine-section__folio を流用し、breadcrumb 行に収めるため配置系だけ上書きする。 */
+.th-breadcrumb__about {
+  display: inline;
+  margin-left: 0.9em;
+}
 
 /* 全ページ共通のシェア導線。パンくずは各ページ本文の左上に出るため、右上固定で
    視線の邪魔をしない小さな蔵書票として置く。言葉は用途優先で短く「シェア」。 */
