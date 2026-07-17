@@ -330,6 +330,11 @@ describe("groupStoryButtonsByAct: /story の幕見出し分割", () => {
     const sections = groupStoryButtonsByAct(buttons);
     expect(sections).toEqual([{ act: 1, buttons }]);
   });
+
+  it("幕番号が単調増加でない（act2の後にact1が来る）と例外を投げる", () => {
+    const buttons = [makeButton("act2-01"), makeButton("act1-01")];
+    expect(() => groupStoryButtonsByAct(buttons)).toThrow(/幕番号が単調増加でない/);
+  });
 });
 
 describe("mainStoryActLabel: /main/[slug].astro の幕見出しラベル", () => {
