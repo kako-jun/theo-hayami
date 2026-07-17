@@ -3,6 +3,8 @@ import {
   buildReaderIframeAttrs,
   pickExitFullscreenFn,
   pickFullscreenRequestFn,
+  pickReaderToggleAction,
+  resolveReaderToggleDirection,
   shouldExitFullscreen,
 } from "./fullscreenReader.ts";
 
@@ -102,6 +104,47 @@ describe("pickExitFullscreenFn", () => {
 
   it("どちらもない場合はundefinedを返す", () => {
     expect(pickExitFullscreenFn({})).toBeUndefined();
+  });
+});
+
+describe("resolveReaderToggleDirection", () => {
+  it("fullscreen でなければ expand（右上向き＝広げる）", () => {
+    expect(resolveReaderToggleDirection(null, null)).toBe("expand");
+  });
+
+  it("標準 fullscreen 中なら collapse（左下向き＝畳む）", () => {
+    expect(resolveReaderToggleDirection({}, null)).toBe("collapse");
+  });
+
+  it("webkit fullscreen 中なら collapse", () => {
+    expect(resolveReaderToggleDirection(null, {})).toBe("collapse");
+  });
+});
+
+describe("pickReaderToggleAction", () => {
+  it("fullscreen でなければ request（全体化を要求）", () => {
+    expect(pickReaderToggleAction(null, null)).toBe("request");
+  });
+
+  it("標準 fullscreen 中なら exit（畳む）", () => {
+    expect(pickReaderToggleAction({}, null)).toBe("exit");
+  });
+
+  it("webkit fullscreen 中なら exit", () => {
+    expect(pickReaderToggleAction(null, {})).toBe("exit");
+  });
+
+  it("向き（direction）と動作（action）は同じ状態で一致する", () => {
+    for (const [fs, wk] of [
+      [null, null],
+      [{}, null],
+      [null, {}],
+      [{}, {}],
+    ] as [unknown, unknown][]) {
+      const dir = resolveReaderToggleDirection(fs, wk);
+      const action = pickReaderToggleAction(fs, wk);
+      expect(dir === "expand" ? "request" : "exit").toBe(action);
+    }
   });
 });
 

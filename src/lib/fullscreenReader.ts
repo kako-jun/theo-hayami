@@ -51,6 +51,40 @@ export function pickExitFullscreenFn(doc: FullscreenExitTarget): (() => Promise<
   return undefined;
 }
 
+/**
+ * 再全体化トグル（Issue #148）の向き。
+ * - "expand": 埋め込み中。角が右上を向く（もっと広げる＝全体化へ）。
+ * - "collapse": 全体化中。角が左下を向く（畳む＝埋め込みへ戻す）。
+ */
+export type ReaderToggleDirection = "expand" | "collapse";
+
+/**
+ * 現在の fullscreen 状態から、再全体化トグルが示すべき向きを決める（Issue #148）。
+ * fullscreen 中なら "collapse"（左下向き＝畳む）、そうでなければ "expand"（右上向き＝広げる）。
+ * shouldExitFullscreen と同じ真偽判定を共有する（＝トグルの向きと「押した時の動作」が常に一致する）。
+ */
+export function resolveReaderToggleDirection(
+  fullscreenElement: unknown,
+  webkitFullscreenElement: unknown,
+): ReaderToggleDirection {
+  return shouldExitFullscreen(fullscreenElement, webkitFullscreenElement) ? "collapse" : "expand";
+}
+
+/** 再全体化トグルを押した時に取るべき動作（Issue #148）。 */
+export type ReaderToggleAction = "request" | "exit";
+
+/**
+ * 再全体化トグルを押した時、全体化を要求すべきか畳むべきかを決める（Issue #148）。
+ * fullscreen 中なら "exit"（畳む）、そうでなければ "request"（全体化を要求）。
+ * 向き（resolveReaderToggleDirection）と同じ判定を使うので、見た目と挙動がずれない。
+ */
+export function pickReaderToggleAction(
+  fullscreenElement: unknown,
+  webkitFullscreenElement: unknown,
+): ReaderToggleAction {
+  return shouldExitFullscreen(fullscreenElement, webkitFullscreenElement) ? "exit" : "request";
+}
+
 /** ReaderFrame.astro が生成する iframe に設定すべき属性値。 */
 export interface ReaderIframeAttrs {
   allow: string;

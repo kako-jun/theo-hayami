@@ -1879,6 +1879,57 @@ a {
   letter-spacing: 0.08em;
 }
 
+/* 再全体化トグル（Issue #148）。stage 右上隅に常駐する塗り三角（鏃だけ・枠chromeなし）。
+   スマホスリープ等でブラウザが fullscreen を強制解除しても、途中から全体化に戻せる。
+   向きで状態を示す（expand=角が右上向き＝広げる / collapse=角が左下向き＝畳む）。斜辺は
+   どちらも左上↘右下で共有し、直角の頂点だけが反対の隅へ移る＝真のトグル。読書の集中を
+   優先し極薄常駐＋無操作フェード（濃さ/秒数は変数と定数で後から実機調整する）。 */
+.th-reader__stage {
+  --th-toggle-opacity: 0.15; /* 常駐時 */
+  --th-toggle-opacity-active: 0.4; /* 操作直後 */
+  --th-toggle-size: 20px; /* 見える三角の一辺（タップ領域より小さく） */
+}
+.th-reader__refs {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* タップ領域はゆったり44px、見える三角はその隅に小さく置く（タップ領域>見た目）。 */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+  opacity: var(--th-toggle-opacity);
+  transition: opacity 0.4s ease;
+}
+.th-reader__refs.is-active {
+  opacity: var(--th-toggle-opacity-active);
+}
+.th-reader__refs.is-idle {
+  opacity: 0;
+}
+.th-reader__refs::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: var(--th-toggle-size);
+  height: var(--th-toggle-size);
+  background: var(--color-th-gold);
+  /* expand: 直角の頂点＝右上隅（top-right / top-left / bottom-right）。斜辺=左上↘右下。 */
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+.th-reader__refs[data-dir="collapse"]::before {
+  /* collapse: 直角の頂点＝左下隅（bottom-left / top-left / bottom-right）。斜辺は同じ↘。 */
+  clip-path: polygon(0 100%, 0 0, 100% 100%);
+}
+.th-reader__refs:hover::before,
+.th-reader__refs:focus-visible::before {
+  background: var(--color-th-gold-bright);
+}
+
 /* ---------------------------------------------------------------------
    PWA 更新通知 overlay（Issue #59）
    新SW検知〜reloadまでの短い間だけ出す。汎用UI chromeにせず、th-panel と
