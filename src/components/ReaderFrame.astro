@@ -59,10 +59,6 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   // 属性選択・判定の純粋ロジックは lib/fullscreenReader.ts（vitest で単体テスト済み）。
   import { buildReaderIframeAttrs, pickFullscreenRequestFn } from "../lib/fullscreenReader";
 
-  type WebkitIframe = HTMLIFrameElement & {
-    webkitRequestFullscreen?: () => Promise<void> | void;
-  };
-
   // 1ページ1インスタンス前提: 呼び出し元（main/tea-time/free の [slug].astro）は
   // 全て getStaticPaths で1ページ1個しか ReaderFrame を生成しない。Astro は通常の
   // module script を1ページにつき1回だけ束ねるため、この前提の下でのみ先頭一致の
@@ -80,10 +76,13 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     iframe.title = reader?.dataset.readerTitle ?? "";
     iframe.loading = "eager";
     // fullscreen ボタンから iframe.requestFullscreen() を呼べるよう許可しておく（Issue #61）。
+    // allow="autoplay; fullscreen"（Permissions Policy）だけで十分で、allowFullscreen /
+    // webkitallowfullscreen 属性は Chromium では allow 属性が優先されるため冗長
+    // （レガシー Safari 向けの意味合いのみ）。両方設定すると Chromium が毎回
+    // "Allow attribute will take precedence over 'allowfullscreen'." という console
+    // 警告を出すため、allow のみ設定する（再レビューで実測確認・#61）。
     const attrs = buildReaderIframeAttrs();
     iframe.allow = attrs.allow;
-    iframe.allowFullscreen = attrs.allowFullscreen;
-    iframe.setAttribute("webkitallowfullscreen", attrs.webkitallowfullscreen);
     return iframe;
   }
 
@@ -100,7 +99,7 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   fullscreenBtn?.addEventListener(
     "click",
     () => {
-      const iframe = createIframe() as WebkitIframe;
+      const iframe = createIframe();
       stage?.replaceChildren(iframe);
       // ユーザー操作の同期コンテキスト内で要求する（非同期後だと拒否するブラウザがある）。
       // 非対応環境・拒否は例外/Promise reject とも握りつぶし、埋め込み再生へフォールバックする。
