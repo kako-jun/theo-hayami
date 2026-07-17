@@ -1832,6 +1832,11 @@ a {
   background: var(--color-th-ink-deep);
   border: 1px solid rgba(184, 147, 79, 0.5);
   overflow: hidden;
+  /* 再全体化トグル（#148）の濃さ・寸法。透明度は name-name 下部スライダ(SeekBar)に合わせる:
+     常駐 0.2・操作時 1.0・2.8秒で 0.2 へ戻る（SeekBar.ts の INACTIVE_ALPHA=0.2 / active alpha=1）。 */
+  --th-toggle-opacity: 0.2; /* 常駐時（0まで消さない・SeekBar INACTIVE_ALPHA=0.2） */
+  --th-toggle-opacity-active: 1; /* 操作時（SeekBar active alpha=1） */
+  --th-toggle-size: 20px; /* 見える三角の一辺（タップ領域より小さく） */
 }
 .th-reader__stage iframe {
   position: absolute;
@@ -1877,6 +1882,58 @@ a {
   font-size: 0.8rem;
   color: var(--color-th-ivory-dim);
   letter-spacing: 0.08em;
+}
+
+/* 再全体化トグル（Issue #148）。stage 右上隅に常駐する塗り三角（鏃だけ・枠chromeなし）。
+   スマホスリープ等でブラウザが fullscreen を強制解除しても、途中から全体化に戻せる。
+   向きで状態を示す（expand=角が右上向き＝広げる / collapse=角が左下向き＝畳む）。斜辺は
+   どちらも左上↘右下で共有し、直角の頂点だけが反対の隅へ移る＝真のトグル。読書の集中を
+   優先し薄く常駐する。透明度は name-name リーダー下部スライダ(SeekBar)に合わせる:
+   常駐 0.2（SeekBar INACTIVE_ALPHA・0まで消さない＝無操作でも消えない）・タップで 1.0・
+   最後の操作から 2.8秒（SeekBar INACTIVITY_MS）で 0.2 へ戻る。再生後は stage 全面を
+   クロスオリジン iframe が覆い iframe 面のタップが親に伝わらないため、消して画面タップで
+   再出現は成立しない。常に薄く見えて常に触れる状態を保つ。hover/focus は 1.0 のまま
+   （デスクトップ）、タップ後の余韻は JS タイマーが th-reader__fs-toggle--active で制御する。 */
+.th-reader__fs-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* タップ領域はゆったり44px、見える三角はその隅に小さく置く（タップ領域>見た目）。 */
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+  opacity: var(--th-toggle-opacity);
+  transition: opacity 0.4s ease;
+}
+.th-reader__fs-toggle:hover,
+.th-reader__fs-toggle:focus-visible,
+.th-reader__fs-toggle:active,
+/* タップ後 2.8秒だけ濃い（SeekBar 同等の余韻）。JS が付け外しする。 */
+.th-reader__fs-toggle.th-reader__fs-toggle--active {
+  opacity: var(--th-toggle-opacity-active);
+}
+.th-reader__fs-toggle::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: var(--th-toggle-size);
+  height: var(--th-toggle-size);
+  background: var(--color-th-gold);
+  /* expand: 直角の頂点＝右上隅（top-right / top-left / bottom-right）。斜辺=左上↘右下。 */
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+.th-reader__fs-toggle[data-dir="collapse"]::before {
+  /* collapse: 直角の頂点＝左下隅（bottom-left / top-left / bottom-right）。斜辺は同じ↘。 */
+  clip-path: polygon(0 100%, 0 0, 100% 100%);
+}
+.th-reader__fs-toggle:hover::before,
+.th-reader__fs-toggle:focus-visible::before {
+  background: var(--color-th-gold-bright);
 }
 
 /* ---------------------------------------------------------------------

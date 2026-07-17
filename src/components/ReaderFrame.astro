@@ -14,7 +14,7 @@
 // 詳細は docs/09_production/site_structure.md。
 //
 // 全画面トグル（Issue #61・kako-jun 案A確定）:
-// - 「読む」＝埋め込み枠内で再生。「全画面で読む」＝同じ iframe を生成した上で
+// - 「読む」＝埋め込み枠内で再生。「全画面で読む」＝再生開始と同時に
 //   requestFullscreen() を要求する。どちらのボタンが押されても、押された瞬間に
 //   両方まとめて iframe に置き換わる（片方だけ有効なまま残らない）。
 // - fullscreen 要求は非対応環境・拒否時とも例外/Promise reject を握りつぶし、通常の
@@ -23,6 +23,23 @@
 //   表示へ戻す。埋め込み経由（そもそも fullscreen でない）の場合はこの呼び出し自体が
 //   no-op になる。
 // - ユーザーが Esc 等で自分から fullscreen を抜けても、再生自体は継続する（何もしない）。
+//
+// 再全体化トグル（Issue #148・kako-jun 確定）:
+// - スマホがスリープするとブラウザが fullscreen を強制解除して埋め込み表示に戻る
+//   （ブラウザ仕様で回避不可）。再生開始後に全体化へ戻す手段が無かったので、stage 右上に
+//   常駐する塗り三角トグルを足す。薄く常駐し 0まで消さない＝無操作でも消えない。再生後は
+//   stage 全面をクロスオリジン iframe が覆い iframe 面のタップは親へ伝わらないため「消して
+//   画面タップで再出現」は成立しない。だから常に薄く見えて常に触れる状態を保つ。透明度は
+//   name-name リーダー下部スライダ(SeekBar)に合わせる: 常駐 0.2・タップで 1.0・最後の操作
+//   から 2.8秒で 0.2 へ戻る（SeekBar.ts の INACTIVE_ALPHA=0.2 / active alpha=1 /
+//   INACTIVITY_MS=2800 に対応）。hover/focus は CSS で 1.0 のまま（デスクトップ）。
+// - 全体化の対象を iframe ではなく stage ラッパにする。こうすると fullscreen 中も
+//   トグルが stage に乗り続け、真のトグルになる（iframe を対象にすると iframe だけが
+//   描画され親DOMのトグルが消える）。iframe の allow 属性生成（buildReaderIframeAttrs・
+//   #61 のテストと結合）は変えない。
+// - 三角の向きで状態を示す（expand=右上向き＝広げる / collapse=左下向き＝畳む）。
+//   判定・向き・動作選択は lib/fullscreenReader.ts の純粋関数
+//   （resolveReaderToggleDirection / pickReaderToggleAction）に寄せ、ここは DOM 操作だけ。
 // - 標準API/webkit接頭辞のどちらを使うかという選択・判定ロジックは
 //   src/lib/fullscreenReader.ts に純粋関数として切り出し、vitest から単体テストする
 //   （readStore.ts / pwa-update.ts と同じ流儀）。それらを import するため、この
@@ -57,7 +74,13 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   // 読む/全画面で読むボタン（Issue #61）。module script なので document.currentScript は
   // 使えない（module では常に null）。ReadMarks.astro 等と同じく data-* 属性で辿る。
   // 属性選択・判定の純粋ロジックは lib/fullscreenReader.ts（vitest で単体テスト済み）。
-  import { buildReaderIframeAttrs, pickFullscreenRequestFn } from "../lib/fullscreenReader";
+  import {
+    buildReaderIframeAttrs,
+    pickExitFullscreenFn,
+    pickFullscreenRequestFn,
+    pickReaderToggleAction,
+    resolveReaderToggleDirection,
+  } from "../lib/fullscreenReader";
 
   // 1ページ1インスタンス前提: 呼び出し元（main/tea-time/free の [slug].astro）は
   // 全て getStaticPaths で1ページ1個しか ReaderFrame を生成しない。Astro は通常の
@@ -70,6 +93,11 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   const startBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start]") ?? null;
   const fullscreenBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start-fullscreen]") ?? null;
 
+  type WebkitDocument = Document & {
+    webkitFullscreenElement?: Element | null;
+    webkitExitFullscreen?: () => Promise<void> | void;
+  };
+
   function createIframe(): HTMLIFrameElement {
     const iframe = document.createElement("iframe");
     iframe.src = reader?.dataset.readerEmbedSrc ?? "";
@@ -81,36 +109,91 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     // （レガシー Safari 向けの意味合いのみ）。両方設定すると Chromium が毎回
     // "Allow attribute will take precedence over 'allowfullscreen'." という console
     // 警告を出すため、allow のみ設定する（再レビューで実測確認・#61）。
+    // なお #148 で全体化対象は iframe → stage ラッパに変わったので、この allow は
+    // 現状 iframe 自身が fullscreen を要求するためには不要だが、属性生成ロジック
+    // （#61 のテストと結合）は据え置く（実害なし・DRY 維持）。
     const attrs = buildReaderIframeAttrs();
     iframe.allow = attrs.allow;
     return iframe;
   }
 
-  // どちらのボタンが押されても、stage の子を丸ごと iframe に差し替える。
-  // stage の直下には両ボタンしかいないため、これだけで「もう片方も無効化」が満たされる。
-  startBtn?.addEventListener(
-    "click",
-    () => {
-      stage?.replaceChildren(createIframe());
-    },
-    { once: true },
-  );
+  // タップ後にトグルを濃い（opacity 1.0）状態に保つ時間。name-name SeekBar.ts の
+  // INACTIVITY_MS=2800 に合わせる（SeekBar は 2.8秒無操作で active alpha 1 → 0.2 に戻る）。
+  const TOGGLE_ACTIVE_HOLD_MS = 2800;
 
-  fullscreenBtn?.addEventListener(
-    "click",
-    () => {
-      const iframe = createIframe();
-      stage?.replaceChildren(iframe);
-      // ユーザー操作の同期コンテキスト内で要求する（非同期後だと拒否するブラウザがある）。
-      // 非対応環境・拒否は例外/Promise reject とも握りつぶし、埋め込み再生へフォールバックする。
+  // 再全体化トグル（#148）。stage 右上に貼りつく塗り三角。向きで状態を示す。透明度は
+  // name-name 下部スライダ(SeekBar)に合わせる: 常駐 0.2（CSS）・タップ/フォーカスで 1.0・
+  // 最後の操作から TOGGLE_ACTIVE_HOLD_MS(2.8秒) 後に 0.2 へ戻す（下の JS タイマー）。
+  // hover/focus-visible の 1.0 は素の CSS。SeekBar 実値 0.2/1/2800 を参照。
+  function createToggle(): HTMLButtonElement {
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "th-reader__fs-toggle";
+    toggle.setAttribute("aria-label", "全体表示を切り替える");
+    // 初期状態は埋め込み（＝右上向き＝広げる）。fullscreenchange で随時上書きする。
+    toggle.dataset.dir = "expand";
+
+    // タップ後の余韻: このトグル1個につきタイマー1本。操作のたびリセット（clearTimeout→
+    // setTimeout）し、2.8秒後に濃い状態(--active)を外す。data-dir の同期(fullscreenchange)
+    // とは独立。リスナはトグル要素自身にだけ張る（stage やクロスオリジン iframe には張らない
+    // ＝iframe 面のタップは親に来ず拾えないため無意味）。トグル自身のタップは親DOMで拾える。
+    let holdTimer: number | undefined;
+    const nudgeActive = () => {
+      toggle.classList.add("th-reader__fs-toggle--active");
+      if (holdTimer !== undefined) clearTimeout(holdTimer);
+      holdTimer = window.setTimeout(() => {
+        toggle.classList.remove("th-reader__fs-toggle--active");
+      }, TOGGLE_ACTIVE_HOLD_MS);
+    };
+    toggle.addEventListener("pointerdown", nudgeActive);
+    toggle.addEventListener("focus", nudgeActive);
+
+    toggle.addEventListener("click", () => {
+      const doc = document as WebkitDocument;
+      const action = pickReaderToggleAction(doc.fullscreenElement, doc.webkitFullscreenElement);
+      // ユーザー操作の同期コンテキスト内で要求/解除する。非対応・拒否は握りつぶす。
       try {
-        Promise.resolve(pickFullscreenRequestFn(iframe)?.()).catch(() => {});
+        const fn =
+          action === "request"
+            ? stage
+              ? pickFullscreenRequestFn(stage)
+              : undefined
+            : pickExitFullscreenFn(doc);
+        Promise.resolve(fn?.()).catch(() => {});
       } catch {
         // no-op
       }
-    },
-    { once: true },
-  );
+    });
+    return toggle;
+  }
+
+  // fullscreenchange（標準/webkit）でトグルの向きを現在の状態に合わせる。
+  function syncToggleDirection(toggle: HTMLButtonElement) {
+    const doc = document as WebkitDocument;
+    toggle.dataset.dir = resolveReaderToggleDirection(doc.fullscreenElement, doc.webkitFullscreenElement);
+  }
+
+  // iframe とトグルを stage に載せて再生を始める。fullscreen 要求は開始時のみ（全画面で読む）。
+  function mountReader(requestFullscreenOnStart: boolean) {
+    const iframe = createIframe();
+    const toggle = createToggle();
+    stage?.replaceChildren(iframe, toggle);
+    const changeHandler = () => syncToggleDirection(toggle);
+    document.addEventListener("fullscreenchange", changeHandler);
+    document.addEventListener("webkitfullscreenchange", changeHandler);
+    syncToggleDirection(toggle);
+    if (requestFullscreenOnStart && stage) {
+      try {
+        Promise.resolve(pickFullscreenRequestFn(stage)?.()).catch(() => {});
+      } catch {
+        // no-op
+      }
+    }
+  }
+
+  // どちらのボタンが押されても、stage の子（両ボタン）を iframe＋トグルに差し替える。
+  startBtn?.addEventListener("click", () => mountReader(false), { once: true });
+  fullscreenBtn?.addEventListener("click", () => mountReader(true), { once: true });
 </script>
 
 <script>
