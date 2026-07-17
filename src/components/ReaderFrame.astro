@@ -12,6 +12,17 @@
 // - 対象 script ファイル外への choice ジャンプは confinement で終劇になるため、
 //   「別の住人に訊く／業一覧へ」は iframe 内でなく HTML リンクで用意する（free/[slug].astro）。
 // 詳細は docs/09_production/site_structure.md。
+//
+// 全画面トグル（Issue #61・kako-jun 案A確定）:
+// - 「読む」＝埋め込み枠内で再生。「全画面で読む」＝同じ iframe を生成した上で
+//   requestFullscreen() を要求する。どちらのボタンが押されても、押された瞬間に
+//   両方まとめて iframe に置き換わる（片方だけ有効なまま残らない）。
+// - fullscreen 要求は非対応環境・拒否時とも例外/Promise reject を握りつぶし、通常の
+//   埋め込み再生へフォールバックする（ユーザーにエラーを見せない）。
+// - 終劇（story-ended）受信時、fullscreen 中であれば exitFullscreen() を試みて埋め込み
+//   表示へ戻す。埋め込み経由（そもそも fullscreen でない）の場合はこの呼び出し自体が
+//   no-op になる。
+// - ユーザーが Esc 等で自分から fullscreen を抜けても、再生自体は継続する（何もしない）。
 interface Props {
   sceneId: string;
   title: string;
@@ -30,22 +41,55 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
       <span class="th-reader__cta-kanji">読む</span>
       <span class="th-reader__cta-sub">タップして始める</span>
     </button>
+    <button type="button" class="th-reader__cta" data-reader-start-fullscreen>
+      <span class="th-reader__cta-kanji">全画面で読む</span>
+      <span class="th-reader__cta-sub">タップして没入する</span>
+    </button>
   </div>
 </div>
 
 <script is:inline define:vars={{ embedSrc, title }}>
   const reader = document.currentScript.previousElementSibling;
   const stage = reader?.querySelector(".th-reader__stage");
-  const btn = stage?.querySelector("[data-reader-start]");
-  btn?.addEventListener(
+  const startBtn = stage?.querySelector("[data-reader-start]");
+  const fullscreenBtn = stage?.querySelector("[data-reader-start-fullscreen]");
+
+  function createIframe() {
+    const iframe = document.createElement("iframe");
+    iframe.src = embedSrc;
+    iframe.title = title;
+    iframe.loading = "eager";
+    // fullscreen ボタンから iframe.requestFullscreen() を呼べるよう許可しておく（Issue #61）。
+    iframe.allow = "autoplay; fullscreen";
+    iframe.allowFullscreen = true;
+    iframe.setAttribute("webkitallowfullscreen", "true");
+    return iframe;
+  }
+
+  // どちらのボタンが押されても、stage の子を丸ごと iframe に差し替える。
+  // stage の直下には両ボタンしかいないため、これだけで「もう片方も無効化」が満たされる。
+  startBtn?.addEventListener(
     "click",
     () => {
-      const iframe = document.createElement("iframe");
-      iframe.src = embedSrc;
-      iframe.title = title;
-      iframe.loading = "eager";
-      iframe.allow = "autoplay";
+      stage.replaceChildren(createIframe());
+    },
+    { once: true },
+  );
+
+  fullscreenBtn?.addEventListener(
+    "click",
+    () => {
+      const iframe = createIframe();
       stage.replaceChildren(iframe);
+      // ユーザー操作の同期コンテキスト内で要求する（非同期後だと拒否するブラウザがある）。
+      // 非対応環境・拒否は例外/Promise reject とも握りつぶし、埋め込み再生へフォールバックする。
+      try {
+        Promise.resolve(
+          iframe.requestFullscreen ? iframe.requestFullscreen() : iframe.webkitRequestFullscreen?.(),
+        ).catch(() => {});
+      } catch {
+        // no-op
+      }
     },
     { once: true },
   );
@@ -56,10 +100,28 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   // readStore.ts を import でき、キー/形式の二重定義を避ける。
   // name-name は終劇（endStory）到達時、埋め込み時のみ親へ postMessage する（契約: name-name #395）。
   // origin と source/type を検証し、このページの slug（scene ではなく確定値）を既読に記録する。
+  // 全画面で読んでいた場合はここで埋め込み表示へ戻す（Issue #61）。
   import { markRead } from "../lib/readStore";
 
   const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
   const slug = document.querySelector<HTMLElement>("[data-reader-slug]")?.dataset.readerSlug ?? "";
+
+  type WebkitDocument = Document & {
+    webkitFullscreenElement?: Element | null;
+    webkitExitFullscreen?: () => void;
+  };
+
+  // fullscreen 中（=「全画面で読む」経由）だけ埋め込みへ戻す。埋め込み経由（そもそも
+  // fullscreen でない）の場合は fullscreenElement が無いのでここで何もせず no-op になる。
+  function exitFullscreenIfActive() {
+    const doc = document as WebkitDocument;
+    if (!doc.fullscreenElement && !doc.webkitFullscreenElement) return;
+    try {
+      Promise.resolve(doc.exitFullscreen ? doc.exitFullscreen() : doc.webkitExitFullscreen?.()).catch(() => {});
+    } catch {
+      // no-op: 失敗してもユーザーに見せない
+    }
+  }
 
   window.addEventListener("message", (event) => {
     // 本番の name-name オリジンからのメッセージだけ受ける（他オリジンの偽装を弾く）。
@@ -68,5 +130,6 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     if (data?.source !== "name-name" || data?.type !== "story-ended") return;
     // scene ではなくページ自身の slug を使う（埋め込みは1セルなので確実・Issue #30）。
     if (slug) markRead(slug);
+    exitFullscreenIfActive();
   });
 </script>
