@@ -23,6 +23,11 @@
 //   表示へ戻す。埋め込み経由（そもそも fullscreen でない）の場合はこの呼び出し自体が
 //   no-op になる。
 // - ユーザーが Esc 等で自分から fullscreen を抜けても、再生自体は継続する（何もしない）。
+// - 標準API/webkit接頭辞のどちらを使うかという選択・判定ロジックは
+//   src/lib/fullscreenReader.ts に純粋関数として切り出し、vitest から単体テストする
+//   （readStore.ts / pwa-update.ts と同じ流儀）。それらを import するため、この
+//   コンポーネントの script は2本とも通常の module script にしてある。embedSrc/title は
+//   define:vars ではなく data-* 属性（ReadMarks.astro 等と同じ idiom）でDOMに載せて渡す。
 interface Props {
   sceneId: string;
   title: string;
@@ -35,7 +40,7 @@ const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
 const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponent(sceneId)}`;
 ---
 
-<div class="th-reader" data-reader-slug={slug}>
+<div class="th-reader" data-reader-slug={slug} data-reader-embed-src={embedSrc} data-reader-title={title}>
   <div class="th-reader__stage">
     <button type="button" class="th-reader__cta" data-reader-start>
       <span class="th-reader__cta-kanji">読む</span>
@@ -48,21 +53,31 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   </div>
 </div>
 
-<script is:inline define:vars={{ embedSrc, title }}>
-  const reader = document.currentScript.previousElementSibling;
-  const stage = reader?.querySelector(".th-reader__stage");
-  const startBtn = stage?.querySelector("[data-reader-start]");
-  const fullscreenBtn = stage?.querySelector("[data-reader-start-fullscreen]");
+<script>
+  // 読む/全画面で読むボタン（Issue #61）。module script なので document.currentScript は
+  // 使えない（module では常に null）。ReadMarks.astro 等と同じく data-* 属性で辿る。
+  // 属性選択・判定の純粋ロジックは lib/fullscreenReader.ts（vitest で単体テスト済み）。
+  import { buildReaderIframeAttrs, pickFullscreenRequestFn } from "../lib/fullscreenReader";
 
-  function createIframe() {
+  type WebkitIframe = HTMLIFrameElement & {
+    webkitRequestFullscreen?: () => Promise<void> | void;
+  };
+
+  const reader = document.querySelector<HTMLElement>("[data-reader-slug]");
+  const stage = reader?.querySelector<HTMLElement>(".th-reader__stage") ?? null;
+  const startBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start]") ?? null;
+  const fullscreenBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start-fullscreen]") ?? null;
+
+  function createIframe(): HTMLIFrameElement {
     const iframe = document.createElement("iframe");
-    iframe.src = embedSrc;
-    iframe.title = title;
+    iframe.src = reader?.dataset.readerEmbedSrc ?? "";
+    iframe.title = reader?.dataset.readerTitle ?? "";
     iframe.loading = "eager";
     // fullscreen ボタンから iframe.requestFullscreen() を呼べるよう許可しておく（Issue #61）。
-    iframe.allow = "autoplay; fullscreen";
-    iframe.allowFullscreen = true;
-    iframe.setAttribute("webkitallowfullscreen", "true");
+    const attrs = buildReaderIframeAttrs();
+    iframe.allow = attrs.allow;
+    iframe.allowFullscreen = attrs.allowFullscreen;
+    iframe.setAttribute("webkitallowfullscreen", attrs.webkitallowfullscreen);
     return iframe;
   }
 
@@ -71,7 +86,7 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   startBtn?.addEventListener(
     "click",
     () => {
-      stage.replaceChildren(createIframe());
+      stage?.replaceChildren(createIframe());
     },
     { once: true },
   );
@@ -79,14 +94,12 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   fullscreenBtn?.addEventListener(
     "click",
     () => {
-      const iframe = createIframe();
-      stage.replaceChildren(iframe);
+      const iframe = createIframe() as WebkitIframe;
+      stage?.replaceChildren(iframe);
       // ユーザー操作の同期コンテキスト内で要求する（非同期後だと拒否するブラウザがある）。
       // 非対応環境・拒否は例外/Promise reject とも握りつぶし、埋め込み再生へフォールバックする。
       try {
-        Promise.resolve(
-          iframe.requestFullscreen ? iframe.requestFullscreen() : iframe.webkitRequestFullscreen?.(),
-        ).catch(() => {});
+        Promise.resolve(pickFullscreenRequestFn(iframe)?.()).catch(() => {});
       } catch {
         // no-op
       }
@@ -102,22 +115,23 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   // origin と source/type を検証し、このページの slug（scene ではなく確定値）を既読に記録する。
   // 全画面で読んでいた場合はここで埋め込み表示へ戻す（Issue #61）。
   import { markRead } from "../lib/readStore";
+  import { pickExitFullscreenFn, shouldExitFullscreen } from "../lib/fullscreenReader";
 
   const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
   const slug = document.querySelector<HTMLElement>("[data-reader-slug]")?.dataset.readerSlug ?? "";
 
   type WebkitDocument = Document & {
     webkitFullscreenElement?: Element | null;
-    webkitExitFullscreen?: () => void;
+    webkitExitFullscreen?: () => Promise<void> | void;
   };
 
   // fullscreen 中（=「全画面で読む」経由）だけ埋め込みへ戻す。埋め込み経由（そもそも
   // fullscreen でない）の場合は fullscreenElement が無いのでここで何もせず no-op になる。
   function exitFullscreenIfActive() {
     const doc = document as WebkitDocument;
-    if (!doc.fullscreenElement && !doc.webkitFullscreenElement) return;
+    if (!shouldExitFullscreen(doc.fullscreenElement, doc.webkitFullscreenElement)) return;
     try {
-      Promise.resolve(doc.exitFullscreen ? doc.exitFullscreen() : doc.webkitExitFullscreen?.()).catch(() => {});
+      Promise.resolve(pickExitFullscreenFn(doc)?.()).catch(() => {});
     } catch {
       // no-op: 失敗してもユーザーに見せない
     }
