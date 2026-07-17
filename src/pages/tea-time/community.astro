@@ -235,9 +235,11 @@ const BBS_ID = "theo-hayami-fc727d17";
       }
     </script>
 
-    <section class="th-panel p-6 sm:p-7 mt-10">
-      <h2 class="text-xl" style="color: var(--color-th-theo);">ティータイムのお題募集</h2>
-      <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+    <!-- BBSウィジェット自身が保存タイトル「ティータイムのお題を募集」をヘッダとして
+         描画するため、外側の .th-panel の箱と重複する <h2> は撤去し、枠なしで直接置く
+         （kako-jun指摘 #134: タイトル二重・箱過剰）。説明文と mt-10 のセクション間隔は維持。 -->
+    <section class="mt-10">
+      <p class="text-sm leading-loose" style="color: var(--color-th-ivory);">
         次のお茶の席で扱ってほしい話題を書き込めます。名前は省略できます。
       </p>
       <div class="mt-5">
@@ -267,8 +269,8 @@ const BBS_ID = "theo-hayami-fc727d17";
       <script is:inline src="https://nostalgic.llll-ll.com/components/bbs.js" defer></script>
     </section>
 
-    <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
-      <a href="/tea-time" class="th-link-button text-center no-underline">けふのティータイム</a>
+    <nav class="th-page-nav mt-10" aria-label="このあと">
+      <a href="/tea-time" class="th-link-button no-underline">けふのティータイム</a>
     </nav>
   </div>
 </LibraryLayout>

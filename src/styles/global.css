@@ -507,6 +507,15 @@ a {
   color: var(--color-th-theo);
   box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.18) inset;
 }
+/* ページ下部の戻る/辿るナビ用ラッパ。ボタン自体を水平センタリングする（kako-jun指摘 #134:
+   text-center はテキストのみ・inline-block は左寄せのままでボタンが中央に来ていなかった）。
+   複数ボタンは中央に並べて折り返す。上マージンは各ページで mt-* を付けて調整する。 */
+.th-page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
 
 /* 顔アップカードの画像トリミング（顔アップ専用素材が来るまでの暫定処置）。
    立ち絵は全身分（縦長・頭は上端付近）。正方形枠の上に寄せてズームし、
