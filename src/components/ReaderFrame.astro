@@ -12,6 +12,22 @@
 // - 対象 script ファイル外への choice ジャンプは confinement で終劇になるため、
 //   「別の住人に訊く／業一覧へ」は iframe 内でなく HTML リンクで用意する（free/[slug].astro）。
 // 詳細は docs/09_production/site_structure.md。
+//
+// 全画面トグル（Issue #61・kako-jun 案A確定）:
+// - 「読む」＝埋め込み枠内で再生。「全画面で読む」＝同じ iframe を生成した上で
+//   requestFullscreen() を要求する。どちらのボタンが押されても、押された瞬間に
+//   両方まとめて iframe に置き換わる（片方だけ有効なまま残らない）。
+// - fullscreen 要求は非対応環境・拒否時とも例外/Promise reject を握りつぶし、通常の
+//   埋め込み再生へフォールバックする（ユーザーにエラーを見せない）。
+// - 終劇（story-ended）受信時、fullscreen 中であれば exitFullscreen() を試みて埋め込み
+//   表示へ戻す。埋め込み経由（そもそも fullscreen でない）の場合はこの呼び出し自体が
+//   no-op になる。
+// - ユーザーが Esc 等で自分から fullscreen を抜けても、再生自体は継続する（何もしない）。
+// - 標準API/webkit接頭辞のどちらを使うかという選択・判定ロジックは
+//   src/lib/fullscreenReader.ts に純粋関数として切り出し、vitest から単体テストする
+//   （readStore.ts / pwa-update.ts と同じ流儀）。それらを import するため、この
+//   コンポーネントの script は2本とも通常の module script にしてある。embedSrc/title は
+//   define:vars ではなく data-* 属性（ReadMarks.astro 等と同じ idiom）でDOMに載せて渡す。
 interface Props {
   sceneId: string;
   title: string;
@@ -24,28 +40,74 @@ const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
 const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponent(sceneId)}`;
 ---
 
-<div class="th-reader" data-reader-slug={slug}>
+<div class="th-reader" data-reader-slug={slug} data-reader-embed-src={embedSrc} data-reader-title={title}>
   <div class="th-reader__stage">
-    <button type="button" class="th-reader__cta" data-reader-start>
+    <button type="button" class="th-reader__cta th-reader__cta--embed" data-reader-start>
       <span class="th-reader__cta-kanji">読む</span>
       <span class="th-reader__cta-sub">タップして始める</span>
+    </button>
+    <button type="button" class="th-reader__cta th-reader__cta--fullscreen" data-reader-start-fullscreen>
+      <span class="th-reader__cta-kanji">全画面で読む</span>
+      <span class="th-reader__cta-sub">タップして没入する</span>
     </button>
   </div>
 </div>
 
-<script is:inline define:vars={{ embedSrc, title }}>
-  const reader = document.currentScript.previousElementSibling;
-  const stage = reader?.querySelector(".th-reader__stage");
-  const btn = stage?.querySelector("[data-reader-start]");
-  btn?.addEventListener(
+<script>
+  // 読む/全画面で読むボタン（Issue #61）。module script なので document.currentScript は
+  // 使えない（module では常に null）。ReadMarks.astro 等と同じく data-* 属性で辿る。
+  // 属性選択・判定の純粋ロジックは lib/fullscreenReader.ts（vitest で単体テスト済み）。
+  import { buildReaderIframeAttrs, pickFullscreenRequestFn } from "../lib/fullscreenReader";
+
+  // 1ページ1インスタンス前提: 呼び出し元（main/tea-time/free の [slug].astro）は
+  // 全て getStaticPaths で1ページ1個しか ReaderFrame を生成しない。Astro は通常の
+  // module script を1ページにつき1回だけ束ねるため、この前提の下でのみ先頭一致の
+  // querySelector で正しい要素に辿り着ける。is:inline 時代（各インスタンスが独立実行
+  // されていた）と異なり、同一ページに複数配置すると script は1回しか実行されず
+  // 2個目以降のボタンは無反応になる。
+  const reader = document.querySelector<HTMLElement>("[data-reader-slug]");
+  const stage = reader?.querySelector<HTMLElement>(".th-reader__stage") ?? null;
+  const startBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start]") ?? null;
+  const fullscreenBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start-fullscreen]") ?? null;
+
+  function createIframe(): HTMLIFrameElement {
+    const iframe = document.createElement("iframe");
+    iframe.src = reader?.dataset.readerEmbedSrc ?? "";
+    iframe.title = reader?.dataset.readerTitle ?? "";
+    iframe.loading = "eager";
+    // fullscreen ボタンから iframe.requestFullscreen() を呼べるよう許可しておく（Issue #61）。
+    // allow="autoplay; fullscreen"（Permissions Policy）だけで十分で、allowFullscreen /
+    // webkitallowfullscreen 属性は Chromium では allow 属性が優先されるため冗長
+    // （レガシー Safari 向けの意味合いのみ）。両方設定すると Chromium が毎回
+    // "Allow attribute will take precedence over 'allowfullscreen'." という console
+    // 警告を出すため、allow のみ設定する（再レビューで実測確認・#61）。
+    const attrs = buildReaderIframeAttrs();
+    iframe.allow = attrs.allow;
+    return iframe;
+  }
+
+  // どちらのボタンが押されても、stage の子を丸ごと iframe に差し替える。
+  // stage の直下には両ボタンしかいないため、これだけで「もう片方も無効化」が満たされる。
+  startBtn?.addEventListener(
     "click",
     () => {
-      const iframe = document.createElement("iframe");
-      iframe.src = embedSrc;
-      iframe.title = title;
-      iframe.loading = "eager";
-      iframe.allow = "autoplay";
-      stage.replaceChildren(iframe);
+      stage?.replaceChildren(createIframe());
+    },
+    { once: true },
+  );
+
+  fullscreenBtn?.addEventListener(
+    "click",
+    () => {
+      const iframe = createIframe();
+      stage?.replaceChildren(iframe);
+      // ユーザー操作の同期コンテキスト内で要求する（非同期後だと拒否するブラウザがある）。
+      // 非対応環境・拒否は例外/Promise reject とも握りつぶし、埋め込み再生へフォールバックする。
+      try {
+        Promise.resolve(pickFullscreenRequestFn(iframe)?.()).catch(() => {});
+      } catch {
+        // no-op
+      }
     },
     { once: true },
   );
@@ -56,10 +118,31 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   // readStore.ts を import でき、キー/形式の二重定義を避ける。
   // name-name は終劇（endStory）到達時、埋め込み時のみ親へ postMessage する（契約: name-name #395）。
   // origin と source/type を検証し、このページの slug（scene ではなく確定値）を既読に記録する。
+  // 全画面で読んでいた場合はここで埋め込み表示へ戻す（Issue #61）。
   import { markRead } from "../lib/readStore";
+  import { pickExitFullscreenFn, shouldExitFullscreen } from "../lib/fullscreenReader";
 
   const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
+  // 1ページ1インスタンス前提（詳細は1本目の script のコメント参照）。複数配置した場合、
+  // このスクリプトも1回しか実行されず2個目以降のセルは完読検知が効かない。
   const slug = document.querySelector<HTMLElement>("[data-reader-slug]")?.dataset.readerSlug ?? "";
+
+  type WebkitDocument = Document & {
+    webkitFullscreenElement?: Element | null;
+    webkitExitFullscreen?: () => Promise<void> | void;
+  };
+
+  // fullscreen 中（=「全画面で読む」経由）だけ埋め込みへ戻す。埋め込み経由（そもそも
+  // fullscreen でない）の場合は fullscreenElement が無いのでここで何もせず no-op になる。
+  function exitFullscreenIfActive() {
+    const doc = document as WebkitDocument;
+    if (!shouldExitFullscreen(doc.fullscreenElement, doc.webkitFullscreenElement)) return;
+    try {
+      Promise.resolve(pickExitFullscreenFn(doc)?.()).catch(() => {});
+    } catch {
+      // no-op: 失敗してもユーザーに見せない
+    }
+  }
 
   window.addEventListener("message", (event) => {
     // 本番の name-name オリジンからのメッセージだけ受ける（他オリジンの偽装を弾く）。
@@ -68,5 +151,6 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     if (data?.source !== "name-name" || data?.type !== "story-ended") return;
     // scene ではなくページ自身の slug を使う（埋め込みは1セルなので確実・Issue #30）。
     if (slug) markRead(slug);
+    exitFullscreenIfActive();
   });
 </script>

@@ -1579,20 +1579,29 @@ a {
   height: 100%;
   border: none;
 }
+/* 「読む」（枠内再生）／「全画面で読む」（fullscreen要求）の2ボタン（Issue #61）。
+   stage を上下半分ずつ占有する。第2ボタン（全画面で読む）の上辺に真鍮の細線を1本入れ、
+   境目だけ示す（新規chromeを足さない）。 */
 .th-reader__cta {
   position: absolute;
-  inset: 0;
+  inset-inline: 0;
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  width: 100%;
-  height: 100%;
   background: rgba(10, 9, 16, 0.55);
   color: var(--color-th-ivory);
   cursor: pointer;
   transition: background-color 0.25s ease;
+}
+.th-reader__cta--embed {
+  top: 0;
+}
+.th-reader__cta--fullscreen {
+  bottom: 0;
+  border-top: 1px solid rgba(184, 147, 79, 0.28);
 }
 .th-reader__cta:hover,
 .th-reader__cta:focus-visible {

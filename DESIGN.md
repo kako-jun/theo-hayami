@@ -44,7 +44,7 @@ components:
   th-footer__visits: 訪問カウンタのラベル行
   th-link-button: 「読む」・戻り導線のボタン
   th-face-crop / th-face-crop--bust: 顔アップ/LoRAバストアップカードの正方形トリミング
-  th-reader: name-name 埋め込みの 9:16 ステージ＋開始CTA
+  th-reader: name-name 埋め込みの 9:16 ステージ＋開始CTA2種（読む／全画面で読む・Issue #61）
   th-glow: パネル外で生成絵に直接乗る文字の text-shadow
   th-pwa-overlay / th-pwa-overlay__panel: PWA更新検知〜reloadの短い通知overlay（Issue #59）。汎用UI chromeにせず th-panel と同じガラス＋真鍮トーンに寄せる
   th-pwa-install-banner: PWAインストール促しバナー（Issue #67）。`beforeinstallprompt`発火時のみ最上部固定で出す。フッタ（末尾固定）と構造的に衝突しない位置。却下は恒久記憶し再表示しない
@@ -94,7 +94,7 @@ theo-hayami の公開名としての舞台は **「叡智の星海」**。Webペ
 - **th-door--symbol（Issue #73）**: 業を象徴する生成絵を背景に敷く扉。`background-image` は Astro 側がインラインで指定する（ホバー等のショートハンド `background:` に巻き込まれないよう、`.th-door:hover` は longhand の `background-color` に直してある）。`background-position: center top` で上端基準クロップ＝画像側は意味内容（シルエット・星・英単語）を上2/3、下1/3を無地の暗幕にする前提と対で成立し、集計扉（高い）・個別扉（低い）の高さ違いに同じ1枚を使い回せる。
 - **th-read-meter / th-read-gauge / th-read-gauge__fill（Issue #73）**: 集計扉の右下に置く既読ゲージ+分数「N/M 読了」。進捗計（ゲージ）は常に右下・完読印は常に右上。集計扉も全読了（N=M）になったら右上に完読印を出す（個別扉と同じ th-read-stamp）。ゲージ（右下）と完読印（右上）は共存する。汎用の `<progress>` 風にせず、真鍮の細線枠＋金グラデーションの計器として組む（角丸なし）。
 - **th-breadcrumb / th-glow**: パネル外で生成絵に直接乗る文字は `text-shadow` で可読性を担保する。
-- **th-reader**: name-name 埋め込みの 9:16 ステージ＋開始 CTA（金の漢字ラベル）。
+- **th-reader**: name-name 埋め込みの 9:16 ステージ＋開始 CTA（金の漢字ラベル）。「読む」（埋め込み枠内）／「全画面で読む」（fullscreen要求）の2つを stage 上下半分に並べ、真鍮の細線1本で境目を示す（Issue #61）。
 - **th-face-crop / --bust**: 立ち絵/LoRAバストアップの顔アップカード（正方形トリミング）。
 - **th-cover / th-resident-card / th-resident-feature / th-magazine-section**: Issue #35 の雑誌グラビア寄り意匠。`assets/images/promotional/` の集合絵・キャラ別ワイド絵を主役にし、正式な文字画像が来るまでは CSS の Hina Mincho、細罫、ノンブル風ラベルだけで誌面感を出す。文字画像を勝手に生成・代用しない。
 - **th-pwa-install-banner**: `beforeinstallprompt` 発火時だけ出すインストール促しバナー（Issue #67）。フッタ（QR・訪問カウンタ・版表示）は常にページ末尾にあるため、最上部固定に統一して構造的に衝突を無くす。th-pwa-overlay と同じくガラス＋真鍮トーン。却下は localStorage に恒久記憶し再表示しない。
