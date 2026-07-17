@@ -9,7 +9,7 @@
 // 004 / TEA TIME の枝ページ。folio番号は独立させない（Issue #131 本文の指示）。
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
-import { EXTRA_VOTE_TARGETS, VOTE_TARGETS } from "../../lib/rankingVote";
+import { VOTE_TARGETS } from "../../lib/rankingVote";
 
 // kako-jun 指示（Issue #131追記）: 投票対象の「住人」にせお・ヴィンチアも含める
 // （「2人だって住人だ」という世界観解釈）。見出し「推したい住人を選んでね」は
@@ -17,7 +17,7 @@ import { EXTRA_VOTE_TARGETS, VOTE_TARGETS } from "../../lib/rankingVote";
 // buildResidentRankingRows は {slug, name}[] の汎用シグネチャなので変更不要。
 // VOTE_TARGETS（住人8人+EXTRA_VOTE_TARGETS）は rankingVote.ts 側の1箇所で組み立て済み
 // （frontmatterとclient scriptで個別に組み立てると将来食い違うため、ここではimportのみ）。
-const EXTRA_VOTE_SLUGS = new Set(EXTRA_VOTE_TARGETS.map((target) => target.slug));
+// 全10人を bust.webp で統一表示するため、せお・ヴィンチアの暫定分岐(isExtra)は撤廃。
 
 // BBS は投票ロジックを持たず、この widget 属性でしか使わないためローカル定数でよい
 // （Nostalgic側で作成済み・再作成不要。Nostalgic の公開IDはURLのみから生成されサービス種別を
@@ -56,38 +56,39 @@ const BBS_ID = "theo-hayami-fc727d17";
         推したい住人に一票どうぞ。何度でも押せますが、連続投票には少し間隔が必要です。
       </p>
 
-      <!-- サーバー側は住人一覧の宣言順・スコア0のプレースホルダを描画する。
-           クライアントJSが読み込み後に実スコアを取得し、順位を並べ替えて更新する。
+      <!-- 全10人（住人8＋せお＋ヴィンチア）を bust.webp で統一表示。ポートレート・カード
+           自体が投票トリガー（button）。順位バッジ＋スコアはカード隅にオーバーレイし、
+           スコア取得(get)後にJSで反映する（格子は固定順・自動並べ替えはしない）。
            投票ボタンは最初から disabled にしておく: 現在スコアの取得（get）が終わる前に
            投票できてしまうと、findCurrentScoreが0を返して submit?score=1 を送ってしまい、
            既に score>0 の住人ではサーバー側UPSERTが「新スコアが既存より上回るときだけ更新」
            のため無言でno-opになる（submit応答自体は success:true を返すためUIには
            「投票しました」と出てしまう）。取得が終わるまでは押させない。 -->
-      <ol class="th-vote-list mt-5" data-vote-list>
+      <ul class="th-vote-grid grid gap-3 sm:grid-cols-2 mt-5" data-vote-list>
         {
-          VOTE_TARGETS.map((resident) => {
-            // せお・ヴィンチアは専用bust.webpが無いため、仮素材として normal.webp を使い
-            // クロップは基本形 .th-face-crop（--bust修飾なし）で出す。kako-junが後日
-            // 専用のbust.webpを作成したら、8住人と同じ bust.webp + --bust に差し替え予定。
-            const isExtra = EXTRA_VOTE_SLUGS.has(resident.slug);
-            const imageFile = isExtra ? "normal.webp" : "bust.webp";
-            const portraitClass = isExtra ? "th-vote-row__portrait th-face-crop" : "th-vote-row__portrait th-face-crop th-face-crop--bust";
-            return (
-              <li class="th-vote-row" data-vote-row data-resident-slug={resident.slug}>
-                <span class="th-vote-row__rank" data-vote-rank>-</span>
-                <span class={portraitClass}>
-                  <img src={`/images/${resident.slug}/${imageFile}`} alt="" loading="lazy" />
+          VOTE_TARGETS.map((resident) => (
+            <li class="th-vote-cell" data-vote-row data-resident-slug={resident.slug}>
+              <button
+                type="button"
+                class="th-vote-card th-door"
+                data-vote-name={resident.name}
+                data-resident-slug={resident.slug}
+                aria-label={`${resident.name}に投票`}
+                disabled
+              >
+                <span class="th-vote-card__overlay">
+                  <span class="th-vote-card__rank" data-vote-rank>-</span>
+                  <span class="th-vote-card__score" data-vote-score>0</span>
                 </span>
-                <span class="th-vote-row__name">{resident.name}</span>
-                <span class="th-vote-row__score" data-vote-score>0</span>
-                <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name} disabled>
-                  {resident.name}に投票
-                </button>
-              </li>
-            );
-          })
+                <span class="th-vote-card__portrait th-face-crop th-face-crop--bust">
+                  <img src={`/images/${resident.slug}/bust.webp`} alt="" loading="lazy" />
+                </span>
+                <span class="th-vote-card__name">{resident.name}</span>
+              </button>
+            </li>
+          ))
         }
-      </ol>
+      </ul>
       <p class="th-vote-status mt-3" role="status" aria-live="polite" data-vote-status></p>
     </section>
 
@@ -105,15 +106,17 @@ const BBS_ID = "theo-hayami-fc727d17";
       } from "../../lib/rankingVote";
       import type { RankingEntry } from "../../lib/rankingVote";
 
-      const listEl = document.querySelector<HTMLOListElement>("[data-vote-list]");
+      const listEl = document.querySelector<HTMLUListElement>("[data-vote-list]");
       const statusEl = document.querySelector<HTMLElement>("[data-vote-status]");
 
       if (listEl && statusEl) {
         const list = listEl;
         const status = statusEl;
 
+        // グリッドのセル（li）を slug で引けるようにする。カード内 button にも
+        // data-resident-slug が付くため、行の器である [data-vote-row]（li）に限定して拾う。
         const rowsBySlug = new Map<string, HTMLLIElement>();
-        for (const li of list.querySelectorAll<HTMLLIElement>("[data-resident-slug]")) {
+        for (const li of list.querySelectorAll<HTMLLIElement>("[data-vote-row]")) {
           const slug = li.dataset.residentSlug;
           if (slug) rowsBySlug.set(slug, li);
         }
@@ -137,8 +140,8 @@ const BBS_ID = "theo-hayami-fc727d17";
           status.textContent = message;
         }
 
-        // 行要素は複製せず、スコア降順の並びで list.appendChild し直して順序を反映する
-        // （既存の子要素に対する appendChild は複製ではなく移動＝末尾への並べ替えになる）。
+        // グリッドは固定順（宣言順）で並べたまま、順位バッジとスコアだけを各カードの
+        // オーバーレイに反映する（DOMの並べ替え＝appendChildはしない＝カード位置は動かない）。
         function renderRows(entries: RankingEntry[]) {
           const rankedRows = buildResidentRankingRows(VOTE_TARGETS, entries);
           rankedRows.forEach((row, index) => {
@@ -148,7 +151,6 @@ const BBS_ID = "theo-hayami-fc727d17";
             const scoreEl = li.querySelector<HTMLElement>("[data-vote-score]");
             if (rankEl) rankEl.textContent = String(index + 1);
             if (scoreEl) scoreEl.textContent = String(row.score);
-            list.appendChild(li);
           });
         }
 

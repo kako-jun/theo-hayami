@@ -788,59 +788,98 @@ a {
    （kako-jun指摘）。汎用の角丸カード・原色ボタンにせず、既存の .th-panel / .th-face-crop /
    .th-link-button を流用する（DESIGN.md: 原色ボタン不採用）。
    --------------------------------------------------------------------- */
-.th-vote-list {
-  display: grid;
-  gap: 0.6rem;
+/* ポートレート・カード自体が投票トリガー（button）のグリッド（Issue #134）。
+   参照は themes/[theme].astro の業→住人選択グリッド（.th-door を器にしたカード）。
+   .th-door の意匠（金の枠・半透明インク地・ホバーで金縁が灯る）をそのまま流用し、
+   button のブラウザ既定（原色地・中央寄せ・固有フォント）を打ち消して馴染ませる。 */
+.th-vote-grid {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.th-vote-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.75rem;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid rgba(184, 147, 79, 0.32);
-  background: rgba(10, 9, 16, 0.32);
-}
-.th-vote-row__rank {
-  flex: none;
-  width: 1.6rem;
-  color: var(--color-th-gold-bright);
-  font-size: 0.85rem;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-}
-/* .th-face-crop--bust のサイズ修飾（住人カードの4.8remより一回り小さいランキング行用）。 */
-.th-vote-row__portrait {
-  flex: none;
-  width: 2.75rem;
-  border: 1px solid rgba(230, 196, 126, 0.5);
-}
-.th-vote-row__name {
-  flex: 1 1 8rem;
+.th-vote-cell {
   min-width: 0;
+}
+.th-vote-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  /* .th-door の padding をカード用に調整（画像を主役にするので上下を締める）。 */
+  padding: 0.85rem 0.85rem 0.95rem;
+  font: inherit;
   color: var(--color-th-ivory);
-  font-size: 0.92rem;
-}
-.th-vote-row__score {
-  flex: none;
-  min-width: 2.5rem;
-  color: var(--color-th-gold-bright);
-  font-size: 0.9rem;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-.th-vote-button {
-  flex: none;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.8rem;
+  text-align: center;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
-.th-vote-button:disabled {
+.th-vote-card:disabled {
   cursor: default;
-  opacity: 0.5;
+  opacity: 0.55;
+}
+/* disabled 中はホバーで金縁を灯さない（取得完了前に押せそうな誤解を与えない）。 */
+.th-vote-card:disabled:hover {
+  border-color: rgba(184, 147, 79, 0.5);
+  background-color: rgba(18, 17, 26, 0.62);
+  box-shadow: none;
+}
+.th-vote-card__portrait {
+  width: 100%;
+  max-width: 9rem;
+  border: 1px solid rgba(230, 196, 126, 0.5);
+  transition: border-color 0.3s ease;
+}
+.th-vote-card:not(:disabled):hover .th-vote-card__portrait,
+.th-vote-card:not(:disabled):focus-visible .th-vote-card__portrait {
+  border-color: var(--color-th-gold-bright);
+}
+.th-vote-card__name {
+  color: var(--color-th-ivory);
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+.th-vote-card:not(:disabled):hover .th-vote-card__name,
+.th-vote-card:not(:disabled):focus-visible .th-vote-card__name {
+  color: var(--color-th-gold-bright);
+}
+/* 順位バッジ＋スコアをカード右上隅に重ねる。地は沈めたインク、枠と数字は金。 */
+.th-vote-card__overlay {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid rgba(230, 196, 126, 0.5);
+  background: rgba(10, 9, 16, 0.82);
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+.th-vote-card__rank {
+  color: var(--color-th-gold-bright);
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.th-vote-card__rank::before {
+  content: "#";
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+.th-vote-card__score {
+  color: var(--color-th-ivory-dim);
+  font-size: 0.72rem;
+  line-height: 1;
+}
+.th-vote-card__score::after {
+  content: " pt";
+  font-size: 0.62rem;
+  opacity: 0.75;
 }
 .th-vote-status {
   min-height: 1.4em;
