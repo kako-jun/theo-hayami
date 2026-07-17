@@ -47,44 +47,45 @@ const ACT_SECTION_HEADINGS: Record<number, string> = {
 
     <section class="mt-10" data-story-index data-story-ids={JSON.stringify(storyIds)}>
       {
-        storySections.map((section, sectionIndex) => (
-          <div class:list={[sectionIndex > 0 && "mt-10"]}>
-            <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">
-              {ACT_SECTION_HEADINGS[section.act] ?? `第${section.act}幕`}
-            </h2>
-            <ol class="th-story-button-grid">
-              {
-                section.buttons.map((entry) => {
-                  const resident = entry.character ? findResident(entry.character) : undefined;
-                  const initiallyUnlocked = entry.slug === firstStoryId;
-                  return (
-                    <li>
-                      <a
-                        href={initiallyUnlocked ? `/main/${entry.slug}` : undefined}
-                        data-href={`/main/${entry.slug}`}
-                        data-story-link={entry.slug}
-                        data-slug={entry.slug}
-                        class:list={["th-door th-story-button block no-underline", !initiallyUnlocked && "is-locked"]}
-                        aria-disabled={initiallyUnlocked ? "false" : "true"}
-                      >
-                        <span class="th-story-button__number">{String(entry.orderInAct).padStart(2, "0")}</span>
-                        <p style="color: var(--color-th-ivory);">{entry.title}</p>
-                        {resident && (
-                          <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">
-                            {resident.name}（叡智：{resident.ability}）
-                          </p>
-                        )}
-                        <span class="th-story-button__lock" data-story-lock-label>
-                          {initiallyUnlocked ? "解放済み" : "未解放"}
-                        </span>
-                      </a>
-                    </li>
-                  );
-                })
-              }
-            </ol>
-          </div>
-        ))
+        storySections.map((section, sectionIndex) => {
+          // 幕見出しセクションは、配下に表示ボタンが1つでもあるときだけ出す。
+          // 初期 SSR は先頭ボタン（firstStoryId）を含む幕だけが可視。
+          const sectionInitiallyVisible = section.buttons.some((entry) => entry.slug === firstStoryId);
+          return (
+            <div class:list={[sectionIndex > 0 && "mt-10"]} data-story-section hidden={!sectionInitiallyVisible}>
+              <h2 class="text-base mb-3 th-glow" style="color: var(--color-th-gold-bright);">
+                {ACT_SECTION_HEADINGS[section.act] ?? `第${section.act}幕`}
+              </h2>
+              <ol class="th-story-button-grid">
+                {
+                  section.buttons.map((entry) => {
+                    const resident = entry.character ? findResident(entry.character) : undefined;
+                    const initiallyUnlocked = entry.slug === firstStoryId;
+                    return (
+                      <li data-story-item={entry.slug} hidden={!initiallyUnlocked}>
+                        <a
+                          href={initiallyUnlocked ? `/main/${entry.slug}` : undefined}
+                          data-href={`/main/${entry.slug}`}
+                          data-story-link={entry.slug}
+                          data-slug={entry.slug}
+                          class="th-door th-story-button block no-underline"
+                        >
+                          <span class="th-story-button__number">{String(entry.orderInAct).padStart(2, "0")}</span>
+                          <p style="color: var(--color-th-ivory);">{entry.title}</p>
+                          {resident && (
+                            <p class="text-xs mt-2" style="color: var(--color-th-ivory-dim);">
+                              {resident.name}（叡智：{resident.ability}）
+                            </p>
+                          )}
+                        </a>
+                      </li>
+                    );
+                  })
+                }
+              </ol>
+            </div>
+          );
+        })
       }
     </section>
   </div>
@@ -101,18 +102,24 @@ const ACT_SECTION_HEADINGS: Record<number, string> = {
     const progress = getStoryProgress(storyIds);
     const unlocked = new Set(progress.unlockedStoryIds);
 
-    for (const link of root.querySelectorAll<HTMLAnchorElement>("[data-story-link]")) {
-      const storyId = link.dataset.storyLink ?? "";
-      const isUnlocked = unlocked.has(storyId);
-      link.classList.toggle("is-locked", !isUnlocked);
-      link.setAttribute("aria-disabled", isUnlocked ? "false" : "true");
-      if (isUnlocked) {
-        link.href = link.dataset.href ?? link.href;
-      } else {
-        link.removeAttribute("href");
+    // 未解放ボタンは非表示（見せない）。表示するのは読了済み＋次の1つ（unlockedStoryIds）だけ。
+    for (const item of root.querySelectorAll<HTMLElement>("[data-story-item]")) {
+      const storyId = item.dataset.storyItem ?? "";
+      const isVisible = unlocked.has(storyId);
+      item.hidden = !isVisible;
+      const link = item.querySelector<HTMLAnchorElement>("[data-story-link]");
+      if (link) {
+        if (isVisible) {
+          link.href = link.dataset.href ?? link.href;
+        } else {
+          link.removeAttribute("href");
+        }
       }
-      const label = link.querySelector<HTMLElement>("[data-story-lock-label]");
-      if (label) label.textContent = isUnlocked ? "解放済み" : "未解放";
+    }
+
+    // 幕見出しセクションは、配下に表示ボタンが1つも無ければ見出しごと非表示。
+    for (const section of root.querySelectorAll<HTMLElement>("[data-story-section]")) {
+      section.hidden = !section.querySelector("[data-story-item]:not([hidden])");
     }
   }
 

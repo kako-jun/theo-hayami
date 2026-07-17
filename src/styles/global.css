@@ -1606,13 +1606,17 @@ a {
 .th-story-button {
   min-height: 8.25rem;
 }
-.th-story-button.is-locked,
+/* グリッド/リスト項目・幕見出しセクションの非表示。
+   UA の [hidden] は grid/list-item の display に詳細度で負けるため明示的に潰す。 */
+.th-story-button-grid > li[hidden],
+[data-story-section][hidden] {
+  display: none;
+}
 .th-current-question--pending {
   cursor: default;
   opacity: 0.56;
   filter: grayscale(0.35);
 }
-.th-story-button.is-locked::after,
 .th-current-question--pending::after {
   content: "";
   position: absolute;
@@ -1623,21 +1627,12 @@ a {
     rgba(10, 9, 16, 0.28);
   pointer-events: none;
 }
-.th-story-button__number,
-.th-story-button__lock {
+.th-story-button__number {
   display: inline-block;
   margin-bottom: 0.45rem;
   color: var(--color-th-gold-bright);
   font-size: 0.72rem;
   letter-spacing: 0.12em;
-}
-.th-story-button__lock {
-  position: absolute;
-  right: 0.85rem;
-  bottom: 0.7rem;
-  z-index: 1;
-  margin: 0;
-  color: var(--color-th-ivory-dim);
 }
 .th-current-question {
   position: relative;
