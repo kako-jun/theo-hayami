@@ -9,15 +9,14 @@
 // 004 / TEA TIME の枝ページ。folio番号は独立させない（Issue #131 本文の指示）。
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
-import { RESIDENTS } from "../../data/residents";
-import { EXTRA_VOTE_TARGETS } from "../../lib/rankingVote";
+import { EXTRA_VOTE_TARGETS, VOTE_TARGETS } from "../../lib/rankingVote";
 
 // kako-jun 指示（Issue #131追記）: 投票対象の「住人」にせお・ヴィンチアも含める
 // （「2人だって住人だ」という世界観解釈）。見出し「推したい住人を選んでね」は
 // 変更不要（せお・ヴィンチアも住人に含まれるため、このままで正確）。
-// buildResidentRankingRows は {slug, name}[] の汎用シグネチャなので変更不要、
-// ここで RESIDENTS と結合したリストを渡すだけでよい。
-const VOTE_TARGETS = [...RESIDENTS, ...EXTRA_VOTE_TARGETS];
+// buildResidentRankingRows は {slug, name}[] の汎用シグネチャなので変更不要。
+// VOTE_TARGETS（住人8人+EXTRA_VOTE_TARGETS）は rankingVote.ts 側の1箇所で組み立て済み
+// （frontmatterとclient scriptで個別に組み立てると将来食い違うため、ここではimportのみ）。
 const EXTRA_VOTE_SLUGS = new Set(EXTRA_VOTE_TARGETS.map((target) => target.slug));
 
 // BBS は投票ロジックを持たず、この widget 属性でしか使わないためローカル定数でよい
@@ -93,10 +92,9 @@ const BBS_ID = "theo-hayami-fc727d17";
     </section>
 
     <script>
-      import { RESIDENTS } from "../../data/residents";
       import {
-        EXTRA_VOTE_TARGETS,
         RANKING_ID,
+        VOTE_TARGETS,
         buildRankingGetUrl,
         buildRankingSubmitUrl,
         buildResidentRankingRows,
@@ -106,11 +104,6 @@ const BBS_ID = "theo-hayami-fc727d17";
         parseVoteRateLimitSeconds,
       } from "../../lib/rankingVote";
       import type { RankingEntry } from "../../lib/rankingVote";
-
-      // frontmatter側の VOTE_TARGETS（住人8人+せお+ヴィンチア）と同じ組み立てをこちらでも行う。
-      // このscriptはAstro上でfrontmatterとは別モジュールとして評価されるため、
-      // frontmatterの const を直接参照できず、同じ EXTRA_VOTE_TARGETS を使って再構成する。
-      const VOTE_TARGETS = [...RESIDENTS, ...EXTRA_VOTE_TARGETS];
 
       const listEl = document.querySelector<HTMLOListElement>("[data-vote-list]");
       const statusEl = document.querySelector<HTMLElement>("[data-vote-status]");

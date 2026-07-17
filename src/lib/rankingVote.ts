@@ -19,6 +19,8 @@
 //     （ranking.js内のi18nはウィジェット自身の読み込みエラー表示用で、直接叩くAPIの
 //     レスポンス文言とは別物）。
 
+import { RESIDENTS } from "../data/residents";
+
 export const NOSTALGIC_API_BASE = "https://api.nostalgic.llll-ll.com";
 
 /** Nostalgic 側で作成済みの「推したい住人ランキング」ID。再作成不要（Issue #131）。 */
@@ -35,6 +37,14 @@ export const EXTRA_VOTE_TARGETS: { slug: string; name: string }[] = [
   { slug: "theo", name: "せお" },
   { slug: "vincia", name: "ヴィンチア" },
 ];
+
+/**
+ * 投票対象の正本（住人8人＋EXTRA_VOTE_TARGETS）。community.astro のfrontmatterと
+ * client script（同ファイル内 <script>）はAstro上で別モジュールとして評価され、
+ * frontmatterのconstをscript側から参照できないため、どちらもこの1箇所をimportする
+ * （frontmatter・script双方で個別に組み立てると将来の片側だけの変更で食い違うため）。
+ */
+export const VOTE_TARGETS: { slug: string; name: string }[] = [...RESIDENTS, ...EXTRA_VOTE_TARGETS];
 
 export interface RankingEntry {
   name: string;

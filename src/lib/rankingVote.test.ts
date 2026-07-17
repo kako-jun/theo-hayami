@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
+import { RESIDENTS } from "../data/residents.ts";
 import {
   buildRankingGetUrl,
   buildRankingSubmitUrl,
   buildResidentRankingRows,
+  EXTRA_VOTE_TARGETS,
   findCurrentScore,
   formatVoteWaitMessage,
   mergeRankingEntries,
@@ -10,11 +12,33 @@ import {
   parseVoteRateLimitSeconds,
   RANKING_ID,
   type RankingEntry,
+  VOTE_TARGETS,
 } from "./rankingVote.ts";
 
 // rankingVote は Nostalgic Ranking の get→+1→submit フローを支える純粋関数群（Issue #131）。
 // widget が読めない住人の顔をこちら側で自前レンダリングするため、行データ組み立て・現在値検索・
 // URL組み立て・429文言パースの4系統を、実データの罠（欠損score・重複名・記号を含む名前）ごと守る。
+
+describe("EXTRA_VOTE_TARGETS", () => {
+  it("せお・ヴィンチアの2件、slug/nameが正しい（Issue #131追記: 2人だって住人だ）", () => {
+    expect(EXTRA_VOTE_TARGETS).toEqual([
+      { slug: "theo", name: "せお" },
+      { slug: "vincia", name: "ヴィンチア" },
+    ]);
+  });
+});
+
+describe("VOTE_TARGETS", () => {
+  it("RESIDENTS(8件)+EXTRA_VOTE_TARGETS(2件)=10件になる", () => {
+    expect(RESIDENTS).toHaveLength(8);
+    expect(VOTE_TARGETS).toHaveLength(10);
+  });
+
+  it("RESIDENTSに続けてEXTRA_VOTE_TARGETSの順で並ぶ", () => {
+    const slugs = VOTE_TARGETS.map((target) => target.slug);
+    expect(slugs).toEqual([...RESIDENTS.map((resident) => resident.slug), "theo", "vincia"]);
+  });
+});
 
 describe("findCurrentScore", () => {
   it("一致するnameがあればそのscoreを返す", () => {
