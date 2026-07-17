@@ -11,13 +11,13 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import { VOTE_TARGETS } from "../../lib/rankingVote";
 
-// kako-jun 指示（Issue #131追記）: 投票対象の「住人」にせお・ヴィンチアも含める
-// （「2人だって住人だ」という世界観解釈）。見出し「推したい住人を選んでね」は
-// 変更不要（せお・ヴィンチアも住人に含まれるため、このままで正確）。
+// kako-jun 指示（Issue #131追記）: 投票対象の「住人」にセオ・ヴィンチアも含める
+// （「2人だって住人だ」という世界観解釈）。見出し「推したい住人を選んでください」は
+// セオ・ヴィンチアも住人に含まれるため、このままで正確。
 // buildResidentRankingRows は {slug, name}[] の汎用シグネチャなので変更不要。
 // VOTE_TARGETS（住人8人+EXTRA_VOTE_TARGETS）は rankingVote.ts 側の1箇所で組み立て済み
 // （frontmatterとclient scriptで個別に組み立てると将来食い違うため、ここではimportのみ）。
-// 全10人を bust.webp で統一表示するため、せお・ヴィンチアの暫定分岐(isExtra)は撤廃。
+// 全10人を bust.webp で統一表示する（セオ・ヴィンチアの専用bustも作成済み・旧isExtra暫定分岐は撤廃）。
 
 // BBS は投票ロジックを持たず、この widget 属性でしか使わないためローカル定数でよい
 // （Nostalgic側で作成済み・再作成不要。Nostalgic の公開IDはURLのみから生成されサービス種別を
@@ -153,11 +153,10 @@ const BBS_ID = "theo-hayami-fc727d17";
         // kako-jun指摘 #134: #N の順位連番はボタンに不要（初期は通し番号に見えて無意味）なので撤去。
         // スコアだけ出す用途では並べ替え不要なため buildResidentRankingRows は使わない。
         function renderRows(entries: RankingEntry[]) {
-          for (const [slug, li] of rowsBySlug) {
+          for (const li of rowsBySlug.values()) {
             const name = li.dataset.residentName ?? "";
             const scoreEl = li.querySelector<HTMLElement>("[data-vote-score]");
             if (scoreEl) scoreEl.textContent = String(findCurrentScore(entries, name));
-            void slug;
           }
         }
 
