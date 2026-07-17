@@ -45,16 +45,22 @@ const BBS_ID = "theo-hayami-fc727d17";
     <header class="mt-8 th-glow">
       <p class="th-magazine-section__folio">004 / TEA TIME</p>
       <h1 class="text-2xl sm:text-3xl mt-2" style="color: var(--color-th-theo);">星海への接続端末</h1>
-      <p class="mt-3 text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
+    </header>
+
+    <!-- 導入文は姉妹ページ tea-time.astro と同じ本文規約（.th-story-index__intro=
+         0.95rem/2.05/ivory/54rem）＋金ヘアラインの導入ブロックに揃える（kako-jun指摘 #134:
+         本文のサイズ/行間/色/余白を本編・けふのティータイムと統一）。 -->
+    <section class="th-story-index-intro mt-8">
+      <p class="th-story-index__intro">
         住人への一票と、次のお題の投稿を残せる場所です。
       </p>
-    </header>
+    </section>
 
     <!-- 投票UIは枠・箱を持たせず、書庫の地色の上に顔を直接並べる（kako-jun指摘 #134:
          枠もいらない・一つの作品として）。外側の .th-panel の箱は撤去。 -->
     <section class="mt-8">
       <h2 class="text-xl" style="color: var(--color-th-theo);">推したい住人を選んでください</h2>
-      <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+      <p class="th-story-index__intro mt-4">
         推したい住人に一票どうぞ。何度でも押せますが、連続投票には少し間隔が必要です。
       </p>
 
@@ -239,7 +245,7 @@ const BBS_ID = "theo-hayami-fc727d17";
          描画するため、外側の .th-panel の箱と重複する <h2> は撤去し、枠なしで直接置く
          （kako-jun指摘 #134: タイトル二重・箱過剰）。説明文と mt-10 のセクション間隔は維持。 -->
     <section class="mt-10">
-      <p class="text-sm leading-loose" style="color: var(--color-th-ivory);">
+      <p class="th-story-index__intro">
         次のお茶の席で扱ってほしい話題を書き込めます。名前は省略できます。
       </p>
       <div class="mt-5">
