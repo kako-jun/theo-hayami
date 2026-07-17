@@ -24,6 +24,18 @@ export const NOSTALGIC_API_BASE = "https://api.nostalgic.llll-ll.com";
 /** Nostalgic 側で作成済みの「推したい住人ランキング」ID。再作成不要（Issue #131）。 */
 export const RANKING_ID = "theo-hayami-fc727d17";
 
+/**
+ * 住人8人（RESIDENTS）に加えて投票対象へ含める追加エントリ（Issue #131追記）。
+ * kako-jun 指示: 「2人だって住人だ」という世界観解釈で、せお・ヴィンチアも投票対象に含める。
+ * name は scripts の話者タグと同じ表記（せお／ヴィンチア）を使う。
+ * frontmatter（community.astro）と client script（同ファイル内 <script>）は
+ * Astro上で別モジュールとして評価されるため、両方から参照できるようここへ置く。
+ */
+export const EXTRA_VOTE_TARGETS: { slug: string; name: string }[] = [
+  { slug: "theo", name: "せお" },
+  { slug: "vincia", name: "ヴィンチア" },
+];
+
 export interface RankingEntry {
   name: string;
   score: number;

@@ -10,6 +10,15 @@
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import { RESIDENTS } from "../../data/residents";
+import { EXTRA_VOTE_TARGETS } from "../../lib/rankingVote";
+
+// kako-jun 指示（Issue #131追記）: 投票対象の「住人」にせお・ヴィンチアも含める
+// （「2人だって住人だ」という世界観解釈）。見出し「推したい住人を選んでね」は
+// 変更不要（せお・ヴィンチアも住人に含まれるため、このままで正確）。
+// buildResidentRankingRows は {slug, name}[] の汎用シグネチャなので変更不要、
+// ここで RESIDENTS と結合したリストを渡すだけでよい。
+const VOTE_TARGETS = [...RESIDENTS, ...EXTRA_VOTE_TARGETS];
+const EXTRA_VOTE_SLUGS = new Set(EXTRA_VOTE_TARGETS.map((target) => target.slug));
 
 // BBS は投票ロジックを持たず、この widget 属性でしか使わないためローカル定数でよい
 // （Nostalgic側で作成済み・再作成不要。Nostalgic の公開IDはURLのみから生成されサービス種別を
@@ -57,19 +66,27 @@ const BBS_ID = "theo-hayami-fc727d17";
            「投票しました」と出てしまう）。取得が終わるまでは押させない。 -->
       <ol class="th-vote-list mt-5" data-vote-list>
         {
-          RESIDENTS.map((resident) => (
-            <li class="th-vote-row" data-vote-row data-resident-slug={resident.slug}>
-              <span class="th-vote-row__rank" data-vote-rank>-</span>
-              <span class="th-vote-row__portrait th-face-crop th-face-crop--bust">
-                <img src={`/images/${resident.slug}/bust.webp`} alt="" loading="lazy" />
-              </span>
-              <span class="th-vote-row__name">{resident.name}</span>
-              <span class="th-vote-row__score" data-vote-score>0</span>
-              <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name} disabled>
-                {resident.name}に投票
-              </button>
-            </li>
-          ))
+          VOTE_TARGETS.map((resident) => {
+            // せお・ヴィンチアは専用bust.webpが無いため、仮素材として normal.webp を使い
+            // クロップは基本形 .th-face-crop（--bust修飾なし）で出す。kako-junが後日
+            // 専用のbust.webpを作成したら、8住人と同じ bust.webp + --bust に差し替え予定。
+            const isExtra = EXTRA_VOTE_SLUGS.has(resident.slug);
+            const imageFile = isExtra ? "normal.webp" : "bust.webp";
+            const portraitClass = isExtra ? "th-vote-row__portrait th-face-crop" : "th-vote-row__portrait th-face-crop th-face-crop--bust";
+            return (
+              <li class="th-vote-row" data-vote-row data-resident-slug={resident.slug}>
+                <span class="th-vote-row__rank" data-vote-rank>-</span>
+                <span class={portraitClass}>
+                  <img src={`/images/${resident.slug}/${imageFile}`} alt="" loading="lazy" />
+                </span>
+                <span class="th-vote-row__name">{resident.name}</span>
+                <span class="th-vote-row__score" data-vote-score>0</span>
+                <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name} disabled>
+                  {resident.name}に投票
+                </button>
+              </li>
+            );
+          })
         }
       </ol>
       <p class="th-vote-status mt-3" role="status" aria-live="polite" data-vote-status></p>
@@ -78,6 +95,7 @@ const BBS_ID = "theo-hayami-fc727d17";
     <script>
       import { RESIDENTS } from "../../data/residents";
       import {
+        EXTRA_VOTE_TARGETS,
         RANKING_ID,
         buildRankingGetUrl,
         buildRankingSubmitUrl,
@@ -88,6 +106,11 @@ const BBS_ID = "theo-hayami-fc727d17";
         parseVoteRateLimitSeconds,
       } from "../../lib/rankingVote";
       import type { RankingEntry } from "../../lib/rankingVote";
+
+      // frontmatter側の VOTE_TARGETS（住人8人+せお+ヴィンチア）と同じ組み立てをこちらでも行う。
+      // このscriptはAstro上でfrontmatterとは別モジュールとして評価されるため、
+      // frontmatterの const を直接参照できず、同じ EXTRA_VOTE_TARGETS を使って再構成する。
+      const VOTE_TARGETS = [...RESIDENTS, ...EXTRA_VOTE_TARGETS];
 
       const listEl = document.querySelector<HTMLOListElement>("[data-vote-list]");
       const statusEl = document.querySelector<HTMLElement>("[data-vote-status]");
@@ -124,7 +147,7 @@ const BBS_ID = "theo-hayami-fc727d17";
         // 行要素は複製せず、スコア降順の並びで list.appendChild し直して順序を反映する
         // （既存の子要素に対する appendChild は複製ではなく移動＝末尾への並べ替えになる）。
         function renderRows(entries: RankingEntry[]) {
-          const rankedRows = buildResidentRankingRows(RESIDENTS, entries);
+          const rankedRows = buildResidentRankingRows(VOTE_TARGETS, entries);
           rankedRows.forEach((row, index) => {
             const li = rowsBySlug.get(row.slug);
             if (!li) return;
