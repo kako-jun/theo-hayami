@@ -119,6 +119,15 @@ describe("resolveReaderToggleDirection", () => {
   it("webkit fullscreen 中なら collapse", () => {
     expect(resolveReaderToggleDirection(null, {})).toBe("collapse");
   });
+
+  it("標準・webkit両方真でも collapse", () => {
+    expect(resolveReaderToggleDirection({}, {})).toBe("collapse");
+  });
+
+  it("falsy値（undefined,0,\"\"）は fullscreen でない扱いで expand", () => {
+    expect(resolveReaderToggleDirection(undefined, undefined)).toBe("expand");
+    expect(resolveReaderToggleDirection(0, "")).toBe("expand");
+  });
 });
 
 describe("pickReaderToggleAction", () => {
@@ -132,6 +141,15 @@ describe("pickReaderToggleAction", () => {
 
   it("webkit fullscreen 中なら exit", () => {
     expect(pickReaderToggleAction(null, {})).toBe("exit");
+  });
+
+  it("標準・webkit両方真でも exit", () => {
+    expect(pickReaderToggleAction({}, {})).toBe("exit");
+  });
+
+  it("falsy値（undefined,0,\"\"）は fullscreen でない扱いで request", () => {
+    expect(pickReaderToggleAction(undefined, undefined)).toBe("request");
+    expect(pickReaderToggleAction(0, "")).toBe("request");
   });
 
   it("向き（direction）と動作（action）は同じ状態で一致する", () => {
