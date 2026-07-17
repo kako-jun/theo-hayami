@@ -12,8 +12,10 @@ import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import { RESIDENTS } from "../../data/residents";
 
 // BBS は投票ロジックを持たず、この widget 属性でしか使わないためローカル定数でよい
-// （Nostalgic側で作成済み・再作成不要。値がランキングIDと同じ文字列なのはランキングと
-// BBSが別サービス・別ID空間だからで、偶然の一致に過ぎない）。
+// （Nostalgic側で作成済み・再作成不要。Nostalgic の公開IDはURLのみから生成されサービス種別を
+// 含まないため、同一URL https://theo-hayami.llll-ll.com/tea-time/community で ranking と bbs を
+// create すると同じID文字列になるのは必然（偶然ではない）。それぞれ /ranking?id=... と
+// /bbs?id=... のエンドポイントで名前空間が分かれているため、動作上の衝突はない）。
 const BBS_ID = "theo-hayami-fc727d17";
 ---
 
@@ -47,8 +49,12 @@ const BBS_ID = "theo-hayami-fc727d17";
       </p>
 
       <!-- サーバー側は住人一覧の宣言順・スコア0のプレースホルダを描画する。
-           クライアントJSが読み込み後に実スコアを取得し、順位を並べ替えて更新する
-           （取得に失敗してもこのプレースホルダ表示のまま残るだけでレイアウトは壊れない）。 -->
+           クライアントJSが読み込み後に実スコアを取得し、順位を並べ替えて更新する。
+           投票ボタンは最初から disabled にしておく: 現在スコアの取得（get）が終わる前に
+           投票できてしまうと、findCurrentScoreが0を返して submit?score=1 を送ってしまい、
+           既に score>0 の住人ではサーバー側UPSERTが「新スコアが既存より上回るときだけ更新」
+           のため無言でno-opになる（submit応答自体は success:true を返すためUIには
+           「投票しました」と出てしまう）。取得が終わるまでは押させない。 -->
       <ol class="th-vote-list mt-5" data-vote-list>
         {
           RESIDENTS.map((resident) => (
@@ -59,7 +65,7 @@ const BBS_ID = "theo-hayami-fc727d17";
               </span>
               <span class="th-vote-row__name">{resident.name}</span>
               <span class="th-vote-row__score" data-vote-score>0</span>
-              <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name}>
+              <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name} disabled>
                 {resident.name}に投票
               </button>
             </li>
@@ -78,6 +84,7 @@ const BBS_ID = "theo-hayami-fc727d17";
         buildResidentRankingRows,
         findCurrentScore,
         formatVoteWaitMessage,
+        mergeRankingEntries,
         parseVoteRateLimitSeconds,
       } from "../../lib/rankingVote";
       import type { RankingEntry } from "../../lib/rankingVote";
@@ -130,16 +137,22 @@ const BBS_ID = "theo-hayami-fc727d17";
         }
 
         // ページ読み込み時に1回だけ get する（この呼び出し以降、投票のたびの get は行わない）。
+        // 投票ボタンはマークアップ側で最初から disabled にしてあるので、ここで成功した
+        // ときだけ有効化する（現在スコアが分かる前に投票させて無言no-opにしないため）。
         async function loadInitialRanking() {
           try {
             const res = await fetch(buildRankingGetUrl(RANKING_ID, 100));
             const data: { success?: boolean; data?: { entries?: RankingEntry[] } } = await res.json();
-            if (!res.ok || !data.success) return;
+            if (!res.ok || !data.success) {
+              setStatus("ランキングの読み込みに失敗しました。ページを再読み込みしてください。");
+              return;
+            }
             cachedEntries = data.data?.entries ?? [];
             renderRows(cachedEntries);
+            setButtonsDisabled(false);
           } catch {
-            // 取得に失敗してもプレースホルダ表示（宣言順・スコア0）のまま残るだけで
-            // レイアウトは壊れない。
+            // 取得に失敗した場合はボタンを disabled のまま残す（レイアウトは壊れない）。
+            setStatus("ランキングの読み込みに失敗しました。ページを再読み込みしてください。");
           }
         }
 
@@ -167,9 +180,10 @@ const BBS_ID = "theo-hayami-fc727d17";
               return;
             }
 
-            // submit のレスポンスに含まれる更新後の entries をそのままキャッシュへ反映する
-            // （追加の get は呼ばない＝API呼び出しは submit の1回だけ）。
-            cachedEntries = submitData.data?.entries ?? cachedEntries;
+            // submit のレスポンスに含まれる更新後の entries をキャッシュへマージする
+            // （追加の get は呼ばない＝API呼び出しは submit の1回だけ。「丸ごと置換」ではなく
+            // マージにする理由は mergeRankingEntries のコメント参照）。
+            cachedEntries = mergeRankingEntries(cachedEntries, submitData.data?.entries ?? []);
             setStatus(`${name}に投票しました。`);
             renderRows(cachedEntries);
           } catch {

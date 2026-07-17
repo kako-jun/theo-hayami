@@ -5,6 +5,7 @@ import {
   buildResidentRankingRows,
   findCurrentScore,
   formatVoteWaitMessage,
+  mergeRankingEntries,
   NOSTALGIC_API_BASE,
   parseVoteRateLimitSeconds,
   RANKING_ID,
@@ -174,6 +175,79 @@ describe("buildResidentRankingRows", () => {
     ];
     buildResidentRankingRows(residents, entries);
     expect(residents).toEqual(original);
+  });
+});
+
+describe("mergeRankingEntries", () => {
+  it("正常系: updatedに含まれる住人はupdated側の値で上書きされる", () => {
+    const cached: RankingEntry[] = [{ name: "アリスト", score: 2 }];
+    const updated: RankingEntry[] = [{ name: "アリスト", score: 5 }];
+    expect(mergeRankingEntries(cached, updated)).toEqual([{ name: "アリスト", score: 5 }]);
+  });
+
+  it("should-3の本題: updatedに含まれない住人はcachedの値をそのまま保持する（丸ごと置換にしない）", () => {
+    const cached: RankingEntry[] = [
+      { name: "アリスト", score: 2 },
+      { name: "スピノ", score: 9 },
+    ];
+    // submitが上位10件だけを返す想定で、スピノがたまたま含まれないケース。
+    const updated: RankingEntry[] = [{ name: "アリスト", score: 3 }];
+    expect(mergeRankingEntries(cached, updated)).toEqual([
+      { name: "アリスト", score: 3 },
+      { name: "スピノ", score: 9 },
+    ]);
+  });
+
+  it("正常系: updatedにしか無い新規住人は追加される", () => {
+    const cached: RankingEntry[] = [{ name: "アリスト", score: 2 }];
+    const updated: RankingEntry[] = [
+      { name: "アリスト", score: 2 },
+      { name: "スピノ", score: 1 },
+    ];
+    expect(mergeRankingEntries(cached, updated)).toEqual([
+      { name: "アリスト", score: 2 },
+      { name: "スピノ", score: 1 },
+    ]);
+  });
+
+  it("境界: cachedが空配列ならupdatedがそのまま返る", () => {
+    const updated: RankingEntry[] = [{ name: "アリスト", score: 1 }];
+    expect(mergeRankingEntries([], updated)).toEqual(updated);
+  });
+
+  it("境界: updatedが空配列ならcachedがそのまま返る（この呼び出しでは何も上書きされない）", () => {
+    const cached: RankingEntry[] = [{ name: "アリスト", score: 4 }];
+    expect(mergeRankingEntries(cached, [])).toEqual(cached);
+  });
+
+  it("境界-1: 両方空配列なら空配列", () => {
+    expect(mergeRankingEntries([], [])).toEqual([]);
+  });
+
+  it("順序: cachedの並び順を維持しつつ、updated限定の新規住人は末尾に追加される", () => {
+    const cached: RankingEntry[] = [
+      { name: "テオ", score: 7 },
+      { name: "アリスト", score: 2 },
+    ];
+    const updated: RankingEntry[] = [
+      { name: "アリスト", score: 3 },
+      { name: "スピノ", score: 1 },
+    ];
+    expect(mergeRankingEntries(cached, updated)).toEqual([
+      { name: "テオ", score: 7 },
+      { name: "アリスト", score: 3 },
+      { name: "スピノ", score: 1 },
+    ]);
+  });
+
+  it("防御的: 入力のcached/updated配列を破壊的に変更しない", () => {
+    const cached: RankingEntry[] = [{ name: "アリスト", score: 2 }];
+    const updated: RankingEntry[] = [{ name: "アリスト", score: 5 }];
+    const cachedSnapshot = [...cached];
+    const updatedSnapshot = [...updated];
+    mergeRankingEntries(cached, updated);
+    expect(cached).toEqual(cachedSnapshot);
+    expect(updated).toEqual(updatedSnapshot);
   });
 });
 

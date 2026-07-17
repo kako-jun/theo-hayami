@@ -58,6 +58,25 @@ export function buildResidentRankingRows(
     .sort((a, b) => b.score - a.score);
 }
 
+/**
+ * submit応答に含まれる更新後エントリで、キャッシュ済みエントリをマージする。
+ *
+ * サーバー側の `action=submit` は常に上位 `RANKING.LIMIT.DEFAULT`（=10件）だけを返す
+ * （クライアントから件数指定できない）。現状は `maxEntries=10` と一致し住人8人が全員
+ * 含まれるため実害はないが、将来 `maxEntries` を引き上げた場合に応答が上位10件だけに
+ * なりうる。その場合に「丸ごと置換」すると11位以下の住人がキャッシュから消え、
+ * その住人への次回投票が score=0 起点の無言no-op（サーバーのUPSERTは新スコアが既存より
+ * 上回るときだけ更新するため）を起こす。
+ *
+ * そのため updated に含まれる住人だけ上書きし、含まれない住人は cached の値を保持する。
+ */
+export function mergeRankingEntries(cached: RankingEntry[], updated: RankingEntry[]): RankingEntry[] {
+  const merged = new Map<string, RankingEntry>();
+  for (const entry of cached) merged.set(entry.name, entry);
+  for (const entry of updated) merged.set(entry.name, entry);
+  return [...merged.values()];
+}
+
 /** ランキング取得（`action=get`）APIのURLを組み立てる。 */
 export function buildRankingGetUrl(id: string, limit: number): string {
   return `${NOSTALGIC_API_BASE}/ranking?action=get&id=${encodeURIComponent(id)}&limit=${limit}`;
