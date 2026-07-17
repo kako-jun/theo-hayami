@@ -96,19 +96,22 @@ const BBS_ID = "theo-hayami-fc727d17";
         }
         const buttons = Array.from(list.querySelectorAll<HTMLButtonElement>("[data-vote-name]"));
 
+        // kako-jun 指摘（Issue #131追記）: APIの action=submit レスポンスは action=get と
+        // 同じ形（{success, data:{entries}}）で更新後の entries を含む
+        // （nostalgic/docs/user-guide/services/ranking.md と apps/api/src/routes/ranking.ts の
+        // 実装 `return c.json({ success: true, data: { id, entries } })` を実際に読んで確認済み）。
+        // そのため投票直前の get・投票直後の再get はどちらも不要にできる。
+        // 最新の get/submit レスポンスをここへキャッシュし、投票のたびの現在スコア検索は
+        // このキャッシュだけを参照する（自分の連続投票は毎回このキャッシュを更新するので
+        // 正しく動く。他ユーザーとの同時投票の取りこぼしは低頻度サイトとして許容＝Issue本文の前提通り）。
+        let cachedEntries: RankingEntry[] = [];
+
         function setButtonsDisabled(disabled: boolean) {
           for (const button of buttons) button.disabled = disabled;
         }
 
         function setStatus(message: string) {
           status.textContent = message;
-        }
-
-        async function fetchEntries(): Promise<RankingEntry[]> {
-          const res = await fetch(buildRankingGetUrl(RANKING_ID, 100));
-          const data: { success?: boolean; data?: { entries?: RankingEntry[] } } = await res.json();
-          if (!res.ok || !data.success) return [];
-          return data.data?.entries ?? [];
         }
 
         // 行要素は複製せず、スコア降順の並びで list.appendChild し直して順序を反映する
@@ -126,11 +129,17 @@ const BBS_ID = "theo-hayami-fc727d17";
           });
         }
 
-        async function refreshRanking() {
+        // ページ読み込み時に1回だけ get する（この呼び出し以降、投票のたびの get は行わない）。
+        async function loadInitialRanking() {
           try {
-            renderRows(await fetchEntries());
+            const res = await fetch(buildRankingGetUrl(RANKING_ID, 100));
+            const data: { success?: boolean; data?: { entries?: RankingEntry[] } } = await res.json();
+            if (!res.ok || !data.success) return;
+            cachedEntries = data.data?.entries ?? [];
+            renderRows(cachedEntries);
           } catch {
-            // 取得に失敗してもプレースホルダ表示のまま残るだけでレイアウトは壊れない。
+            // 取得に失敗してもプレースホルダ表示（宣言順・スコア0）のまま残るだけで
+            // レイアウトは壊れない。
           }
         }
 
@@ -138,10 +147,10 @@ const BBS_ID = "theo-hayami-fc727d17";
           setButtonsDisabled(true);
           setStatus(`${name}に投票しています…`);
           try {
-            const entries = await fetchEntries();
-            const currentScore = findCurrentScore(entries, name);
+            const currentScore = findCurrentScore(cachedEntries, name);
             const submitRes = await fetch(buildRankingSubmitUrl(RANKING_ID, name, currentScore + 1));
-            const submitData: { success?: boolean; error?: string } = await submitRes.json();
+            const submitData: { success?: boolean; data?: { entries?: RankingEntry[] }; error?: string } =
+              await submitRes.json();
 
             if (submitRes.status === 429) {
               const seconds = parseVoteRateLimitSeconds(submitData.error ?? "");
@@ -158,8 +167,11 @@ const BBS_ID = "theo-hayami-fc727d17";
               return;
             }
 
+            // submit のレスポンスに含まれる更新後の entries をそのままキャッシュへ反映する
+            // （追加の get は呼ばない＝API呼び出しは submit の1回だけ）。
+            cachedEntries = submitData.data?.entries ?? cachedEntries;
             setStatus(`${name}に投票しました。`);
-            await refreshRanking();
+            renderRows(cachedEntries);
           } catch {
             setStatus("投票に失敗しました。通信状況をご確認ください。");
           } finally {
@@ -175,8 +187,8 @@ const BBS_ID = "theo-hayami-fc727d17";
           });
         }
 
-        // 初期表示: プレースホルダ（宣言順・スコア0）を実データへ更新する。
-        void refreshRanking();
+        // 初期表示: プレースホルダ（宣言順・スコア0）を実データへ更新する（get 1回）。
+        void loadInitialRanking();
       }
     </script>
 
