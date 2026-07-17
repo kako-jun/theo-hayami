@@ -142,18 +142,18 @@ describe("storyProgress storage", () => {
   });
 });
 
-describe("storyProgress: 第一幕12件の順序ゲート回帰（id数非依存）", () => {
+describe("storyProgress: 第一幕+第二幕16件の順序ゲート回帰（id数非依存）", () => {
   const STORY_IDS = loadStoryButtons().map((entry) => entry.slug);
 
-  it("12件でも初期状態は先頭（act1-01）のみ解放", () => {
-    expect(STORY_IDS.length).toBe(12);
+  it("16件でも初期状態は先頭（act1-01）のみ解放", () => {
+    expect(STORY_IDS.length).toBe(16);
     const initial = createInitialStoryProgress(STORY_IDS);
     expect(initial.unlockedStoryIds).toEqual(["act1-01"]);
     expect(initial.currentStoryId).toBe("act1-01");
     expect(initial.completed).toBe(false);
   });
 
-  it("先頭から順に読了すると1件ずつ次だけが解放され、12件目で完了する", () => {
+  it("先頭から順に読了すると1件ずつ次だけが解放され、16件目で完了する", () => {
     let progress = createInitialStoryProgress(STORY_IDS);
     for (let i = 0; i < STORY_IDS.length; i++) {
       const id = STORY_IDS[i]!;

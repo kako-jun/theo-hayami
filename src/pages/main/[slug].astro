@@ -3,7 +3,7 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import ReaderFrame from "../../components/ReaderFrame.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import { findResident } from "../../data/residents";
-import { loadMainStories, loadOhako, loadStoryButtons } from "../../lib/scripts";
+import { loadMainStories, loadOhako, loadStoryButtons, mainStoryActLabel } from "../../lib/scripts";
 
 // 本編（第一幕）の読むページ。free/[slug].astro を踏襲する
 // （額縁＋ReaderFrame 遅延埋め込み＋confinement 回避の「このあと」HTMLリンク＋既読受信）。
@@ -31,13 +31,18 @@ const resident = character ? findResident(character) : undefined;
 // 見つからない場合は選択画面と同じ既定背景にフォールバックする。
 const bgImage = background ?? "shadow-library/grand-reading-room-v.webp";
 const storyIds = loadStoryButtons().map((entry) => entry.slug);
+
+// 本筋mdの見出し（「第一幕」「第二幕」等）はslugの幕番号から動的に導出する
+// （ハードコードすると act2 以降のページで「第一幕」と誤表示する回帰を生む）。
+// おはこ（character あり）にはそもそも幕見出しを出さないので undefined のままでよい。
+const actLabel = !character ? mainStoryActLabel(slug) : undefined;
 ---
 
 <LibraryLayout
   title={resident ? `${title} ── ${resident.name} ── せおはやみ` : `${title} ── せおはやみ`}
   description={resident
     ? `${resident.name}（叡智：${resident.ability}）が、せおと初めて交わした問答。`
-    : `せおはやみ本編・第一幕「${title}」。`}
+    : `せおはやみ本編・${actLabel ?? "本編"}「${title}」。`}
   bgImage={bgImage}
   ogImage="promotional/cast/story-opening.webp"
 >
@@ -71,7 +76,7 @@ const storyIds = loadStoryButtons().map((entry) => entry.slug);
       </header>
     ) : (
       <header class="text-center my-8 th-glow">
-        <p class="text-sm" style="color: var(--color-th-gold-bright);">第一幕</p>
+        <p class="text-sm" style="color: var(--color-th-gold-bright);">{actLabel ?? "本編"}</p>
         <h1 class="mt-2 text-xl sm:text-2xl" style="color: var(--color-th-theo);">{title}</h1>
       </header>
     )}

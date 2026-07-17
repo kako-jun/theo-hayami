@@ -6,6 +6,7 @@ import type { ThemeSummary } from "./scripts.ts";
 import {
   findEpisode,
   findOhako,
+  groupStoryButtonsByAct,
   groupThemesByCategory,
   loadCharacterThemes,
   loadEpisodes,
@@ -14,6 +15,7 @@ import {
   loadStoryButtons,
   loadThemeCategories,
   loadThemes,
+  mainStoryActLabel,
   THEME_CATEGORIES,
   sortByHubOrder,
   themeSymbolImage,
@@ -244,30 +246,35 @@ describe("findOhako", () => {
   });
 });
 
-describe("loadStoryButtons: 第一幕シーケンスの順序ゲート", () => {
+describe("loadStoryButtons: 第一幕+第二幕シーケンスの順序ゲート", () => {
   const buttons = loadStoryButtons();
 
-  it("[act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04] の通し12件を並べる", () => {
+  it("[act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04, act2-01..04] の通し16件を並べる", () => {
     const expected = [
       "act1-01",
       "act1-02",
       ...RESIDENTS.map((r) => `ohako-${r.slug}`),
       "act1-03",
       "act1-04",
+      "act2-01",
+      "act2-02",
+      "act2-03",
+      "act2-04",
     ];
-    expect(buttons.length).toBe(12);
+    expect(buttons.length).toBe(16);
     expect(buttons.map((entry) => entry.slug)).toEqual(expected);
   });
 
-  it("幕内の表示順は1始まりの通し番号（1..12）", () => {
-    expect(buttons.map((entry) => entry.orderInAct)).toEqual(
+  it("幕内の表示順は幕ごとに1始まりへリセットする通し番号（第一幕1..12、第二幕1..4）", () => {
+    expect(buttons.slice(0, 12).map((entry) => entry.orderInAct)).toEqual(
       Array.from({ length: 12 }, (_, i) => i + 1),
     );
+    expect(buttons.slice(12).map((entry) => entry.orderInAct)).toEqual([1, 2, 3, 4]);
   });
 
-  it("本筋md（act1-*）は character を持たず、おはこは住人slugを持つ", () => {
+  it("本筋md（act1-*/act2-*）は character を持たず、おはこは住人slugを持つ", () => {
     const withoutChar = buttons.filter((entry) => entry.character === undefined).map((e) => e.slug);
-    expect(withoutChar).toEqual(["act1-01", "act1-02", "act1-03", "act1-04"]);
+    expect(withoutChar).toEqual(["act1-01", "act1-02", "act1-03", "act1-04", "act2-01", "act2-02", "act2-03", "act2-04"]);
     const ohakoButtons = buttons.filter((entry) => entry.character !== undefined);
     expect(ohakoButtons.map((e) => e.character)).toEqual(RESIDENTS.map((r) => r.slug));
     expect(ohakoButtons.every((e) => e.slug === `ohako-${e.character}`)).toBe(true);
@@ -276,6 +283,26 @@ describe("loadStoryButtons: 第一幕シーケンスの順序ゲート", () => {
   it("全ボタンが title / sceneId / background を持つ（額縁・埋め込みが欠けない）", () => {
     const bad = buttons.filter((e) => !e.title.trim() || !e.sceneId.trim() || !e.background?.trim());
     expect(bad.map((e) => e.slug)).toEqual([]);
+  });
+});
+
+describe("groupStoryButtonsByAct: /story の幕見出し分割", () => {
+  it("16件フラット配列を第一幕12件・第二幕4件の2グループへ分ける（おはこは直前の act に属す）", () => {
+    const sections = groupStoryButtonsByAct(loadStoryButtons());
+    expect(sections.map((s) => s.act)).toEqual([1, 2]);
+    expect(sections[0]?.buttons.length).toBe(12);
+    expect(sections[1]?.buttons.map((e) => e.slug)).toEqual(["act2-01", "act2-02", "act2-03", "act2-04"]);
+  });
+});
+
+describe("mainStoryActLabel: /main/[slug].astro の幕見出しラベル", () => {
+  it("act1-*/act2-* のslugから「第一幕」「第二幕」を返す", () => {
+    expect(mainStoryActLabel("act1-01")).toBe("第一幕");
+    expect(mainStoryActLabel("act2-03")).toBe("第二幕");
+  });
+
+  it("act prefix を持たないslug（おはこ等）は undefined", () => {
+    expect(mainStoryActLabel("ohako-spino")).toBeUndefined();
   });
 });
 
