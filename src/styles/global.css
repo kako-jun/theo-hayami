@@ -788,27 +788,47 @@ a {
    （kako-jun指摘）。汎用の角丸カード・原色ボタンにせず、既存の .th-panel / .th-face-crop /
    .th-link-button を流用する（DESIGN.md: 原色ボタン不採用）。
    --------------------------------------------------------------------- */
-/* ポートレート・カード自体が投票トリガー（button）のグリッド（Issue #134）。
-   参照は themes/[theme].astro の業→住人選択グリッド（.th-door を器にしたカード）。
-   .th-door の意匠（金の枠・半透明インク地・ホバーで金縁が灯る）をそのまま流用し、
-   button のブラウザ既定（原色地・中央寄せ・固有フォント）を打ち消して馴染ませる。 */
+/* 投票UI＝「闇に浮かぶ顔と、灯り」（Issue #134 デザイン格上げ）。
+   枠・箱・ボーダー・角丸カードは一切使わない。書庫の地色(ink)の上に bust をそのまま
+   並べ、白背景 bust の矩形の硬さは mask のフェードでインクへ溶かす。触れると顔の背後に
+   金の光が「灯る」（暗くする演出は禁止＝この企画の鉄則）。#N の順位連番は撤去し、得票数
+   だけを金の数字で添える。 */
 .th-vote-grid {
   list-style: none;
-  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* 正方の顔を綺麗な格子に。横は詰めて lattice に、縦は名前＋得票のぶん少し開ける。 */
+  gap: 1.6rem 1rem;
+  /* 説明文との間に余白を確保（このルールは非レイヤーで Tailwind の mt-* ユーティリティ
+     に勝つため、間隔はここで持たせる。kako-jun指摘 #134: 説明文直下が詰まって見える）。 */
+  margin: 2.4rem 0 0;
   padding: 0;
+}
+@media (min-width: 640px) {
+  .th-vote-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.9rem 1.2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .th-vote-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 .th-vote-cell {
   min-width: 0;
 }
+/* ボタンだが、ボタンに見える chrome（枠・塗り・影の箱）は一切持たせない。 */
 .th-vote-card {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.55rem;
   width: 100%;
-  /* .th-door の padding をカード用に調整（画像を主役にするので上下を締める）。 */
-  padding: 0.85rem 0.85rem 0.95rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
   font: inherit;
   color: var(--color-th-ivory);
   text-align: center;
@@ -818,68 +838,114 @@ a {
 }
 .th-vote-card:disabled {
   cursor: default;
-  opacity: 0.55;
 }
-/* disabled 中はホバーで金縁を灯さない（取得完了前に押せそうな誤解を与えない）。 */
-.th-vote-card:disabled:hover {
-  border-color: rgba(184, 147, 79, 0.5);
-  background-color: rgba(18, 17, 26, 0.62);
-  box-shadow: none;
+/* 顔の背後に灯る金のグロー。既定は消灯、ホバー/フォーカスでふわっと点る（暗くしない）。
+   顔ポートレート(.th-face-crop)は overflow:hidden なので、グローはカード側に置いて
+   マスクで透けた縁からにじませる。 */
+.th-vote-card::before {
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  width: min(11rem, 118%);
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 46%, var(--color-th-gold) 0%, transparent 66%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 0;
 }
+.th-vote-card:not(:disabled):hover::before,
+.th-vote-card:not(:disabled):focus-visible::before {
+  opacity: 0.5;
+}
+/* signature: 投票が入った瞬間、その顔の背後に一度だけ光が広がる bloom（1箇所に絞る）。 */
+.th-vote-card.is-lit::after {
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  width: min(11rem, 118%);
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 46%, var(--color-th-gold-bright) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  animation: th-vote-bloom 0.85s ease-out forwards;
+}
+@keyframes th-vote-bloom {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.45);
+  }
+  28% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.35);
+  }
+}
+/* 顔ポートレート: キャラ絵が正方（1:1）なのを活かし、セルいっぱいの正方チップにして
+   綺麗な格子に並べる（.th-face-crop が aspect-ratio:1/1・cover 済み）。枠・地色は付けず、
+   白背景 bust の矩形の縁をマスクでインクへ溶かして「闇に浮かぶ顔」にする。 */
 .th-vote-card__portrait {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  max-width: 9rem;
-  border: 1px solid rgba(230, 196, 126, 0.5);
-  transition: border-color 0.3s ease;
+  border: 0;
+  background: transparent;
+  -webkit-mask-image: radial-gradient(ellipse 78% 82% at 50% 42%, #000 48%, transparent 100%);
+  mask-image: radial-gradient(ellipse 78% 82% at 50% 42%, #000 48%, transparent 100%);
 }
-.th-vote-card:not(:disabled):hover .th-vote-card__portrait,
-.th-vote-card:not(:disabled):focus-visible .th-vote-card__portrait {
-  border-color: var(--color-th-gold-bright);
+/* bust は顔＋上半身の白背景素材。正方セルで顔へ寄せて白背景の見える面積を減らし、
+   マスクの縁フェードでインクへ溶かす（.th-face-crop--bust は ResidentCard でも使うので
+   投票グリッド内だけを上書きする）。 */
+.th-vote-card__portrait.th-face-crop--bust img {
+  object-position: center 20%;
+  transform: scale(1.32);
+  transform-origin: center 22%;
 }
 .th-vote-card__name {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mincho);
   color: var(--color-th-ivory);
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
+  font-size: 0.98rem;
+  letter-spacing: 0.06em;
   transition: color 0.3s ease;
 }
 .th-vote-card:not(:disabled):hover .th-vote-card__name,
 .th-vote-card:not(:disabled):focus-visible .th-vote-card__name {
   color: var(--color-th-gold-bright);
 }
-/* 順位バッジ＋スコアをカード右上隅に重ねる。地は沈めたインク、枠と数字は金。 */
-.th-vote-card__overlay {
-  position: absolute;
-  top: 0.65rem;
-  right: 0.65rem;
-  z-index: 1;
-  display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
-  padding: 0.2rem 0.5rem;
-  border: 1px solid rgba(230, 196, 126, 0.5);
-  background: rgba(10, 9, 16, 0.82);
-  font-variant-numeric: tabular-nums;
-  pointer-events: none;
-}
-.th-vote-card__rank {
-  color: var(--color-th-gold-bright);
-  font-size: 0.95rem;
-  line-height: 1;
-}
-.th-vote-card__rank::before {
-  content: "#";
-  font-size: 0.7rem;
-  opacity: 0.8;
-}
+/* 得票数だけを金の数字で添える（順位バッジ #N は撤去）。 */
 .th-vote-card__score {
-  color: var(--color-th-ivory-dim);
-  font-size: 0.72rem;
+  position: relative;
+  z-index: 1;
+  margin-top: -0.15rem;
+  color: var(--color-th-gold-bright);
+  font-size: 0.78rem;
   line-height: 1;
+  letter-spacing: 0.05em;
+  font-variant-numeric: tabular-nums;
 }
 .th-vote-card__score::after {
   content: " pt";
   font-size: 0.62rem;
-  opacity: 0.75;
+  opacity: 0.6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .th-vote-card::before {
+    transition: none;
+  }
+  .th-vote-card.is-lit::after {
+    animation: none;
+  }
 }
 .th-vote-status {
   min-height: 1.4em;

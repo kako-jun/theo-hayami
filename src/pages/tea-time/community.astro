@@ -50,8 +50,10 @@ const BBS_ID = "theo-hayami-fc727d17";
       </p>
     </header>
 
-    <section class="th-panel p-6 sm:p-7 mt-8">
-      <h2 class="text-xl" style="color: var(--color-th-theo);">推したい住人を選んでね</h2>
+    <!-- 投票UIは枠・箱を持たせず、書庫の地色の上に顔を直接並べる（kako-jun指摘 #134:
+         枠もいらない・一つの作品として）。外側の .th-panel の箱は撤去。 -->
+    <section class="mt-8">
+      <h2 class="text-xl" style="color: var(--color-th-theo);">推したい住人を選んでください</h2>
       <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
         推したい住人に一票どうぞ。何度でも押せますが、連続投票には少し間隔が必要です。
       </p>
@@ -64,26 +66,28 @@ const BBS_ID = "theo-hayami-fc727d17";
            既に score>0 の住人ではサーバー側UPSERTが「新スコアが既存より上回るときだけ更新」
            のため無言でno-opになる（submit応答自体は success:true を返すためUIには
            「投票しました」と出てしまう）。取得が終わるまでは押させない。 -->
-      <ul class="th-vote-grid grid gap-3 sm:grid-cols-2 mt-5" data-vote-list>
+      <ul class="th-vote-grid" data-vote-list>
         {
           VOTE_TARGETS.map((resident) => (
-            <li class="th-vote-cell" data-vote-row data-resident-slug={resident.slug}>
+            <li
+              class="th-vote-cell"
+              data-vote-row
+              data-resident-slug={resident.slug}
+              data-resident-name={resident.name}
+            >
               <button
                 type="button"
-                class="th-vote-card th-door"
+                class="th-vote-card"
                 data-vote-name={resident.name}
                 data-resident-slug={resident.slug}
-                aria-label={`${resident.name}に投票`}
+                aria-label={`${resident.name}に一票を灯す`}
                 disabled
               >
-                <span class="th-vote-card__overlay">
-                  <span class="th-vote-card__rank" data-vote-rank>-</span>
-                  <span class="th-vote-card__score" data-vote-score>0</span>
-                </span>
                 <span class="th-vote-card__portrait th-face-crop th-face-crop--bust">
                   <img src={`/images/${resident.slug}/bust.webp`} alt="" loading="lazy" />
                 </span>
                 <span class="th-vote-card__name">{resident.name}</span>
+                <span class="th-vote-card__score"><span data-vote-score>0</span></span>
               </button>
             </li>
           ))
@@ -95,10 +99,8 @@ const BBS_ID = "theo-hayami-fc727d17";
     <script>
       import {
         RANKING_ID,
-        VOTE_TARGETS,
         buildRankingGetUrl,
         buildRankingSubmitUrl,
-        buildResidentRankingRows,
         findCurrentScore,
         formatVoteWaitMessage,
         mergeRankingEntries,
@@ -140,18 +142,17 @@ const BBS_ID = "theo-hayami-fc727d17";
           status.textContent = message;
         }
 
-        // グリッドは固定順（宣言順）で並べたまま、順位バッジとスコアだけを各カードの
+        // グリッドは固定順（宣言順）で並べたまま、得票数（スコア）だけを各カードの
         // オーバーレイに反映する（DOMの並べ替え＝appendChildはしない＝カード位置は動かない）。
+        // kako-jun指摘 #134: #N の順位連番はボタンに不要（初期は通し番号に見えて無意味）なので撤去。
+        // スコアだけ出す用途では並べ替え不要なため buildResidentRankingRows は使わない。
         function renderRows(entries: RankingEntry[]) {
-          const rankedRows = buildResidentRankingRows(VOTE_TARGETS, entries);
-          rankedRows.forEach((row, index) => {
-            const li = rowsBySlug.get(row.slug);
-            if (!li) return;
-            const rankEl = li.querySelector<HTMLElement>("[data-vote-rank]");
+          for (const [slug, li] of rowsBySlug) {
+            const name = li.dataset.residentName ?? "";
             const scoreEl = li.querySelector<HTMLElement>("[data-vote-score]");
-            if (rankEl) rankEl.textContent = String(index + 1);
-            if (scoreEl) scoreEl.textContent = String(row.score);
-          });
+            if (scoreEl) scoreEl.textContent = String(findCurrentScore(entries, name));
+            void slug;
+          }
         }
 
         // ページ読み込み時に1回だけ get する（この呼び出し以降、投票のたびの get は行わない）。
@@ -174,7 +175,16 @@ const BBS_ID = "theo-hayami-fc727d17";
           }
         }
 
-        async function vote(name: string) {
+        // signature 演出: 投票成功時、その顔の背後に一度だけ金の光が広がる（is-lit を
+        // 付け直してアニメーションを再生。連続投票でも毎回灯るよう一旦外して次フレームで付ける）。
+        function lightUp(button: HTMLButtonElement) {
+          button.classList.remove("is-lit");
+          // reflow を挟んでからクラスを付け直すとアニメーションが再スタートする。
+          void button.offsetWidth;
+          button.classList.add("is-lit");
+        }
+
+        async function vote(name: string, button: HTMLButtonElement) {
           setButtonsDisabled(true);
           setStatus(`${name}に投票しています…`);
           try {
@@ -202,8 +212,9 @@ const BBS_ID = "theo-hayami-fc727d17";
             // （追加の get は呼ばない＝API呼び出しは submit の1回だけ。「丸ごと置換」ではなく
             // マージにする理由は mergeRankingEntries のコメント参照）。
             cachedEntries = mergeRankingEntries(cachedEntries, submitData.data?.entries ?? []);
-            setStatus(`${name}に投票しました。`);
+            setStatus(`${name}に一票を灯しました。`);
             renderRows(cachedEntries);
+            lightUp(button);
           } catch {
             setStatus("投票に失敗しました。通信状況をご確認ください。");
           } finally {
@@ -215,7 +226,7 @@ const BBS_ID = "theo-hayami-fc727d17";
           const name = button.dataset.voteName;
           if (!name) continue;
           button.addEventListener("click", () => {
-            void vote(name);
+            void vote(name, button);
           });
         }
 
