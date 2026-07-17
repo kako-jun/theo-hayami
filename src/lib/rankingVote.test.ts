@@ -20,9 +20,9 @@ import {
 // URL組み立て・429文言パースの4系統を、実データの罠（欠損score・重複名・記号を含む名前）ごと守る。
 
 describe("EXTRA_VOTE_TARGETS", () => {
-  it("せお・ヴィンチアの2件、slug/nameが正しい（Issue #131追記: 2人だって住人だ）", () => {
+  it("セオ・ヴィンチアの2件、slug/nameが正しい（Issue #131追記: 2人だって住人だ／#134でカナ表記に統一）", () => {
     expect(EXTRA_VOTE_TARGETS).toEqual([
-      { slug: "theo", name: "せお" },
+      { slug: "theo", name: "セオ" },
       { slug: "vincia", name: "ヴィンチア" },
     ]);
   });
