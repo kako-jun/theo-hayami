@@ -1832,6 +1832,10 @@ a {
   background: var(--color-th-ink-deep);
   border: 1px solid rgba(184, 147, 79, 0.5);
   overflow: hidden;
+  /* 再全体化トグル（#148）の濃さ・寸法。素の状態=常駐、hover/focus/active=濃く。 */
+  --th-toggle-opacity: 0.15; /* 常駐時（0まで消さない） */
+  --th-toggle-opacity-active: 0.4; /* トグルに触れた時 */
+  --th-toggle-size: 20px; /* 見える三角の一辺（タップ領域より小さく） */
 }
 .th-reader__stage iframe {
   position: absolute;
@@ -1883,13 +1887,11 @@ a {
    スマホスリープ等でブラウザが fullscreen を強制解除しても、途中から全体化に戻せる。
    向きで状態を示す（expand=角が右上向き＝広げる / collapse=角が左下向き＝畳む）。斜辺は
    どちらも左上↘右下で共有し、直角の頂点だけが反対の隅へ移る＝真のトグル。読書の集中を
-   優先し極薄常駐＋無操作フェード（濃さ/秒数は変数と定数で後から実機調整する）。 */
-.th-reader__stage {
-  --th-toggle-opacity: 0.15; /* 常駐時 */
-  --th-toggle-opacity-active: 0.4; /* 操作直後 */
-  --th-toggle-size: 20px; /* 見える三角の一辺（タップ領域より小さく） */
-}
-.th-reader__refs {
+   優先し極薄で常駐する（opacity 0.15・0まで消さない＝無操作でも消えない）。再生後は
+   stage 全面をクロスオリジン iframe が覆い iframe 面のタップが親に伝わらないため、消して
+   画面タップで再出現は成立しない。常に薄く見えて常に触れる状態を保ち、hover/focus/active
+   （トグル自体に触れた時）だけ濃くする（濃さ/寸法は変数で後から実機調整する）。 */
+.th-reader__fs-toggle {
   position: absolute;
   top: 0;
   right: 0;
@@ -1904,13 +1906,12 @@ a {
   opacity: var(--th-toggle-opacity);
   transition: opacity 0.4s ease;
 }
-.th-reader__refs.is-active {
+.th-reader__fs-toggle:hover,
+.th-reader__fs-toggle:focus-visible,
+.th-reader__fs-toggle:active {
   opacity: var(--th-toggle-opacity-active);
 }
-.th-reader__refs.is-idle {
-  opacity: 0;
-}
-.th-reader__refs::before {
+.th-reader__fs-toggle::before {
   content: "";
   position: absolute;
   top: 6px;
@@ -1921,12 +1922,12 @@ a {
   /* expand: 直角の頂点＝右上隅（top-right / top-left / bottom-right）。斜辺=左上↘右下。 */
   clip-path: polygon(100% 0, 0 0, 100% 100%);
 }
-.th-reader__refs[data-dir="collapse"]::before {
+.th-reader__fs-toggle[data-dir="collapse"]::before {
   /* collapse: 直角の頂点＝左下隅（bottom-left / top-left / bottom-right）。斜辺は同じ↘。 */
   clip-path: polygon(0 100%, 0 0, 100% 100%);
 }
-.th-reader__refs:hover::before,
-.th-reader__refs:focus-visible::before {
+.th-reader__fs-toggle:hover::before,
+.th-reader__fs-toggle:focus-visible::before {
   background: var(--color-th-gold-bright);
 }
 

@@ -27,7 +27,10 @@
 // 再全体化トグル（Issue #148・kako-jun 確定）:
 // - スマホがスリープするとブラウザが fullscreen を強制解除して埋め込み表示に戻る
 //   （ブラウザ仕様で回避不可）。再生開始後に全体化へ戻す手段が無かったので、stage 右上に
-//   常駐する塗り三角トグルを足す。
+//   常駐する塗り三角トグルを足す。極薄で常駐し（opacity 0.15）0まで消さない＝無操作でも
+//   消えない。再生後は stage 全面をクロスオリジン iframe が覆い iframe 面のタップは親へ
+//   伝わらないため「消して画面タップで再出現」は成立しない。だから常に薄く見えて常に触れる
+//   状態を保つ。ホバー/フォーカス/アクティブ（トグル自体に触れた時）だけ 0.4 に上がる。
 // - 全体化の対象を iframe ではなく stage ラッパにする。こうすると fullscreen 中も
 //   トグルが stage に乗り続け、真のトグルになる（iframe を対象にすると iframe だけが
 //   描画され親DOMのトグルが消える）。iframe の allow 属性生成（buildReaderIframeAttrs・
@@ -88,10 +91,6 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   const startBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start]") ?? null;
   const fullscreenBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start-fullscreen]") ?? null;
 
-  // 無操作で再全体化トグルをさらに薄くフェードするまでの時間（動画プレイヤー流儀）。
-  // 濃さ（CSS変数 --th-toggle-opacity* 側）と合わせ、実機調整しやすいよう定数化する（#148）。
-  const TOGGLE_IDLE_FADE_MS = 3000;
-
   type WebkitDocument = Document & {
     webkitFullscreenElement?: Element | null;
     webkitExitFullscreen?: () => Promise<void> | void;
@@ -116,11 +115,12 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     return iframe;
   }
 
-  // 再全体化トグル（#148）。stage 右上に貼りつく塗り三角。向きで状態を示す。
+  // 再全体化トグル（#148）。stage 右上に貼りつく塗り三角。向きで状態を示す。極薄常駐
+  // （opacity 0.15）で、ホバー/フォーカス/アクティブ時だけ濃くなる（濃さ制御は素の CSS）。
   function createToggle(): HTMLButtonElement {
     const toggle = document.createElement("button");
     toggle.type = "button";
-    toggle.className = "th-reader__refs";
+    toggle.className = "th-reader__fs-toggle";
     toggle.setAttribute("aria-label", "全体表示を切り替える");
     // 初期状態は埋め込み（＝右上向き＝広げる）。fullscreenchange で随時上書きする。
     toggle.dataset.dir = "expand";
@@ -149,24 +149,6 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     toggle.dataset.dir = resolveReaderToggleDirection(doc.fullscreenElement, doc.webkitFullscreenElement);
   }
 
-  // 無操作フェード: 操作で濃く出し、一定時間触られないと消える。stage 内タップで再出現。
-  function wireIdleFade(toggle: HTMLButtonElement) {
-    let timer: ReturnType<typeof setTimeout> | undefined;
-    const wake = () => {
-      toggle.classList.remove("is-idle");
-      toggle.classList.add("is-active");
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => {
-        toggle.classList.remove("is-active");
-        toggle.classList.add("is-idle");
-      }, TOGGLE_IDLE_FADE_MS);
-    };
-    // stage 全体（iframe 面含む）を触ったら再出現・タイマーリセット。
-    stage?.addEventListener("pointerdown", wake);
-    stage?.addEventListener("touchstart", wake, { passive: true });
-    wake();
-  }
-
   // iframe とトグルを stage に載せて再生を始める。fullscreen 要求は開始時のみ（全画面で読む）。
   function mountReader(requestFullscreenOnStart: boolean) {
     const iframe = createIframe();
@@ -176,7 +158,6 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     document.addEventListener("fullscreenchange", changeHandler);
     document.addEventListener("webkitfullscreenchange", changeHandler);
     syncToggleDirection(toggle);
-    wireIdleFade(toggle);
     if (requestFullscreenOnStart && stage) {
       try {
         Promise.resolve(pickFullscreenRequestFn(stage)?.()).catch(() => {});
