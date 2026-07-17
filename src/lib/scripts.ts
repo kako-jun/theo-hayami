@@ -267,7 +267,7 @@ export interface StoryButtonEntry {
   title: string;
   sceneId: string;
   background: string | null;
-  /** 幕内の表示順。1始まりの通し番号（第一幕は 1..12）。 */
+  /** 幕内の表示順。幕ごとに1始まりへリセットする通し番号（第一幕は 1..12、第二幕は 1..4）。 */
   orderInAct: number;
 }
 
@@ -332,10 +332,14 @@ export function findMainStory(slug: string): MainStoryEntry | undefined {
 }
 
 /**
- * `/story` に並べる第一幕の本編ボタン。順序ゲートの厳密な並びは
- * [act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04] の通し12件。
- * 到着→入口で文脈を与えてから、住人8人との初対面（おはこ）、そして違和感→返却口の灯で閉じる。
- * `orderInAct` は 1 始まりの通し番号（1..12）。本筋mdには住人がいないので character は付かない。
+ * `/story` に並べる本編ボタン。順序ゲートの厳密な並びは
+ * 第一幕 [act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04]（12件）に続けて
+ * 第二幕 [act2-01, act2-02, act2-03, act2-04]（4件）を足した通し16件フラット配列。
+ * 到着→入口で文脈を与えてから、住人8人との初対面（おはこ）、違和感→返却口の灯で一幕を閉じ、
+ * 最初の消失（スピノ不在）→ざわめき→数の再燃で二幕を進める。
+ * `orderInAct` は各幕内で 1 始まりにリセットする通し番号（第一幕は 1..12、第二幕は 1..4）。
+ * `/story` の見出し分割は `groupStoryButtonsByAct()` を使う（幕の区分ロジックをここに集約し、
+ * story.astro 側では判定しない）。本筋mdには住人がいないので character は付かない。
  */
 export function loadStoryButtons(): StoryButtonEntry[] {
   if (cachedStoryButtons) return cachedStoryButtons;
@@ -344,7 +348,7 @@ export function loadStoryButtons(): StoryButtonEntry[] {
   const requireMain = (slug: string): MainStoryEntry => {
     const entry = mainBySlug.get(slug);
     if (!entry) {
-      throw new Error(`第一幕シーケンスに対応する本筋mdが見つからない: ${slug}`);
+      throw new Error(`本編シーケンスに対応する本筋mdが見つからない: ${slug}`);
     }
     return entry;
   };
@@ -357,8 +361,9 @@ export function loadStoryButtons(): StoryButtonEntry[] {
 
   const ohakoByCharacter = new Map(loadOhako().map((entry) => [entry.character, entry]));
 
-  // 順序ゲートの厳密な並び（住人分はハードコードせず RESIDENTS 配列順で差し込む）。
-  const sequence: Omit<StoryButtonEntry, "orderInAct">[] = [
+  // 第一幕: 到着→入口→おはこ8本(RESIDENTS順)→帰還→一幕締め、の12件固定シーケンス
+  // （住人分はハードコードせず RESIDENTS 配列順で差し込む）。
+  const act1Sequence: Omit<StoryButtonEntry, "orderInAct">[] = [
     asButton(requireMain("act1-01")),
     asButton(requireMain("act1-02")),
     ...RESIDENTS.map((resident) => {
@@ -378,12 +383,84 @@ export function loadStoryButtons(): StoryButtonEntry[] {
     asButton(requireMain("act1-04")),
   ];
 
-  cachedStoryButtons = sequence.map((entry, index) => ({ ...entry, orderInAct: index + 1 }));
+  // 第二幕: 最初の消失（ホログラムだから→空席→ざわめき→数）の4件固定シーケンス。
+  const act2Sequence: Omit<StoryButtonEntry, "orderInAct">[] = [
+    asButton(requireMain("act2-01")),
+    asButton(requireMain("act2-02")),
+    asButton(requireMain("act2-03")),
+    asButton(requireMain("act2-04")),
+  ];
+
+  const withOrderInAct = (
+    seq: Omit<StoryButtonEntry, "orderInAct">[],
+  ): StoryButtonEntry[] => seq.map((entry, index) => ({ ...entry, orderInAct: index + 1 }));
+
+  cachedStoryButtons = [...withOrderInAct(act1Sequence), ...withOrderInAct(act2Sequence)];
   return cachedStoryButtons;
 }
 
 export function findStoryButton(slug: string): StoryButtonEntry | undefined {
   return loadStoryButtons().find((entry) => entry.slug === slug);
+}
+
+/** `/story` の幕見出し分割で1グループぶん。幕番号とその幕に属するボタン列（元の順序を保つ）。 */
+export interface StoryActSection {
+  /** 幕番号（1, 2, ...）。 */
+  act: number;
+  buttons: StoryButtonEntry[];
+}
+
+/**
+ * `loadStoryButtons()` が返す通しフラット配列を、幕ごとの表示セクションに分割する
+ * （story.astro の見出し分割用の純粋関数。判定ロジックを .astro 側に埋め込まない規律）。
+ * 区分は本筋mdのslug prefix（`act{n}-`）から判定する。おはこ（`ohako-*`）は本筋prefixを
+ * 持たないため、シーケンス順で直前に出た `act{n}-` の幕番号をそのまま引き継ぐ
+ * （例: `act1-02` の直後に並ぶおはこ8本は、次の `act{n}-` に出会うまで第一幕のまま）。
+ * `loadStoryButtons()` の並び順は幕番号が単調増加である契約なので、区切りは高々1箇所ずつ増える。
+ */
+export function groupStoryButtonsByAct(buttons: readonly StoryButtonEntry[]): StoryActSection[] {
+  const sections: StoryActSection[] = [];
+  let currentAct = 1;
+  for (const button of buttons) {
+    const match = button.slug.match(/^act(\d+)-/);
+    if (match) {
+      const actNumber = Number(match[1]);
+      if (actNumber < currentAct) {
+        throw new Error(`幕番号が単調増加でない: ${button.slug}（直前は第${currentAct}幕）`);
+      }
+      currentAct = actNumber;
+    }
+    const last = sections.at(-1);
+    if (last && last.act === currentAct) {
+      last.buttons.push(button);
+    } else {
+      sections.push({ act: currentAct, buttons: [button] });
+    }
+  }
+  return sections;
+}
+
+// 幕番号→本編ページ見出し（`/main/[slug].astro` の「第一幕」ハードコード解消用）。
+// 漢数字は4幕までの本筋設計（four_act_structure.md）に合わせた固定表。
+const ACT_KANJI_NUMERALS: Record<number, string> = {
+  1: "一",
+  2: "二",
+  3: "三",
+  4: "四",
+};
+
+/**
+ * 本筋mdスラッグ（`act{n}-{nn}`）から幕ラベル（`第一幕` 等）を返す。
+ * おはこ等 `act{n}-` prefix を持たないslugは undefined（`/main/[slug].astro` 側で
+ * 「本筋mdかどうか」の分岐は既に character の有無で行っているため、ここでは
+ * 幕ラベルの導出だけを担う）。
+ */
+export function mainStoryActLabel(slug: string): string | undefined {
+  const match = slug.match(/^act(\d+)-/);
+  if (!match) return undefined;
+  const actNumber = Number(match[1]);
+  const kanji = ACT_KANJI_NUMERALS[actNumber];
+  return `第${kanji ?? actNumber}幕`;
 }
 
 // --- ハブ（script.md）の選択肢順序 ---
