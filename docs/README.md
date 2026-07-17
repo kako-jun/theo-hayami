@@ -20,6 +20,8 @@
 | `03_story/four_act_structure.md` | 四幕構成 |
 | `03_story/structure_hybrid.md` | **ハイブリッド構造**（物語×自由行動／ひな壇が死ぬ仕掛け） |
 | `04_twists/all_foreshadowing.md` | 全伏線 |
+| `04_twists/hook_ledger.md` | 本編フック管理台帳 |
+| `04_twists/skirts_colour_method.md` | 宇宙色式の後付け伏線レビュー手順 |
 | `05_philosophy/mapping.md` | 思想対応表 |
 | `06_science/science_layer.md` | 理系設定（イデア論・ホログラフィック宇宙・万物の理論） |
 | `07_visual/key_visuals.md` | キービジュアル6点 |
