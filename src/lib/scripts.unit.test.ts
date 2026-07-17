@@ -9,7 +9,7 @@ describe("parseFrontmatterTitle", () => {
     const raw = `---
 engine: name-name
 title: "好きで苦しい"
-protagonist: "せお"
+protagonist: "セオ"
 ---
 
 本文`;
@@ -32,7 +32,7 @@ title: "これは本文中のtitle"`;
   it("frontmatter はあるが title 行が無ければ空文字", () => {
     const raw = `---
 engine: name-name
-protagonist: "せお"
+protagonist: "セオ"
 ---`;
     expect(parseFrontmatterTitle(raw)).toBe("");
   });
