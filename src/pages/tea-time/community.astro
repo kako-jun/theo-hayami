@@ -9,7 +9,7 @@
 // 004 / TEA TIME の枝ページ。folio番号は独立させない（Issue #131 本文の指示）。
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
-import { EXTRA_VOTE_TARGETS, VOTE_TARGETS } from "../../lib/rankingVote";
+import { VOTE_TARGETS } from "../../lib/rankingVote";
 
 // kako-jun 指示（Issue #131追記）: 投票対象の「住人」にせお・ヴィンチアも含める
 // （「2人だって住人だ」という世界観解釈）。見出し「推したい住人を選んでね」は
@@ -17,7 +17,7 @@ import { EXTRA_VOTE_TARGETS, VOTE_TARGETS } from "../../lib/rankingVote";
 // buildResidentRankingRows は {slug, name}[] の汎用シグネチャなので変更不要。
 // VOTE_TARGETS（住人8人+EXTRA_VOTE_TARGETS）は rankingVote.ts 側の1箇所で組み立て済み
 // （frontmatterとclient scriptで個別に組み立てると将来食い違うため、ここではimportのみ）。
-const EXTRA_VOTE_SLUGS = new Set(EXTRA_VOTE_TARGETS.map((target) => target.slug));
+// 全10人を bust.webp で統一表示するため、せお・ヴィンチアの暫定分岐(isExtra)は撤廃。
 
 // BBS は投票ロジックを持たず、この widget 属性でしか使わないためローカル定数でよい
 // （Nostalgic側で作成済み・再作成不要。Nostalgic の公開IDはURLのみから生成されサービス種別を
@@ -45,59 +45,68 @@ const BBS_ID = "theo-hayami-fc727d17";
     <header class="mt-8 th-glow">
       <p class="th-magazine-section__folio">004 / TEA TIME</p>
       <h1 class="text-2xl sm:text-3xl mt-2" style="color: var(--color-th-theo);">星海への接続端末</h1>
-      <p class="mt-3 text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
-        住人への一票と、次のお題の投稿を残せる場所です。
-      </p>
     </header>
 
-    <section class="th-panel p-6 sm:p-7 mt-8">
-      <h2 class="text-xl" style="color: var(--color-th-theo);">推したい住人を選んでね</h2>
-      <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+    <!-- 導入文は姉妹ページ tea-time.astro と同じ本文規約（.th-story-index__intro=
+         0.95rem/2.05/ivory/54rem）＋金ヘアラインの導入ブロックに揃える（kako-jun指摘 #134:
+         本文のサイズ/行間/色/余白を本編・けふのティータイムと統一）。 -->
+    <section class="th-story-index-intro mt-8">
+      <p class="th-story-index__intro">
+        住人への一票と、次のお題の投稿を残せる場所です。
+      </p>
+    </section>
+
+    <!-- 投票UIは枠・箱を持たせず、書庫の地色の上に顔を直接並べる（kako-jun指摘 #134:
+         枠もいらない・一つの作品として）。外側の .th-panel の箱は撤去。 -->
+    <section class="mt-8">
+      <h2 class="text-xl" style="color: var(--color-th-theo);">推したい住人を選んでください</h2>
+      <p class="th-story-index__intro mt-4">
         推したい住人に一票どうぞ。何度でも押せますが、連続投票には少し間隔が必要です。
       </p>
 
-      <!-- サーバー側は住人一覧の宣言順・スコア0のプレースホルダを描画する。
-           クライアントJSが読み込み後に実スコアを取得し、順位を並べ替えて更新する。
+      <!-- 全10人（住人8＋せお＋ヴィンチア）を bust.webp で統一表示。ポートレート・カード
+           自体が投票トリガー（button）。順位バッジ＋スコアはカード隅にオーバーレイし、
+           スコア取得(get)後にJSで反映する（格子は固定順・自動並べ替えはしない）。
            投票ボタンは最初から disabled にしておく: 現在スコアの取得（get）が終わる前に
            投票できてしまうと、findCurrentScoreが0を返して submit?score=1 を送ってしまい、
            既に score>0 の住人ではサーバー側UPSERTが「新スコアが既存より上回るときだけ更新」
            のため無言でno-opになる（submit応答自体は success:true を返すためUIには
            「投票しました」と出てしまう）。取得が終わるまでは押させない。 -->
-      <ol class="th-vote-list mt-5" data-vote-list>
+      <ul class="th-vote-grid" data-vote-list>
         {
-          VOTE_TARGETS.map((resident) => {
-            // せお・ヴィンチアは専用bust.webpが無いため、仮素材として normal.webp を使い
-            // クロップは基本形 .th-face-crop（--bust修飾なし）で出す。kako-junが後日
-            // 専用のbust.webpを作成したら、8住人と同じ bust.webp + --bust に差し替え予定。
-            const isExtra = EXTRA_VOTE_SLUGS.has(resident.slug);
-            const imageFile = isExtra ? "normal.webp" : "bust.webp";
-            const portraitClass = isExtra ? "th-vote-row__portrait th-face-crop" : "th-vote-row__portrait th-face-crop th-face-crop--bust";
-            return (
-              <li class="th-vote-row" data-vote-row data-resident-slug={resident.slug}>
-                <span class="th-vote-row__rank" data-vote-rank>-</span>
-                <span class={portraitClass}>
-                  <img src={`/images/${resident.slug}/${imageFile}`} alt="" loading="lazy" />
+          VOTE_TARGETS.map((resident) => (
+            <li
+              class="th-vote-cell"
+              data-vote-row
+              data-resident-slug={resident.slug}
+              data-resident-name={resident.name}
+            >
+              <button
+                type="button"
+                class="th-vote-card"
+                data-vote-name={resident.name}
+                data-resident-slug={resident.slug}
+                aria-label={`${resident.name}に一票を灯す`}
+                disabled
+              >
+                <span class="th-vote-card__portrait th-face-crop th-face-crop--bust">
+                  <img src={`/images/${resident.slug}/bust.webp`} alt="" loading="lazy" />
                 </span>
-                <span class="th-vote-row__name">{resident.name}</span>
-                <span class="th-vote-row__score" data-vote-score>0</span>
-                <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name} disabled>
-                  {resident.name}に投票
-                </button>
-              </li>
-            );
-          })
+                <span class="th-vote-card__name">{resident.name}</span>
+                <span class="th-vote-card__score"><span data-vote-score>0</span></span>
+              </button>
+            </li>
+          ))
         }
-      </ol>
+      </ul>
       <p class="th-vote-status mt-3" role="status" aria-live="polite" data-vote-status></p>
     </section>
 
     <script>
       import {
         RANKING_ID,
-        VOTE_TARGETS,
         buildRankingGetUrl,
         buildRankingSubmitUrl,
-        buildResidentRankingRows,
         findCurrentScore,
         formatVoteWaitMessage,
         mergeRankingEntries,
@@ -105,15 +114,17 @@ const BBS_ID = "theo-hayami-fc727d17";
       } from "../../lib/rankingVote";
       import type { RankingEntry } from "../../lib/rankingVote";
 
-      const listEl = document.querySelector<HTMLOListElement>("[data-vote-list]");
+      const listEl = document.querySelector<HTMLUListElement>("[data-vote-list]");
       const statusEl = document.querySelector<HTMLElement>("[data-vote-status]");
 
       if (listEl && statusEl) {
         const list = listEl;
         const status = statusEl;
 
+        // グリッドのセル（li）を slug で引けるようにする。カード内 button にも
+        // data-resident-slug が付くため、行の器である [data-vote-row]（li）に限定して拾う。
         const rowsBySlug = new Map<string, HTMLLIElement>();
-        for (const li of list.querySelectorAll<HTMLLIElement>("[data-resident-slug]")) {
+        for (const li of list.querySelectorAll<HTMLLIElement>("[data-vote-row]")) {
           const slug = li.dataset.residentSlug;
           if (slug) rowsBySlug.set(slug, li);
         }
@@ -137,19 +148,17 @@ const BBS_ID = "theo-hayami-fc727d17";
           status.textContent = message;
         }
 
-        // 行要素は複製せず、スコア降順の並びで list.appendChild し直して順序を反映する
-        // （既存の子要素に対する appendChild は複製ではなく移動＝末尾への並べ替えになる）。
+        // グリッドは固定順（宣言順）で並べたまま、得票数（スコア）だけを各カードの
+        // オーバーレイに反映する（DOMの並べ替え＝appendChildはしない＝カード位置は動かない）。
+        // kako-jun指摘 #134: #N の順位連番はボタンに不要（初期は通し番号に見えて無意味）なので撤去。
+        // スコアだけ出す用途では並べ替え不要なため buildResidentRankingRows は使わない。
         function renderRows(entries: RankingEntry[]) {
-          const rankedRows = buildResidentRankingRows(VOTE_TARGETS, entries);
-          rankedRows.forEach((row, index) => {
-            const li = rowsBySlug.get(row.slug);
-            if (!li) return;
-            const rankEl = li.querySelector<HTMLElement>("[data-vote-rank]");
+          for (const [slug, li] of rowsBySlug) {
+            const name = li.dataset.residentName ?? "";
             const scoreEl = li.querySelector<HTMLElement>("[data-vote-score]");
-            if (rankEl) rankEl.textContent = String(index + 1);
-            if (scoreEl) scoreEl.textContent = String(row.score);
-            list.appendChild(li);
-          });
+            if (scoreEl) scoreEl.textContent = String(findCurrentScore(entries, name));
+            void slug;
+          }
         }
 
         // ページ読み込み時に1回だけ get する（この呼び出し以降、投票のたびの get は行わない）。
@@ -172,7 +181,16 @@ const BBS_ID = "theo-hayami-fc727d17";
           }
         }
 
-        async function vote(name: string) {
+        // signature 演出: 投票成功時、その顔の背後に一度だけ金の光が広がる（is-lit を
+        // 付け直してアニメーションを再生。連続投票でも毎回灯るよう一旦外して次フレームで付ける）。
+        function lightUp(button: HTMLButtonElement) {
+          button.classList.remove("is-lit");
+          // reflow を挟んでからクラスを付け直すとアニメーションが再スタートする。
+          void button.offsetWidth;
+          button.classList.add("is-lit");
+        }
+
+        async function vote(name: string, button: HTMLButtonElement) {
           setButtonsDisabled(true);
           setStatus(`${name}に投票しています…`);
           try {
@@ -200,8 +218,9 @@ const BBS_ID = "theo-hayami-fc727d17";
             // （追加の get は呼ばない＝API呼び出しは submit の1回だけ。「丸ごと置換」ではなく
             // マージにする理由は mergeRankingEntries のコメント参照）。
             cachedEntries = mergeRankingEntries(cachedEntries, submitData.data?.entries ?? []);
-            setStatus(`${name}に投票しました。`);
+            setStatus(`${name}に一票を灯しました。`);
             renderRows(cachedEntries);
+            lightUp(button);
           } catch {
             setStatus("投票に失敗しました。通信状況をご確認ください。");
           } finally {
@@ -213,7 +232,7 @@ const BBS_ID = "theo-hayami-fc727d17";
           const name = button.dataset.voteName;
           if (!name) continue;
           button.addEventListener("click", () => {
-            void vote(name);
+            void vote(name, button);
           });
         }
 
@@ -222,21 +241,42 @@ const BBS_ID = "theo-hayami-fc727d17";
       }
     </script>
 
-    <section class="th-panel p-6 sm:p-7 mt-10">
-      <h2 class="text-xl" style="color: var(--color-th-theo);">ティータイムのお題募集</h2>
-      <p class="mt-4 text-sm leading-loose" style="color: var(--color-th-ivory);">
+    <!-- BBSウィジェット自身が保存タイトル「ティータイムのお題を募集」をヘッダとして
+         描画するため、外側の .th-panel の箱と重複する <h2> は撤去し、枠なしで直接置く
+         （kako-jun指摘 #134: タイトル二重・箱過剰）。説明文と mt-10 のセクション間隔は維持。 -->
+    <section class="mt-10">
+      <p class="th-story-index__intro">
         次のお茶の席で扱ってほしい話題を書き込めます。名前は省略できます。
       </p>
       <div class="mt-5">
-        <nostalgic-bbs id={BBS_ID} theme="dark" lang="ja" width="100%"></nostalgic-bbs>
+        <!-- nostalgic-bbs は Shadow DOM だが CSSカスタムプロパティは継承で境界を越えるため、
+             インライン style で theo 書庫パレットに寄せて上書きする（インラインは内部 :host
+             既定に勝つ）。theme="dark" は土台として残し、その上に変数を被せる。
+             nostalgicサーバー/コンポーネント側は一切変更しない。 -->
+        <nostalgic-bbs
+          id={BBS_ID}
+          theme="dark"
+          lang="ja"
+          width="100%"
+          style="
+            --bbs-bg-color: #12111a;
+            --bbs-border-color: #b8934f;
+            --bbs-shadow-color: rgba(10, 9, 16, 0.8);
+            --bbs-header-bg: #0a0910;
+            --bbs-header-color: #f1e8d6;
+            --bbs-message-bg: #1a1826;
+            --bbs-text-color: #f1e8d6;
+            --bbs-scrollbar-thumb: #b8934f;
+            --bbs-scrollbar-hover: #e6c47e;
+          "></nostalgic-bbs>
       </div>
       <!-- 読み込みに失敗しても <nostalgic-bbs> は中身が空のまま静かに残るだけで
            レイアウトは壊れない（VisitorCounter.astro と同じ is:inline パターン）。 -->
       <script is:inline src="https://nostalgic.llll-ll.com/components/bbs.js" defer></script>
     </section>
 
-    <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
-      <a href="/tea-time" class="th-link-button text-center no-underline">けふのティータイム</a>
+    <nav class="th-page-nav mt-10" aria-label="このあと">
+      <a href="/tea-time" class="th-link-button no-underline">けふのティータイム</a>
     </nav>
   </div>
 </LibraryLayout>

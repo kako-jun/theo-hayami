@@ -507,6 +507,15 @@ a {
   color: var(--color-th-theo);
   box-shadow: 0 0 0 1px rgba(230, 196, 126, 0.18) inset;
 }
+/* ページ下部の戻る/辿るナビ用ラッパ。ボタン自体を水平センタリングする（kako-jun指摘 #134:
+   text-center はテキストのみ・inline-block は左寄せのままでボタンが中央に来ていなかった）。
+   複数ボタンは中央に並べて折り返す。上マージンは各ページで mt-* を付けて調整する。 */
+.th-page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
 
 /* 顔アップカードの画像トリミング（顔アップ専用素材が来るまでの暫定処置）。
    立ち絵は全身分（縦長・頭は上端付近）。正方形枠の上に寄せてズームし、
@@ -788,65 +797,305 @@ a {
    （kako-jun指摘）。汎用の角丸カード・原色ボタンにせず、既存の .th-panel / .th-face-crop /
    .th-link-button を流用する（DESIGN.md: 原色ボタン不採用）。
    --------------------------------------------------------------------- */
-.th-vote-list {
-  display: grid;
-  gap: 0.6rem;
+/* 投票UI＝「闇に浮かぶ顔と、灯り」（Issue #134 デザイン格上げ）。
+   枠・箱・ボーダー・角丸カードは一切使わない。書庫の地色(ink)の上に bust をそのまま
+   並べ、白背景 bust の矩形の硬さは mask のフェードでインクへ溶かす。触れると顔の背後に
+   金の光が「灯る」（暗くする演出は禁止＝この企画の鉄則）。#N の順位連番は撤去し、得票数
+   だけを金の数字で添える。 */
+.th-vote-grid {
   list-style: none;
-  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* 正方の顔を綺麗な格子に。横は詰めて lattice に、縦は名前＋得票のぶん少し開ける。 */
+  gap: 1.6rem 1rem;
+  /* 説明文との間に余白を確保（このルールは非レイヤーで Tailwind の mt-* ユーティリティ
+     に勝つため、間隔はここで持たせる。kako-jun指摘 #134: 説明文直下が詰まって見える）。 */
+  margin: 2.4rem 0 0;
   padding: 0;
 }
-.th-vote-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 0.75rem;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid rgba(184, 147, 79, 0.32);
-  background: rgba(10, 9, 16, 0.32);
+@media (min-width: 640px) {
+  .th-vote-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.9rem 1.2rem;
+  }
 }
-.th-vote-row__rank {
-  flex: none;
-  width: 1.6rem;
-  color: var(--color-th-gold-bright);
-  font-size: 0.85rem;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
+@media (min-width: 1024px) {
+  .th-vote-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
-/* .th-face-crop--bust のサイズ修飾（住人カードの4.8remより一回り小さいランキング行用）。 */
-.th-vote-row__portrait {
-  flex: none;
-  width: 2.75rem;
-  border: 1px solid rgba(230, 196, 126, 0.5);
-}
-.th-vote-row__name {
-  flex: 1 1 8rem;
+.th-vote-cell {
   min-width: 0;
-  color: var(--color-th-ivory);
-  font-size: 0.92rem;
 }
-.th-vote-row__score {
-  flex: none;
-  min-width: 2.5rem;
+/* ボタンだが、ボタンに見える chrome（枠・塗り・影の箱）は一切持たせない。 */
+.th-vote-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--color-th-ivory);
+  text-align: center;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.th-vote-card:disabled {
+  cursor: default;
+}
+/* 顔の背後に灯る金のグロー。既定は消灯、ホバー/フォーカスでふわっと点る（暗くしない）。
+   顔ポートレート(.th-face-crop)は overflow:hidden なので、グローはカード側に置いて
+   マスクで透けた縁からにじませる。 */
+.th-vote-card::before {
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  width: min(11rem, 118%);
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 46%, var(--color-th-gold) 0%, transparent 66%);
+  opacity: 0;
+  filter: blur(10px);
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.th-vote-card:not(:disabled):hover::before,
+.th-vote-card:not(:disabled):focus-visible::before {
+  opacity: 0.5;
+}
+/* signature: 投票が入った瞬間、その顔の背後に一度だけ光が広がる bloom（1箇所に絞る）。 */
+.th-vote-card.is-lit::after {
+  content: "";
+  position: absolute;
+  top: -0.6rem;
+  left: 50%;
+  width: min(11rem, 118%);
+  aspect-ratio: 1 / 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 46%, var(--color-th-gold-bright) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  animation: th-vote-bloom 0.85s ease-out forwards;
+}
+@keyframes th-vote-bloom {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.45);
+  }
+  28% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.35);
+  }
+}
+/* 顔ポートレート: キャラ絵が正方（1:1）なのを活かし、セルいっぱいの正方チップにして
+   綺麗な格子に並べる（.th-face-crop が aspect-ratio:1/1・cover 済み）。枠・地色は付けず、
+   白背景 bust の矩形の縁をマスクでインクへ溶かして「闇に浮かぶ顔」にする。 */
+.th-vote-card__portrait {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  -webkit-mask-image: radial-gradient(ellipse 78% 82% at 50% 42%, #000 48%, transparent 100%);
+  mask-image: radial-gradient(ellipse 78% 82% at 50% 42%, #000 48%, transparent 100%);
+}
+/* bust は顔＋上半身の白背景素材。正方セルで顔へ寄せて白背景の見える面積を減らし、
+   マスクの縁フェードでインクへ溶かす（.th-face-crop--bust は ResidentCard でも使うので
+   投票グリッド内だけを上書きする）。 */
+.th-vote-card__portrait.th-face-crop--bust img {
+  object-position: center 20%;
+  transform: scale(1.32);
+  transform-origin: center 22%;
+}
+.th-vote-card__name {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-mincho);
+  color: var(--color-th-ivory);
+  font-size: 0.98rem;
+  letter-spacing: 0.06em;
+  transition: color 0.3s ease;
+}
+.th-vote-card:not(:disabled):hover .th-vote-card__name,
+.th-vote-card:not(:disabled):focus-visible .th-vote-card__name {
   color: var(--color-th-gold-bright);
-  font-size: 0.9rem;
-  text-align: right;
+}
+/* 得票数だけを金の数字で添える（順位バッジ #N は撤去）。 */
+.th-vote-card__score {
+  position: relative;
+  z-index: 1;
+  margin-top: -0.15rem;
+  color: var(--color-th-gold-bright);
+  font-size: 0.78rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
   font-variant-numeric: tabular-nums;
 }
-.th-vote-button {
-  flex: none;
-  padding: 0.4rem 0.75rem;
-  font-size: 0.8rem;
-  cursor: pointer;
+.th-vote-card__score::after {
+  content: " pt";
+  font-size: 0.62rem;
+  opacity: 0.6;
 }
-.th-vote-button:disabled {
-  cursor: default;
-  opacity: 0.5;
+@media (prefers-reduced-motion: reduce) {
+  .th-vote-card::before {
+    transition: none;
+  }
+  .th-vote-card.is-lit::after {
+    animation: none;
+  }
 }
 .th-vote-status {
   min-height: 1.4em;
   color: var(--color-th-gold-bright);
   font-size: 0.82rem;
   letter-spacing: 0.04em;
+}
+
+/* 「星海への接続端末」への特別な入口（Issue #134 指摘10）。他の .th-door と差別化し、
+   ink-deep 地の控えめな星明かり＋金のグローで存在感を出す。ホバー/フォーカスで光が強まり
+   端末がひらくように灯る（暗くする演出は禁止）。行動キューは「接続/通信が走る」不安を避け
+   「▷ ひらく」に（kako-jun指摘 #134）。宇宙色（プリズム/虹）は持ち込まず金＋アイボリー＋インクに留める。 */
+.th-terminal-portal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  overflow: hidden;
+  padding: 1.7rem 1.8rem;
+  min-height: 6.5rem;
+  border: 1px solid rgba(184, 147, 79, 0.55); /* =gold #b8934f */
+  background:
+    radial-gradient(120% 140% at 12% 0%, rgba(184, 147, 79, 0.16) 0%, transparent 55%),
+    var(--color-th-ink-deep);
+  color: var(--color-th-ivory);
+  box-shadow:
+    0 0 0 1px rgba(230, 196, 126, 0.08) inset,
+    0 12px 30px -18px rgba(0, 0, 0, 0.9);
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+/* 細かな星明かり（点光）。ink-deep 地に控えめに散らす。 */
+.th-terminal-portal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1.5px 1.5px at 18% 30%, rgba(241, 232, 214, 0.7), transparent),
+    radial-gradient(1px 1px at 42% 68%, rgba(230, 196, 126, 0.7), transparent),
+    radial-gradient(1.5px 1.5px at 68% 22%, rgba(241, 232, 214, 0.5), transparent),
+    radial-gradient(1px 1px at 82% 58%, rgba(230, 196, 126, 0.6), transparent),
+    radial-gradient(1px 1px at 55% 40%, rgba(241, 232, 214, 0.5), transparent),
+    radial-gradient(1.5px 1.5px at 30% 82%, rgba(230, 196, 126, 0.5), transparent),
+    radial-gradient(1px 1px at 90% 34%, rgba(241, 232, 214, 0.5), transparent);
+  opacity: 0.55;
+  transition: opacity 0.5s ease;
+}
+/* signature: 端末の奥で脈打つ金のグロー（1箇所に絞る）。 */
+.th-terminal-portal::after {
+  content: "";
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  width: 16rem;
+  height: 16rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(184, 147, 79, 0.28) 0%, transparent 65%);
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+  animation: th-terminal-pulse 4.5s ease-in-out infinite;
+}
+@keyframes th-terminal-pulse {
+  0%,
+  100% {
+    opacity: 0.38;
+  }
+  50% {
+    opacity: 0.72;
+  }
+}
+.th-terminal-portal:hover,
+.th-terminal-portal:focus-visible {
+  border-color: var(--color-th-gold-bright);
+  box-shadow:
+    0 0 0 1px rgba(230, 196, 126, 0.28) inset,
+    0 0 30px -6px rgba(184, 147, 79, 0.5);
+}
+.th-terminal-portal:hover::before,
+.th-terminal-portal:focus-visible::before {
+  opacity: 0.95;
+}
+.th-terminal-portal:hover::after,
+.th-terminal-portal:focus-visible::after {
+  opacity: 1;
+}
+.th-terminal-portal__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.th-terminal-portal__label {
+  font-family: var(--font-mincho);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: var(--color-th-gold-bright);
+}
+.th-terminal-portal__desc {
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--color-th-ivory-dim);
+}
+.th-terminal-portal__cue {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  font-family: var(--font-mincho);
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  color: var(--color-th-gold);
+  white-space: nowrap;
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+.th-terminal-portal:hover .th-terminal-portal__cue,
+.th-terminal-portal:focus-visible .th-terminal-portal__cue {
+  color: var(--color-th-gold-bright);
+  transform: translateX(5px);
+}
+@media (max-width: 520px) {
+  .th-terminal-portal {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .th-terminal-portal::after {
+    animation: none;
+  }
+  .th-terminal-portal,
+  .th-terminal-portal__cue {
+    transition: none;
+  }
 }
 
 .th-path-tree {

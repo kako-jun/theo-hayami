@@ -28,13 +28,14 @@ export const RANKING_ID = "theo-hayami-fc727d17";
 
 /**
  * 住人8人（RESIDENTS）に加えて投票対象へ含める追加エントリ（Issue #131追記）。
- * kako-jun 指示: 「2人だって住人だ」という世界観解釈で、せお・ヴィンチアも投票対象に含める。
- * name は scripts の話者タグと同じ表記（せお／ヴィンチア）を使う。
+ * kako-jun 指示: 「2人だって住人だ」という世界観解釈で、セオ・ヴィンチアも投票対象に含める。
+ * 投票UIの表示名はカナ表記（セオ／ヴィンチア）で揃える（本編脚本の話者タグ「せお」は
+ * 平仮名だが、投票グリッドの表示・status文言はカナに統一するという kako-jun 指摘）。
  * frontmatter（community.astro）と client script（同ファイル内 <script>）は
  * Astro上で別モジュールとして評価されるため、両方から参照できるようここへ置く。
  */
 export const EXTRA_VOTE_TARGETS: { slug: string; name: string }[] = [
-  { slug: "theo", name: "せお" },
+  { slug: "theo", name: "セオ" },
   { slug: "vincia", name: "ヴィンチア" },
 ];
 

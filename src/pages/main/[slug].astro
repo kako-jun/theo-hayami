@@ -96,16 +96,18 @@ const actLabel = !character ? mainStoryActLabel(slug) : undefined;
       <p class="mt-3 leading-loose text-sm" style="color: var(--color-th-ivory-dim);">
         本編は順に読み進めると、次の扉が開きます。物語の棚へ戻り、いま開いている扉から辿ってください。
       </p>
-      <a href="/story" class="th-link-button inline-block mt-5 no-underline">物語の棚へ戻る</a>
+      <div class="th-page-nav mt-5">
+        <a href="/story" class="th-link-button no-underline">物語の棚へ戻る</a>
+      </div>
     </section>
 
-    <nav class="grid gap-3 sm:grid-cols-2 mt-10" aria-label="このあと">
+    <nav class="th-page-nav mt-10" aria-label="このあと">
       {resident && (
-        <a href={`/residents/${resident.slug}`} class="th-link-button text-center no-underline">
+        <a href={`/residents/${resident.slug}`} class="th-link-button no-underline">
           {resident.name}に、業を訊く
         </a>
       )}
-      <a href="/story" class="th-link-button text-center no-underline">物語を辿る</a>
+      <a href="/story" class="th-link-button no-underline">物語を辿る</a>
     </nav>
   </div>
 </LibraryLayout>
