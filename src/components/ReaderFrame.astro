@@ -27,10 +27,12 @@
 // 再全体化トグル（Issue #148・kako-jun 確定）:
 // - スマホがスリープするとブラウザが fullscreen を強制解除して埋め込み表示に戻る
 //   （ブラウザ仕様で回避不可）。再生開始後に全体化へ戻す手段が無かったので、stage 右上に
-//   常駐する塗り三角トグルを足す。極薄で常駐し（opacity 0.15）0まで消さない＝無操作でも
-//   消えない。再生後は stage 全面をクロスオリジン iframe が覆い iframe 面のタップは親へ
-//   伝わらないため「消して画面タップで再出現」は成立しない。だから常に薄く見えて常に触れる
-//   状態を保つ。ホバー/フォーカス/アクティブ（トグル自体に触れた時）だけ 0.4 に上がる。
+//   常駐する塗り三角トグルを足す。薄く常駐し 0まで消さない＝無操作でも消えない。再生後は
+//   stage 全面をクロスオリジン iframe が覆い iframe 面のタップは親へ伝わらないため「消して
+//   画面タップで再出現」は成立しない。だから常に薄く見えて常に触れる状態を保つ。透明度は
+//   name-name リーダー下部スライダ(SeekBar)に合わせる: 常駐 0.2・タップで 1.0・最後の操作
+//   から 2.8秒で 0.2 へ戻る（SeekBar.ts の INACTIVE_ALPHA=0.2 / active alpha=1 /
+//   INACTIVITY_MS=2800 に対応）。hover/focus は CSS で 1.0 のまま（デスクトップ）。
 // - 全体化の対象を iframe ではなく stage ラッパにする。こうすると fullscreen 中も
 //   トグルが stage に乗り続け、真のトグルになる（iframe を対象にすると iframe だけが
 //   描画され親DOMのトグルが消える）。iframe の allow 属性生成（buildReaderIframeAttrs・
@@ -115,8 +117,14 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     return iframe;
   }
 
-  // 再全体化トグル（#148）。stage 右上に貼りつく塗り三角。向きで状態を示す。極薄常駐
-  // （opacity 0.15）で、ホバー/フォーカス/アクティブ時だけ濃くなる（濃さ制御は素の CSS）。
+  // タップ後にトグルを濃い（opacity 1.0）状態に保つ時間。name-name SeekBar.ts の
+  // INACTIVITY_MS=2800 に合わせる（SeekBar は 2.8秒無操作で active alpha 1 → 0.2 に戻る）。
+  const TOGGLE_ACTIVE_HOLD_MS = 2800;
+
+  // 再全体化トグル（#148）。stage 右上に貼りつく塗り三角。向きで状態を示す。透明度は
+  // name-name 下部スライダ(SeekBar)に合わせる: 常駐 0.2（CSS）・タップ/フォーカスで 1.0・
+  // 最後の操作から TOGGLE_ACTIVE_HOLD_MS(2.8秒) 後に 0.2 へ戻す（下の JS タイマー）。
+  // hover/focus-visible の 1.0 は素の CSS。SeekBar 実値 0.2/1/2800 を参照。
   function createToggle(): HTMLButtonElement {
     const toggle = document.createElement("button");
     toggle.type = "button";
@@ -124,6 +132,22 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     toggle.setAttribute("aria-label", "全体表示を切り替える");
     // 初期状態は埋め込み（＝右上向き＝広げる）。fullscreenchange で随時上書きする。
     toggle.dataset.dir = "expand";
+
+    // タップ後の余韻: このトグル1個につきタイマー1本。操作のたびリセット（clearTimeout→
+    // setTimeout）し、2.8秒後に濃い状態(--active)を外す。data-dir の同期(fullscreenchange)
+    // とは独立。リスナはトグル要素自身にだけ張る（stage やクロスオリジン iframe には張らない
+    // ＝iframe 面のタップは親に来ず拾えないため無意味）。トグル自身のタップは親DOMで拾える。
+    let holdTimer: number | undefined;
+    const nudgeActive = () => {
+      toggle.classList.add("th-reader__fs-toggle--active");
+      if (holdTimer !== undefined) clearTimeout(holdTimer);
+      holdTimer = window.setTimeout(() => {
+        toggle.classList.remove("th-reader__fs-toggle--active");
+      }, TOGGLE_ACTIVE_HOLD_MS);
+    };
+    toggle.addEventListener("pointerdown", nudgeActive);
+    toggle.addEventListener("focus", nudgeActive);
+
     toggle.addEventListener("click", () => {
       const doc = document as WebkitDocument;
       const action = pickReaderToggleAction(doc.fullscreenElement, doc.webkitFullscreenElement);

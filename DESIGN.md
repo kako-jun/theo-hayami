@@ -46,7 +46,7 @@ components:
   th-link-button: 「読む」・戻り導線のボタン
   th-face-crop / th-face-crop--bust: 顔アップ/LoRAバストアップカードの正方形トリミング
   th-reader: name-name 埋め込みの 9:16 ステージ＋開始CTA2種（読む／全画面で読む・Issue #61）
-  th-reader__fs-toggle: 再生中の stage 右上隅に常駐する再全体化トグル（Issue #148）。枠chromeを持たない金の塗り三角（鏃だけ）で、向きで状態を示す（expand=角が右上向き＝広げる／collapse=角が左下向き＝畳む）。読書優先の極薄で常駐（opacity 0.15・0まで消さない＝無操作でも消えない）、ホバー/フォーカス/アクティブ時だけ0.4に上がる。gold/gold-brightのみ・せお色は使わない
+  th-reader__fs-toggle: 再生中の stage 右上隅に常駐する再全体化トグル（Issue #148）。枠chromeを持たない金の塗り三角（鏃だけ）で、向きで状態を示す（expand=角が右上向き＝広げる／collapse=角が左下向き＝畳む）。透明度は name-name 下部スライダ(SeekBar)に合わせる: 常駐 0.2・タップで 1.0・2.8秒で 0.2 へ戻る（0まで消さない＝無操作でも消えない）。hover/focus は 1.0 のまま。gold/gold-brightのみ・せお色は使わない
   th-glow: パネル外で生成絵に直接乗る文字の text-shadow
   th-pwa-overlay / th-pwa-overlay__panel: PWA更新検知〜reloadの短い通知overlay（Issue #59）。汎用UI chromeにせず th-panel と同じガラス＋真鍮トーンに寄せる
   th-pwa-install-banner: PWAインストール促しバナー（Issue #67）。`beforeinstallprompt`発火時のみ最上部固定で出す。フッタ（末尾固定）と構造的に衝突しない位置。却下は恒久記憶し再表示しない
@@ -97,7 +97,7 @@ theo-hayami の公開名としての舞台は **「叡智の星海」**。Webペ
 - **th-read-meter / th-read-gauge / th-read-gauge__fill（Issue #73）**: 集計扉の右下に置く既読ゲージ+分数「N/M 読了」。進捗計（ゲージ）は常に右下・完読印は常に右上。集計扉も全読了（N=M）になったら右上に完読印を出す（個別扉と同じ th-read-stamp）。ゲージ（右下）と完読印（右上）は共存する。汎用の `<progress>` 風にせず、真鍮の細線枠＋金グラデーションの計器として組む（角丸なし）。
 - **th-breadcrumb / th-glow**: パネル外で生成絵に直接乗る文字は `text-shadow` で可読性を担保する。
 - **th-reader**: name-name 埋め込みの 9:16 ステージ＋開始 CTA（金の漢字ラベル）。「読む」（埋め込み枠内）／「全画面で読む」（fullscreen要求）の2つを stage 上下半分に並べ、真鍮の細線1本で境目を示す（Issue #61）。全体化の対象は iframe ではなく stage ラッパ（`.th-reader__fs-toggle` トグルが fullscreen 中も乗り続けるため・Issue #148）。
-- **th-reader__fs-toggle（Issue #148）**: 再生開始後、stage 右上隅に常駐する再全体化トグル。スマホのスリープでブラウザが fullscreen を強制解除して埋め込みに戻る仕様への対処。**汎用UI chrome を持たない金の塗り三角（鏃だけ・丸/四角の枠なし）**を `clip-path` の直角二等辺三角形で描く。向きで状態を示す（埋め込み=角が右上向き／全体化=角が左下向き、斜辺は共通の左上↘右下で反転するだけ）。読書の集中を最優先し極薄で常駐する（opacity 0.15・0まで消さない＝無操作でも消えない）。再生後は stage 全面をクロスオリジン iframe が覆い iframe 面のタップは親に伝わらないため「消して画面タップで再出現」は成立しない。だから常に薄く見えて常に触れる状態を保ち、ホバー/フォーカス/アクティブ（トグル自体に触れた時）だけ 0.4 に上がる（濃さはCSS変数で後調整）。色は gold/gold-bright のみでせお色を流用しない。タップ領域（44px）は見える三角より大きく取る。
+- **th-reader__fs-toggle（Issue #148）**: 再生開始後、stage 右上隅に常駐する再全体化トグル。スマホのスリープでブラウザが fullscreen を強制解除して埋め込みに戻る仕様への対処。**汎用UI chrome を持たない金の塗り三角（鏃だけ・丸/四角の枠なし）**を `clip-path` の直角二等辺三角形で描く。向きで状態を示す（埋め込み=角が右上向き／全体化=角が左下向き、斜辺は共通の左上↘右下で反転するだけ）。透明度は name-name リーダー下部スライダ(SeekBar)に合わせる: 常駐 0.2（SeekBar INACTIVE_ALPHA・0まで消さない＝無操作でも消えない）・タップ/フォーカスで 1.0（SeekBar active alpha）・最後の操作から 2.8秒（SeekBar INACTIVITY_MS）で 0.2 へ戻る。この余韻は JS タイマー（トグル1個に1本・pointerdown/focus でリセット）が `--active` クラスで制御し、hover/focus-visible の 1.0 は素の CSS。再生後は stage 全面をクロスオリジン iframe が覆い iframe 面のタップは親に伝わらないため「消して画面タップで再出現」は成立しない。だから常に薄く見えて常に触れる状態を保つ。色は gold/gold-bright のみでせお色を流用しない。タップ領域（44px）は見える三角より大きく取る。
 - **th-face-crop / --bust**: 立ち絵/LoRAバストアップの顔アップカード（正方形トリミング）。
 - **th-cover / th-resident-card / th-resident-feature / th-magazine-section**: Issue #35 の雑誌グラビア寄り意匠。`assets/images/promotional/` の集合絵・キャラ別ワイド絵を主役にし、正式な文字画像が来るまでは CSS の Hina Mincho、細罫、ノンブル風ラベルだけで誌面感を出す。文字画像を勝手に生成・代用しない。
 - **th-pwa-install-banner**: `beforeinstallprompt` 発火時だけ出すインストール促しバナー（Issue #67）。フッタ（QR・訪問カウンタ・版表示）は常にページ末尾にあるため、最上部固定に統一して構造的に衝突を無くす。th-pwa-overlay と同じくガラス＋真鍮トーン。却下は localStorage に恒久記憶し再表示しない。
