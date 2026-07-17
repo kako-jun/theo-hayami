@@ -5,7 +5,7 @@
 theo-hayami は描画を name-name に流用するので、**脚本MD は最初から name-name の原稿形式で書く**（独自記法 `[話者]` は廃止＝変換器を持たない・パーサは name-name の1つだけ＝単一情報源）。形式の正本は name-name 側 `docs/spec/markdown-v0.1.md`。要点:
 
 - 先頭に frontmatter。**各セル MD は `engine: name-name`（worker フィルタ必須）と `title`（索引用）の2行のみ**（#48）。描画設定はセルに書かない。
-- **描画設定はエントリ `script.md` に1回だけ書く**。theo-hayami の novel 既定 frontmatter（`aspect_ratio: "9:16"` / `dialog_style: "novel"` / `font_family: "Hina Mincho, serif"` / `font_size: 26` / `protagonist: "せお"` / `character_y_ratio: 1.10` / `character_fade_ms: 700` / `character_scale: 0.5` / `skip_enabled: false` / `debug_enabled: true`）は、すべて**エントリ `script.md` 側の設定**。name-name のマルチ MD 再生では描画設定はエントリ `script.md` の frontmatter からしか読まれず、各セル MD の描画設定 frontmatter は**無視される**（`?scene=` deep-link で個別セルに飛んでも同じ）。ゆえにセルには置かない（#48 で全304セルから撤去済み）。
+- **描画設定はエントリ `script.md` に1回だけ書く**。theo-hayami の novel 既定 frontmatter（`aspect_ratio: "9:16"` / `dialog_style: "novel"` / `font_family: "Hina Mincho, serif"` / `font_size: 26` / `protagonist: "せお"` / `character_y_ratio: 1.10` / `character_fade_ms: 700` / `character_scale: 0.5` / `skip_enabled: false` / `debug_enabled: false`）は、すべて**エントリ `script.md` 側の設定**。name-name のマルチ MD 再生では描画設定はエントリ `script.md` の frontmatter からしか読まれず、各セル MD の描画設定 frontmatter は**無視される**（`?scene=` deep-link で個別セルに飛んでも同じ）。ゆえにセルには置かない（#48 で全304セルから撤去済み）。
 - 場面は `## scene-id: 見出し`
 - セリフは **`**話者**:`** の次行に本文（複数行可）。話者は `せお` / `ヴィンチア` / 住人名（`カンティア` 等）
 - 地の文は `> 本文`（ただし theo-hayami では今は使わない。下記）

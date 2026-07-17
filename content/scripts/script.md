@@ -10,7 +10,7 @@ character_y_ratio: 1.10
 character_fade_ms: 700
 character_scale: 0.5
 skip_enabled: false
-debug_enabled: true
+debug_enabled: false
 ---
 
 ## hub: お題を選ぶ
