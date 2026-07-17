@@ -267,7 +267,7 @@ export interface StoryButtonEntry {
   title: string;
   sceneId: string;
   background: string | null;
-  /** 幕内の表示順。1始まりの通し番号（第一幕は 1..12）。 */
+  /** 幕内の表示順。幕ごとに1始まりへリセットする通し番号（第一幕は 1..12、第二幕は 1..4）。 */
   orderInAct: number;
 }
 
@@ -423,7 +423,13 @@ export function groupStoryButtonsByAct(buttons: readonly StoryButtonEntry[]): St
   let currentAct = 1;
   for (const button of buttons) {
     const match = button.slug.match(/^act(\d+)-/);
-    if (match) currentAct = Number(match[1]);
+    if (match) {
+      const actNumber = Number(match[1]);
+      if (actNumber < currentAct) {
+        throw new Error(`幕番号が単調増加でない: ${button.slug}（直前は第${currentAct}幕）`);
+      }
+      currentAct = actNumber;
+    }
     const last = sections.at(-1);
     if (last && last.act === currentAct) {
       last.buttons.push(button);
