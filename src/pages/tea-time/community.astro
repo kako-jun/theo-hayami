@@ -5,7 +5,7 @@
 //   テキストのみで住人の顔を出せずピンとこない。widget表示は廃止し、住人8人固定で
 //   顔アップ・順位・名前・スコア・投票ボタンの行を自前で組む。API とのやり取り
 //   （get→+1→submit）は widget時代のロジックをそのまま流用する。
-// - 下部: ティータイムのお題募集を投稿できるBBS（Nostalgic BBS。post機能込みの単一widgetをそのまま埋め込む）
+// - 下部: ティータイムのお題を投稿できるBBS（Nostalgic BBS。post機能込みの単一widgetをそのまま埋め込む）
 // 004 / TEA TIME の枝ページ。folio番号は独立させない（Issue #131 本文の指示）。
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
@@ -21,7 +21,7 @@ const BBS_ID = "theo-hayami-fc727d17";
 
 <LibraryLayout
   title="星海への接続端末 ── けふのティータイム"
-  description="推したい住人に投票したり、ティータイムのお題を募集したりできる場所。"
+  description="推したい住人に投票したり、ティータイムのお題を投稿したりできる場所。"
   bgImage="shadow-library/history-hall.webp"
   ogImage="promotional/cast/tea-time-cast.webp"
 >
@@ -38,7 +38,7 @@ const BBS_ID = "theo-hayami-fc727d17";
       <p class="th-magazine-section__folio">004 / TEA TIME</p>
       <h1 class="text-2xl sm:text-3xl mt-2" style="color: var(--color-th-theo);">星海への接続端末</h1>
       <p class="mt-3 text-sm leading-loose" style="color: var(--color-th-ivory-dim);">
-        住人への一票と、次のお題の募集を残せる場所です。
+        住人への一票と、次のお題の投稿を残せる場所です。
       </p>
     </header>
 
