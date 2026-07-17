@@ -11,6 +11,7 @@ character_fade_ms: 700
 character_scale: 0.5
 skip_enabled: false
 debug_enabled: false
+seekbar_color: "#b8934f"
 ---
 
 ## hub: お題を選ぶ
