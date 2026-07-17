@@ -1,4 +1,4 @@
-// Nostalgic Ranking（好きな住人ランキング）投票ロジックの純粋関数（Issue #131）。
+// Nostalgic Ranking（推したい住人ランキング）投票ロジックの純粋関数（Issue #131）。
 //
 // kako-jun の指摘（Issue #131追記）: `<nostalgic-ranking>` の read-only widgetは
 // name/score/rankのテキストのみで住人の顔を出せずピンとこないため、widget表示は廃止し
@@ -21,7 +21,7 @@
 
 export const NOSTALGIC_API_BASE = "https://api.nostalgic.llll-ll.com";
 
-/** Nostalgic 側で作成済みの「好きな住人ランキング」ID。再作成不要（Issue #131）。 */
+/** Nostalgic 側で作成済みの「推したい住人ランキング」ID。再作成不要（Issue #131）。 */
 export const RANKING_ID = "theo-hayami-fc727d17";
 
 export interface RankingEntry {

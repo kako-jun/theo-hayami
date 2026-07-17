@@ -782,7 +782,7 @@ a {
 }
 
 /* ---------------------------------------------------------------------
-   みんなの声（Issue #131）
+   星海への接続端末（Issue #131）
    Nostalgic Ranking の embed component は read-only（name/score/rankのテキストのみ）で
    住人の顔を出せずピンとこないため、widget は使わず自前で1行=1住人のボードを組む
    （kako-jun指摘）。汎用の角丸カード・原色ボタンにせず、既存の .th-panel / .th-face-crop /
