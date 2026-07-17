@@ -2,7 +2,7 @@ import { readdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import { RESIDENTS } from "../data/residents.ts";
-import type { ThemeSummary } from "./scripts.ts";
+import type { StoryButtonEntry, ThemeSummary } from "./scripts.ts";
 import {
   findEpisode,
   findOhako,
@@ -293,6 +293,43 @@ describe("groupStoryButtonsByAct: /story の幕見出し分割", () => {
     expect(sections[0]?.buttons.length).toBe(12);
     expect(sections[1]?.buttons.map((e) => e.slug)).toEqual(["act2-01", "act2-02", "act2-03", "act2-04"]);
   });
+
+  // 境界ロジック単体を実データに頼らず固定するための最小合成フィクスチャ。
+  const makeButton = (slug: string, orderInAct = 1): StoryButtonEntry => ({
+    slug,
+    title: slug,
+    sceneId: slug,
+    background: null,
+    orderInAct,
+  });
+
+  it("空配列を渡すと空配列を返す", () => {
+    expect(groupStoryButtonsByAct([])).toEqual([]);
+  });
+
+  it("全件が同一act（act1のみ12件）だと1セクションのみになる（グルーピング未導入時代の退行防止）", () => {
+    const buttons = Array.from({ length: 12 }, (_, i) =>
+      makeButton(`act1-${String(i + 1).padStart(2, "0")}`, i + 1),
+    );
+    const sections = groupStoryButtonsByAct(buttons);
+    expect(sections.length).toBe(1);
+    expect(sections[0]?.act).toBe(1);
+    expect(sections[0]?.buttons.length).toBe(12);
+  });
+
+  it("最小合成入力[act1-04, act2-01]の2件だけで境界がちょうど1件目と2件目の間に来る", () => {
+    const buttons = [makeButton("act1-04"), makeButton("act2-01")];
+    const sections = groupStoryButtonsByAct(buttons);
+    expect(sections.map((s) => s.act)).toEqual([1, 2]);
+    expect(sections[0]?.buttons.map((e) => e.slug)).toEqual(["act1-04"]);
+    expect(sections[1]?.buttons.map((e) => e.slug)).toEqual(["act2-01"]);
+  });
+
+  it("先頭要素がact prefixを持たない合成入力を渡すとcurrentAct初期値1が使われ{act:1,...}になる", () => {
+    const buttons = [makeButton("ohako-spino"), makeButton("ohako-tal")];
+    const sections = groupStoryButtonsByAct(buttons);
+    expect(sections).toEqual([{ act: 1, buttons }]);
+  });
 });
 
 describe("mainStoryActLabel: /main/[slug].astro の幕見出しラベル", () => {
@@ -303,6 +340,27 @@ describe("mainStoryActLabel: /main/[slug].astro の幕見出しラベル", () =>
 
   it("act prefix を持たないslug（おはこ等）は undefined", () => {
     expect(mainStoryActLabel("ohako-spino")).toBeUndefined();
+  });
+
+  it("act3-01→第三幕、act4-04→第四幕（未執筆だが将来幕を追加しても幕ラベルが壊れないことを固定）", () => {
+    expect(mainStoryActLabel("act3-01")).toBe("第三幕");
+    expect(mainStoryActLabel("act4-04")).toBe("第四幕");
+  });
+
+  it("表外のact5-01は漢数字テーブルに無いため算用数字フォールバックで「第5幕」になる", () => {
+    expect(mainStoryActLabel("act5-01")).toBe("第5幕");
+  });
+
+  it("空文字はundefined", () => {
+    expect(mainStoryActLabel("")).toBeUndefined();
+  });
+
+  it("act-01（数字なし）はundefined", () => {
+    expect(mainStoryActLabel("act-01")).toBeUndefined();
+  });
+
+  it("実データ規約違反の大文字Act1-01はundefined", () => {
+    expect(mainStoryActLabel("Act1-01")).toBeUndefined();
   });
 });
 
