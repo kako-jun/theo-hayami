@@ -783,15 +783,59 @@ a {
 
 /* ---------------------------------------------------------------------
    みんなの声（Issue #131）
-   Nostalgic Ranking の embed component は read-only なので、投票UIは自前で組む。
-   汎用ボタンにせず .th-link-button を流用する（DESIGN.md: 原色ボタン不採用）。
+   Nostalgic Ranking の embed component は read-only（name/score/rankのテキストのみ）で
+   住人の顔を出せずピンとこないため、widget は使わず自前で1行=1住人のボードを組む
+   （kako-jun指摘）。汎用の角丸カード・原色ボタンにせず、既存の .th-panel / .th-face-crop /
+   .th-link-button を流用する（DESIGN.md: 原色ボタン不採用）。
    --------------------------------------------------------------------- */
-.th-vote-buttons {
+.th-vote-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
   gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.th-vote-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(184, 147, 79, 0.32);
+  background: rgba(10, 9, 16, 0.32);
+}
+.th-vote-row__rank {
+  flex: none;
+  width: 1.6rem;
+  color: var(--color-th-gold-bright);
+  font-size: 0.85rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+/* .th-face-crop--bust のサイズ修飾（住人カードの4.8remより一回り小さいランキング行用）。 */
+.th-vote-row__portrait {
+  flex: none;
+  width: 2.75rem;
+  border: 1px solid rgba(230, 196, 126, 0.5);
+}
+.th-vote-row__name {
+  flex: 1 1 8rem;
+  min-width: 0;
+  color: var(--color-th-ivory);
+  font-size: 0.92rem;
+}
+.th-vote-row__score {
+  flex: none;
+  min-width: 2.5rem;
+  color: var(--color-th-gold-bright);
+  font-size: 0.9rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 .th-vote-button {
+  flex: none;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 .th-vote-button:disabled {

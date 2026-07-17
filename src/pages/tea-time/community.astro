@@ -1,17 +1,18 @@
 ---
 // みんなの声（Issue #131）。/tea-time の下の参加型サブページ。
-// - 上部: 好きな住人ランキング（Nostalgic Ranking。read-onlyのwidgetに自前の投票UIを添える）
-// - 下部: お題の希望を投稿できるBBS（Nostalgic BBS。post機能込みの単一widget）
+// - 上部: 好きな住人ランキング（自前レンダリング）。
+//   kako-jun 指摘: `<nostalgic-ranking>` の read-only widget は name/score/rankの
+//   テキストのみで住人の顔を出せずピンとこない。widget表示は廃止し、住人8人固定で
+//   顔アップ・順位・名前・スコア・投票ボタンの行を自前で組む。API とのやり取り
+//   （get→+1→submit）は widget時代のロジックをそのまま流用する。
+// - 下部: お題の希望を投稿できるBBS（Nostalgic BBS。post機能込みの単一widgetをそのまま埋め込む）
 // 004 / TEA TIME の枝ページ。folio番号は独立させない（Issue #131 本文の指示）。
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import { RESIDENTS } from "../../data/residents";
-import { RANKING_ID } from "../../lib/rankingVote";
 
-// RANKING_ID は client script の投票APIとも共有するため ../../lib/rankingVote.ts を
-// 唯一の正本にする（この widget 埋め込み属性だけの値なら二重管理になる）。
 // BBS は投票ロジックを持たず、この widget 属性でしか使わないためローカル定数でよい
-// （Nostalgic側で作成済み・再作成不要。値がRANKING_IDと同じ文字列なのはランキングと
+// （Nostalgic側で作成済み・再作成不要。値がランキングIDと同じ文字列なのはランキングと
 // BBSが別サービス・別ID空間だからで、偶然の一致に過ぎない）。
 const BBS_ID = "theo-hayami-fc727d17";
 ---
@@ -45,43 +46,55 @@ const BBS_ID = "theo-hayami-fc727d17";
         好きな住人に一票どうぞ。何度でも押せますが、連続投票には少し間隔が必要です。
       </p>
 
-      <div class="mt-5">
-        <nostalgic-ranking id={RANKING_ID} limit="10" theme="dark" lang="ja"></nostalgic-ranking>
-      </div>
-      <!-- 読み込みに失敗しても <nostalgic-ranking> は中身が空のまま静かに残るだけで
-           レイアウトは壊れない（VisitorCounter.astro と同じ is:inline パターン）。 -->
-      <script is:inline src="https://nostalgic.llll-ll.com/components/ranking.js" defer></script>
-
-      <div class="th-vote-buttons mt-6" data-vote-buttons>
+      <!-- サーバー側は住人一覧の宣言順・スコア0のプレースホルダを描画する。
+           クライアントJSが読み込み後に実スコアを取得し、順位を並べ替えて更新する
+           （取得に失敗してもこのプレースホルダ表示のまま残るだけでレイアウトは壊れない）。 -->
+      <ol class="th-vote-list mt-5" data-vote-list>
         {
           RESIDENTS.map((resident) => (
-            <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name}>
-              {resident.name}に投票
-            </button>
+            <li class="th-vote-row" data-vote-row data-resident-slug={resident.slug}>
+              <span class="th-vote-row__rank" data-vote-rank>-</span>
+              <span class="th-vote-row__portrait th-face-crop th-face-crop--bust">
+                <img src={`/images/${resident.slug}/bust.webp`} alt="" loading="lazy" />
+              </span>
+              <span class="th-vote-row__name">{resident.name}</span>
+              <span class="th-vote-row__score" data-vote-score>0</span>
+              <button type="button" class="th-link-button th-vote-button" data-vote-name={resident.name}>
+                {resident.name}に投票
+              </button>
+            </li>
           ))
         }
-      </div>
+      </ol>
       <p class="th-vote-status mt-3" role="status" aria-live="polite" data-vote-status></p>
     </section>
 
     <script>
+      import { RESIDENTS } from "../../data/residents";
       import {
         RANKING_ID,
         buildRankingGetUrl,
         buildRankingSubmitUrl,
+        buildResidentRankingRows,
         findCurrentScore,
         formatVoteWaitMessage,
         parseVoteRateLimitSeconds,
       } from "../../lib/rankingVote";
       import type { RankingEntry } from "../../lib/rankingVote";
 
-      const buttonsRoot = document.querySelector<HTMLElement>("[data-vote-buttons]");
+      const listEl = document.querySelector<HTMLOListElement>("[data-vote-list]");
       const statusEl = document.querySelector<HTMLElement>("[data-vote-status]");
-      const rankingWidget = document.querySelector<HTMLElement>("nostalgic-ranking");
 
-      if (buttonsRoot && statusEl) {
+      if (listEl && statusEl) {
+        const list = listEl;
         const status = statusEl;
-        const buttons = Array.from(buttonsRoot.querySelectorAll<HTMLButtonElement>("[data-vote-name]"));
+
+        const rowsBySlug = new Map<string, HTMLLIElement>();
+        for (const li of list.querySelectorAll<HTMLLIElement>("[data-resident-slug]")) {
+          const slug = li.dataset.residentSlug;
+          if (slug) rowsBySlug.set(slug, li);
+        }
+        const buttons = Array.from(list.querySelectorAll<HTMLButtonElement>("[data-vote-name]"));
 
         function setButtonsDisabled(disabled: boolean) {
           for (const button of buttons) button.disabled = disabled;
@@ -91,33 +104,42 @@ const BBS_ID = "theo-hayami-fc727d17";
           status.textContent = message;
         }
 
-        // ranking.js（read-only embed component）に公式リフレッシュAPIは無い。
-        // 要素を一度DOMから外して同じ場所に挿し直すと connectedCallback が再発火し、
-        // 最新データを取り直す（実装前にソースを読み、connectedCallback() が
-        // loadRankingData() を呼ぶ経路を確認済み。当て推量ではない）。
-        function refreshRankingWidget() {
-          const el = rankingWidget;
-          const parent = el?.parentElement;
-          if (!el || !parent) return;
-          const next = el.nextSibling;
-          parent.removeChild(el);
-          requestAnimationFrame(() => {
-            parent.insertBefore(el, next);
+        async function fetchEntries(): Promise<RankingEntry[]> {
+          const res = await fetch(buildRankingGetUrl(RANKING_ID, 100));
+          const data: { success?: boolean; data?: { entries?: RankingEntry[] } } = await res.json();
+          if (!res.ok || !data.success) return [];
+          return data.data?.entries ?? [];
+        }
+
+        // 行要素は複製せず、スコア降順の並びで list.appendChild し直して順序を反映する
+        // （既存の子要素に対する appendChild は複製ではなく移動＝末尾への並べ替えになる）。
+        function renderRows(entries: RankingEntry[]) {
+          const rankedRows = buildResidentRankingRows(RESIDENTS, entries);
+          rankedRows.forEach((row, index) => {
+            const li = rowsBySlug.get(row.slug);
+            if (!li) return;
+            const rankEl = li.querySelector<HTMLElement>("[data-vote-rank]");
+            const scoreEl = li.querySelector<HTMLElement>("[data-vote-score]");
+            if (rankEl) rankEl.textContent = String(index + 1);
+            if (scoreEl) scoreEl.textContent = String(row.score);
+            list.appendChild(li);
           });
         }
 
-        async function fetchCurrentScore(name: string): Promise<number> {
-          const res = await fetch(buildRankingGetUrl(RANKING_ID, 100));
-          const data: { success?: boolean; data?: { entries?: RankingEntry[] } } = await res.json();
-          if (!res.ok || !data.success) return 0;
-          return findCurrentScore(data.data?.entries ?? [], name);
+        async function refreshRanking() {
+          try {
+            renderRows(await fetchEntries());
+          } catch {
+            // 取得に失敗してもプレースホルダ表示のまま残るだけでレイアウトは壊れない。
+          }
         }
 
         async function vote(name: string) {
           setButtonsDisabled(true);
           setStatus(`${name}に投票しています…`);
           try {
-            const currentScore = await fetchCurrentScore(name);
+            const entries = await fetchEntries();
+            const currentScore = findCurrentScore(entries, name);
             const submitRes = await fetch(buildRankingSubmitUrl(RANKING_ID, name, currentScore + 1));
             const submitData: { success?: boolean; error?: string } = await submitRes.json();
 
@@ -137,7 +159,7 @@ const BBS_ID = "theo-hayami-fc727d17";
             }
 
             setStatus(`${name}に投票しました。`);
-            refreshRankingWidget();
+            await refreshRanking();
           } catch {
             setStatus("投票に失敗しました。通信状況をご確認ください。");
           } finally {
@@ -152,6 +174,9 @@ const BBS_ID = "theo-hayami-fc727d17";
             void vote(name);
           });
         }
+
+        // 初期表示: プレースホルダ（宣言順・スコア0）を実データへ更新する。
+        void refreshRanking();
       }
     </script>
 
@@ -163,7 +188,8 @@ const BBS_ID = "theo-hayami-fc727d17";
       <div class="mt-5">
         <nostalgic-bbs id={BBS_ID} theme="dark" lang="ja" width="100%"></nostalgic-bbs>
       </div>
-      <!-- bbs.js も読み込み失敗時は中身が空のまま静かに残るだけ（ranking.jsと同じフェイルセーフ）。 -->
+      <!-- 読み込みに失敗しても <nostalgic-bbs> は中身が空のまま静かに残るだけで
+           レイアウトは壊れない（VisitorCounter.astro と同じ is:inline パターン）。 -->
       <script is:inline src="https://nostalgic.llll-ll.com/components/bbs.js" defer></script>
     </section>
 

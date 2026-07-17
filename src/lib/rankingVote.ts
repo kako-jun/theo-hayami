@@ -1,9 +1,12 @@
 // Nostalgic Ranking（好きな住人ランキング）投票ロジックの純粋関数（Issue #131）。
 //
-// ranking.js の embed component は read-only（表示専用）で投票UIを持たないため、
-// community.astro が自前の fetch で投票フローを組む。fetch・DOM操作（連投中の
-// ボタン無効化・ウィジェットの再読み込み等）は .astro 側のスクリプトに残し、
-// 判定・URL組み立てだけをここに切り出してテスト可能にする
+// kako-jun の指摘（Issue #131追記）: `<nostalgic-ranking>` の read-only widgetは
+// name/score/rankのテキストのみで住人の顔を出せずピンとこないため、widget表示は廃止し
+// ランキングは完全に自前レンダリングへ切り替えた。API とのやり取り（get→+1→submit）は
+// widget時代のロジックをそのまま流用し、住人8人を正本に行データを組み立てる関数を追加する。
+//
+// fetch・DOM操作（連投中のボタン無効化・行の並べ替え等）は community.astro 側に残し、
+// 判定・URL組み立て・行データ組み立てだけをここに切り出してテスト可能にする
 // （dev-doctrine: 索引・判定ロジックは.astroに埋め込まず、可能な範囲で純粋関数に切り出す）。
 //
 // 実装前に以下を実際に読んで確認した内容を前提にしている（当て推量禁止のため）:
@@ -29,6 +32,30 @@ export interface RankingEntry {
 /** 現在のエントリ一覧から対象名の現在スコアを探す。未登録なら0（新規投票扱い）。 */
 export function findCurrentScore(entries: RankingEntry[], name: string): number {
   return entries.find((entry) => entry.name === name)?.score ?? 0;
+}
+
+export interface ResidentRankingRow {
+  slug: string;
+  name: string;
+  score: number;
+}
+
+/**
+ * 住人一覧（`RESIDENTS`）を正本に、APIのランキングエントリをマージしてスコア降順で返す。
+ * 住人は増減しない前提で常に全員ぶん返す（API側にまだ投票が無い住人は0点扱い）。
+ * `.sort()` は安定ソートなので同点者は `residents` の元の並び順を保つ。
+ */
+export function buildResidentRankingRows(
+  residents: { slug: string; name: string }[],
+  entries: RankingEntry[]
+): ResidentRankingRow[] {
+  return residents
+    .map((resident) => ({
+      slug: resident.slug,
+      name: resident.name,
+      score: findCurrentScore(entries, resident.name),
+    }))
+    .sort((a, b) => b.score - a.score);
 }
 
 /** ランキング取得（`action=get`）APIのURLを組み立てる。 */
