@@ -42,11 +42,11 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
 
 <div class="th-reader" data-reader-slug={slug} data-reader-embed-src={embedSrc} data-reader-title={title}>
   <div class="th-reader__stage">
-    <button type="button" class="th-reader__cta" data-reader-start>
+    <button type="button" class="th-reader__cta th-reader__cta--embed" data-reader-start>
       <span class="th-reader__cta-kanji">読む</span>
       <span class="th-reader__cta-sub">タップして始める</span>
     </button>
-    <button type="button" class="th-reader__cta" data-reader-start-fullscreen>
+    <button type="button" class="th-reader__cta th-reader__cta--fullscreen" data-reader-start-fullscreen>
       <span class="th-reader__cta-kanji">全画面で読む</span>
       <span class="th-reader__cta-sub">タップして没入する</span>
     </button>
@@ -63,6 +63,12 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     webkitRequestFullscreen?: () => Promise<void> | void;
   };
 
+  // 1ページ1インスタンス前提: 呼び出し元（main/tea-time/free の [slug].astro）は
+  // 全て getStaticPaths で1ページ1個しか ReaderFrame を生成しない。Astro は通常の
+  // module script を1ページにつき1回だけ束ねるため、この前提の下でのみ先頭一致の
+  // querySelector で正しい要素に辿り着ける。is:inline 時代（各インスタンスが独立実行
+  // されていた）と異なり、同一ページに複数配置すると script は1回しか実行されず
+  // 2個目以降のボタンは無反応になる。
   const reader = document.querySelector<HTMLElement>("[data-reader-slug]");
   const stage = reader?.querySelector<HTMLElement>(".th-reader__stage") ?? null;
   const startBtn = stage?.querySelector<HTMLButtonElement>("[data-reader-start]") ?? null;
@@ -118,6 +124,8 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   import { pickExitFullscreenFn, shouldExitFullscreen } from "../lib/fullscreenReader";
 
   const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
+  // 1ページ1インスタンス前提（詳細は1本目の script のコメント参照）。複数配置した場合、
+  // このスクリプトも1回しか実行されず2個目以降のセルは完読検知が効かない。
   const slug = document.querySelector<HTMLElement>("[data-reader-slug]")?.dataset.readerSlug ?? "";
 
   type WebkitDocument = Document & {

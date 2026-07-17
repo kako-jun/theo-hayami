@@ -1528,10 +1528,10 @@ a {
   cursor: pointer;
   transition: background-color 0.25s ease;
 }
-.th-reader__cta:first-of-type {
+.th-reader__cta--embed {
   top: 0;
 }
-.th-reader__cta:last-of-type {
+.th-reader__cta--fullscreen {
   bottom: 0;
   border-top: 1px solid rgba(184, 147, 79, 0.28);
 }

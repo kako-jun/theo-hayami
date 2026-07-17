@@ -62,6 +62,12 @@ export interface ReaderIframeAttrs {
  * 「読む」「全画面で読む」どちらの入口でも同一の iframe を生成するための属性セット。
  * fullscreen ボタンから iframe.requestFullscreen() を呼べるよう許可しておく必要がある
  * （Issue #61）ため、両ボタンで常に同じ値を使うことをここに固定する。
+ *
+ * 「読む」（埋め込み専用）経由の iframe にも allow="autoplay; fullscreen" /
+ * allowfullscreen が常時付与されるのは意図的な設計判断: 同一オリジンの信頼済み
+ * コンテンツ（name-name）であり、name-name 自体が fullscreen を自発的に要求する
+ * コードを持たないため実害はない。ボタンごとに属性を出し分けるより、単一の
+ * createIframe() を維持して DRY を優先する。
  */
 export function buildReaderIframeAttrs(): ReaderIframeAttrs {
   return {
