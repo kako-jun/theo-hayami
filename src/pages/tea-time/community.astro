@@ -230,7 +230,26 @@ const BBS_ID = "theo-hayami-fc727d17";
         次のお茶の席で扱ってほしい話題を書き込めます。名前は省略できます。
       </p>
       <div class="mt-5">
-        <nostalgic-bbs id={BBS_ID} theme="dark" lang="ja" width="100%"></nostalgic-bbs>
+        <!-- nostalgic-bbs は Shadow DOM だが CSSカスタムプロパティは継承で境界を越えるため、
+             インライン style で theo 書庫パレットに寄せて上書きする（インラインは内部 :host
+             既定に勝つ）。theme="dark" は土台として残し、その上に変数を被せる。
+             nostalgicサーバー/コンポーネント側は一切変更しない。 -->
+        <nostalgic-bbs
+          id={BBS_ID}
+          theme="dark"
+          lang="ja"
+          width="100%"
+          style="
+            --bbs-bg-color: #12111a;
+            --bbs-border-color: #b8934f;
+            --bbs-shadow-color: rgba(10, 9, 16, 0.8);
+            --bbs-header-bg: #0a0910;
+            --bbs-header-color: #f1e8d6;
+            --bbs-message-bg: #1a1826;
+            --bbs-text-color: #f1e8d6;
+            --bbs-scrollbar-thumb: #b8934f;
+            --bbs-scrollbar-hover: #e6c47e;
+          "></nostalgic-bbs>
       </div>
       <!-- 読み込みに失敗しても <nostalgic-bbs> は中身が空のまま静かに残るだけで
            レイアウトは壊れない（VisitorCounter.astro と同じ is:inline パターン）。 -->
