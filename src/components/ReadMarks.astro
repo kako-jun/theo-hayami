@@ -65,13 +65,21 @@
     const disappeared = new Set(getStoredDisappearedResidents());
     for (const el of document.querySelectorAll<HTMLElement>("[data-resident-choice]")) {
       const resident = el.dataset.residentChoice ?? "";
-      if (!disappeared.has(resident)) continue;
-      el.classList.add("is-disappeared");
-      el.setAttribute("aria-disabled", "true");
-      el.setAttribute("tabindex", "-1");
-      if (el instanceof HTMLAnchorElement) {
-        if (!el.dataset.href) el.dataset.href = el.getAttribute("href") ?? "";
-        el.removeAttribute("href");
+      const isDisappeared = disappeared.has(resident);
+      el.classList.toggle("is-disappeared", isDisappeared);
+      if (isDisappeared) {
+        el.setAttribute("aria-disabled", "true");
+        el.setAttribute("tabindex", "-1");
+        if (el instanceof HTMLAnchorElement) {
+          if (!el.dataset.href) el.dataset.href = el.getAttribute("href") ?? "";
+          el.removeAttribute("href");
+        }
+      } else {
+        el.removeAttribute("aria-disabled");
+        el.removeAttribute("tabindex");
+        if (el instanceof HTMLAnchorElement && el.dataset.href) {
+          el.href = el.dataset.href;
+        }
       }
     }
   }

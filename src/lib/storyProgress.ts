@@ -52,10 +52,9 @@ export function normalizeStoryProgress(raw: unknown, storyIds: readonly string[]
       ? source.currentStoryId
       : firstUnreadStoryId(completedSet, storyIds);
 
-  const disappearedResidents = mergeDisappearedResidents(
-    source.disappearedResidents,
-    completed,
-  );
+  const disappearedResidents = allCompleted
+    ? []
+    : mergeDisappearedResidents(source.disappearedResidents, completed);
 
   return {
     unlockedStoryIds: storyIds.filter((id) => unlockedSet.has(id)),
@@ -83,13 +82,16 @@ export function completeStoryEntryInProgress(
 
   const completedSet = new Set(storyIds.filter((id) => completed.has(id)));
   const completedStoryIds = storyIds.filter((id) => completed.has(id));
+  const allCompleted = completedSet.size >= storyIds.length && storyIds.length > 0;
   return {
     ...progress,
     unlockedStoryIds: storyIds.filter((id) => unlocked.has(id)),
     completedStoryIds,
     currentStoryId: next ?? firstUnreadStoryId(completedSet, storyIds),
-    disappearedResidents: mergeDisappearedResidents(progress.disappearedResidents, completedStoryIds),
-    completed: completedSet.size >= storyIds.length && storyIds.length > 0,
+    disappearedResidents: allCompleted
+      ? []
+      : mergeDisappearedResidents(progress.disappearedResidents, completedStoryIds),
+    completed: allCompleted,
   };
 }
 
@@ -125,6 +127,7 @@ export function getStoredDisappearedResidents(): string[] {
   const raw = getAppStorage().storyProgress;
   if (!raw || typeof raw !== "object") return [];
   const source = raw as { disappearedResidents?: unknown };
+  if ((raw as { completed?: unknown }).completed === true) return [];
   if (!Array.isArray(source.disappearedResidents)) return [];
   const disappeared = new Set(
     source.disappearedResidents.filter((id): id is string => typeof id === "string" && RESIDENT_SLUGS.has(id)),

@@ -78,17 +78,33 @@ describe("storyProgress", () => {
     expect(next.currentStoryId).toBeNull();
   });
 
+  it("本編完了時は消失住人フラグを解除する", () => {
+    const progress = normalizeStoryProgress(
+      {
+        unlockedStoryIds: [...STORY_IDS],
+        completedStoryIds: ["ohako-aristo", "ohako-kantia"],
+        disappearedResidents: ["spino"],
+      },
+      STORY_IDS,
+    );
+    const next = completeStoryEntryInProgress(progress, "ohako-hegru", STORY_IDS);
+    expect(next.completed).toBe(true);
+    expect(next.disappearedResidents).toEqual([]);
+  });
+
   it("全読了済みの保存値は古い currentStoryId があっても null に正規化する", () => {
     const progress = normalizeStoryProgress(
       {
         unlockedStoryIds: [...STORY_IDS],
         completedStoryIds: [...STORY_IDS],
         currentStoryId: "ohako-aristo",
+        disappearedResidents: ["spino"],
       },
       STORY_IDS,
     );
     expect(progress.completed).toBe(true);
     expect(progress.currentStoryId).toBeNull();
+    expect(progress.disappearedResidents).toEqual([]);
   });
 
   it("壊れた保存値や未知の本編ボタンを正規化する", () => {
@@ -247,5 +263,22 @@ describe("storyProgress: 消失住人フラグ", () => {
       }),
     );
     expect(getStoredDisappearedResidents()).toEqual(["spino"]);
+  });
+
+  it("本編完了済みの保存値ではクライアントUI用の消失住人を返さない", () => {
+    installStorage(
+      makeStorage({
+        [APP_STORAGE_KEY]: JSON.stringify({
+          storyProgress: {
+            unlockedStoryIds: [...STORY_IDS],
+            completedStoryIds: [...STORY_IDS],
+            currentStoryId: null,
+            disappearedResidents: ["spino"],
+            completed: true,
+          },
+        }),
+      }),
+    );
+    expect(getStoredDisappearedResidents()).toEqual([]);
   });
 });

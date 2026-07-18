@@ -17,6 +17,11 @@
 - マスター: `story/act1/*.png`。本編第一幕の背景差分・物証アップ用の生成絵を管理する。
 - 配信: `images/story/act1/*.webp`。`magick -quality 82` で WebP 化し、1ファイル1MiB未満に抑える。
 - 用途: `act1-01` 星海/入口、`act1-03` 十一脚の椅子/削られた名札、`act1-04` 返却口の灯/題のない本/しおり。プロンプト・参照画像・採用状況は GitHub Issue #124 に集約する。
+- 2026-07-19: `story/act2/20260719_act2-03_vincia-closeness-mirrors_v02.png` を追加。配信は `assets/images/story/act2/vincia-closeness-mirrors.webp`。初版のキャラ同一性崩れを修正し、セオとヴィンチアの目線合わせを採用。
+
+## 現状（reality・2026-07-19 現実背景）
+- マスター: `reality/20260719_city-snow-generic_v01.png`。現実の街は雨の日本寄り街路から、国や地域を特定しにくい雪の住宅街へ差し替えた。
+- 配信: `images/reality/city.png`。`public/images/reality/city.png` にも同期する。
 
 ## 現状（logo/icon・2026-07-05 確定ロゴ反映・Issue #32）
 - マスター: `logo/theo-logo.png`（3000×1180・JA サブロゴ入り）/ `logo/theo-logo-en.png`（3000×842・英語のみ）/ `icon/theo-icon.png`（512×512・T字コンステレーション・不透明）。
