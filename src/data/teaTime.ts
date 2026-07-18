@@ -13,6 +13,25 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "unpersuadable",
+    title: "説得できない相手",
+    question:
+      "考え方が大きく違い、説得できない相手と、どう向き合えばよいでしょうか。",
+    number: 4,
+    publishedAt: "2026-07-18",
+    sceneId: "tea-unpersuadable",
+    residents: ["aristo", "hegru", "spino"],
+  },
+  {
+    slug: "ai-job",
+    title: "人工知能と仕事",
+    question: "人工知能に仕事を奪われるかもしれない不安と、どう向き合えばよいでしょうか。",
+    number: 3,
+    publishedAt: "2026-07-18",
+    sceneId: "tea-ai-job",
+    residents: ["kantia", "makiya", "ou"],
+  },
+  {
     slug: "genius",
     title: "天才にはかなわない",
     question: "天才にはかなわないと感じるとき、どう生きればよいでしょうか。",
@@ -39,7 +58,6 @@ export function findTeaTimeQuestion(slug: string): TeaTimeQuestion | undefined {
 }
 
 export const teaTimeQuestions: TeaTimeQuestion[] = [
-  { slug: "ai-job", title: "人工知能と仕事", question: "人工知能に仕事を奪われるかもしれない不安と、どう向き合えばよいでしょうか。" },
   { slug: "ai-extinction", title: "人工知能と人類", question: "人工知能が人類を滅ぼすかもしれない恐怖を、どう考えればよいでしょうか。" },
   { slug: "confession", title: "告白する怖さ", question: "好きな人に気持ちを伝えるのが怖いとき、どうすればよいでしょうか。" },
   { slug: "farewell", title: "別れの怖さ", question: "大事な人と別れることが怖いとき、どう受け止めればよいでしょうか。" },
@@ -70,12 +88,6 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
   },
   { slug: "adhd", title: "多動症と生きる", question: "多動症と付き合いながら、どう暮らしていけばよいでしょうか。" },
   { slug: "illness", title: "病気と生きる", question: "病気と付き合いながら、どう生きていけばよいでしょうか。" },
-  {
-    slug: "unpersuadable",
-    title: "説得できない相手",
-    question:
-      "考え方が大きく違い、説得できない相手と、どう向き合えばよいでしょうか。",
-  },
   { slug: "military", title: "軍がなければ", question: "軍がなければ攻められない、という考え方は本当でしょうか。" },
   {
     slug: "national-interest",
