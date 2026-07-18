@@ -12,7 +12,7 @@ const speakerLine = (residents: string[] | undefined) => {
     .map((slug) => findResident(slug)?.name)
     .filter((name): name is string => Boolean(name));
   return names.length > 0
-    ? `${names.join("・")}の${names.length}人がお茶の席につきます。`
+    ? `${names.join("・")}がお茶の席につきます。`
     : "住人たちがお茶の席につきます。";
 };
 ---
