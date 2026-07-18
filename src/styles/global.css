@@ -1762,7 +1762,7 @@ a {
   filter: saturate(0.98) contrast(1.03);
 }
 .th-atmosphere-image--pending-topics {
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
 }
 .th-atmosphere-image--bbs {
   width: min(100%, 42rem);
