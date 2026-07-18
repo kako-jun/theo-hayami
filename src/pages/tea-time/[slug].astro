@@ -54,7 +54,7 @@ const teaNumber = String(question.number ?? index + 1).padStart(2, "0");
         speakers.length > 0 && (
           <ul class="th-tea-speakers">
             {speakers.map((r) => (
-              <li class="th-tea-speaker">
+              <li class="th-tea-speaker" data-resident={r.slug}>
                 <span class="th-tea-speaker__face">
                   <img
                     src={`/images/theme-residents/${r.slug}.webp`}

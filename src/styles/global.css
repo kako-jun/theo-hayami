@@ -495,10 +495,14 @@ a {
   border-color: var(--color-th-gold-bright);
 }
 .th-footer__visits {
+  font-family: var(--font-mincho);
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   color: var(--color-th-ivory-dim);
-  font-variant-numeric: tabular-nums;
+}
+.th-footer__visits nostalgic-counter {
+  font-family: inherit;
+  font-variant-numeric: inherit;
 }
 
 /* 「読む」導線・戻り導線のボタン。 */
@@ -672,6 +676,7 @@ a {
   border-top: 0;
 }
 .th-magazine-section--home-guide {
+  border-top: 0;
   border-bottom: 0;
 }
 .th-magazine-section--home-guide .th-magazine-section__folio {
@@ -778,6 +783,10 @@ a {
   object-position: center 34%;
   transform: scale(1.5);
   transform-origin: center 34%;
+}
+.th-tea-speaker[data-resident="aristo"] .th-tea-speaker__face img {
+  object-position: 40% 34%;
+  transform-origin: 40% 34%;
 }
 .th-tea-speaker__name {
   margin-top: 0.55rem;
