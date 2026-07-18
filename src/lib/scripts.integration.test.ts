@@ -246,10 +246,10 @@ describe("findOhako", () => {
   });
 });
 
-describe("loadStoryButtons: 第一幕+第二幕シーケンスの順序ゲート", () => {
+describe("loadStoryButtons: 第一幕〜第四幕シーケンスの順序ゲート", () => {
   const buttons = loadStoryButtons();
 
-  it("[act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04, act2-01..04] の通し16件を並べる", () => {
+  it("[act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04, act2-01..act4-04] の通し24件を並べる", () => {
     const expected = [
       "act1-01",
       "act1-02",
@@ -260,21 +260,48 @@ describe("loadStoryButtons: 第一幕+第二幕シーケンスの順序ゲート
       "act2-02",
       "act2-03",
       "act2-04",
+      "act3-01",
+      "act3-02",
+      "act3-03",
+      "act3-04",
+      "act4-01",
+      "act4-02",
+      "act4-03",
+      "act4-04",
     ];
-    expect(buttons.length).toBe(16);
+    expect(buttons.length).toBe(24);
     expect(buttons.map((entry) => entry.slug)).toEqual(expected);
   });
 
-  it("幕内の表示順は幕ごとに1始まりへリセットする通し番号（第一幕1..12、第二幕1..4）", () => {
+  it("幕内の表示順は幕ごとに1始まりへリセットする通し番号（第一幕1..12、第二幕以降1..4）", () => {
     expect(buttons.slice(0, 12).map((entry) => entry.orderInAct)).toEqual(
       Array.from({ length: 12 }, (_, i) => i + 1),
     );
-    expect(buttons.slice(12).map((entry) => entry.orderInAct)).toEqual([1, 2, 3, 4]);
+    expect(buttons.slice(12, 16).map((entry) => entry.orderInAct)).toEqual([1, 2, 3, 4]);
+    expect(buttons.slice(16, 20).map((entry) => entry.orderInAct)).toEqual([1, 2, 3, 4]);
+    expect(buttons.slice(20, 24).map((entry) => entry.orderInAct)).toEqual([1, 2, 3, 4]);
   });
 
-  it("本筋md（act1-*/act2-*）は character を持たず、おはこは住人slugを持つ", () => {
+  it("本筋md（act*）は character を持たず、おはこは住人slugを持つ", () => {
     const withoutChar = buttons.filter((entry) => entry.character === undefined).map((e) => e.slug);
-    expect(withoutChar).toEqual(["act1-01", "act1-02", "act1-03", "act1-04", "act2-01", "act2-02", "act2-03", "act2-04"]);
+    expect(withoutChar).toEqual([
+      "act1-01",
+      "act1-02",
+      "act1-03",
+      "act1-04",
+      "act2-01",
+      "act2-02",
+      "act2-03",
+      "act2-04",
+      "act3-01",
+      "act3-02",
+      "act3-03",
+      "act3-04",
+      "act4-01",
+      "act4-02",
+      "act4-03",
+      "act4-04",
+    ]);
     const ohakoButtons = buttons.filter((entry) => entry.character !== undefined);
     expect(ohakoButtons.map((e) => e.character)).toEqual(RESIDENTS.map((r) => r.slug));
     expect(ohakoButtons.every((e) => e.slug === `ohako-${e.character}`)).toBe(true);
@@ -287,11 +314,13 @@ describe("loadStoryButtons: 第一幕+第二幕シーケンスの順序ゲート
 });
 
 describe("groupStoryButtonsByAct: /story の幕見出し分割", () => {
-  it("16件フラット配列を第一幕12件・第二幕4件の2グループへ分ける（おはこは直前の act に属す）", () => {
+  it("24件フラット配列を第一幕12件・第二幕以降4件ずつの4グループへ分ける（おはこは直前の act に属す）", () => {
     const sections = groupStoryButtonsByAct(loadStoryButtons());
-    expect(sections.map((s) => s.act)).toEqual([1, 2]);
+    expect(sections.map((s) => s.act)).toEqual([1, 2, 3, 4]);
     expect(sections[0]?.buttons.length).toBe(12);
     expect(sections[1]?.buttons.map((e) => e.slug)).toEqual(["act2-01", "act2-02", "act2-03", "act2-04"]);
+    expect(sections[2]?.buttons.map((e) => e.slug)).toEqual(["act3-01", "act3-02", "act3-03", "act3-04"]);
+    expect(sections[3]?.buttons.map((e) => e.slug)).toEqual(["act4-01", "act4-02", "act4-03", "act4-04"]);
   });
 
   // 境界ロジック単体を実データに頼らず固定するための最小合成フィクスチャ。

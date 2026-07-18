@@ -20,6 +20,7 @@ const residentNumber = String(index + 1).padStart(2, "0");
   <a
     href={`/residents/${resident.slug}`}
     class="th-resident-card group block no-underline"
+    data-resident-choice={resident.slug}
     data-read-group={readGroup.join(",")}
   >
     <div class="th-resident-card__art">

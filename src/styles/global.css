@@ -250,6 +250,18 @@ a {
     0 0 16px rgba(230, 196, 126, 0.18),
     0 14px 30px rgba(0, 0, 0, 0.4);
 }
+.th-door.is-disappeared {
+  border-color: rgba(116, 202, 214, 0.48);
+  background-color: rgba(220, 248, 250, 0.08);
+  cursor: default;
+}
+.th-door.is-disappeared:hover,
+.th-door.is-disappeared:focus-visible {
+  border-color: rgba(116, 202, 214, 0.58);
+  background-color: rgba(220, 248, 250, 0.08);
+  box-shadow: 0 0 24px rgba(116, 202, 214, 0.14);
+  transform: none;
+}
 /* 金の押印（蔵書印）。金地に濃墨＝押された勲章のように完読を祝う。
    角丸にせず、右上端をボタンの辺に密着させる（タブのように角へ貼り付く形）。
    ::after ではなく ReadMarks.astro が挿す実要素にスタイルする：.th-theme-resident-choice
@@ -1368,6 +1380,29 @@ a {
 .th-resident-card:focus-visible .th-resident-card__art img {
   transform: scale(1.035);
 }
+.th-resident-card.is-disappeared {
+  border-color: rgba(116, 202, 214, 0.5);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(116, 202, 214, 0.14) inset;
+  cursor: default;
+}
+.th-resident-card.is-disappeared:hover,
+.th-resident-card.is-disappeared:focus-visible {
+  border-color: rgba(116, 202, 214, 0.58);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(116, 202, 214, 0.18) inset;
+  transform: none;
+}
+.th-resident-card.is-disappeared .th-resident-card__art img,
+.th-resident-card.is-disappeared .th-resident-card__portrait img {
+  filter: invert(1) hue-rotate(180deg) contrast(1.08) saturate(0.95);
+}
+.th-resident-card.is-disappeared .th-resident-card__art::after {
+  background:
+    linear-gradient(180deg, rgba(246, 238, 216, 0.04) 0%, rgba(246, 238, 216, 0.1) 42%, rgba(10, 9, 16, 0.88) 100%),
+    linear-gradient(90deg, rgba(116, 202, 214, 0.16), transparent 28%, transparent 72%, rgba(116, 202, 214, 0.16));
+}
+.th-resident-card.is-disappeared .th-resident-card__name {
+  color: rgba(220, 248, 250, 0.92);
+}
 /* padding-bottom は .th-read-meter（絶対配置・下端 bottom:0.75rem=12px、行の高さは
    .th-read-badge の text-xs 行送り16pxが .th-read-gauge の高さ4.8pxより勝つため16px）の
    専有領域と衝突しないよう計算すること。メーター上端＝box下端から 12px+16px=28px。
@@ -1746,6 +1781,27 @@ a {
   border-color: var(--color-th-gold-bright);
   background: #fffaf0;
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+}
+.th-door.th-theme-resident-choice.is-disappeared {
+  border-color: rgba(116, 202, 214, 0.48);
+  background: #f1fbff;
+  cursor: default;
+}
+.th-door.th-theme-resident-choice.is-disappeared:hover,
+.th-door.th-theme-resident-choice.is-disappeared:focus-visible {
+  border-color: rgba(116, 202, 214, 0.58);
+  background: #f1fbff;
+  transform: none;
+}
+.th-door.th-theme-resident-choice.is-disappeared::before {
+  background:
+    linear-gradient(90deg, rgba(11, 10, 16, 0.34) 0%, rgba(246, 241, 231, 0.62) 54%, rgba(246, 241, 231, 0.95) 100%);
+}
+.th-door.th-theme-resident-choice.is-disappeared .th-theme-resident-choice__image {
+  filter: invert(1) hue-rotate(180deg) contrast(1.08) saturate(0.95);
+}
+.th-door.th-theme-resident-choice.is-disappeared .th-theme-resident-choice__name {
+  color: rgba(220, 248, 250, 0.95);
 }
 .th-theme-resident-choice[data-resident="aristo"] {
   --choice-image-right: -4.2rem;

@@ -334,9 +334,10 @@ export function findMainStory(slug: string): MainStoryEntry | undefined {
 /**
  * `/story` に並べる本編ボタン。順序ゲートの厳密な並びは
  * 第一幕 [act1-01, act1-02, おはこ×RESIDENTS順, act1-03, act1-04]（12件）に続けて
- * 第二幕 [act2-01, act2-02, act2-03, act2-04]（4件）を足した通し16件フラット配列。
+ * 第二幕〜第四幕の act*.md を足した通し24件フラット配列。
  * 到着→入口で文脈を与えてから、住人8人との初対面（おはこ）、違和感→返却口の灯で一幕を閉じ、
- * 最初の消失（スピノ不在）→ざわめき→数の再燃で二幕を進める。
+ * 最初の消失（スピノ不在）→ざわめき→数の再燃で二幕を進め、第三幕〜第四幕で
+ * 消失連鎖と答えの本まで辿る。
  * `orderInAct` は各幕内で 1 始まりにリセットする通し番号（第一幕は 1..12、第二幕は 1..4）。
  * `/story` の見出し分割は `groupStoryButtonsByAct()` を使う（幕の区分ロジックをここに集約し、
  * story.astro 側では判定しない）。本筋mdには住人がいないので character は付かない。
@@ -391,11 +392,30 @@ export function loadStoryButtons(): StoryButtonEntry[] {
     asButton(requireMain("act2-04")),
   ];
 
+  const act3Sequence: Omit<StoryButtonEntry, "orderInAct">[] = [
+    asButton(requireMain("act3-01")),
+    asButton(requireMain("act3-02")),
+    asButton(requireMain("act3-03")),
+    asButton(requireMain("act3-04")),
+  ];
+
+  const act4Sequence: Omit<StoryButtonEntry, "orderInAct">[] = [
+    asButton(requireMain("act4-01")),
+    asButton(requireMain("act4-02")),
+    asButton(requireMain("act4-03")),
+    asButton(requireMain("act4-04")),
+  ];
+
   const withOrderInAct = (
     seq: Omit<StoryButtonEntry, "orderInAct">[],
   ): StoryButtonEntry[] => seq.map((entry, index) => ({ ...entry, orderInAct: index + 1 }));
 
-  cachedStoryButtons = [...withOrderInAct(act1Sequence), ...withOrderInAct(act2Sequence)];
+  cachedStoryButtons = [
+    ...withOrderInAct(act1Sequence),
+    ...withOrderInAct(act2Sequence),
+    ...withOrderInAct(act3Sequence),
+    ...withOrderInAct(act4Sequence),
+  ];
   return cachedStoryButtons;
 }
 

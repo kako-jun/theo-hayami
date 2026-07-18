@@ -46,6 +46,7 @@ const residents = RESIDENTS.filter((r) => theme.characters.includes(r.slug));
               href={`/free/${theme.slug}__${resident.slug}`}
               data-slug={`${theme.slug}__${resident.slug}`}
               data-resident={resident.slug}
+              data-resident-choice={resident.slug}
               class="th-door th-theme-resident-choice block no-underline"
             >
               <img

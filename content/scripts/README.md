@@ -27,7 +27,7 @@ name-name 側はプロジェクト設定 `scriptsDir: content/scripts` で `cont
 脚本は **name-name の原稿形式**で書く（独自記法 `[話者]` は廃止＝変換器なし・単一パーサ）。形式正本は name-name `docs/spec/markdown-v0.1.md`。要点:
 
 - 先頭に frontmatter。**各セル MD は `engine: name-name`（worker フィルタ必須）と `title`（索引用）の2行のみ**（#48）。
-  - **描画設定（`aspect_ratio` / `dialog_style` / `font_family` / `font_size` / `protagonist` / `character_y_ratio` / `character_fade_ms` / `character_scale` / `skip_enabled` 等）はエントリ `script.md` に1回だけ書く**。name-name のマルチ MD 再生では描画設定はエントリ `script.md` の frontmatter からのみ読まれ、各セル MD の描画設定 frontmatter は**無視される**（`?scene=` deep-link で個別セルに飛んだときも同じ）。だからセルに書くと冗長なので置かない。
+  - **描画設定（`aspect_ratio` / `dialog_style` / `font_family` / `font_size` / `protagonist` / `character_y_ratio` / `character_fade_ms` / `event_image_fade_ms` / `character_scale` / `skip_enabled` 等）はエントリ `script.md` に1回だけ書く**。name-name のマルチ MD 再生では描画設定はエントリ `script.md` の frontmatter からのみ読まれ、各セル MD の描画設定 frontmatter は**無視される**（`?scene=` deep-link で個別セルに飛んだときも同じ）。だからセルに書くと冗長なので置かない。
 - 場面は `## scene-id: 見出し`
 - セリフは **`**話者**:`** の次行に本文。話者は `セオ` / `ヴィンチア` / 住人名（`カンティア` 等）
 - 地の文は `> 本文`（theo-hayami では今は使わない）

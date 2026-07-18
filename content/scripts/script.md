@@ -8,6 +8,7 @@ font_size: 26
 protagonist: "セオ"
 character_y_ratio: 1.10
 character_fade_ms: 700
+event_image_fade_ms: 700
 character_scale: 0.5
 skip_enabled: false
 debug_enabled: false

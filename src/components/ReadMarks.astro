@@ -4,6 +4,8 @@
 // - 集計カード（`data-read-group="slug,slug,..."`）で既読数を数え、`[data-read-count]` に「N/M 読了」を出し、
 //   同じカード内の `.th-read-gauge__fill` の幅も進捗率で更新する（Issue #73）。
 //   全部読み終えたカードには `.is-read-all` を付け、個別扉と同じ右上の完読印（`.th-read-stamp`）を出す（右下ゲージと共存）。
+// - 本編進行で消えた住人の自由行動ボタン（`data-resident-choice`）には `.is-disappeared` を付け、
+//   href を外して選べなくする。DEAD 表記や灰色化ではなく、階調反転で「現実に侵食してきた」違和感を出す。
 // localStorage はクライアント専用なので必ず描画後（module script は defer で DOM 構築後に走る）に実行する。
 //
 // import で readStore.ts を使い、キー/形式の二重定義を避ける（唯一の正本＝readStore.ts）。
@@ -14,6 +16,7 @@
 
 <script>
   import { getReadSet, readRatioPercent } from "../lib/readStore";
+  import { getStoredDisappearedResidents } from "../lib/storyProgress";
 
   function applyReadMarks() {
     const readSet = getReadSet();
@@ -56,6 +59,19 @@
           stamp.textContent = "完読";
           el.appendChild(stamp);
         }
+      }
+    }
+
+    const disappeared = new Set(getStoredDisappearedResidents());
+    for (const el of document.querySelectorAll<HTMLElement>("[data-resident-choice]")) {
+      const resident = el.dataset.residentChoice ?? "";
+      if (!disappeared.has(resident)) continue;
+      el.classList.add("is-disappeared");
+      el.setAttribute("aria-disabled", "true");
+      el.setAttribute("tabindex", "-1");
+      if (el instanceof HTMLAnchorElement) {
+        if (!el.dataset.href) el.dataset.href = el.getAttribute("href") ?? "";
+        el.removeAttribute("href");
       }
     }
   }

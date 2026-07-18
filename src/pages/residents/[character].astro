@@ -110,6 +110,7 @@ const ohako = findOhako(character);
                     <a
                       href={`/free/${theme.slug}__${resident.slug}`}
                       data-slug={`${theme.slug}__${resident.slug}`}
+                      data-resident-choice={resident.slug}
                       class={`th-door block no-underline${symbolImage ? " th-door--symbol" : ""}`}
                       style={symbolImage ? `background-image: url(${symbolImage})` : undefined}
                     >

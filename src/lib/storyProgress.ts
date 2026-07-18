@@ -1,4 +1,5 @@
 import { getAppStorage, updateAppStorage } from "./appStorage";
+import { RESIDENTS } from "../data/residents";
 
 export interface StoryProgress {
   unlockedStoryIds: string[];
@@ -7,6 +8,16 @@ export interface StoryProgress {
   disappearedResidents: string[];
   completed: boolean;
 }
+
+const RESIDENT_SLUGS = new Set(RESIDENTS.map((resident) => resident.slug));
+
+const DISAPPEARANCE_BY_STORY_ID: Record<string, readonly string[]> = {
+  "act2-02": ["spino"],
+  "act3-01": ["hegru", "kantia"],
+  "act3-02": ["aristo"],
+  "act3-04": ["dekaris"],
+  "act4-01": ["hue", "ou", "makiya"],
+};
 
 export function createInitialStoryProgress(storyIds: readonly string[]): StoryProgress {
   return {
@@ -41,13 +52,16 @@ export function normalizeStoryProgress(raw: unknown, storyIds: readonly string[]
       ? source.currentStoryId
       : firstUnreadStoryId(completedSet, storyIds);
 
+  const disappearedResidents = mergeDisappearedResidents(
+    source.disappearedResidents,
+    completed,
+  );
+
   return {
     unlockedStoryIds: storyIds.filter((id) => unlockedSet.has(id)),
     completedStoryIds: storyIds.filter((id) => completedSet.has(id)),
     currentStoryId: current,
-    disappearedResidents: Array.isArray(source.disappearedResidents)
-      ? source.disappearedResidents.filter((id): id is string => typeof id === "string")
-      : [],
+    disappearedResidents,
     completed: allCompleted,
   };
 }
@@ -68,11 +82,13 @@ export function completeStoryEntryInProgress(
   if (next) unlocked.add(next);
 
   const completedSet = new Set(storyIds.filter((id) => completed.has(id)));
+  const completedStoryIds = storyIds.filter((id) => completed.has(id));
   return {
     ...progress,
     unlockedStoryIds: storyIds.filter((id) => unlocked.has(id)),
-    completedStoryIds: storyIds.filter((id) => completed.has(id)),
+    completedStoryIds,
     currentStoryId: next ?? firstUnreadStoryId(completedSet, storyIds),
+    disappearedResidents: mergeDisappearedResidents(progress.disappearedResidents, completedStoryIds),
     completed: completedSet.size >= storyIds.length && storyIds.length > 0,
   };
 }
@@ -105,6 +121,17 @@ export function getStoryProgress(storyIds: readonly string[]): StoryProgress {
   return normalizeStoryProgress(getAppStorage().storyProgress, storyIds);
 }
 
+export function getStoredDisappearedResidents(): string[] {
+  const raw = getAppStorage().storyProgress;
+  if (!raw || typeof raw !== "object") return [];
+  const source = raw as { disappearedResidents?: unknown };
+  if (!Array.isArray(source.disappearedResidents)) return [];
+  const disappeared = new Set(
+    source.disappearedResidents.filter((id): id is string => typeof id === "string" && RESIDENT_SLUGS.has(id)),
+  );
+  return RESIDENTS.map((resident) => resident.slug).filter((slug) => disappeared.has(slug));
+}
+
 export function saveStoryProgress(progress: StoryProgress): void {
   updateAppStorage((current) => ({
     ...current,
@@ -128,9 +155,29 @@ export function resetStoryProgress(storyIds: readonly string[]): StoryProgress {
   return next;
 }
 
+export function deriveDisappearedResidents(completedStoryIds: readonly string[]): string[] {
+  const disappeared = new Set<string>();
+  for (const storyId of completedStoryIds) {
+    for (const resident of DISAPPEARANCE_BY_STORY_ID[storyId] ?? []) {
+      disappeared.add(resident);
+    }
+  }
+  return RESIDENTS.map((resident) => resident.slug).filter((slug) => disappeared.has(slug));
+}
+
 function filterKnownStrings(value: unknown, known: Set<string>): string[] {
   if (!Array.isArray(value)) return [];
   return value.filter((id): id is string => typeof id === "string" && known.has(id));
+}
+
+function mergeDisappearedResidents(raw: unknown, completedStoryIds: readonly string[]): string[] {
+  const disappeared = new Set(deriveDisappearedResidents(completedStoryIds));
+  if (Array.isArray(raw)) {
+    for (const id of raw) {
+      if (typeof id === "string" && RESIDENT_SLUGS.has(id)) disappeared.add(id);
+    }
+  }
+  return RESIDENTS.map((resident) => resident.slug).filter((slug) => disappeared.has(slug));
 }
 
 function nextStoryId(storyId: string, storyIds: readonly string[]): string | null {

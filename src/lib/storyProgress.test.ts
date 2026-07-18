@@ -5,6 +5,8 @@ import {
   completeStoryEntry,
   completeStoryEntryInProgress,
   createInitialStoryProgress,
+  deriveDisappearedResidents,
+  getStoredDisappearedResidents,
   getStoryProgress,
   isStorySectionVisible,
   normalizeStoryProgress,
@@ -144,18 +146,18 @@ describe("storyProgress storage", () => {
   });
 });
 
-describe("storyProgress: 第一幕+第二幕16件の順序ゲート回帰（id数非依存）", () => {
+describe("storyProgress: 第一幕〜第四幕24件の順序ゲート回帰（id数非依存）", () => {
   const STORY_IDS = loadStoryButtons().map((entry) => entry.slug);
 
-  it("16件でも初期状態は先頭（act1-01）のみ解放", () => {
-    expect(STORY_IDS.length).toBe(16);
+  it("24件でも初期状態は先頭（act1-01）のみ解放", () => {
+    expect(STORY_IDS.length).toBe(24);
     const initial = createInitialStoryProgress(STORY_IDS);
     expect(initial.unlockedStoryIds).toEqual(["act1-01"]);
     expect(initial.currentStoryId).toBe("act1-01");
     expect(initial.completed).toBe(false);
   });
 
-  it("先頭から順に読了すると1件ずつ次だけが解放され、16件目で完了する", () => {
+  it("先頭から順に読了すると1件ずつ次だけが解放され、24件目で完了する", () => {
     let progress = createInitialStoryProgress(STORY_IDS);
     for (let i = 0; i < STORY_IDS.length; i++) {
       const id = STORY_IDS[i]!;
@@ -177,12 +179,16 @@ describe("storyProgress: /story 表示ゲート（未解放は非表示）", () 
   const STORY_IDS = SECTIONS.flatMap((section) => section.buttons.map((b) => b.slug));
   const ACT1 = SECTIONS[0]!.buttons.map((b) => b.slug);
   const ACT2 = SECTIONS[1]!.buttons.map((b) => b.slug);
+  const ACT3 = SECTIONS[2]!.buttons.map((b) => b.slug);
+  const ACT4 = SECTIONS[3]!.buttons.map((b) => b.slug);
 
   it("幕集合は本番の groupStoryButtonsByAct 由来（第一幕はおはこ8本を含む12件）", () => {
     expect(ACT1).toHaveLength(12);
     expect(ACT1).toContain("ohako-aristo");
     expect(ACT1.filter((id) => id.startsWith("ohako-"))).toHaveLength(8);
     expect(ACT2).toEqual(["act2-01", "act2-02", "act2-03", "act2-04"]);
+    expect(ACT3).toEqual(["act3-01", "act3-02", "act3-03", "act3-04"]);
+    expect(ACT4).toEqual(["act4-01", "act4-02", "act4-03", "act4-04"]);
   });
 
   it("selectVisibleStoryIds は unlocked のみを元順で返す（未解放は落とす）", () => {
@@ -204,5 +210,42 @@ describe("storyProgress: /story 表示ゲート（未解放は非表示）", () 
     expect(visible).toContain("act2-01");
     expect(visible).not.toContain("act2-02");
     expect(isStorySectionVisible(ACT2, progress.unlockedStoryIds)).toBe(true);
+  });
+});
+
+describe("storyProgress: 消失住人フラグ", () => {
+  const STORY_IDS = loadStoryButtons().map((entry) => entry.slug);
+
+  beforeEach(() => installStorage(makeStorage()));
+
+  it("本編読了IDから消失住人を RESIDENTS 順で導出する", () => {
+    expect(deriveDisappearedResidents(["act2-02", "act3-01", "act4-01"])).toEqual([
+      "kantia",
+      "hegru",
+      "spino",
+      "hue",
+      "makiya",
+      "ou",
+    ]);
+  });
+
+  it("該当本編を完了すると storyProgress.disappearedResidents に保存される", () => {
+    let progress = createInitialStoryProgress(STORY_IDS);
+    for (const id of STORY_IDS.slice(0, STORY_IDS.indexOf("act2-02") + 1)) {
+      progress = completeStoryEntryInProgress(progress, id, STORY_IDS);
+    }
+    expect(progress.disappearedResidents).toEqual(["spino"]);
+  });
+
+  it("保存済みの消失住人だけをクライアントUI用に返す", () => {
+    completeStoryEntry("act1-01", STORY_IDS);
+    let progress = getStoryProgress(STORY_IDS);
+    progress = completeStoryEntryInProgress(progress, "act2-02", STORY_IDS);
+    installStorage(
+      makeStorage({
+        [APP_STORAGE_KEY]: JSON.stringify({ storyProgress: progress }),
+      }),
+    );
+    expect(getStoredDisappearedResidents()).toEqual(["spino"]);
   });
 });
