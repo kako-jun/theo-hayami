@@ -104,6 +104,48 @@ const ACT_SECTION_HEADINGS: Record<number, string> = {
         })
       }
     </section>
+
+    <section class="th-completion-record mt-12" data-story-completion-record hidden>
+      <p class="th-magazine-section__folio">AFTER STORY</p>
+      <h2>読了後の記録</h2>
+      <p class="th-story-index__intro mt-3">
+        最後まで辿ったあとに残る、セオとヴィンチアの像です。
+      </p>
+      <div class="th-completion-record__grid mt-6" aria-label="読了後のセオとヴィンチア">
+        <figure class="th-completion-record__item">
+          <img
+            src="/images/promotional/residents/theo-feature.webp"
+            alt="セオの記録"
+            class="th-completion-record__image"
+            loading="lazy"
+          />
+          <figcaption class="th-completion-record__caption th-glow">
+            <img
+              src="/images/nameplates/ja/theo.webp"
+              alt="セオ"
+              class="th-completion-record__nameplate"
+              loading="lazy"
+            />
+          </figcaption>
+        </figure>
+        <figure class="th-completion-record__item">
+          <img
+            src="/images/promotional/residents/vincia-feature.webp"
+            alt="ヴィンチアの記録"
+            class="th-completion-record__image"
+            loading="lazy"
+          />
+          <figcaption class="th-completion-record__caption th-glow">
+            <img
+              src="/images/nameplates/ja/vincia.webp"
+              alt="ヴィンチア"
+              class="th-completion-record__nameplate"
+              loading="lazy"
+            />
+          </figcaption>
+        </figure>
+      </div>
+    </section>
   </div>
   <ReadMarks />
 </LibraryLayout>
@@ -119,7 +161,9 @@ const ACT_SECTION_HEADINGS: Record<number, string> = {
     const root = document.querySelector<HTMLElement>("[data-story-index]");
     if (!root) return;
     const storyIds = JSON.parse(root.dataset.storyIds ?? "[]") as string[];
-    const { unlockedStoryIds } = getStoryProgress(storyIds);
+    const { completed, unlockedStoryIds } = getStoryProgress(storyIds);
+    const completionRecord = document.querySelector<HTMLElement>("[data-story-completion-record]");
+    if (completionRecord) completionRecord.hidden = !completed;
 
     // 表示すべき storyId 集合・可視セクション判定はどちらも純粋関数で計算し、
     // その結果で hidden を付け外しする（SSR と同一経路・テストが本番退行を捕まえる）。

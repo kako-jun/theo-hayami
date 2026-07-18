@@ -23,6 +23,11 @@
 - マスター: `reality/20260719_city-snow-generic_v01.png`。現実の街は雨の日本寄り街路から、国や地域を特定しにくい雪の住宅街へ差し替えた。
 - 配信: `images/reality/city.png`。`public/images/reality/city.png` にも同期する。
 
+## 現状（promotional・2026-07-19 ティータイム/読了後資産）
+- マスター: `promotional/20260719_vincia-aristo-ou-study-table_v01.png`。配信は `images/promotional/cast/vincia-aristo-ou-study-table.webp`。`/tea-time` の待機中の話題導入で使う。
+- マスター: `promotional/20260719_tea-topic-table_v01.png`。配信は `images/promotional/cast/tea-topic-table.webp`。`/tea-time/community` のお題募集前で使う。キャラは出さず投票バイアスを避ける。
+- マスター: `promotional/20260719_residents-study-group-archive_v01.png`。配信は `images/promotional/cast/residents-study-group-archive.webp`。集合絵の保全用。全員集合ではなく比率も別なので、2026-07-19 時点では未配線。
+
 ## 現状（logo/icon・2026-07-05 確定ロゴ反映・Issue #32）
 - マスター: `logo/theo-logo.png`（3000×1180・JA サブロゴ入り）/ `logo/theo-logo-en.png`（3000×842・英語のみ）/ `icon/theo-icon.png`（512×512・T字コンステレーション・不透明）。
 - 透過処理: ロゴ2点は紺背景がほぼフラット（(1,6,20)近辺）なので色距離ベースの chroma key（`low=18, high=55` の feather）で抜いた。**高解像度（3000px）のまま透過してから縮小**（縮小してからの透過はエッジがギザつく）。アイコンは背景ごと使うので透過なし。
