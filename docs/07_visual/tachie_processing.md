@@ -54,7 +54,7 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
 
 既存キャラの1ポーズだけを差し替える場合、finalize 出力をそのまま採用しない。ヒュー `observe` 追加時と同じく、既存ポーズ群の確定ジオメトリ（canvas 幅/高さ、足元、頭位置）へ厳密に合わせる。差し替え前後と同キャラ `normal` を `magick <file> -alpha extract -threshold 1%/5%/10%/50% -format "%@" info:` で比較し、低アルファの外周だけが広がっていないか確認する。
 
-Vincia `observe` のように、生成rawの髪束や小物周辺をBiRefNetが広めに拾う絵では、同じ2倍パイプラインでも `GLOW_SIGMA=20` が見た目上強すぎることがある。その場合は本体bbox（50%以上）と頭位置を維持したまま `GLOW_SIGMA=10` で再finalizeし、旧ポーズ/同キャラnormalの低アルファbboxに合わせる。これは半分解像度に縮小する処理ではなく、2倍解像度のまま外周グローだけを既存に寄せる補正。
+Vincia `observe` のように、生成rawの髪束や小物周辺をBiRefNetが広めに拾う絵では、同じ2倍パイプラインでも `GLOW_SIGMA=20` が見た目上強すぎることがある。その場合は本体bbox（50%以上）と頭位置を維持したまま `GLOW_SIGMA=6` 前後で再finalizeし、旧ポーズ/同キャラnormalの低アルファbboxに合わせる。これは半分解像度に縮小する処理ではなく、2倍解像度のまま外周グローだけを既存に寄せる補正。
 
 ## 作り直し時の再現
 1. 新しい LoRA 立ち絵を用意。
