@@ -36,6 +36,16 @@ function activeEventImageChoiceLines(raw: string): number[] {
   return lines;
 }
 
+function keepsEventImageAtEnd(raw: string): boolean {
+  let eventImageActive = false;
+  for (const line of raw.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (/^\[イベント絵:/.test(trimmed)) eventImageActive = true;
+    if (/^\[イベント絵終了\]/.test(trimmed)) eventImageActive = false;
+  }
+  return eventImageActive;
+}
+
 describe("main story continuity", () => {
   it("act2-01 does not misattribute the hologram explanation to セオ", () => {
     const act1 = mainScript("act1-01.md");
@@ -106,8 +116,19 @@ describe("main story continuity", () => {
     expect(act4_04).toContain("[イベント絵: story/act4/theo-returning-event-horizon.webp, 背面=hide]");
     expect(act4_04).toContain("現実がどこかにあるなら、きっとそこは、答えのある場所じゃない");
     expect(act4_04).toContain("さあ、行こう。まだ見えない明日へ--");
+    expect(act4_04).toContain("[イベント絵: system/final-blackout.webp, 背面=hide, フェード=1400]");
     expect(act4_04).toContain("[待機: 3600000]");
     expect(act4_04).not.toContain("問いを持って進む → hub");
+  });
+
+  it("terminal event-image scripts fade to the shared blackout image before holding", () => {
+    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR)]
+      .filter((file) => {
+        const raw = readFileSync(file, "utf-8");
+        return keepsEventImageAtEnd(raw) && !raw.includes("[イベント絵: system/final-blackout.webp, 背面=hide, フェード=1400]\n[待機: 表示完了]\n[待機: 3600000]");
+      })
+      .map((file) => path.relative(process.cwd(), file));
+    expect(bad).toEqual([]);
   });
 
   it("does not put choices on top of an active event image", () => {
