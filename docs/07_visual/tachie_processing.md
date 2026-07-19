@@ -54,7 +54,9 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
 
 既存キャラの1ポーズだけを差し替える場合、finalize 出力をそのまま採用しない。ヒュー `observe` 追加時と同じく、既存ポーズ群の確定ジオメトリ（canvas 幅/高さ、足元、頭位置）へ厳密に合わせる。差し替え前後と同キャラ `normal` を `magick <file> -alpha extract -threshold 1%/5%/10%/50% -format "%@" info:` で比較し、低アルファの外周だけが広がっていないか確認する。
 
-Vincia `observe` のように、生成rawの髪束や小物周辺をBiRefNetが広めに拾う絵では、同じ2倍パイプラインでも `GLOW_SIGMA=20` が見た目上強すぎることがある。その場合は本体bbox（50%以上）と頭位置を維持したまま `GLOW_SIGMA=6` 前後で再finalizeし、旧ポーズ/同キャラnormalの低アルファbboxに合わせる。これは半分解像度に縮小する処理ではなく、2倍解像度のまま外周グローだけを既存に寄せる補正。
+この工程で `GLOW_SIGMA` / `SIDE_M` / `TOP_M` を個別調整してはいけない。2倍解像度の住人立ち絵は全キャラ同一の `RES=1024 SIDE_M=80 TOP_M=104 GLOW_SIGMA=20` で finalize し、既存ジオメトリへの合わせ込みは透明キャンバスのパディングだけで行う。`refit_observe.py` のような `alpha>128` bbox crop + 固定余白の使い捨て処理は、低アルファの暖色グローを切るため再利用禁止。
+
+既存85キーの head-align は PIL の `canvas.paste(img, (x, y), img)` で透明キャンバスに配置している。`alpha_composite` や ImageMagick `-composite` で置くと半透明ピクセルの RGB がランプ色のまま残り、黒背景で外周が不自然に明るく見える。Vincia `observe`（本を開いたT6採用）も同じ手順で、finalize 後の `50% bbox` を旧 observe の本体位置へ合わせるため `848x1560` 透明キャンバスに `+38+0` で `paste(..., mask=img)` 配置した。
 
 ## 作り直し時の再現
 1. 新しい LoRA 立ち絵を用意。
