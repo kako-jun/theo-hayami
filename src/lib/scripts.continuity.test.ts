@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
@@ -16,6 +16,24 @@ function freeScript(file: string): string {
 
 function currentScript(file: string): string {
   return readFileSync(path.join(CURRENT_DIR, file), "utf-8");
+}
+
+function scriptFiles(dir: string): string[] {
+  return readdirSync(dir)
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => path.join(dir, file));
+}
+
+function activeEventImageChoiceLines(raw: string): number[] {
+  let eventImageActive = false;
+  const lines: number[] = [];
+  raw.split(/\r?\n/).forEach((line, index) => {
+    const trimmed = line.trim();
+    if (/^\[イベント絵:/.test(trimmed)) eventImageActive = true;
+    if (/^\[イベント絵終了\]/.test(trimmed)) eventImageActive = false;
+    if (eventImageActive && /^\[選択\]/.test(trimmed)) lines.push(index + 1);
+  });
+  return lines;
 }
 
 describe("main story continuity", () => {
@@ -90,6 +108,14 @@ describe("main story continuity", () => {
     expect(act4_04).toContain("さあ、行こう。まだ見えない明日へ--");
     expect(act4_04).toContain("[待機: 3600000]");
     expect(act4_04).not.toContain("問いを持って進む → hub");
+  });
+
+  it("does not put choices on top of an active event image", () => {
+    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR)]
+      .flatMap((file) =>
+        activeEventImageChoiceLines(readFileSync(file, "utf-8")).map((line) => `${path.relative(process.cwd(), file)}:${line}`),
+      );
+    expect(bad).toEqual([]);
   });
 
   it("keeps philosophy explanations away from common distortions", () => {
