@@ -115,7 +115,7 @@ describe("main story continuity", () => {
     expect(act4_01).not.toMatch(/\[登場: (ヒュー|オウ)/u);
     expect(act4_01).toContain("言葉になりきる前で止まる");
     expect(act4_01).toContain("知ることは、体のどこかが少し変わって、はじめてボクのものになる");
-    expect(act4_08).toContain("ヒューの余韻");
+    expect(act4_08).toContain("呼んだぶんだけ、いないことがはっきりする");
     expect(act4_08).not.toContain("ヒューの沈黙");
     expect(act4_08).toContain("返事がない。もう、誰もいない。見送られたんじゃない。ボクが、ひとり残されたんだ");
     expect(act4_08).toContain("[イベント絵: story/act4/theo-returning-event-horizon.webp, 背面=hide]");
@@ -132,7 +132,7 @@ describe("main story continuity", () => {
     expect(bad).toEqual([
       "content/scripts/main/act3-03.md:94",
       "content/scripts/main/act4-07.md:99",
-      "content/scripts/main/act4-08.md:137",
+      "content/scripts/main/act4-08.md:143",
     ]);
   });
 
