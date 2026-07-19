@@ -88,6 +88,8 @@ describe("main story continuity", () => {
     expect(act4_04).toContain("[イベント絵: story/act4/theo-returning-event-horizon.webp, 背面=hide]");
     expect(act4_04).toContain("現実がどこかにあるなら、きっとそこは、答えのある場所じゃない");
     expect(act4_04).toContain("さあ、行こう。まだ見えない明日へ--");
+    expect(act4_04).toContain("[待機: 3600000]");
+    expect(act4_04).not.toContain("問いを持って進む → hub");
   });
 
   it("keeps philosophy explanations away from common distortions", () => {

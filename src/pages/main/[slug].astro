@@ -31,6 +31,7 @@ const resident = character ? findResident(character) : undefined;
 // 見つからない場合は選択画面と同じ既定背景にフォールバックする。
 const bgImage = background ?? "shadow-library/grand-reading-room-v.webp";
 const storyIds = loadStoryButtons().map((entry) => entry.slug);
+const completesOnReaderStart = slug === "act4-04";
 
 // 本筋mdの見出し（「第一幕」「第二幕」等）はslugの幕番号から動的に導出する
 // （ハードコードすると act2 以降のページで「第一幕」と誤表示する回帰を生む）。
@@ -86,6 +87,7 @@ const actLabel = !character ? mainStoryActLabel(slug) : undefined;
       data-story-readable
       data-story-id={slug}
       data-story-ids={JSON.stringify(storyIds)}
+      data-story-complete-on-start={completesOnReaderStart ? "true" : "false"}
       hidden
     >
       <ReaderFrame slug={slug} sceneId={sceneId} title={resident ? `${title} ── ${resident.name}` : title} />
@@ -113,6 +115,7 @@ const actLabel = !character ? mainStoryActLabel(slug) : undefined;
 </LibraryLayout>
 
 <script>
+  import { markRead } from "../../lib/readStore";
   import { completeStoryEntry, isStoryEntryUnlocked } from "../../lib/storyProgress";
 
   const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
@@ -127,6 +130,15 @@ const actLabel = !character ? mainStoryActLabel(slug) : undefined;
     const unlocked = isStoryEntryUnlocked(storyId, storyIds);
     readable.hidden = !unlocked;
     locked.hidden = unlocked;
+
+    if (readable.dataset.storyCompleteOnStart === "true") {
+      const completeOnStart = () => {
+        markRead(storyId);
+        completeStoryEntry(storyId, storyIds);
+      };
+      readable.querySelector("[data-reader-start]")?.addEventListener("click", completeOnStart, { once: true });
+      readable.querySelector("[data-reader-start-fullscreen]")?.addEventListener("click", completeOnStart, { once: true });
+    }
 
     window.addEventListener("message", (event) => {
       if (event.origin !== NAME_NAME_ORIGIN) return;
