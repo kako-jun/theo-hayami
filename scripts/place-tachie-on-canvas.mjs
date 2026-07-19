@@ -10,8 +10,8 @@ function usage() {
   node scripts/place-tachie-on-canvas.mjs \\
     --input <finalized.png> \\
     --output <asset.png|asset.webp> \\
-    --canvas <width>x<height> \\
-    --offset <x>,<y>
+    [--canvas <width>x<height>] \\
+    (--offset <x>,<y> | --reference <existing.webp|png> [--align bbox-left-bottom|bbox-center-bottom] [--threshold 50])
 
 This reproduces the existing standing-image head-align paste semantics:
 PIL Image.paste(img, (x, y), img). Do not replace it with alpha_composite.`);
@@ -29,26 +29,109 @@ function readArgs(argv) {
     args[key.slice(2)] = value;
     i += 1;
   }
-  for (const key of ["input", "output", "canvas", "offset"]) {
+  for (const key of ["input", "output"]) {
     if (!args[key]) {
       usage();
       process.exit(2);
     }
   }
-  const canvas = args.canvas.match(/^(\d+)x(\d+)$/);
-  const offset = args.offset.match(/^(-?\d+),(-?\d+)$/);
-  if (!canvas || !offset) {
+  if (!args.offset && !args.reference) {
+    usage();
+    process.exit(2);
+  }
+  if (args.offset && args.reference) {
     usage();
     process.exit(2);
   }
   return {
     input: args.input,
     output: args.output,
-    canvasW: Number(canvas[1]),
-    canvasH: Number(canvas[2]),
-    offsetX: Number(offset[1]),
-    offsetY: Number(offset[2]),
+    canvas: args.canvas,
+    offset: args.offset,
+    reference: args.reference,
+    align: args.align ?? "bbox-left-bottom",
+    threshold: Number(args.threshold ?? "50"),
   };
+}
+
+function parseCanvas(value) {
+  const canvas = value?.match(/^(\d+)x(\d+)$/);
+  if (!canvas) {
+    usage();
+    process.exit(2);
+  }
+  return { canvasW: Number(canvas[1]), canvasH: Number(canvas[2]) };
+}
+
+function parseOffset(value) {
+  const offset = value?.match(/^(-?\d+),(-?\d+)$/);
+  if (!offset) {
+    usage();
+    process.exit(2);
+  }
+  return { offsetX: Number(offset[1]), offsetY: Number(offset[2]) };
+}
+
+function alphaBbox(rgba, width, height, threshold) {
+  let left = width;
+  let right = -1;
+  let top = height;
+  let bottom = -1;
+  const cutoff = Math.floor((threshold / 100) * 255);
+
+  for (let y = 0; y < height; y += 1) {
+    for (let x = 0; x < width; x += 1) {
+      if (rgba[(y * width + x) * 4 + 3] > cutoff) {
+        if (x < left) left = x;
+        if (x > right) right = x;
+        if (y < top) top = y;
+        if (y > bottom) bottom = y;
+      }
+    }
+  }
+
+  if (right < 0) {
+    throw new Error(`No alpha pixels above ${threshold}%`);
+  }
+
+  return {
+    left,
+    right,
+    top,
+    bottom,
+    width: right - left + 1,
+    height: bottom - top + 1,
+    centerX: (left + right) / 2,
+  };
+}
+
+async function readRgba(path) {
+  const image = sharp(path).ensureAlpha();
+  const meta = await image.metadata();
+  if (!meta.width || !meta.height) {
+    throw new Error(`Cannot read image dimensions: ${path}`);
+  }
+  return {
+    data: await image.raw().toBuffer(),
+    width: meta.width,
+    height: meta.height,
+  };
+}
+
+function deriveOffset(inputBbox, referenceBbox, align) {
+  if (align === "bbox-left-bottom") {
+    return {
+      offsetX: Math.round(referenceBbox.left - inputBbox.left),
+      offsetY: Math.round(referenceBbox.bottom - inputBbox.bottom),
+    };
+  }
+  if (align === "bbox-center-bottom") {
+    return {
+      offsetX: Math.round(referenceBbox.centerX - inputBbox.centerX),
+      offsetY: Math.round(referenceBbox.bottom - inputBbox.bottom),
+    };
+  }
+  throw new Error(`Unsupported --align: ${align}`);
 }
 
 function blendLikePillowPaste(src, srcW, srcH, canvasW, canvasH, offsetX, offsetY) {
@@ -81,16 +164,34 @@ function blendLikePillowPaste(src, srcW, srcH, canvasW, canvasH, offsetX, offset
 }
 
 async function main() {
-  const { input, output, canvasW, canvasH, offsetX, offsetY } = readArgs(process.argv.slice(2));
+  const { input, output, canvas, offset, reference, align, threshold } = readArgs(process.argv.slice(2));
+  const source = await readRgba(input);
+  let canvasW;
+  let canvasH;
+  let offsetX;
+  let offsetY;
 
-  const source = sharp(input).ensureAlpha();
-  const meta = await source.metadata();
-  if (!meta.width || !meta.height) {
-    throw new Error(`Cannot read image dimensions: ${input}`);
+  if (reference) {
+    const ref = await readRgba(reference);
+    ({ canvasW, canvasH } = canvas ? parseCanvas(canvas) : { canvasW: ref.width, canvasH: ref.height });
+    const inputBbox = alphaBbox(source.data, source.width, source.height, threshold);
+    const referenceBbox = alphaBbox(ref.data, ref.width, ref.height, threshold);
+    ({ offsetX, offsetY } = deriveOffset(inputBbox, referenceBbox, align));
+    console.log(
+      `derived offset +${offsetX}+${offsetY} from ${align} threshold=${threshold}% ` +
+        `(input bbox=${inputBbox.width}x${inputBbox.height}+${inputBbox.left}+${inputBbox.top}, ` +
+        `reference bbox=${referenceBbox.width}x${referenceBbox.height}+${referenceBbox.left}+${referenceBbox.top})`,
+    );
+  } else {
+    if (!canvas) {
+      usage();
+      process.exit(2);
+    }
+    ({ canvasW, canvasH } = parseCanvas(canvas));
+    ({ offsetX, offsetY } = parseOffset(offset));
   }
 
-  const src = await source.raw().toBuffer();
-  const placed = blendLikePillowPaste(src, meta.width, meta.height, canvasW, canvasH, offsetX, offsetY);
+  const placed = blendLikePillowPaste(source.data, source.width, source.height, canvasW, canvasH, offsetX, offsetY);
 
   mkdirSync(dirname(output), { recursive: true });
 

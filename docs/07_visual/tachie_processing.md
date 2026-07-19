@@ -61,12 +61,15 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
 再配置は使い捨てコマンドでなく `scripts/place-tachie-on-canvas.mjs` を使う。例:
 
 ```bash
-node scripts/place-tachie-on-canvas.mjs \
+npm run place-tachie -- \
   --input /path/to/finalize-out/observe.png \
   --output assets/images/vincia/observe.webp \
-  --canvas 848x1560 \
-  --offset 38,0
+  --reference /path/to/current-or-old/vincia/observe.webp \
+  --align bbox-left-bottom \
+  --threshold 50
 ```
+
+`--reference` を使うと参照画像の canvas 幅/高さを引き継ぎ、指定thresholdのbbox左端と足元(bottom)から offset を算出する。Vincia T6 では `+38+0` が算出される。手動で固定する場合だけ `--canvas 848x1560 --offset 38,0` を使う。
 
 ## 作り直し時の再現
 1. 新しい LoRA 立ち絵を用意。
