@@ -165,6 +165,14 @@ content/scripts/main/*.md
 content/scripts/current/<topic>__<住人>.md
 ```
 
+未公開ストック:
+
+```text
+content/scripts/current-drafts/<topic>.md
+```
+
+`current-drafts/` はマージ待ち・公開待ち原稿の置き場。`src/data/teaTime.ts` に登録しない限り、一覧にも個別URLにも出さない。公開時は対象ファイルを `content/scripts/current/` へ移し、`publishedTeaTimeQuestions` に `number` / `publishedAt` / `sceneId` / `residents` を追加する。
+
 またはサイト側だけで管理:
 
 ```text
