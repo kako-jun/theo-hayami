@@ -389,10 +389,15 @@ a {
 /* 全ページ共通のシェア導線。パンくずは各ページ本文の左上に出るため、右上固定で
    視線の邪魔をしない小さな蔵書票として置く。言葉は用途優先で短く「シェア」。 */
 .th-share-page {
+  --th-share-offset-x: max(0.85rem, env(safe-area-inset-right, 0px));
+  --th-share-offset-y: max(0.85rem, env(safe-area-inset-top, 0px));
   position: fixed;
-  top: max(0.85rem, env(safe-area-inset-top, 0px));
-  right: max(0.85rem, env(safe-area-inset-right, 0px));
+  top: var(--th-share-offset-y);
+  right: var(--th-share-offset-x);
   z-index: 80;
+  box-sizing: border-box;
+  max-width: calc(100dvw - var(--th-share-offset-x) - 0.25rem);
+  overflow: hidden;
   border: 1px solid rgba(184, 147, 79, 0.55);
   background: rgba(18, 17, 26, 0.68);
   color: var(--color-th-gold-bright);
@@ -401,6 +406,8 @@ a {
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   line-height: 1.2;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 1px 0 rgba(230, 196, 126, 0.12) inset, 0 10px 24px rgba(0, 0, 0, 0.28);
@@ -419,8 +426,11 @@ a {
 @media (max-width: 639px) {
   .th-share-page {
     /* Android/Pixel では safe-area を足すと右上から下がり、本文へ被ることがある。 */
+    --th-share-offset-x: 0.25rem;
+    --th-share-offset-y: 0.25rem;
     top: 0.25rem;
     right: 0.25rem;
+    max-width: calc(100dvw - 0.5rem);
     padding: 0.34rem 0.48rem;
     font-size: 0.64rem;
   }
@@ -428,8 +438,11 @@ a {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 639px) {
     .th-share-page {
-      top: max(0.25rem, env(safe-area-inset-top, 0px));
-      right: max(0.25rem, env(safe-area-inset-right, 0px));
+      --th-share-offset-x: max(0.25rem, env(safe-area-inset-right, 0px));
+      --th-share-offset-y: max(0.25rem, env(safe-area-inset-top, 0px));
+      top: var(--th-share-offset-y);
+      right: var(--th-share-offset-x);
+      max-width: calc(100dvw - var(--th-share-offset-x) - 0.25rem);
     }
   }
 }
@@ -1749,7 +1762,7 @@ a {
 .th-completion-record__thanks {
   position: relative;
   z-index: 1;
-  margin: 0;
+  margin: 1rem 0 0;
   padding: 0.95rem 1rem 1.05rem;
   color: var(--color-th-ivory);
   font-size: 0.9rem;
