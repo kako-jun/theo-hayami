@@ -58,6 +58,16 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
 
 既存85キーの head-align は PIL の `canvas.paste(img, (x, y), img)` で透明キャンバスに配置している。`alpha_composite` や ImageMagick `-composite` で置くと半透明ピクセルの RGB がランプ色のまま残り、黒背景で外周が不自然に明るく見える。Vincia `observe`（本を開いたT6採用）も同じ手順で、finalize 後の `50% bbox` を旧 observe の本体位置へ合わせるため `848x1560` 透明キャンバスに `+38+0` で `paste(..., mask=img)` 配置した。
 
+再配置は使い捨てコマンドでなく `scripts/place-tachie-on-canvas.mjs` を使う。例:
+
+```bash
+node scripts/place-tachie-on-canvas.mjs \
+  --input /path/to/finalize-out/observe.png \
+  --output assets/images/vincia/observe.webp \
+  --canvas 848x1560 \
+  --offset 38,0
+```
+
 ## 作り直し時の再現
 1. 新しい LoRA 立ち絵を用意。
 2. Step 1→2→3 を全キャラ実行（K=4.09 固定。身長を変えたら表と bible を更新して同 K で再計算）。
