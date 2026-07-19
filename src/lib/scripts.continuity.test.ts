@@ -82,8 +82,12 @@ describe("main story continuity", () => {
     expect(act3_04).not.toContain("最後の住人に会う → act4-01");
     expect(act4_01).not.toMatch(/\[登場: (ヒュー|オウ)/u);
     expect(act4_01).toContain("言葉になりきる前で止まる");
+    expect(act4_01).toContain("知ることは、体のどこかが少し変わって、はじめてボクのものになる");
     expect(act4_04).toContain("ヒューの余韻");
     expect(act4_04).not.toContain("ヒューの沈黙");
+    expect(act4_04).toContain("[イベント絵: story/act4/theo-returning-event-horizon.webp, 背面=hide]");
+    expect(act4_04).toContain("現実がどこかにあるなら、きっとそこは、答えのある場所じゃない");
+    expect(act4_04).toContain("さあ、行こう。まだ見えない明日へ--");
   });
 
   it("keeps philosophy explanations away from common distortions", () => {
