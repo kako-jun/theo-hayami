@@ -13,6 +13,16 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "youtube-monetization",
+    title: "YouTubeで収益化できる気がしない",
+    question:
+      "YouTubeで収益化したいのに、条件が難しくなっていてできる気がしないとき、どう考えればよいでしょうか。",
+    number: 5,
+    publishedAt: "2026-07-19",
+    sceneId: "tea-youtube-monetization",
+    residents: ["aristo", "makiya", "hue"],
+  },
+  {
     slug: "unpersuadable",
     title: "説得できない相手",
     question:
