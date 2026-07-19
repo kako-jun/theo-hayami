@@ -390,8 +390,8 @@ a {
    視線の邪魔をしない小さな蔵書票として置く。言葉は用途優先で短く「シェア」。 */
 .th-share-page {
   position: fixed;
-  top: calc(env(safe-area-inset-top, 0px) + 0.85rem);
-  right: calc(env(safe-area-inset-right, 0px) + 0.85rem);
+  top: max(0.85rem, env(safe-area-inset-top, 0px));
+  right: max(0.85rem, env(safe-area-inset-right, 0px));
   z-index: 80;
   border: 1px solid rgba(184, 147, 79, 0.55);
   background: rgba(18, 17, 26, 0.68);
@@ -418,10 +418,19 @@ a {
 }
 @media (max-width: 639px) {
   .th-share-page {
-    top: calc(env(safe-area-inset-top, 0px) + 0.55rem);
-    right: calc(env(safe-area-inset-right, 0px) + 0.55rem);
-    padding: 0.42rem 0.58rem;
-    font-size: 0.68rem;
+    /* Android/Pixel では safe-area を足すと右上から下がり、本文へ被ることがある。 */
+    top: 0.25rem;
+    right: 0.25rem;
+    padding: 0.34rem 0.48rem;
+    font-size: 0.64rem;
+  }
+}
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 639px) {
+    .th-share-page {
+      top: max(0.25rem, env(safe-area-inset-top, 0px));
+      right: max(0.25rem, env(safe-area-inset-right, 0px));
+    }
   }
 }
 
