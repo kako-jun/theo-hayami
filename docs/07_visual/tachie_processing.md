@@ -50,6 +50,12 @@ magick defringed.png -resize x<target_px> assets/images/<char>/normal.png
   - **正本は `studio-yokonami/LORA-PIPELINE.md`「立ち絵の webp 焼き＝配信フォーマット標準」節**（今後の全立ち絵・追加分も同一パラメータで焼く＝統一感）。**⚠️ PNG を消すのは name-name #376 が本番デプロイ済みを確認してから**（webp→png フォールバックの安全順序）。
 - name-name は**元絵基準スケール `character_scale: 0.5` 表示**（#378）。配信 webp は Step 3 ネイティブ px の約2倍解像度なので、character_scale:0.5 で画面上ほぼネイティブ相当に戻しつつ縦px比（身長差）を保つ。幅が論理画面(9:16=450)を超えても**はみ出しOK**（個別縮小しない）。ToHeart 式に**下端（靴）が画面外に切れてよい**。
 
+### 単体ポーズ差し替え時の注意
+
+既存キャラの1ポーズだけを差し替える場合、finalize 出力をそのまま採用しない。ヒュー `observe` 追加時と同じく、既存ポーズ群の確定ジオメトリ（canvas 幅/高さ、足元、頭位置）へ厳密に合わせる。差し替え前後と同キャラ `normal` を `magick <file> -alpha extract -threshold 1%/5%/10%/50% -format "%@" info:` で比較し、低アルファの外周だけが広がっていないか確認する。
+
+Vincia `observe` のように、生成rawの髪束や小物周辺をBiRefNetが広めに拾う絵では、同じ2倍パイプラインでも `GLOW_SIGMA=20` が見た目上強すぎることがある。その場合は本体bbox（50%以上）と頭位置を維持したまま `GLOW_SIGMA=10` で再finalizeし、旧ポーズ/同キャラnormalの低アルファbboxに合わせる。これは半分解像度に縮小する処理ではなく、2倍解像度のまま外周グローだけを既存に寄せる補正。
+
 ## 作り直し時の再現
 1. 新しい LoRA 立ち絵を用意。
 2. Step 1→2→3 を全キャラ実行（K=4.09 固定。身長を変えたら表と bible を更新して同 K で再計算）。
