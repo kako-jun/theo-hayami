@@ -36,6 +36,20 @@ function activeEventImageChoiceLines(raw: string): number[] {
   return lines;
 }
 
+function eventImageEndChoiceLines(raw: string): number[] {
+  const lines = raw.split(/\r?\n/u);
+  return lines.flatMap((line, index) => {
+    if (!/^\[イベント絵終了\]/u.test(line.trim())) {
+      return [];
+    }
+    const nextMeaningful = lines
+      .slice(index + 1, index + 10)
+      .map((candidate) => candidate.trim())
+      .filter((candidate) => candidate.length > 0 && candidate !== "[待機: 表示完了]");
+    return nextMeaningful[0] === "[選択]" ? [index + 1] : [];
+  });
+}
+
 describe("main story continuity", () => {
   it("act2-01 does not misattribute the hologram explanation to セオ", () => {
     const act1 = mainScript("act1-01.md");
@@ -110,12 +124,24 @@ describe("main story continuity", () => {
     expect(act4_08).toContain("問いを持って進む → hub");
   });
 
-  it("does not put choices on top of an active event image", () => {
+  it("keeps terminal event images active through transition fade", () => {
     const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR)]
       .flatMap((file) =>
         activeEventImageChoiceLines(readFileSync(file, "utf-8")).map((line) => `${path.relative(process.cwd(), file)}:${line}`),
       );
-    expect(bad).toEqual(["content/scripts/main/act4-08.md:137"]);
+    expect(bad).toEqual([
+      "content/scripts/main/act3-03.md:94",
+      "content/scripts/main/act4-07.md:99",
+      "content/scripts/main/act4-08.md:137",
+    ]);
+  });
+
+  it("does not reveal standing sprites immediately before a choice transition", () => {
+    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR)]
+      .flatMap((file) =>
+        eventImageEndChoiceLines(readFileSync(file, "utf-8")).map((line) => `${path.relative(process.cwd(), file)}:${line}`),
+      );
+    expect(bad).toEqual([]);
   });
 
   it("keeps numeric wait directives on approved timing constants", () => {
