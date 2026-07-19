@@ -46,12 +46,7 @@ const bgImage = episode.background ?? "shadow-library/grand-reading-room-v.webp"
       </p>
     </header>
 
-    <ReaderFrame
-      slug={episode.slug}
-      sceneId={episode.sceneId}
-      title={`${episode.themeTitle} ── ${resident.name}`}
-      markReadOnStart={episode.keepTerminalEventImage}
-    />
+    <ReaderFrame slug={episode.slug} sceneId={episode.sceneId} title={`${episode.themeTitle} ── ${resident.name}`} />
 
     <nav class="th-path-tree th-path-tree--after-reader" aria-label="このあと">
       <div class="th-path-tree__branch" aria-label="住人から選ぶ">

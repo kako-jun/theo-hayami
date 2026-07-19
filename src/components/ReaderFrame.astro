@@ -50,10 +50,8 @@ interface Props {
   title: string;
   /** このセルの読むページ slug（`業__住人`）。完読受信時に既読として記録する（Issue #30）。 */
   slug: string;
-  /** 終端イベント絵を保持する脚本では story-ended が来ないため、Reader 開始時に既読化する。 */
-  markReadOnStart?: boolean;
 }
-const { sceneId, title, slug, markReadOnStart = false } = Astro.props;
+const { sceneId, title, slug } = Astro.props;
 
 const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
 const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponent(sceneId)}`;
@@ -64,7 +62,6 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   data-reader-slug={slug}
   data-reader-embed-src={embedSrc}
   data-reader-title={title}
-  data-reader-mark-read-on-start={markReadOnStart ? "true" : "false"}
 >
   <div class="th-reader__stage">
     <button type="button" class="th-reader__cta th-reader__cta--embed" data-reader-start>
@@ -218,14 +215,6 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   // このスクリプトも1回しか実行されず2個目以降のセルは完読検知が効かない。
   const reader = document.querySelector<HTMLElement>("[data-reader-slug]");
   const slug = reader?.dataset.readerSlug ?? "";
-  const markReadOnStart = reader?.dataset.readerMarkReadOnStart === "true";
-  const startButtons = reader?.querySelectorAll("[data-reader-start], [data-reader-start-fullscreen]") ?? [];
-
-  if (markReadOnStart && slug) {
-    startButtons.forEach((button) => {
-      button.addEventListener("click", () => markRead(slug), { once: true });
-    });
-  }
 
   type WebkitDocument = Document & {
     webkitFullscreenElement?: Element | null;

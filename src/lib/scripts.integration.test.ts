@@ -8,7 +8,6 @@ import {
   findOhako,
   groupStoryButtonsByAct,
   groupThemesByCategory,
-  keepsTerminalEventImage,
   loadCharacterThemes,
   loadEpisodes,
   loadHubOrder,
@@ -69,20 +68,6 @@ describe("loadEpisodes: 実データの取り込み", () => {
   it("エピソードは slug 昇順にソートされている", () => {
     const slugs = episodes.map((e) => e.slug);
     expect(slugs).toEqual([...slugs].sort((a, b) => a.localeCompare(b)));
-  });
-});
-
-describe("keepsTerminalEventImage", () => {
-  it("イベント絵を閉じずに終端へ到達する脚本を保持対象にする", () => {
-    expect(keepsTerminalEventImage("[イベント絵: ending.webp]\n**セオ**:\n明日へ\n[待機: 3600000]\n")).toBe(true);
-  });
-
-  it("イベント絵を明示的に閉じた脚本は通常完読にする", () => {
-    expect(keepsTerminalEventImage("[イベント絵: mid.webp]\n[イベント絵終了]\n[選択]\n- 戻る → hub\n[/選択]\n")).toBe(false);
-  });
-
-  it("イベント絵を閉じないまま選択肢へ入る脚本も保持対象として検出する", () => {
-    expect(keepsTerminalEventImage("[イベント絵: ending.webp]\n[選択]\n- 戻る → hub\n[/選択]\n")).toBe(true);
   });
 });
 

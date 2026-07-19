@@ -15,30 +15,16 @@ import { loadMainStories, loadOhako, loadStoryButtons, mainStoryActLabel } from 
 export function getStaticPaths() {
   const ohako = loadOhako().map((entry) => ({
     params: { slug: entry.slug },
-    props: {
-      slug: entry.slug,
-      character: entry.character,
-      title: entry.title,
-      sceneId: entry.sceneId,
-      background: entry.background,
-      keepTerminalEventImage: entry.keepTerminalEventImage,
-    },
+    props: { slug: entry.slug, character: entry.character, title: entry.title, sceneId: entry.sceneId, background: entry.background },
   }));
   const main = loadMainStories().map((entry) => ({
     params: { slug: entry.slug },
-    props: {
-      slug: entry.slug,
-      character: undefined,
-      title: entry.title,
-      sceneId: entry.sceneId,
-      background: entry.background,
-      keepTerminalEventImage: entry.keepTerminalEventImage,
-    },
+    props: { slug: entry.slug, character: undefined, title: entry.title, sceneId: entry.sceneId, background: entry.background },
   }));
   return [...ohako, ...main];
 }
 
-const { slug, character, title, sceneId, background, keepTerminalEventImage } = Astro.props;
+const { slug, character, title, sceneId, background } = Astro.props;
 const resident = character ? findResident(character) : undefined;
 
 // このセルが実際に開く場面の背景（脚本MD先頭の [背景: ...] から取得）を額縁の背景にも使う。
@@ -100,15 +86,9 @@ const actLabel = !character ? mainStoryActLabel(slug) : undefined;
       data-story-readable
       data-story-id={slug}
       data-story-ids={JSON.stringify(storyIds)}
-      data-story-complete-on-start={keepTerminalEventImage ? "true" : "false"}
       hidden
     >
-      <ReaderFrame
-        slug={slug}
-        sceneId={sceneId}
-        title={resident ? `${title} ── ${resident.name}` : title}
-        markReadOnStart={keepTerminalEventImage}
-      />
+      <ReaderFrame slug={slug} sceneId={sceneId} title={resident ? `${title} ── ${resident.name}` : title} />
     </section>
 
     <section class="th-story-locked th-glow" data-story-locked hidden>
@@ -147,14 +127,6 @@ const actLabel = !character ? mainStoryActLabel(slug) : undefined;
     const unlocked = isStoryEntryUnlocked(storyId, storyIds);
     readable.hidden = !unlocked;
     locked.hidden = unlocked;
-
-    if (readable.dataset.storyCompleteOnStart === "true") {
-      const completeOnStart = () => {
-        completeStoryEntry(storyId, storyIds);
-      };
-      readable.querySelector("[data-reader-start]")?.addEventListener("click", completeOnStart, { once: true });
-      readable.querySelector("[data-reader-start-fullscreen]")?.addEventListener("click", completeOnStart, { once: true });
-    }
 
     window.addEventListener("message", (event) => {
       if (event.origin !== NAME_NAME_ORIGIN) return;

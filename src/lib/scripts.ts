@@ -25,8 +25,6 @@ export interface Episode {
   sceneId: string;
   /** そのシーンで最初に指定される背景（`shadow-library/xxx.webp`）。読むページの額縁背景に使う。 */
   background: string | null;
-  /** 終端までイベント絵を閉じず、name-name の終劇で消さずに保持する脚本か。 */
-  keepTerminalEventImage: boolean;
 }
 
 export function parseFrontmatterTitle(raw: string): string {
@@ -44,17 +42,6 @@ export function parseSceneId(raw: string): string {
 export function parseFirstBackground(raw: string): string | null {
   const bg = raw.match(/^\[背景:\s*([^\]]+)\]/m);
   return bg?.[1]?.trim() ?? null;
-}
-
-export function keepsTerminalEventImage(raw: string): boolean {
-  let eventImageActive = false;
-  for (const line of raw.split(/\r?\n/)) {
-    const trimmed = line.trim();
-    if (/^\[イベント絵:/.test(trimmed)) eventImageActive = true;
-    if (/^\[イベント絵終了\]/.test(trimmed)) eventImageActive = false;
-    if (eventImageActive && /^\[選択\]/.test(trimmed)) return true;
-  }
-  return eventImageActive;
 }
 
 let cachedEpisodes: Episode[] | null = null;
@@ -82,7 +69,6 @@ export function loadEpisodes(): Episode[] {
       themeTitle: parseFrontmatterTitle(raw),
       sceneId,
       background: parseFirstBackground(raw),
-      keepTerminalEventImage: keepsTerminalEventImage(raw),
     };
   });
 
@@ -250,8 +236,6 @@ export interface OhakoEntry {
   sceneId: string;
   /** 冒頭で指定される背景（`shadow-library/xxx.webp`）。読むページの額縁背景に使う。 */
   background: string | null;
-  /** 終端までイベント絵を閉じず、name-name の終劇で消さずに保持する脚本か。 */
-  keepTerminalEventImage: boolean;
 }
 
 // --- 本筋（act1-*.md・第一幕の地の物語。住人はいない） ---
@@ -270,8 +254,6 @@ export interface MainStoryEntry {
   sceneId: string;
   /** 冒頭で指定される背景（`shadow-library/xxx.webp`）。読むページの額縁背景に使う。 */
   background: string | null;
-  /** 終端までイベント絵を閉じず、name-name の終劇で消さずに保持する脚本か。 */
-  keepTerminalEventImage: boolean;
 }
 
 /**
@@ -285,7 +267,6 @@ export interface StoryButtonEntry {
   title: string;
   sceneId: string;
   background: string | null;
-  keepTerminalEventImage: boolean;
   /** 幕内の表示順。幕ごとに1始まりへリセットする通し番号（第一幕は 1..12、第二幕は 1..4）。 */
   orderInAct: number;
 }
@@ -310,7 +291,6 @@ export function loadOhako(): OhakoEntry[] {
       title: parseFrontmatterTitle(raw),
       sceneId,
       background: parseFirstBackground(raw),
-      keepTerminalEventImage: keepsTerminalEventImage(raw),
     };
   });
 
@@ -338,7 +318,6 @@ export function loadMainStories(): MainStoryEntry[] {
       title: parseFrontmatterTitle(raw),
       sceneId,
       background: parseFirstBackground(raw),
-      keepTerminalEventImage: keepsTerminalEventImage(raw),
     };
   });
 
@@ -379,7 +358,6 @@ export function loadStoryButtons(): StoryButtonEntry[] {
     title: entry.title,
     sceneId: entry.sceneId,
     background: entry.background,
-    keepTerminalEventImage: entry.keepTerminalEventImage,
   });
 
   const ohakoByCharacter = new Map(loadOhako().map((entry) => [entry.character, entry]));
@@ -400,7 +378,6 @@ export function loadStoryButtons(): StoryButtonEntry[] {
         title: entry.title,
         sceneId: entry.sceneId,
         background: entry.background,
-        keepTerminalEventImage: entry.keepTerminalEventImage,
       };
     }),
     asButton(requireMain("act1-03")),
