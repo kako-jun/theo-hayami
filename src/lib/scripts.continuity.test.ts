@@ -81,8 +81,8 @@ describe("main story continuity", () => {
   });
 
   it("keeps ending anchors and character voice constraints", () => {
-    expect(mainScript("act4-03.md")).toContain("見えているはずなのに、端が欠けてる");
-    expect(mainScript("act4-04.md")).toContain("この物語で語られたことを、まず疑え");
+    expect(mainScript("act4-07.md")).toContain("見えているはずなのに、端が欠けてる");
+    expect(mainScript("act4-08.md")).toContain("この物語で語られたことを、まず疑え");
     expect(mainScript("ohako-makiya.md")).not.toContain("わし");
     expect(mainScript("ohako-hue.md")).not.toContain("ぼくの言うこと");
     expect(mainScript("ohako-hegru.md")).not.toContain("覚えておおき");
@@ -92,7 +92,7 @@ describe("main story continuity", () => {
     const act2_02 = mainScript("act2-02.md");
     const act3_04 = mainScript("act3-04.md");
     const act4_01 = mainScript("act4-01.md");
-    const act4_04 = mainScript("act4-04.md");
+    const act4_08 = mainScript("act4-08.md");
 
     expect(act2_02).toContain("「いなくなる、ってどういうことなんだろう」");
     expect(act2_02).not.toContain("「消えるって、どういうことなんだろう」");
@@ -101,12 +101,13 @@ describe("main story continuity", () => {
     expect(act4_01).not.toMatch(/\[登場: (ヒュー|オウ)/u);
     expect(act4_01).toContain("言葉になりきる前で止まる");
     expect(act4_01).toContain("知ることは、体のどこかが少し変わって、はじめてボクのものになる");
-    expect(act4_04).toContain("ヒューの余韻");
-    expect(act4_04).not.toContain("ヒューの沈黙");
-    expect(act4_04).toContain("[イベント絵: story/act4/theo-returning-event-horizon.webp, 背面=hide]");
-    expect(act4_04).toContain("現実がどこかにあるなら、きっとそこは、答えのある場所じゃない");
-    expect(act4_04).toContain("さあ、行こう。まだ見えない明日へ--");
-    expect(act4_04).toContain("問いを持って進む → hub");
+    expect(act4_08).toContain("ヒューの余韻");
+    expect(act4_08).not.toContain("ヒューの沈黙");
+    expect(act4_08).toContain("返事がない。もう、誰もいない。見送られたんじゃない。ボクが、ひとり残されたんだ");
+    expect(act4_08).toContain("[イベント絵: story/act4/theo-returning-event-horizon.webp, 背面=hide]");
+    expect(act4_08).toContain("現実がどこかにあるなら、きっとそこは、答えのある場所じゃない");
+    expect(act4_08).toContain("さあ、行こう。まだ見えない明日へ--");
+    expect(act4_08).toContain("問いを持って進む → hub");
   });
 
   it("does not put choices on top of an active event image", () => {
@@ -114,7 +115,24 @@ describe("main story continuity", () => {
       .flatMap((file) =>
         activeEventImageChoiceLines(readFileSync(file, "utf-8")).map((line) => `${path.relative(process.cwd(), file)}:${line}`),
       );
-    expect(bad).toEqual(["content/scripts/main/act4-04.md:112"]);
+    expect(bad).toEqual(["content/scripts/main/act4-08.md:137"]);
+  });
+
+  it("keeps numeric wait directives on approved timing constants", () => {
+    const allowedWaitMs = new Set(["300", "700", "1400", "2100"]);
+    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR)]
+      .flatMap((file) =>
+        readFileSync(file, "utf-8")
+          .split(/\r?\n/u)
+          .flatMap((line, index) => {
+            const match = line.match(/^\[待機:\s*(\d+)\]\s*$/u);
+            if (!match || allowedWaitMs.has(match[1])) {
+              return [];
+            }
+            return [`${path.relative(process.cwd(), file)}:${index + 1}:${match[1]}`];
+          }),
+      );
+    expect(bad).toEqual([]);
   });
 
   it("keeps philosophy explanations away from common distortions", () => {

@@ -404,6 +404,10 @@ export function loadStoryButtons(): StoryButtonEntry[] {
     asButton(requireMain("act4-02")),
     asButton(requireMain("act4-03")),
     asButton(requireMain("act4-04")),
+    asButton(requireMain("act4-05")),
+    asButton(requireMain("act4-06")),
+    asButton(requireMain("act4-07")),
+    asButton(requireMain("act4-08")),
   ];
 
   const withOrderInAct = (

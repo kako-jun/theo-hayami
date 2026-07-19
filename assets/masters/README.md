@@ -21,7 +21,7 @@
 
 ## 現状（reality・2026-07-19 現実背景）
 - マスター: `reality/20260719_city-snow-generic_v01.png`。現実の街は雨の日本寄り街路から、国や地域を特定しにくい雪の住宅街へ差し替えた。
-- 配信: `images/reality/city.png`。`public/images/reality/city.png` にも同期する。
+- 配信: `images/reality/city.webp`。`public/images/reality/city.webp` にも同期する。
 
 ## 現状（promotional・2026-07-19 ティータイム/読了後資産）
 - マスター: `promotional/20260719_vincia-aristo-ou-study-table_v01.png`。配信は `images/promotional/cast/vincia-aristo-ou-study-table.webp`。`/tea-time` の待機中の話題導入で使う。

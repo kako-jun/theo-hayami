@@ -162,18 +162,18 @@ describe("storyProgress storage", () => {
   });
 });
 
-describe("storyProgress: 第一幕〜第四幕24件の順序ゲート回帰（id数非依存）", () => {
+describe("storyProgress: 第一幕〜第四幕28件の順序ゲート回帰（id数非依存）", () => {
   const STORY_IDS = loadStoryButtons().map((entry) => entry.slug);
 
-  it("24件でも初期状態は先頭（act1-01）のみ解放", () => {
-    expect(STORY_IDS.length).toBe(24);
+  it("28件でも初期状態は先頭（act1-01）のみ解放", () => {
+    expect(STORY_IDS.length).toBe(28);
     const initial = createInitialStoryProgress(STORY_IDS);
     expect(initial.unlockedStoryIds).toEqual(["act1-01"]);
     expect(initial.currentStoryId).toBe("act1-01");
     expect(initial.completed).toBe(false);
   });
 
-  it("先頭から順に読了すると1件ずつ次だけが解放され、24件目で完了する", () => {
+  it("先頭から順に読了すると1件ずつ次だけが解放され、28件目で完了する", () => {
     let progress = createInitialStoryProgress(STORY_IDS);
     for (let i = 0; i < STORY_IDS.length; i++) {
       const id = STORY_IDS[i]!;
@@ -204,7 +204,16 @@ describe("storyProgress: /story 表示ゲート（未解放は非表示）", () 
     expect(ACT1.filter((id) => id.startsWith("ohako-"))).toHaveLength(8);
     expect(ACT2).toEqual(["act2-01", "act2-02", "act2-03", "act2-04"]);
     expect(ACT3).toEqual(["act3-01", "act3-02", "act3-03", "act3-04"]);
-    expect(ACT4).toEqual(["act4-01", "act4-02", "act4-03", "act4-04"]);
+    expect(ACT4).toEqual([
+      "act4-01",
+      "act4-02",
+      "act4-03",
+      "act4-04",
+      "act4-05",
+      "act4-06",
+      "act4-07",
+      "act4-08",
+    ]);
   });
 
   it("selectVisibleStoryIds は unlocked のみを元順で返す（未解放は落とす）", () => {
