@@ -118,8 +118,10 @@ describe("main story continuity", () => {
     expect(act4_08).toContain("呼んだぶんだけ、いないことがはっきりする");
     expect(act4_08).not.toContain("ヒューの沈黙");
     expect(act4_08).toContain("返事がない。もう、誰もいない。見送られたんじゃない。ボクが、ひとり残されたんだ");
-    expect(act4_08).toContain("character_fade_ms: 2100");
-    expect(act4_08).toContain("[退場: ヴィンチア]");
+    expect(act3_04).toContain("[退場: デカリス, フェード=2100]");
+    expect(act4_01).toContain("[退場: マキヤ, フェード=2100]");
+    expect(act4_08).not.toContain("character_fade_ms: 2100");
+    expect(act4_08).toContain("[退場: ヴィンチア, フェード=2100]");
     expect(act4_08).toContain("[イベント絵: story/act4/theo-returning-event-horizon.webp, 背面=hide]");
     expect(act4_08).toContain("現実がどこかにあるなら、きっとそこは、答えのある場所じゃない");
     expect(act4_08).toContain("さあ、行こう。まだ見えない明日へ--");
@@ -134,7 +136,7 @@ describe("main story continuity", () => {
     expect(bad).toEqual([
       "content/scripts/main/act3-03.md:94",
       "content/scripts/main/act4-07.md:99",
-      "content/scripts/main/act4-08.md:147",
+      "content/scripts/main/act4-08.md:146",
     ]);
   });
 
