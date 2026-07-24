@@ -1,7 +1,6 @@
 ---
 engine: name-name
 title: "不祥事で有名人が消えていく様子を、どう見ればよいでしょうか。"
-draft_status: "merge-wait"
 ---
 
 ## tea-scandal: けふのティータイム / 不祥事を見る

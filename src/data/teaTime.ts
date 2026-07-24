@@ -13,6 +13,15 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "scandal",
+    title: "不祥事を見る",
+    question: "不祥事で有名人が消えていく様子を、どう見ればよいでしょうか。",
+    number: 6,
+    publishedAt: "2026-07-24",
+    sceneId: "tea-scandal",
+    residents: ["dekaris", "kantia", "hue"],
+  },
+  {
     slug: "youtube-monetization",
     title: "YouTubeで収益化できる気がしない",
     question:
@@ -136,11 +145,6 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
     question: "滅ばない国は作れるのでしょうか。独裁国家が残り続けるのはなぜでしょうか。",
   },
   { slug: "political-hack", title: "制度を読み替える", question: "政治や制度を読み替えて使うとは、どういうことでしょうか。" },
-  {
-    slug: "scandal",
-    title: "不祥事を見る",
-    question: "不祥事で有名人が消えていく様子を、どう見ればよいでしょうか。",
-  },
   {
     slug: "failed-work",
     title: "失敗した作品",
