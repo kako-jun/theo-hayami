@@ -13,6 +13,15 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "media-agitation",
+    title: "報道のあおり",
+    question: "報道や言説のあおりを見るのがつらいとき、どう距離を取ればよいでしょうか。",
+    number: 7,
+    publishedAt: "2026-07-24",
+    sceneId: "tea-media-agitation",
+    residents: ["hue", "dekaris", "spino"],
+  },
+  {
     slug: "scandal",
     title: "不祥事を見る",
     question: "不祥事で有名人が消えていく様子を、どう見ればよいでしょうか。",
@@ -84,7 +93,6 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
   { slug: "future-seen", title: "先が見えた怖さ", question: "自分の先が見えた気がして怖いとき、どう考え直せばよいでしょうか。" },
   { slug: "death-pain", title: "死ぬ痛み", question: "死ぬときの痛みを想像して怖くなるとき、どう向き合えばよいでしょうか。" },
   { slug: "birth", title: "出産の怖さ", question: "出産が怖いと感じるとき、その不安とどう付き合えばよいでしょうか。" },
-  { slug: "media-agitation", title: "報道のあおり", question: "報道や言説のあおりを見るのがつらいとき、どう距離を取ればよいでしょうか。" },
   { slug: "war", title: "戦争がなくならない", question: "戦争がなくならない理由を、どのように考えればよいでしょうか。" },
   { slug: "rich", title: "お金持ちになりたい", question: "お金持ちになりたい気持ちを、どう扱えばよいでしょうか。" },
   {
