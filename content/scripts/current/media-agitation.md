@@ -1,7 +1,6 @@
 ---
 engine: name-name
 title: "報道や言説のあおりを見るのがつらいとき、どう距離を取ればよいでしょうか。"
-draft_status: "merge-wait"
 ---
 
 ## tea-media-agitation: けふのティータイム / 報道のあおり
