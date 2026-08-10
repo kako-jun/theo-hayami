@@ -13,6 +13,16 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "finite-life",
+    title: "有限のつらさ",
+    question:
+      "すべての本を読めず、すべての国にも行けない有限さを、どう受け止めればよいでしょうか。",
+    number: 8,
+    publishedAt: "2026-08-10",
+    sceneId: "tea-finite-life",
+    residents: ["kantia", "hue", "ou"],
+  },
+  {
     slug: "media-agitation",
     title: "報道のあおり",
     question: "報道や言説のあおりを見るのがつらいとき、どう距離を取ればよいでしょうか。",
@@ -101,12 +111,6 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
     question: "激しい競争に巻き込まれないためには、何を見ればよいでしょうか。",
   },
   { slug: "parenting", title: "子育ての失敗", question: "子育てに失敗したくない不安と、どう向き合えばよいでしょうか。" },
-  {
-    slug: "finite-life",
-    title: "有限のつらさ",
-    question:
-      "すべての本を読めず、すべての国にも行けない有限さを、どう受け止めればよいでしょうか。",
-  },
   {
     slug: "beyond-life",
     title: "結果を見られないこと",

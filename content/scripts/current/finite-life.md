@@ -1,7 +1,6 @@
 ---
 engine: name-name
 title: "すべての本を読めず、すべての国にも行けない有限さを、どう受け止めればよいでしょうか。"
-draft_status: "merge-wait"
 ---
 
 ## tea-finite-life: けふのティータイム / 有限のつらさ
