@@ -14,7 +14,7 @@ export interface TeaTimeQuestion {
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
     slug: "finite-life",
-    title: "有限のつらさ",
+    title: "全部は読めない、行けないつらさ",
     question:
       "すべての本を読めず、すべての国にも行けない有限さを、どう受け止めればよいでしょうか。",
     number: 8,
