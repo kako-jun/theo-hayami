@@ -5,7 +5,7 @@ title: "大事な人と別れることが怖いとき、どう受け止めれば
 
 ## tea-farewell: けふのティータイム / 別れの怖さ
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/glass-balcony.webp]
 [待機: 表示完了]
 [登場: ヒュー (hue/observe, 右)]
 [待機: 表示完了]

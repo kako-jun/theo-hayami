@@ -5,7 +5,7 @@ title: "差別された経験を、これからどう抱えていけばよいで
 
 ## tea-discrimination: けふのティータイム / 差別された経験
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/mirror-hall.webp]
 [待機: 表示完了]
 [登場: ヘグル (hegru/normal, 右)]
 [待機: 表示完了]

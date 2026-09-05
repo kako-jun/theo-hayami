@@ -5,7 +5,7 @@ title: "死ぬときの痛みを想像して怖くなるとき、どう向き合
 
 ## tea-death-pain: けふのティータイム / 死ぬ痛み
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/green-courtyard.webp]
 [待機: 表示完了]
 [登場: カンティア (kantia/firm, 右)]
 [待機: 表示完了]

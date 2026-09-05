@@ -5,7 +5,7 @@ title: "病気と付き合いながら、どう生きていけばよいでしょ
 
 ## tea-illness: けふのティータイム / 病気と生きる
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/glass-balcony.webp]
 [待機: 表示完了]
 [登場: アリスト (aristo/observe, 右)]
 [待機: 表示完了]

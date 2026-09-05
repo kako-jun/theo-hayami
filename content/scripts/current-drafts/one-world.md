@@ -5,7 +5,7 @@ title: "世界の国が一つになることは、本当に理想なのでしょ
 
 ## tea-one-world: けふのティータイム / 世界が一つになること
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/numbers-hall.webp]
 [待機: 表示完了]
 [登場: カンティア (kantia/observe, 右)]
 [待機: 表示完了]

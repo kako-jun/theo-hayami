@@ -5,7 +5,7 @@ title: "宇宙に人間のような存在が必ずいるわけではない現実
 
 ## tea-cosmic-loneliness: けふのティータイム / 宇宙の孤独
 
-[背景: shadow-library/sunrise-window.webp]
+[背景: shadow-library/glass-balcony.webp]
 [待機: 表示完了]
 [登場: ヒュー (hue/normal, 右)]
 [待機: 表示完了]

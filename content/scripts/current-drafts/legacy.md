@@ -5,7 +5,7 @@ title: "人生で何を残すべきか分からないとき、何を考えれば
 
 ## tea-legacy: けふのティータイム / 何を残すか
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/curio-nook.webp]
 [待機: 表示完了]
 [登場: オウ (ou/normal, 右)]
 [待機: 表示完了]

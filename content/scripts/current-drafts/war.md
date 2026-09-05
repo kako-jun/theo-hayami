@@ -5,7 +5,7 @@ title: "戦争がなくならない理由を、どのように考えればよい
 
 ## tea-war: けふのティータイム / 戦争がなくならない
 
-[背景: shadow-library/ledger-desk.webp]
+[背景: shadow-library/numbers-hall.webp]
 [待機: 表示完了]
 [登場: マキヤ (makiya/firm, 右)]
 [待機: 表示完了]

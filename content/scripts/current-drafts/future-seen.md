@@ -5,7 +5,7 @@ title: "自分の先が見えた気がして怖いとき、どう考え直せば
 
 ## tea-future-seen: けふのティータイム / 先が見えた怖さ
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/mirror-hall.webp]
 [待機: 表示完了]
 [登場: デカリス (dekaris/normal, 右)]
 [待機: 表示完了]

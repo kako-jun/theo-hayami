@@ -5,7 +5,7 @@ title: "子育てに失敗したくない不安と、どう向き合えばよい
 
 ## tea-parenting: けふのティータイム / 子育ての失敗
 
-[背景: shadow-library/still-garden.webp]
+[背景: shadow-library/green-courtyard.webp]
 [待機: 表示完了]
 [登場: アリスト (aristo/observe, 右)]
 [待機: 表示完了]

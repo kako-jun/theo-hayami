@@ -5,7 +5,7 @@ title: "政治や制度を読み替えて使うとは、どういうことでし
 
 ## tea-political-hack: けふのティータイム / 制度を読み替える
 
-[背景: shadow-library/spiral-staircase.webp]
+[背景: shadow-library/spiral-stacks.webp]
 [待機: 表示完了]
 [登場: オウ (ou/normal, 右)]
 [待機: 表示完了]

@@ -5,7 +5,7 @@ title: "集団の愚かさを嫌悪してしまうとき、どう受け止めれ
 
 ## tea-mob: けふのティータイム / 集団の愚かさ
 
-[背景: shadow-library/mirror-annex.webp]
+[背景: shadow-library/mirror-hall.webp]
 [待機: 表示完了]
 [登場: デカリス (dekaris/normal, 右)]
 [待機: 表示完了]

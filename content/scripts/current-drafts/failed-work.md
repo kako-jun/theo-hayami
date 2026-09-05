@@ -5,7 +5,7 @@ title: "失敗した作品を、失敗していないことにする空気をど
 
 ## tea-failed-work: けふのティータイム / 失敗した作品
 
-[背景: shadow-library/specimen-shelves.webp]
+[背景: shadow-library/curio-nook.webp]
 [待機: 表示完了]
 [登場: アリスト (aristo/observe, 右)]
 [待機: 表示完了]

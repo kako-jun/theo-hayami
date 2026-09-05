@@ -5,7 +5,7 @@ title: "好きな人に気持ちを伝えるのが怖いとき、どうすれば
 
 ## tea-confession: けふのティータイム / 告白する怖さ
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 [待機: 表示完了]
 [登場: ヘグル (hegru/normal, 右)]
 [待機: 表示完了]

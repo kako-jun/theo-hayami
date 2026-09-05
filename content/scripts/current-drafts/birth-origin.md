@@ -5,7 +5,7 @@ title: "自分の生まれを呪ってしまうとき、どう考えればよい
 
 ## tea-birth-origin: けふのティータイム / 生まれを呪う
 
-[背景: shadow-library/dream-corridor.webp]
+[背景: shadow-library/dream-corridor-v.webp]
 [待機: 表示完了]
 [登場: スピノ (spino/normal, 右)]
 [待機: 表示完了]
