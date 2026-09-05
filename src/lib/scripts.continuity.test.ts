@@ -123,7 +123,7 @@ describe("main story continuity", () => {
     expect(act4_08).not.toContain("character_fade_ms: 2100");
     expect(act4_08).toContain("[退場: ヴィンチア, フェード=2100]");
     expect(act4_08).toContain("[イベント絵: story/act4/theo-returning-event-horizon.webp, 背面=hide]");
-    expect(act4_08).toContain("現実がどこかにあるなら、きっとそこは、答えのある場所じゃない");
+    expect(act4_08).toContain("疑って、残ったものを、もう一度ボクの問いにするために");
     expect(act4_08).toContain("……立つ。膝に、ちゃんと力が入ってる。");
     expect(act4_08).toContain("問いを持って進む → hub");
   });
@@ -136,7 +136,7 @@ describe("main story continuity", () => {
     expect(bad).toEqual([
       "content/scripts/main/act3-03.md:121",
       "content/scripts/main/act4-07.md:110",
-      "content/scripts/main/act4-08.md:146",
+      "content/scripts/main/act4-08.md:163",
     ]);
   });
 
