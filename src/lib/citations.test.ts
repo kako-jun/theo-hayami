@@ -228,9 +228,19 @@ describe("citation_map.json（配置台帳）", () => {
     }
   });
 
-  it("1本あたり最大2箇所（レビューで担保するガードレール）", () => {
+  it("1本あたりの上限: ティータイムは3箇所（住人1人につき1箇所・#183）、自由行動・本編は2箇所", () => {
     for (const [file, placements] of Object.entries(citationMap)) {
-      expect(placements.length, file).toBeLessThanOrEqual(2);
+      const isTeaTime = file.startsWith("current/") || file.startsWith("current-drafts/");
+      expect(placements.length, file).toBeLessThanOrEqual(isTeaTime ? 3 : 2);
+    }
+  });
+
+  it("ティータイムでは同じ住人に2箇所配置しない（1人1箇所）", () => {
+    const residentOf = new Map(citations.map((c) => [c.id, c.resident]));
+    for (const [file, placements] of Object.entries(citationMap)) {
+      if (!(file.startsWith("current/") || file.startsWith("current-drafts/"))) continue;
+      const residents = placements.map((p) => residentOf.get(p.id));
+      expect(new Set(residents).size, file).toBe(residents.length);
     }
   });
 });

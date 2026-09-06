@@ -1978,6 +1978,10 @@
       "id": "dekaris-方法の四つの規則"
     },
     {
+      "block": 5,
+      "id": "hue-観念連合の三原理"
+    },
+    {
       "block": 9,
       "id": "hegru-不幸な意識"
     }
@@ -2320,12 +2324,20 @@
     {
       "block": 8,
       "id": "spino-悲しみ"
+    },
+    {
+      "block": 9,
+      "id": "hue-共感"
     }
   ],
   "current-drafts/comiket-desire.md": [
     {
       "block": 3,
       "id": "makiya-実効的真理"
+    },
+    {
+      "block": 14,
+      "id": "spino-嫉妬"
     },
     {
       "block": 16,
