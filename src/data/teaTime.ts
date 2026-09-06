@@ -187,4 +187,6 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
   { slug: "attention-span", title: "集中できない", question: "長い文章や映画に集中できなくなった自分を、どう考えればよいでしょうか。" },
   { slug: "vote-meaningless", title: "一票の意味", question: "一票で何も変わらない気がするとき、投票に行く意味はあるのでしょうか。" },
   { slug: "rating-fatigue", title: "星で評価される", question: "星の数で人を評価し、評価されることに疲れたとき、どう考えればよいでしょうか。" },
+  { slug: "trading-card-boom", title: "高騰するカード", question: "トレーディングカードの高騰を見ていると、その値段でも買う人は遊ぶのか集めるのか、ゲームや作り手はそれでいいのか、楽しみ方は自由なのか、複雑な気持ちになります。どう考えればよいでしょうか。" },
+  { slug: "lover-ex-nearby", title: "恋人の元恋人が近くにいる", question: "初めての恋人ができて嬉しいのに、恋人の元恋人が近くにいて、恋人の裸を知る人が私のほかにもいると思うと耐えられず、故郷を離れたいほどです。生き物として自然な嫌悪なら従ってよいのでしょうか。" },
 ];
