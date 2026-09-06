@@ -22,7 +22,7 @@ describe("findTeaTimeSpeaker", () => {
   it("theo は主人公ラベルと bust パスを返す", () => {
     const theo = findTeaTimeSpeaker("theo");
     expect(theo).toBeDefined();
-    expect(theo?.name).toBe("せお");
+    expect(theo?.name).toBe("セオ");
     expect(theo?.metaLabel).toBe("主人公");
     expect(theo?.faceSrc).toBe("/images/theo/bust.webp");
   });
@@ -39,7 +39,7 @@ describe("findTeaTimeSpeaker", () => {
     expect(findTeaTimeSpeaker("nonexistent")).toBeUndefined();
   });
 
-  it("TEA_TIME_SPEAKER_SLUGS は住人8人とせお・ヴィンチアを含む", () => {
+  it("TEA_TIME_SPEAKER_SLUGS は住人8人とセオ・ヴィンチアを含む", () => {
     expect(TEA_TIME_SPEAKER_SLUGS.size).toBe(RESIDENTS.length + TEA_TIME_GUESTS.length);
     for (const r of RESIDENTS) expect(TEA_TIME_SPEAKER_SLUGS.has(r.slug)).toBe(true);
     expect(TEA_TIME_SPEAKER_SLUGS.has("theo")).toBe(true);

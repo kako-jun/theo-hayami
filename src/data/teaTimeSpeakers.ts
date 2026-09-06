@@ -1,6 +1,5 @@
 // けふのティータイムの参加者メタ（住人8人 + せお／ヴィンチア）を解決する純粋関数。
-// 名前・役割の正本は docs/02_characters/character_bible.md（せお＝「せおはやみ」主人公、
-// 表記は「せお」。ヴィンチア＝司会）。
+// 名前・役割の正本は docs/02_characters/character_bible.md（せお＝「// 脚本内の表記は「セオ」（カタカナ）。「せお」は docs 側の表記で本文に使わない。ヴィンチア＝司会）。
 import { RESIDENTS } from "./residents";
 
 export interface TeaTimeSpeaker {
@@ -11,7 +10,7 @@ export interface TeaTimeSpeaker {
 }
 
 export const TEA_TIME_GUESTS: TeaTimeSpeaker[] = [
-  { slug: "theo", name: "せお", metaLabel: "主人公", faceSrc: "/images/theo/bust.webp" },
+  { slug: "theo", name: "セオ", metaLabel: "主人公", faceSrc: "/images/theo/bust.webp" },
   { slug: "vincia", name: "ヴィンチア", metaLabel: "司会", faceSrc: "/images/vincia/bust.webp" },
 ];
 
