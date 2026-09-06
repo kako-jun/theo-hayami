@@ -206,4 +206,5 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
   { slug: "long-running-boredom", title: "面白くない長期連載", question: "周りが面白いという長期連載を面白く感じられない気持ちを、どう整理すればよいでしょうか。" },
   { slug: "bleached-blockbusters", title: "漂白された映画", question: "大作映画がタブーだらけで漂白されていくように見えるのは、本当なのでしょうか。" },
   { slug: "comiket-desire", title: "祭典の後ろめたさ", question: "同人誌の祭典で欲望を隠さない集団の中で感じる罪悪感を、人間賛歌と考えてよいのでしょうか。" },
+  { slug: "sage-time", title: "賢者タイムの賢者", question: "自慰のあとの賢者タイムが虚しくて怖いのですが、賢者のみなさんはこれを無くせますか。" },
 ];
