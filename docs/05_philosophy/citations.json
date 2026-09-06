@@ -662,12 +662,12 @@
     "resident": "アリスト",
     "concept": "詩と歴史（普遍と個別）",
     "work": "詩学",
-    "section": "9",
-    "display_section": "9",
+    "section": "第九章",
+    "display_section": "第九章",
     "also": [],
     "reading": "しがく",
     "link": "https://ja.wikipedia.org/wiki/%E8%A9%A9%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
-    "raw": "詩学9"
+    "raw": "詩学 第九章"
   },
   {
     "id": "aristo-説得の三様式",
@@ -1858,11 +1858,11 @@
     "resident": "ヒュー",
     "concept": "ヒュームのフォーク（Hume's Fork）",
     "work": "人間知性研究",
-    "section": "4／12",
-    "display_section": "4／12",
+    "section": "第四節／第十二節",
+    "display_section": "第四節／第十二節",
     "also": [],
     "reading": "にんげんちせいけんきゅう",
-    "raw": "人間知性研究4／12。"
+    "raw": "人間知性研究 第四節／第十二節。"
   },
   {
     "id": "hue-構想可能性原理",
@@ -1937,35 +1937,35 @@
     "resident": "ヒュー",
     "concept": "因果の二つの定義（two definitions of cause）",
     "work": "人間知性研究",
-    "section": "7",
-    "display_section": "7",
+    "section": "第七節",
+    "display_section": "第七節",
     "also": [
       "人間本性論I.iii.14"
     ],
     "reading": "にんげんちせいけんきゅう",
-    "raw": "人間知性研究7／人間本性論I.iii.14。"
+    "raw": "人間知性研究 第七節／人間本性論I.iii.14。"
   },
   {
     "id": "hue-帰納の問題",
     "resident": "ヒュー",
     "concept": "帰納の問題（problem of induction）",
     "work": "人間知性研究",
-    "section": "4",
-    "display_section": "4",
+    "section": "第四節",
+    "display_section": "第四節",
     "also": [],
     "reading": "にんげんちせいけんきゅう",
-    "raw": "人間知性研究4。"
+    "raw": "人間知性研究 第四節。"
   },
   {
     "id": "hue-習慣慣れ",
     "resident": "ヒュー",
     "concept": "習慣・慣れ（custom / habit）",
     "work": "人間知性研究",
-    "section": "5",
-    "display_section": "5",
+    "section": "第五節",
+    "display_section": "第五節",
     "also": [],
     "reading": "にんげんちせいけんきゅう",
-    "raw": "人間知性研究5。"
+    "raw": "人間知性研究 第五節。"
   },
   {
     "id": "hue-信念",
@@ -2309,24 +2309,24 @@
     "resident": "ヒュー",
     "concept": "自由と必然の両立（liberty and necessity）",
     "work": "人間知性研究",
-    "section": "8",
-    "display_section": "8",
+    "section": "第八節",
+    "display_section": "第八節",
     "also": [
       "人間本性論II.iii.1–2"
     ],
     "reading": "にんげんちせいけんきゅう",
-    "raw": "人間知性研究8／人間本性論II.iii.1–2。"
+    "raw": "人間知性研究 第八節／人間本性論II.iii.1–2。"
   },
   {
     "id": "hue-奇跡論",
     "resident": "ヒュー",
     "concept": "奇跡論（of miracles）",
     "work": "人間知性研究",
-    "section": "10",
-    "display_section": "10",
+    "section": "第十節",
+    "display_section": "第十節",
     "also": [],
     "reading": "にんげんちせいけんきゅう",
-    "raw": "人間知性研究10。"
+    "raw": "人間知性研究 第十節。"
   },
   {
     "id": "hue-デザイン論証批判",

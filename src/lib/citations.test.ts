@@ -133,10 +133,10 @@ describe("citations.json（台帳・生成物）", () => {
   });
 
   it("／の右側が登録済み著作名でない断片は別著作にせず section の続きとして残す（レビュー指摘S5）", () => {
-    // 人間知性研究4／12: 「12」は著作名でなく章節の続き。以前は also=["12"] に漏れていた。
+    // 人間知性研究 第四節／第十二節: 「第十二節」は著作名でなく章節の続き。以前は also に漏れていた（旧表記 4／12）。
     const humesFork = citations.find((c) => c.id === "hue-ヒュームのフォーク");
     expect(humesFork?.work).toBe("人間知性研究");
-    expect(humesFork?.section).toBe("4／12");
+    expect(humesFork?.section).toBe("第四節／第十二節");
     expect(humesFork?.also).toEqual([]);
 
     // 人間本性論II.i.11／III: 「III」も章番号の続き。以前は also=["III"] に漏れていた。
