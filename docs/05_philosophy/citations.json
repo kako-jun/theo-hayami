@@ -978,6 +978,18 @@
     "raw": "省察 第三"
   },
   {
+    "id": "dekaris-連続創造",
+    "resident": "デカリス",
+    "concept": "連続創造（時間の独立性・conservatio）",
+    "work": "省察",
+    "section": "第三",
+    "display_section": "第三",
+    "also": [],
+    "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
+    "raw": "省察 第三"
+  },
+  {
     "id": "dekaris-神の存在論的証明",
     "resident": "デカリス",
     "concept": "神の存在論的証明（argument ontologique）",
