@@ -34,8 +34,28 @@ async function freshCitations() {
 describe("getCitationsForSlug: 1ファイル2配置", () => {
   it("配置順（citation_map.json の並び順）どおりの配列を返す", async () => {
     fsMock.citations = [
-      { id: "id-1", resident: "R", concept: "c1", work: "著作1", section: "", also: [], reading: "いち", raw: "" },
-      { id: "id-2", resident: "R", concept: "c2", work: "著作2", section: "", also: [], reading: "に", raw: "" },
+      {
+        id: "id-1",
+        resident: "R",
+        concept: "c1",
+        work: "著作1",
+        section: "",
+        display_section: "",
+        also: [],
+        reading: "いち",
+        raw: "",
+      },
+      {
+        id: "id-2",
+        resident: "R",
+        concept: "c2",
+        work: "著作2",
+        section: "",
+        display_section: "",
+        also: [],
+        reading: "に",
+        raw: "",
+      },
     ];
     fsMock.citationMap = {
       "main/two-shiori.md": [
@@ -58,6 +78,7 @@ describe("formatCitation: section の有無による形式", () => {
         concept: "c",
         work: "純粋理性批判",
         section: "Ζ・Η",
+        display_section: "Ζ・Η",
         also: [],
         reading: "じゅんすいりせいひはん",
         raw: "",
@@ -78,6 +99,7 @@ describe("formatCitation: section の有無による形式", () => {
         concept: "c",
         work: "エチカ",
         section: "",
+        display_section: "",
         also: [],
         reading: "えちか",
         raw: "",

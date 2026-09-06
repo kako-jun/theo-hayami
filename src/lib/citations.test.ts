@@ -13,6 +13,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { applyCitationsToText } from "../../scripts/apply-citations.mjs";
 import {
+  deriveDisplaySection,
   extractLeadingWork,
   japaneseIdFromHeading,
   parseThinkerFile,
@@ -27,6 +28,7 @@ interface Citation {
   concept: string;
   work: string;
   section: string;
+  display_section: string;
   also: string[];
   reading: string;
   raw: string;
@@ -322,6 +324,53 @@ describe("splitWorkSection / japaneseIdFromHeading（build-citations.mjs のパ�
   });
 });
 
+describe("deriveDisplaySection（build-citations.mjs・栞テロップの短縮表示。Issue #173 Phase B）", () => {
+  it("出典行の引用文（最初の 。 以降）を捨てる", () => {
+    // ou-知行合一 の section 実データ: 引用文まで残ると長すぎるテロップになっていた不具合の再現。
+    expect(deriveDisplaySection("（徐愛との最初期の主題）。「未だ知りて行わざる者あらず。知りて行わざるは、ただ未だ知らざるなり」")).toBe(
+      "",
+    );
+  });
+
+  it("説明括弧（（…）は捨てる。ただし section が丸ごと1個の部位指定括弧なら残す", () => {
+    // spino-思想言論の自由 の section 実データ: 引用を包む説明括弧ごと除去。
+    expect(deriveDisplaySection("第20章（「各人に思考の自由・思うことを語る自由を認めうる」）")).toBe("第20章");
+    // hegru-止揚 の section 実データ: 『大論理学』（有論）のような部位指定は例外的に残す。
+    expect(deriveDisplaySection("（有論）")).toBe("（有論）");
+  });
+
+  it("読点区切りの複数ロケータは先頭だけ残す", () => {
+    // spino-必然性決定論 の section 実データ。
+    expect(deriveDisplaySection("I p29・I p33、I app（目的論の否定）、II p48（意志の自由の否定）")).toBe("I p29");
+  });
+
+  it("数字を伴わない章の並記（中黒区切り）はそのまま残す（一体の指定か列挙か判別できないため）", () => {
+    // aristo-エウダイモニア「I・X」・aristo-実体「Ζ・Η」の section 実データ。
+    expect(deriveDisplaySection("I・X")).toBe("I・X");
+    expect(deriveDisplaySection("Ζ・Η")).toBe("Ζ・Η");
+  });
+
+  it("空文字は空文字のまま", () => {
+    expect(deriveDisplaySection("")).toBe("");
+  });
+});
+
+describe("栞テロップ本文の長さの安全網（Issue #173 Phase B）", () => {
+  it("citation_map.json に実際に配置されている全テロップ本文が40字以内", () => {
+    const byId = new Map(citations.map((c) => [c.id, c]));
+    const overLong: string[] = [];
+    for (const [file, placements] of Object.entries(citationMap)) {
+      for (const p of placements) {
+        const citation = byId.get(p.id);
+        if (!citation) continue;
+        const body = formatCitation(citation);
+        if (body.length > 40) overLong.push(`${file}#${p.id}: "${body}"（${body.length}字）`);
+      }
+    }
+    expect(overLong).toEqual([]);
+  });
+});
+
 describe("citations.json の id（レビュー指摘・#173: 連番フォールバック禁止）", () => {
   it("id に連番形式（末尾 -数字）が無い", () => {
     const numericSuffix = citations.filter((c) => /-\d+$/.test(c.id));
@@ -352,14 +401,16 @@ describe("citations.json の id（レビュー指摘・#173: 連番フォール�
 
 describe("getCitationsForSlug / fileKeyToReaderSlug（src/lib/citations.ts）", () => {
   it("current/temperature.md の栞は tea-temperature の読むページに灯る", () => {
+    // Phase B seed で after_block:3 に hue-習慣慣れ が2件目として追加された（citation_map.json）。
     const result = getCitationsForSlug("tea-temperature");
-    expect(result.map((c) => c.id)).toEqual(["kantia-アンチノミー"]);
+    expect(result.map((c) => c.id)).toEqual(["kantia-アンチノミー", "hue-習慣慣れ"]);
     expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
   });
 
   it("main/ohako-kantia.md の栞は ohako-kantia の読むページに灯る", () => {
+    // Phase B seed で after_block:9 に kantia-物自体 が2件目として追加された（citation_map.json）。
     const result = getCitationsForSlug("ohako-kantia");
-    expect(result.map((c) => c.id)).toEqual(["kantia-現象"]);
+    expect(result.map((c) => c.id)).toEqual(["kantia-現象", "kantia-物自体"]);
     expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
   });
 

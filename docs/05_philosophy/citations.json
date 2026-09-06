@@ -5,6 +5,7 @@
     "concept": "カテゴリー（κατηγορίαι / katēgoriai）",
     "work": "カテゴリー論",
     "section": "",
+    "display_section": "",
     "also": [
       "形而上学Δ"
     ],
@@ -17,6 +18,7 @@
     "concept": "第一実体と第二実体（prōtē / deutera ousia）",
     "work": "カテゴリー論",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "かてごりーろん",
     "raw": "カテゴリー論"
@@ -27,6 +29,7 @@
     "concept": "三段論法（συλλογισμός / syllogismos）",
     "work": "分析論前書",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "ぶんせきろんぜんしょ",
     "raw": "分析論前書"
@@ -37,6 +40,7 @@
     "concept": "論証と学的知（ἀπόδειξις / apodeixis・ἐπιστήμη / epistēmē）",
     "work": "分析論後書",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "ぶんせきろんこうしょ",
     "raw": "分析論後書"
@@ -47,6 +51,7 @@
     "concept": "第一原理と知性的把握（ἀρχαί / archai・νοῦς / nous）",
     "work": "分析論後書",
     "section": "II.19",
+    "display_section": "II.19",
     "also": [],
     "reading": "ぶんせきろんこうしょ",
     "raw": "分析論後書 II.19"
@@ -57,6 +62,7 @@
     "concept": "帰納（ἐπαγωγή / epagōgē）",
     "work": "分析論後書",
     "section": "",
+    "display_section": "",
     "also": [
       "トピカ"
     ],
@@ -69,6 +75,7 @@
     "concept": "弁証術と通念（διαλεκτική / dialektikē・ἔνδοξα / endoxa）",
     "work": "トピカ",
     "section": "",
+    "display_section": "",
     "also": [
       "ソフィスト的論駁"
     ],
@@ -81,6 +88,7 @@
     "concept": "述語可能項（predicables）",
     "work": "トピカ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "とぴか",
     "raw": "トピカ"
@@ -91,6 +99,7 @@
     "concept": "矛盾律（law of non-contradiction）",
     "work": "形而上学",
     "section": "Γ（IV）",
+    "display_section": "Γ",
     "also": [],
     "reading": "けいじじょうがく",
     "raw": "形而上学Γ（IV）"
@@ -101,6 +110,7 @@
     "concept": "有を有として（τὸ ὂν ᾗ ὄν / on hēi on）",
     "work": "形而上学",
     "section": "Γ・Ε",
+    "display_section": "Γ・Ε",
     "also": [],
     "reading": "けいじじょうがく",
     "raw": "形而上学Γ・Ε"
@@ -111,6 +121,7 @@
     "concept": "実体（οὐσία / ousia）",
     "work": "形而上学",
     "section": "Ζ・Η",
+    "display_section": "Ζ・Η",
     "also": [
       "カテゴリー論"
     ],
@@ -123,6 +134,7 @@
     "concept": "質料形相論（ヒュロモルフィズム / hylomorphism）",
     "work": "形而上学",
     "section": "Ζ・Η",
+    "display_section": "Ζ・Η",
     "also": [
       "自然学"
     ],
@@ -135,6 +147,7 @@
     "concept": "可能態と現実態（δύναμις / dunamis・ἐνέργεια / energeia・ἐντελέχεια / entelecheia）",
     "work": "形而上学",
     "section": "Θ",
+    "display_section": "Θ",
     "also": [
       "自然学"
     ],
@@ -147,6 +160,7 @@
     "concept": "四原因（αἰτίαι / aitiai）",
     "work": "自然学",
     "section": "II",
+    "display_section": "II",
     "also": [
       "形而上学"
     ],
@@ -159,6 +173,7 @@
     "concept": "本質（τὸ τί ἦν εἶναι / to ti ēn einai）",
     "work": "形而上学",
     "section": "Ζ",
+    "display_section": "Ζ",
     "also": [],
     "reading": "けいじじょうがく",
     "raw": "形而上学Ζ"
@@ -169,6 +184,7 @@
     "concept": "不動の動者（πρῶτον κινοῦν ἀκίνητον / unmoved mover）",
     "work": "形而上学",
     "section": "Λ（XII）",
+    "display_section": "Λ",
     "also": [
       "自然学VIII"
     ],
@@ -181,6 +197,7 @@
     "concept": "「ある」は多様に語られる（πολλαχῶς λέγεται / pollachōs legetai）",
     "work": "形而上学",
     "section": "Γ・Δ",
+    "display_section": "Γ・Δ",
     "also": [],
     "reading": "けいじじょうがく",
     "raw": "形而上学Γ・Δ"
@@ -191,6 +208,7 @@
     "concept": "自然（φύσις / phusis）",
     "work": "自然学",
     "section": "II",
+    "display_section": "II",
     "also": [],
     "reading": "しぜんがく",
     "raw": "自然学II"
@@ -201,6 +219,7 @@
     "concept": "運動・変化（κίνησις / kinēsis）",
     "work": "自然学",
     "section": "III",
+    "display_section": "III",
     "also": [],
     "reading": "しぜんがく",
     "raw": "自然学III"
@@ -211,6 +230,7 @@
     "concept": "目的論（τέλος / telos・teleology）",
     "work": "自然学",
     "section": "II",
+    "display_section": "II",
     "also": [
       "動物部分論"
     ],
@@ -223,6 +243,7 @@
     "concept": "場所と自然な場所（τόπος / topos・natural place）",
     "work": "自然学",
     "section": "IV",
+    "display_section": "IV",
     "also": [
       "天体論"
     ],
@@ -235,6 +256,7 @@
     "concept": "時間（χρόνος / chronos）",
     "work": "自然学",
     "section": "IV",
+    "display_section": "IV",
     "also": [],
     "reading": "しぜんがく",
     "raw": "自然学IV"
@@ -245,6 +267,7 @@
     "concept": "無限（ἄπειρον / apeiron）",
     "work": "自然学",
     "section": "III",
+    "display_section": "III",
     "also": [],
     "reading": "しぜんがく",
     "raw": "自然学III"
@@ -255,6 +278,7 @@
     "concept": "連続（συνεχές / syneches）",
     "work": "自然学",
     "section": "VI",
+    "display_section": "VI",
     "also": [],
     "reading": "しぜんがく",
     "raw": "自然学VI"
@@ -265,6 +289,7 @@
     "concept": "四元素と第五元素（elements・αἰθήρ / aether）",
     "work": "天体論",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "てんたいろん",
     "raw": "天体論"
@@ -275,6 +300,7 @@
     "concept": "魂（ψυχή / psuchē）",
     "work": "魂について",
     "section": "II",
+    "display_section": "II",
     "also": [],
     "reading": "たましいについて",
     "raw": "魂についてII"
@@ -285,6 +311,7 @@
     "concept": "魂の三能力（栄養・感覚・理性）",
     "work": "魂について",
     "section": "II",
+    "display_section": "II",
     "also": [],
     "reading": "たましいについて",
     "raw": "魂についてII"
@@ -295,6 +322,7 @@
     "concept": "感覚（αἴσθησις / aisthēsis）",
     "work": "魂について",
     "section": "II・III",
+    "display_section": "II・III",
     "also": [],
     "reading": "たましいについて",
     "raw": "魂についてII・III"
@@ -305,6 +333,7 @@
     "concept": "共通感覚（κοινὴ αἴσθησις / koinē aisthēsis）",
     "work": "魂について",
     "section": "III",
+    "display_section": "III",
     "also": [],
     "reading": "たましいについて",
     "raw": "魂についてIII"
@@ -315,6 +344,7 @@
     "concept": "想像（φαντασία / phantasia）",
     "work": "魂について",
     "section": "III",
+    "display_section": "III",
     "also": [],
     "reading": "たましいについて",
     "raw": "魂についてIII"
@@ -325,6 +355,7 @@
     "concept": "能動知性と受動知性（νοῦς ποιητικός / passive・active intellect）",
     "work": "魂について",
     "section": "III.5",
+    "display_section": "III.5",
     "also": [],
     "reading": "たましいについて",
     "raw": "魂についてIII.5"
@@ -335,6 +366,7 @@
     "concept": "欲求（ὄρεξις / orexis）",
     "work": "魂について",
     "section": "III",
+    "display_section": "III",
     "also": [
       "動物運動論"
     ],
@@ -347,6 +379,7 @@
     "concept": "エウダイモニア（εὐδαιμονία / eudaimonia）",
     "work": "ニコマコス倫理学",
     "section": "I・X",
+    "display_section": "I・X",
     "also": [
       "エウデモス倫理学"
     ],
@@ -359,6 +392,7 @@
     "concept": "機能論証（ἔργον / ergon argument）",
     "work": "ニコマコス倫理学",
     "section": "I.7",
+    "display_section": "I.7",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学I.7"
@@ -369,6 +403,7 @@
     "concept": "徳（ἀρετή / aretē）",
     "work": "ニコマコス倫理学",
     "section": "II",
+    "display_section": "II",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学II"
@@ -379,6 +414,7 @@
     "concept": "習慣づけと性向（ἕξις / hexis・ἐθισμός / ethismos）",
     "work": "ニコマコス倫理学",
     "section": "II.1",
+    "display_section": "II.1",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学II.1"
@@ -389,6 +425,7 @@
     "concept": "中庸（μεσότης / mesotēs / doctrine of the mean）",
     "work": "ニコマコス倫理学",
     "section": "II",
+    "display_section": "II",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学II"
@@ -399,6 +436,7 @@
     "concept": "思慮（φρόνησις / phronēsis）",
     "work": "ニコマコス倫理学",
     "section": "VI",
+    "display_section": "VI",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学VI"
@@ -409,6 +447,7 @@
     "concept": "アクラシア（ἀκρασία / akrasia）",
     "work": "ニコマコス倫理学",
     "section": "VII",
+    "display_section": "VII",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学VII"
@@ -419,6 +458,7 @@
     "concept": "自発的／非自発的（ἑκούσιον / hekousion・ἀκούσιον）",
     "work": "ニコマコス倫理学",
     "section": "III.1",
+    "display_section": "III.1",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学III.1"
@@ -429,6 +469,7 @@
     "concept": "友愛（φιλία / philia）",
     "work": "ニコマコス倫理学",
     "section": "VIII・IX",
+    "display_section": "VIII・IX",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学VIII・IX"
@@ -439,6 +480,7 @@
     "concept": "観想（θεωρία / theōria）",
     "work": "ニコマコス倫理学",
     "section": "X",
+    "display_section": "X",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学X"
@@ -449,6 +491,7 @@
     "concept": "配分的正義（distributive justice）",
     "work": "ニコマコス倫理学",
     "section": "V",
+    "display_section": "V",
     "also": [],
     "reading": "にこまこすりんりがく",
     "raw": "ニコマコス倫理学V"
@@ -459,6 +502,7 @@
     "concept": "政治的動物（ζῷον πολιτικόν / zōon politikon）",
     "work": "政治学",
     "section": "I",
+    "display_section": "I",
     "also": [],
     "reading": "せいじがく",
     "raw": "政治学I"
@@ -469,6 +513,7 @@
     "concept": "ポリス（πόλις / polis）",
     "work": "政治学",
     "section": "I・III",
+    "display_section": "I・III",
     "also": [],
     "reading": "せいじがく",
     "raw": "政治学I・III"
@@ -479,6 +524,7 @@
     "concept": "国制の六分類（πολιτεία / politeia）",
     "work": "政治学",
     "section": "III",
+    "display_section": "III",
     "also": [],
     "reading": "せいじがく",
     "raw": "政治学III"
@@ -489,6 +535,7 @@
     "concept": "中間者の政体（polity・middle class）",
     "work": "政治学",
     "section": "IV",
+    "display_section": "IV",
     "also": [],
     "reading": "せいじがく",
     "raw": "政治学IV"
@@ -499,6 +546,7 @@
     "concept": "家政と「生来の奴隷」（οἶκος / oikos・natural slavery）",
     "work": "政治学",
     "section": "I",
+    "display_section": "I",
     "also": [],
     "reading": "せいじがく",
     "raw": "政治学I"
@@ -509,6 +557,7 @@
     "concept": "ミメーシス（μίμησις / mimēsis）",
     "work": "詩学",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しがく",
     "raw": "詩学"
@@ -519,6 +568,7 @@
     "concept": "筋（μῦθος / mythos）と悲劇の定義",
     "work": "詩学",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しがく",
     "raw": "詩学"
@@ -529,6 +579,7 @@
     "concept": "カタルシス（κάθαρσις / katharsis）",
     "work": "詩学",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しがく",
     "raw": "詩学"
@@ -539,6 +590,7 @@
     "concept": "ハマルティア（ἁμαρτία / hamartia）",
     "work": "詩学",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しがく",
     "raw": "詩学"
@@ -549,6 +601,7 @@
     "concept": "逆転と認知（περιπέτεια / peripeteia・ἀναγνώρισις / anagnōrisis）",
     "work": "詩学",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しがく",
     "raw": "詩学"
@@ -559,6 +612,7 @@
     "concept": "詩と歴史（普遍と個別）",
     "work": "詩学",
     "section": "9",
+    "display_section": "9",
     "also": [],
     "reading": "しがく",
     "raw": "詩学9"
@@ -569,6 +623,7 @@
     "concept": "説得の三様式（ἦθος / ethos・πάθος / pathos・λόγος / logos）",
     "work": "弁論術",
     "section": "I",
+    "display_section": "I",
     "also": [],
     "reading": "べんろんじゅつ",
     "raw": "弁論術I"
@@ -579,6 +634,7 @@
     "concept": "エンテュメーマと弁論の三類型（ἐνθύμημα / enthymeme）",
     "work": "弁論術",
     "section": "I",
+    "display_section": "I",
     "also": [],
     "reading": "べんろんじゅつ",
     "raw": "弁論術I"
@@ -589,6 +645,7 @@
     "concept": "自然の階梯（scala naturae）",
     "work": "動物誌",
     "section": "",
+    "display_section": "",
     "also": [
       "魂について"
     ],
@@ -601,6 +658,7 @@
     "concept": "複合種差による分類",
     "work": "動物部分論",
     "section": "I",
+    "display_section": "I",
     "also": [],
     "reading": "どうぶつぶぶんろん",
     "raw": "動物部分論I"
@@ -611,6 +669,7 @@
     "concept": "死んだ手の同名異義（homonymy）",
     "work": "動物部分論",
     "section": "I",
+    "display_section": "I",
     "also": [
       "魂についてII"
     ],
@@ -623,6 +682,7 @@
     "concept": "観察と経験的方法（empirical method）",
     "work": "動物誌",
     "section": "",
+    "display_section": "",
     "also": [
       "動物部分論"
     ],
@@ -635,6 +695,7 @@
     "concept": "良識／理性（bon sens / raison）",
     "work": "方法序説",
     "section": "第一部",
+    "display_section": "第一部",
     "also": [],
     "reading": "ほうほうじょせつ",
     "raw": "方法序説 第一部"
@@ -645,6 +706,7 @@
     "concept": "方法の四つの規則（les quatre préceptes）",
     "work": "方法序説",
     "section": "第二部",
+    "display_section": "第二部",
     "also": [],
     "reading": "ほうほうじょせつ",
     "raw": "方法序説 第二部"
@@ -655,6 +717,7 @@
     "concept": "直観と演繹（intuitus / deductio）",
     "work": "精神指導の規則",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "せいしんしどうのきそく",
     "raw": "精神指導の規則"
@@ -665,6 +728,7 @@
     "concept": "単純本性（naturae simplices / simple natures）",
     "work": "精神指導の規則",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "せいしんしどうのきそく",
     "raw": "精神指導の規則"
@@ -675,6 +739,7 @@
     "concept": "枚挙（enumeratio）",
     "work": "精神指導の規則",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "せいしんしどうのきそく",
     "raw": "精神指導の規則"
@@ -685,6 +750,7 @@
     "concept": "分析と総合（analysis / synthesis）",
     "work": "省察への第二答弁",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "せいさつへのだいにとうべん",
     "raw": "省察への第二答弁"
@@ -695,6 +761,7 @@
     "concept": "理由の順序（ordo rationum）",
     "work": "精神指導の規則",
     "section": "",
+    "display_section": "",
     "also": [
       "省察"
     ],
@@ -707,6 +774,7 @@
     "concept": "方法的懐疑（doute méthodique）",
     "work": "方法序説",
     "section": "第四部",
+    "display_section": "第四部",
     "also": [
       "省察 第一"
     ],
@@ -719,6 +787,7 @@
     "concept": "誇張的懐疑（doute hyperbolique）",
     "work": "省察",
     "section": "第一",
+    "display_section": "第一",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第一"
@@ -729,6 +798,7 @@
     "concept": "夢の論証（argument du rêve）",
     "work": "省察",
     "section": "第一",
+    "display_section": "第一",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第一"
@@ -739,6 +809,7 @@
     "concept": "欺く神・悪霊（deus deceptor / malin génie）",
     "work": "省察",
     "section": "第一",
+    "display_section": "第一",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第一"
@@ -749,6 +820,7 @@
     "concept": "暫定道徳（morale par provision）",
     "work": "方法序説",
     "section": "第三部",
+    "display_section": "第三部",
     "also": [],
     "reading": "ほうほうじょせつ",
     "raw": "方法序説 第三部"
@@ -759,6 +831,7 @@
     "concept": "明晰判明（clara et distincta perceptio）",
     "work": "哲学原理",
     "section": "第一部",
+    "display_section": "第一部",
     "also": [
       "省察"
     ],
@@ -771,6 +844,7 @@
     "concept": "コギト（cogito, ergo sum / je pense, donc je suis）",
     "work": "方法序説",
     "section": "第四部",
+    "display_section": "第四部",
     "also": [
       "省察 第二"
     ],
@@ -783,6 +857,7 @@
     "concept": "蜜蝋の分析（l'analyse du morceau de cire）",
     "work": "省察",
     "section": "第二",
+    "display_section": "第二",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第二"
@@ -793,6 +868,7 @@
     "concept": "思考する実体（res cogitans）",
     "work": "省察",
     "section": "第二・第六",
+    "display_section": "第二・第六",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第二・第六"
@@ -803,6 +879,7 @@
     "concept": "観念の三種（生得・外来・作為）",
     "work": "省察",
     "section": "第三",
+    "display_section": "第三",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第三"
@@ -813,6 +890,7 @@
     "concept": "神の因果論証（証印論証 / trademark argument）",
     "work": "省察",
     "section": "第三",
+    "display_section": "第三",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第三"
@@ -823,6 +901,7 @@
     "concept": "神の存在論的証明（argument ontologique）",
     "work": "省察",
     "section": "第五",
+    "display_section": "第五",
     "also": [
       "哲学原理 第一部"
     ],
@@ -835,6 +914,7 @@
     "concept": "欺かない神（真理の保証者）",
     "work": "省察",
     "section": "第三・第四",
+    "display_section": "第三・第四",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第三・第四"
@@ -845,6 +925,7 @@
     "concept": "デカルトの循環（cercle cartésien）",
     "work": "第四反論と答弁",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "だいよんはんろんととうべん",
     "raw": "第四反論と答弁"
@@ -855,6 +936,7 @@
     "concept": "誤謬の理論（意志と知性のズレ）",
     "work": "省察",
     "section": "第四",
+    "display_section": "第四",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第四"
@@ -865,6 +947,7 @@
     "concept": "実体・属性・様態（substantia / attributum / modus）",
     "work": "哲学原理",
     "section": "第一部",
+    "display_section": "第一部",
     "also": [],
     "reading": "てつがくげんり",
     "raw": "哲学原理 第一部"
@@ -875,6 +958,7 @@
     "concept": "心身二元論（dualisme âme-corps）",
     "work": "省察",
     "section": "第六",
+    "display_section": "第六",
     "also": [
       "哲学原理"
     ],
@@ -887,6 +971,7 @@
     "concept": "延長する実体（res extensa）",
     "work": "省察",
     "section": "第五・第六",
+    "display_section": "第五・第六",
     "also": [
       "哲学原理 第二部"
     ],
@@ -899,6 +984,7 @@
     "concept": "心身合一（union de l'âme et du corps）",
     "work": "省察",
     "section": "第六／エリザベト宛書簡（1643）",
+    "display_section": "第六／エリザベト宛書簡",
     "also": [],
     "reading": "せいさつ",
     "raw": "省察 第六／エリザベト宛書簡（1643）"
@@ -909,6 +995,7 @@
     "concept": "松果腺（glande pinéale / conarion）",
     "work": "情念論",
     "section": "第一部",
+    "display_section": "第一部",
     "also": [
       "人間論"
     ],
@@ -921,6 +1008,7 @@
     "concept": "動物精気（esprits animaux）",
     "work": "人間論",
     "section": "",
+    "display_section": "",
     "also": [
       "情念論 第一部"
     ],
@@ -933,6 +1021,7 @@
     "concept": "動物機械論（bête-machine / animal automaton）",
     "work": "方法序説",
     "section": "第五部",
+    "display_section": "第五部",
     "also": [
       "人間論"
     ],
@@ -945,6 +1034,7 @@
     "concept": "機械論的自然観（mécanisme）",
     "work": "世界論",
     "section": "",
+    "display_section": "",
     "also": [
       "哲学原理 第二〜四部"
     ],
@@ -957,6 +1047,7 @@
     "concept": "充満と真空否定（plenum）",
     "work": "哲学原理",
     "section": "第二部",
+    "display_section": "第二部",
     "also": [],
     "reading": "てつがくげんり",
     "raw": "哲学原理 第二部"
@@ -967,6 +1058,7 @@
     "concept": "運動法則と運動量保存（lois de la nature）",
     "work": "世界論",
     "section": "",
+    "display_section": "",
     "also": [
       "哲学原理 第二部"
     ],
@@ -979,6 +1071,7 @@
     "concept": "渦動説（théorie des tourbillons / vortices）",
     "work": "哲学原理",
     "section": "第三部",
+    "display_section": "第三部",
     "also": [],
     "reading": "てつがくげんり",
     "raw": "哲学原理 第三部"
@@ -989,6 +1082,7 @@
     "concept": "微粒子論と三元素（corpuscularisme / trois éléments）",
     "work": "世界論",
     "section": "",
+    "display_section": "",
     "also": [
       "哲学原理 第三部"
     ],
@@ -1001,6 +1095,7 @@
     "concept": "身体＝機械（人間機械論の生理学）",
     "work": "人間論",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "にんげんろん",
     "raw": "人間論"
@@ -1011,6 +1106,7 @@
     "concept": "情念（passions de l'âme）",
     "work": "情念論",
     "section": "第一部",
+    "display_section": "第一部",
     "also": [],
     "reading": "じょうねんろん",
     "raw": "情念論 第一部"
@@ -1021,6 +1117,7 @@
     "concept": "六つの基本情念（passions primitives）",
     "work": "情念論",
     "section": "第二部",
+    "display_section": "第二部",
     "also": [],
     "reading": "じょうねんろん",
     "raw": "情念論 第二部"
@@ -1031,6 +1128,7 @@
     "concept": "高邁（générosité）",
     "work": "情念論",
     "section": "第三部",
+    "display_section": "第三部",
     "also": [],
     "reading": "じょうねんろん",
     "raw": "情念論 第三部"
@@ -1041,6 +1139,7 @@
     "concept": "自由意志（liberté / libre arbitre）",
     "work": "省察",
     "section": "第四",
+    "display_section": "第四",
     "also": [
       "情念論 第三部"
     ],
@@ -1053,6 +1152,7 @@
     "concept": "解析幾何学（géométrie analytique）",
     "work": "幾何学",
     "section": "（1637）",
+    "display_section": "（1637）",
     "also": [],
     "reading": "きかがく",
     "raw": "幾何学（1637）"
@@ -1063,6 +1163,7 @@
     "concept": "普遍数学（mathesis universalis）",
     "work": "精神指導の規則",
     "section": "第四",
+    "display_section": "第四",
     "also": [],
     "reading": "せいしんしどうのきそく",
     "raw": "精神指導の規則 第四"
@@ -1073,6 +1174,7 @@
     "concept": "弁証法（Dialektik）",
     "work": "小論理学",
     "section": "（エンツィクロペディー第1部）",
+    "display_section": "（エンツィクロペディー第1部）",
     "also": [
       "大論理学"
     ],
@@ -1085,6 +1187,7 @@
     "concept": "止揚（Aufhebung / aufheben）",
     "work": "大論理学",
     "section": "（有論）",
+    "display_section": "（有論）",
     "also": [],
     "reading": "だいろんりがく",
     "raw": "大論理学（有論）"
@@ -1095,6 +1198,7 @@
     "concept": "規定的否定（bestimmte Negation）",
     "work": "大論理学",
     "section": "",
+    "display_section": "",
     "also": [
       "精神現象学（序論）"
     ],
@@ -1107,6 +1211,7 @@
     "concept": "即自・対自・即且対自（An sich / Für sich / An und für sich）",
     "work": "大論理学",
     "section": "",
+    "display_section": "",
     "also": [
       "精神現象学"
     ],
@@ -1119,6 +1224,7 @@
     "concept": "有・無・成（Sein / Nichts / Werden）",
     "work": "大論理学",
     "section": "（有論）",
+    "display_section": "（有論）",
     "also": [
       "小論理学"
     ],
@@ -1131,6 +1237,7 @@
     "concept": "定有・或るもの（Dasein / Etwas）",
     "work": "大論理学",
     "section": "（有論）",
+    "display_section": "（有論）",
     "also": [],
     "reading": "だいろんりがく",
     "raw": "大論理学（有論）"
@@ -1141,6 +1248,7 @@
     "concept": "質・量・度（Qualität / Quantität / Maß）",
     "work": "大論理学",
     "section": "（有論）",
+    "display_section": "（有論）",
     "also": [
       "小論理学"
     ],
@@ -1153,6 +1261,7 @@
     "concept": "真無限と悪無限（wahrhafte / schlechte Unendlichkeit）",
     "work": "大論理学",
     "section": "（有論）",
+    "display_section": "（有論）",
     "also": [],
     "reading": "だいろんりがく",
     "raw": "大論理学（有論）"
@@ -1163,6 +1272,7 @@
     "concept": "本質・仮象・反省（Wesen / Schein / Reflexion）",
     "work": "大論理学",
     "section": "（本質論）",
+    "display_section": "（本質論）",
     "also": [],
     "reading": "だいろんりがく",
     "raw": "大論理学（本質論）"
@@ -1173,6 +1283,7 @@
     "concept": "矛盾（Widerspruch）",
     "work": "大論理学",
     "section": "（本質論）",
+    "display_section": "（本質論）",
     "also": [],
     "reading": "だいろんりがく",
     "raw": "大論理学（本質論）"
@@ -1183,6 +1294,7 @@
     "concept": "根拠（Grund）",
     "work": "大論理学",
     "section": "（本質論）",
+    "display_section": "（本質論）",
     "also": [],
     "reading": "だいろんりがく",
     "raw": "大論理学（本質論）"
@@ -1193,6 +1305,7 @@
     "concept": "概念・判断・推論（Begriff / Urteil / Schluss）",
     "work": "大論理学",
     "section": "（概念論）",
+    "display_section": "（概念論）",
     "also": [
       "小論理学"
     ],
@@ -1205,6 +1318,7 @@
     "concept": "具体的普遍（das konkrete Allgemeine）",
     "work": "大論理学",
     "section": "（概念論）",
+    "display_section": "（概念論）",
     "also": [],
     "reading": "だいろんりがく",
     "raw": "大論理学（概念論）"
@@ -1215,6 +1329,7 @@
     "concept": "理念（Idee）",
     "work": "大論理学",
     "section": "（概念論）",
+    "display_section": "（概念論）",
     "also": [
       "小論理学"
     ],
@@ -1227,6 +1342,7 @@
     "concept": "絶対理念（absolute Idee）",
     "work": "大論理学",
     "section": "",
+    "display_section": "",
     "also": [
       "小論理学"
     ],
@@ -1239,6 +1355,7 @@
     "concept": "思弁的なもの／思弁的命題（das Spekulative / der spekulative Satz）",
     "work": "精神現象学",
     "section": "（序文）",
+    "display_section": "（序文）",
     "also": [
       "小論理学"
     ],
@@ -1251,6 +1368,7 @@
     "concept": "精神（Geist）",
     "work": "精神現象学",
     "section": "",
+    "display_section": "",
     "also": [
       "精神哲学（エンツィクロペディー第3部）"
     ],
@@ -1263,6 +1381,7 @@
     "concept": "意識の経験の学（die Erfahrung des Bewußtseins）",
     "work": "精神現象学",
     "section": "（序論）",
+    "display_section": "（序論）",
     "also": [],
     "reading": "せいしんげんしょうがく",
     "raw": "精神現象学（序論）"
@@ -1273,6 +1392,7 @@
     "concept": "感覚的確信（sinnliche Gewißheit）",
     "work": "精神現象学",
     "section": "（A. 意識）",
+    "display_section": "（A. 意識）",
     "also": [],
     "reading": "せいしんげんしょうがく",
     "raw": "精神現象学（A. 意識）"
@@ -1283,6 +1403,7 @@
     "concept": "主と奴（Herrschaft und Knechtschaft）",
     "work": "精神現象学",
     "section": "（B. 自己意識）",
+    "display_section": "（B. 自己意識）",
     "also": [],
     "reading": "せいしんげんしょうがく",
     "raw": "精神現象学（B. 自己意識）"
@@ -1293,6 +1414,7 @@
     "concept": "承認（Anerkennung）",
     "work": "精神現象学",
     "section": "",
+    "display_section": "",
     "also": [
       "法の哲学",
       "精神哲学"
@@ -1306,6 +1428,7 @@
     "concept": "不幸な意識（unglückliches Bewußtsein）",
     "work": "精神現象学",
     "section": "（B. 自己意識）",
+    "display_section": "（B. 自己意識）",
     "also": [],
     "reading": "せいしんげんしょうがく",
     "raw": "精神現象学（B. 自己意識）"
@@ -1316,6 +1439,7 @@
     "concept": "理性（Vernunft）",
     "work": "精神現象学",
     "section": "（C. 理性）",
+    "display_section": "（C. 理性）",
     "also": [
       "小論理学"
     ],
@@ -1328,6 +1452,7 @@
     "concept": "疎外・外化（Entfremdung / Entäußerung）",
     "work": "精神現象学",
     "section": "",
+    "display_section": "",
     "also": [
       "精神哲学"
     ],
@@ -1340,6 +1465,7 @@
     "concept": "絶対知（absolutes Wissen）",
     "work": "精神現象学",
     "section": "（最終章）",
+    "display_section": "（最終章）",
     "also": [],
     "reading": "せいしんげんしょうがく",
     "raw": "精神現象学（最終章）"
@@ -1350,6 +1476,7 @@
     "concept": "自然＝理念の外化態（Natur als Idee im Anderssein）",
     "work": "自然哲学",
     "section": "（エンツィクロペディー第2部）",
+    "display_section": "（エンツィクロペディー第2部）",
     "also": [],
     "reading": "しぜんてつがく",
     "raw": "自然哲学（エンツィクロペディー第2部）"
@@ -1360,6 +1487,7 @@
     "concept": "主観的精神・客観的精神・絶対的精神（subjektiver / objektiver / absoluter Geist）",
     "work": "精神哲学",
     "section": "（エンツィクロペディー第3部）",
+    "display_section": "（エンツィクロペディー第3部）",
     "also": [],
     "reading": "せいしんてつがく",
     "raw": "精神哲学（エンツィクロペディー第3部）"
@@ -1370,6 +1498,7 @@
     "concept": "世界精神（Weltgeist）",
     "work": "歴史哲学講義",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "れきしてつがくこうぎ",
     "raw": "歴史哲学講義"
@@ -1380,6 +1509,7 @@
     "concept": "理性の狡知（List der Vernunft）",
     "work": "歴史哲学講義",
     "section": "（序論）",
+    "display_section": "（序論）",
     "also": [],
     "reading": "れきしてつがくこうぎ",
     "raw": "歴史哲学講義（序論）"
@@ -1390,6 +1520,7 @@
     "concept": "世界史的個人（welthistorisches Individuum）",
     "work": "歴史哲学講義",
     "section": "（序論）",
+    "display_section": "（序論）",
     "also": [],
     "reading": "れきしてつがくこうぎ",
     "raw": "歴史哲学講義（序論）"
@@ -1400,6 +1531,7 @@
     "concept": "自由の意識の進歩（Fortschritt im Bewußtsein der Freiheit）",
     "work": "歴史哲学講義",
     "section": "（序論）",
+    "display_section": "（序論）",
     "also": [],
     "reading": "れきしてつがくこうぎ",
     "raw": "歴史哲学講義（序論）"
@@ -1410,6 +1542,7 @@
     "concept": "ミネルヴァの梟（die Eule der Minerva）",
     "work": "法の哲学",
     "section": "（序文）",
+    "display_section": "（序文）",
     "also": [],
     "reading": "ほうのてつがく",
     "raw": "法の哲学（序文）"
@@ -1420,6 +1553,7 @@
     "concept": "自由意志（freier Wille）",
     "work": "法の哲学",
     "section": "（序論）",
+    "display_section": "（序論）",
     "also": [],
     "reading": "ほうのてつがく",
     "raw": "法の哲学（序論）"
@@ -1430,6 +1564,7 @@
     "concept": "抽象法・道徳・人倫（abstraktes Recht / Moralität / Sittlichkeit）",
     "work": "法の哲学",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "ほうのてつがく",
     "raw": "法の哲学"
@@ -1440,6 +1575,7 @@
     "concept": "人倫（Sittlichkeit）",
     "work": "法の哲学",
     "section": "（第3部）",
+    "display_section": "（第3部）",
     "also": [],
     "reading": "ほうのてつがく",
     "raw": "法の哲学（第3部）"
@@ -1450,6 +1586,7 @@
     "concept": "家族・市民社会・国家（Familie / bürgerliche Gesellschaft / Staat）",
     "work": "法の哲学",
     "section": "（第3部）",
+    "display_section": "（第3部）",
     "also": [],
     "reading": "ほうのてつがく",
     "raw": "法の哲学（第3部）"
@@ -1460,6 +1597,7 @@
     "concept": "「理性的なものは現実的、現実的なものは理性的」（Was vernünftig ist, das ist wirklich; und was wirklich ist, das ist vernünftig）",
     "work": "法の哲学",
     "section": "（序文）",
+    "display_section": "（序文）",
     "also": [],
     "reading": "ほうのてつがく",
     "raw": "法の哲学（序文）"
@@ -1470,6 +1608,7 @@
     "concept": "美＝理念の感性的顕現（das sinnliche Scheinen der Idee）",
     "work": "美学講義",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "びがくこうぎ",
     "raw": "美学講義"
@@ -1480,6 +1619,7 @@
     "concept": "象徴的・古典的・ロマン的芸術形式（symbolisch / klassisch / romantisch）",
     "work": "美学講義",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "びがくこうぎ",
     "raw": "美学講義"
@@ -1490,6 +1630,7 @@
     "concept": "芸術の終焉／芸術の過去性（Vergangenheitscharakter der Kunst）",
     "work": "美学講義",
     "section": "（序論）",
+    "display_section": "（序論）",
     "also": [],
     "reading": "びがくこうぎ",
     "raw": "美学講義（序論）"
@@ -1500,6 +1641,7 @@
     "concept": "表象（Vorstellung）",
     "work": "宗教哲学講義",
     "section": "",
+    "display_section": "",
     "also": [
       "精神哲学"
     ],
@@ -1512,6 +1654,7 @@
     "concept": "啓示宗教／絶対宗教（geoffenbarte / absolute Religion）",
     "work": "宗教哲学講義",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しゅうきょうてつがくこうぎ",
     "raw": "宗教哲学講義"
@@ -1522,6 +1665,7 @@
     "concept": "和解（Versöhnung）",
     "work": "宗教哲学講義",
     "section": "",
+    "display_section": "",
     "also": [
       "精神現象学"
     ],
@@ -1534,6 +1678,7 @@
     "concept": "哲学史＝理念の自己展開（Geschichte der Philosophie als System）",
     "work": "哲学史講義",
     "section": "（序論）",
+    "display_section": "（序論）",
     "also": [],
     "reading": "てつがくしこうぎ",
     "raw": "哲学史講義（序論）"
@@ -1544,6 +1689,7 @@
     "concept": "知覚（perceptions）",
     "work": "人間本性論",
     "section": "I",
+    "display_section": "I",
     "also": [
       "人間知性研究"
     ],
@@ -1556,6 +1702,7 @@
     "concept": "印象と観念（impressions / ideas）",
     "work": "人間本性論",
     "section": "I.i",
+    "display_section": "I.i",
     "also": [
       "人間知性研究2"
     ],
@@ -1568,6 +1715,7 @@
     "concept": "模写原理／コピー原理（copy principle）",
     "work": "人間本性論",
     "section": "I.i.1",
+    "display_section": "I.i.1",
     "also": [
       "人間知性研究2"
     ],
@@ -1580,6 +1728,7 @@
     "concept": "単純と複合（simple / complex perceptions）",
     "work": "人間本性論",
     "section": "I.i.1",
+    "display_section": "I.i.1",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論I.i.1。"
@@ -1590,6 +1739,7 @@
     "concept": "観念連合の三原理（association of ideas）",
     "work": "人間本性論",
     "section": "I.i.4",
+    "display_section": "I.i.4",
     "also": [
       "人間知性研究3"
     ],
@@ -1602,6 +1752,7 @@
     "concept": "ヒュームのフォーク（Hume's Fork）",
     "work": "人間知性研究",
     "section": "4／12",
+    "display_section": "4／12",
     "also": [],
     "reading": "にんげんちせいけんきゅう",
     "raw": "人間知性研究4／12。"
@@ -1612,6 +1763,7 @@
     "concept": "構想可能性原理（conceivability principle）",
     "work": "人間本性論",
     "section": "I.ii",
+    "display_section": "I.ii",
     "also": [
       "人間知性研究4"
     ],
@@ -1624,6 +1776,7 @@
     "concept": "想像力（imagination）",
     "work": "人間本性論",
     "section": "I",
+    "display_section": "I",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論I。"
@@ -1634,6 +1787,7 @@
     "concept": "欠けた青の色合い（missing shade of blue）",
     "work": "人間本性論",
     "section": "I.i.1",
+    "display_section": "I.i.1",
     "also": [
       "人間知性研究2"
     ],
@@ -1646,6 +1800,7 @@
     "concept": "恒常的連接（constant conjunction）",
     "work": "人間本性論",
     "section": "I.iii",
+    "display_section": "I.iii",
     "also": [
       "人間知性研究7"
     ],
@@ -1658,6 +1813,7 @@
     "concept": "必然的結合（necessary connection）",
     "work": "人間本性論",
     "section": "I.iii.14",
+    "display_section": "I.iii.14",
     "also": [
       "人間知性研究7"
     ],
@@ -1670,6 +1826,7 @@
     "concept": "因果の二つの定義（two definitions of cause）",
     "work": "人間知性研究",
     "section": "7",
+    "display_section": "7",
     "also": [
       "人間本性論I.iii.14"
     ],
@@ -1682,6 +1839,7 @@
     "concept": "帰納の問題（problem of induction）",
     "work": "人間知性研究",
     "section": "4",
+    "display_section": "4",
     "also": [],
     "reading": "にんげんちせいけんきゅう",
     "raw": "人間知性研究4。"
@@ -1692,6 +1850,7 @@
     "concept": "習慣・慣れ（custom / habit）",
     "work": "人間知性研究",
     "section": "5",
+    "display_section": "5",
     "also": [],
     "reading": "にんげんちせいけんきゅう",
     "raw": "人間知性研究5。"
@@ -1702,6 +1861,7 @@
     "concept": "信念（belief）",
     "work": "人間本性論",
     "section": "I.iii.7",
+    "display_section": "I.iii.7",
     "also": [
       "人間知性研究5"
     ],
@@ -1714,6 +1874,7 @@
     "concept": "蓋然性（probability）",
     "work": "人間本性論",
     "section": "I.iii.11–13",
+    "display_section": "I.iii.11–13",
     "also": [
       "人間知性研究6"
     ],
@@ -1726,6 +1887,7 @@
     "concept": "束理論（bundle theory of self）",
     "work": "人間本性論",
     "section": "I.iv.6",
+    "display_section": "I.iv.6",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論I.iv.6。"
@@ -1736,6 +1898,7 @@
     "concept": "人格の同一性は虚構（personal identity as fiction）",
     "work": "人間本性論",
     "section": "I.iv.6",
+    "display_section": "I.iv.6",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論I.iv.6。"
@@ -1746,6 +1909,7 @@
     "concept": "付録の困惑（the Appendix problem）",
     "work": "人間本性論",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論・付録。"
@@ -1756,6 +1920,7 @@
     "concept": "二次印象（secondary / reflective impressions）",
     "work": "人間本性論",
     "section": "II.i",
+    "display_section": "II.i",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論II.i。"
@@ -1766,6 +1931,7 @@
     "concept": "直接情念と間接情念（direct / indirect passions）",
     "work": "人間本性論",
     "section": "II",
+    "display_section": "II",
     "also": [
       "情念論"
     ],
@@ -1778,6 +1944,7 @@
     "concept": "穏やかな情念と激しい情念（calm / violent passions）",
     "work": "人間本性論",
     "section": "II.iii.3",
+    "display_section": "II.iii.3",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論II.iii.3。"
@@ -1788,6 +1955,7 @@
     "concept": "印象と観念の二重関係（double relation of impressions and ideas）",
     "work": "人間本性論",
     "section": "II.i",
+    "display_section": "II.i",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論II.i。"
@@ -1798,6 +1966,7 @@
     "concept": "誇りと卑下（pride and humility）",
     "work": "人間本性論",
     "section": "II.i",
+    "display_section": "II.i",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論II.i。"
@@ -1808,6 +1977,7 @@
     "concept": "共感（sympathy）",
     "work": "人間本性論",
     "section": "II.i.11／III",
+    "display_section": "II.i.11／III",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論II.i.11／III。"
@@ -1818,6 +1988,7 @@
     "concept": "比較の原理（comparison）",
     "work": "人間本性論",
     "section": "II.ii.8",
+    "display_section": "II.ii.8",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論II.ii.8。"
@@ -1828,6 +1999,7 @@
     "concept": "理性は情念の奴隷（reason is the slave of the passions）",
     "work": "人間本性論",
     "section": "II.iii.3",
+    "display_section": "II.iii.3",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論II.iii.3。"
@@ -1838,6 +2010,7 @@
     "concept": "道徳感情主義（moral sentimentalism）",
     "work": "人間本性論",
     "section": "III.i.1",
+    "display_section": "III.i.1",
     "also": [
       "道徳原理研究"
     ],
@@ -1850,6 +2023,7 @@
     "concept": "道徳判断は理性に由来しない（moral distinctions not derived from reason）",
     "work": "人間本性論",
     "section": "III.i.1",
+    "display_section": "III.i.1",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論III.i.1。"
@@ -1860,6 +2034,7 @@
     "concept": "動機づけの議論（the motivation argument）",
     "work": "人間本性論",
     "section": "III.i.1",
+    "display_section": "III.i.1",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論III.i.1。"
@@ -1870,6 +2045,7 @@
     "concept": "ヒュームの法則／is-ought（is-ought gap）",
     "work": "人間本性論",
     "section": "III.i.1",
+    "display_section": "III.i.1",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論III.i.1。"
@@ -1880,6 +2056,7 @@
     "concept": "是認と否認（approbation / disapprobation）",
     "work": "人間本性論",
     "section": "III",
+    "display_section": "III",
     "also": [
       "道徳原理研究"
     ],
@@ -1892,6 +2069,7 @@
     "concept": "一般的視点（the general / common point of view）",
     "work": "人間本性論",
     "section": "III.iii.1",
+    "display_section": "III.iii.1",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論III.iii.1。"
@@ -1902,6 +2080,7 @@
     "concept": "効用（utility）",
     "work": "道徳原理研究",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "どうとくげんりけんきゅう",
     "raw": "道徳原理研究。"
@@ -1912,6 +2091,7 @@
     "concept": "自然的徳と人為的徳（natural / artificial virtues）",
     "work": "人間本性論",
     "section": "III.ii–iii",
+    "display_section": "III.ii–iii",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論III.ii–iii。"
@@ -1922,6 +2102,7 @@
     "concept": "正義は人為的徳（justice as artificial virtue）",
     "work": "人間本性論",
     "section": "III.ii.1–2",
+    "display_section": "III.ii.1–2",
     "also": [
       "道徳原理研究3"
     ],
@@ -1934,6 +2115,7 @@
     "concept": "黙約／コンヴェンション（convention）",
     "work": "人間本性論",
     "section": "III.ii.2",
+    "display_section": "III.ii.2",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論III.ii.2。"
@@ -1944,6 +2126,7 @@
     "concept": "正義の境遇（circumstances of justice）",
     "work": "人間本性論",
     "section": "III.ii.2",
+    "display_section": "III.ii.2",
     "also": [
       "道徳原理研究3"
     ],
@@ -1956,6 +2139,7 @@
     "concept": "約束と義務（promise and obligation）",
     "work": "人間本性論",
     "section": "III.ii.5",
+    "display_section": "III.ii.5",
     "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論III.ii.5。"
@@ -1966,6 +2150,7 @@
     "concept": "原始契約批判（critique of the original contract）",
     "work": "原始契約について",
     "section": "",
+    "display_section": "",
     "also": [
       "人間本性論III.ii.7–10"
     ],
@@ -1978,6 +2163,7 @@
     "concept": "統治は世論に立つ（government founded on opinion）",
     "work": "統治の原理について",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "とうちのげんりについて",
     "raw": "「統治の原理について」。"
@@ -1988,6 +2174,7 @@
     "concept": "自由と必然の両立（liberty and necessity）",
     "work": "人間知性研究",
     "section": "8",
+    "display_section": "8",
     "also": [
       "人間本性論II.iii.1–2"
     ],
@@ -2000,6 +2187,7 @@
     "concept": "奇跡論（of miracles）",
     "work": "人間知性研究",
     "section": "10",
+    "display_section": "10",
     "also": [],
     "reading": "にんげんちせいけんきゅう",
     "raw": "人間知性研究10。"
@@ -2010,6 +2198,7 @@
     "concept": "デザイン論証批判（critique of the design argument）",
     "work": "自然宗教をめぐる対話",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しぜんしゅうきょうをめぐるたいわ",
     "raw": "自然宗教をめぐる対話。"
@@ -2020,6 +2209,7 @@
     "concept": "悪の問題（the problem of evil）",
     "work": "自然宗教をめぐる対話",
     "section": "10–11部",
+    "display_section": "10–11部",
     "also": [],
     "reading": "しぜんしゅうきょうをめぐるたいわ",
     "raw": "自然宗教をめぐる対話・第10–11部。"
@@ -2030,6 +2220,7 @@
     "concept": "宗教の自然史（natural history of religion）",
     "work": "宗教の自然史",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しゅうきょうのしぜんし",
     "raw": "宗教の自然史。"
@@ -2040,6 +2231,7 @@
     "concept": "趣味の標準（standard of taste）",
     "work": "趣味の標準について",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しゅみのひょうじゅんについて",
     "raw": "「趣味の標準について」。"
@@ -2050,6 +2242,7 @@
     "concept": "真の判定者（true judges / ideal critics）",
     "work": "趣味の標準について",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しゅみのひょうじゅんについて",
     "raw": "「趣味の標準について」。"
@@ -2060,6 +2253,7 @@
     "concept": "趣味の繊細さ（delicacy of taste）",
     "work": "趣味の標準について",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しゅみのひょうじゅんについて",
     "raw": "「趣味の標準について」。"
@@ -2070,6 +2264,7 @@
     "concept": "悲劇のパラドックス（paradox of tragedy）",
     "work": "悲劇について",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "ひげきについて",
     "raw": "「悲劇について」。"
@@ -2080,6 +2275,7 @@
     "concept": "超越論的観念論（transzendentaler Idealismus）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2090,6 +2286,7 @@
     "concept": "現象（Erscheinung）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2100,6 +2297,7 @@
     "concept": "物自体（Ding an sich）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [
       "プロレゴメナ"
     ],
@@ -2112,6 +2310,7 @@
     "concept": "コペルニクス的転回（kopernikanische Wende）",
     "work": "純粋理性批判",
     "section": "（第二版序文）",
+    "display_section": "（第二版序文）",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判（第二版序文）"
@@ -2122,6 +2321,7 @@
     "concept": "先天的総合判断（synthetisches Urteil a priori）",
     "work": "プロレゴメナ",
     "section": "",
+    "display_section": "",
     "also": [
       "純粋理性批判"
     ],
@@ -2134,6 +2334,7 @@
     "concept": "ア・プリオリ／ア・ポステリオリ（a priori / a posteriori）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [
       "プロレゴメナ"
     ],
@@ -2146,6 +2347,7 @@
     "concept": "純粋直観としての空間と時間（Raum und Zeit）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2156,6 +2358,7 @@
     "concept": "カテゴリー（Kategorien／純粋悟性概念）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2166,6 +2369,7 @@
     "concept": "超越論的演繹（transzendentale Deduktion）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2176,6 +2380,7 @@
     "concept": "超越論的統覚（transzendentale Apperzeption／「我思う」）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2186,6 +2391,7 @@
     "concept": "図式論（Schematismus）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2196,6 +2402,7 @@
     "concept": "構想力（Einbildungskraft）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [
       "判断力批判"
     ],
@@ -2208,6 +2415,7 @@
     "concept": "理性の理念と統制的使用（Idee／regulativ vs konstitutiv）",
     "work": "純粋理性批判",
     "section": "（超越論的弁証論）",
+    "display_section": "（超越論的弁証論）",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判（超越論的弁証論）"
@@ -2218,6 +2426,7 @@
     "concept": "超越論的仮象（transzendentaler Schein）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2228,6 +2437,7 @@
     "concept": "アンチノミー（Antinomie）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2238,6 +2448,7 @@
     "concept": "誤謬推理（Paralogismus）",
     "work": "純粋理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判"
@@ -2248,6 +2459,7 @@
     "concept": "神の存在証明批判（存在論的・宇宙論的・自然神学的証明）",
     "work": "純粋理性批判",
     "section": "（超越論的弁証論）",
+    "display_section": "（超越論的弁証論）",
     "also": [],
     "reading": "じゅんすいりせいひはん",
     "raw": "純粋理性批判（超越論的弁証論）"
@@ -2258,6 +2470,7 @@
     "concept": "因果性への回答（ヒューム問題への応答）",
     "work": "プロレゴメナ",
     "section": "",
+    "display_section": "",
     "also": [
       "純粋理性批判"
     ],
@@ -2270,6 +2483,7 @@
     "concept": "善意志（guter Wille）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
     "raw": "人倫の形而上学の基礎づけ"
@@ -2280,6 +2494,7 @@
     "concept": "義務（Pflicht）と適法性／道徳性（Legalität / Moralität）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [
       "実践理性批判"
     ],
@@ -2292,6 +2507,7 @@
     "concept": "定言命法（kategorischer Imperativ）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
     "raw": "人倫の形而上学の基礎づけ"
@@ -2302,6 +2518,7 @@
     "concept": "仮言命法（hypothetischer Imperativ）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
     "raw": "人倫の形而上学の基礎づけ"
@@ -2312,6 +2529,7 @@
     "concept": "普遍化の法式（普遍的法則の法式）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
     "raw": "人倫の形而上学の基礎づけ"
@@ -2322,6 +2540,7 @@
     "concept": "目的それ自体の法式（人間性の定式）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
     "raw": "人倫の形而上学の基礎づけ"
@@ -2332,6 +2551,7 @@
     "concept": "自律と他律（Autonomie / Heteronomie）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [
       "実践理性批判"
     ],
@@ -2344,6 +2564,7 @@
     "concept": "目的の王国（Reich der Zwecke）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
     "raw": "人倫の形而上学の基礎づけ"
@@ -2354,6 +2575,7 @@
     "concept": "道徳法則への尊敬（Achtung）",
     "work": "実践理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じっせんりせいひはん",
     "raw": "実践理性批判"
@@ -2364,6 +2586,7 @@
     "concept": "意志の自由（Freiheit／叡知界と感性界）",
     "work": "実践理性批判",
     "section": "",
+    "display_section": "",
     "also": [
       "人倫の形而上学の基礎づけ"
     ],
@@ -2376,6 +2599,7 @@
     "concept": "最高善（höchstes Gut）",
     "work": "実践理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じっせんりせいひはん",
     "raw": "実践理性批判"
@@ -2386,6 +2610,7 @@
     "concept": "実践理性の要請（Postulate：自由・霊魂の不死・神）",
     "work": "実践理性批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じっせんりせいひはん",
     "raw": "実践理性批判"
@@ -2396,6 +2621,7 @@
     "concept": "尊厳と価格（Würde / Preis）",
     "work": "人倫の形而上学の基礎づけ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
     "raw": "人倫の形而上学の基礎づけ"
@@ -2406,6 +2632,7 @@
     "concept": "法論と徳論（Recht / Tugend）",
     "work": "人倫の形而上学",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがく",
     "raw": "人倫の形而上学"
@@ -2416,6 +2643,7 @@
     "concept": "趣味判断と無関心の満足（Geschmacksurteil / interesseloses Wohlgefallen）",
     "work": "判断力批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
     "raw": "判断力批判"
@@ -2426,6 +2654,7 @@
     "concept": "美と崇高（das Schöne / das Erhabene）",
     "work": "判断力批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
     "raw": "判断力批判"
@@ -2436,6 +2665,7 @@
     "concept": "共通感覚（sensus communis）",
     "work": "判断力批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
     "raw": "判断力批判"
@@ -2446,6 +2676,7 @@
     "concept": "目的なき合目的性（Zweckmäßigkeit ohne Zweck）",
     "work": "判断力批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
     "raw": "判断力批判"
@@ -2456,6 +2687,7 @@
     "concept": "反省的判断力（reflektierende Urteilskraft）",
     "work": "判断力批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
     "raw": "判断力批判"
@@ -2466,6 +2698,7 @@
     "concept": "自然目的としての有機体（Naturzweck）",
     "work": "判断力批判",
     "section": "（目的論的判断力の批判）",
+    "display_section": "（目的論的判断力の批判）",
     "also": [],
     "reading": "はんだんりょくひはん",
     "raw": "判断力批判（目的論的判断力の批判）"
@@ -2476,6 +2709,7 @@
     "concept": "天才（Genie）",
     "work": "判断力批判",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
     "raw": "判断力批判"
@@ -2486,6 +2720,7 @@
     "concept": "根本悪（radikales Böse）",
     "work": "たんなる理性の限界内の宗教",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "たんなるりせいのげんかいないのしゅうきょう",
     "raw": "たんなる理性の限界内の宗教"
@@ -2496,6 +2731,7 @@
     "concept": "道徳的回心と理性宗教（Gesinnungsänderung／理性の限界内の宗教）",
     "work": "たんなる理性の限界内の宗教",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "たんなるりせいのげんかいないのしゅうきょう",
     "raw": "たんなる理性の限界内の宗教"
@@ -2506,6 +2742,7 @@
     "concept": "啓蒙（Aufklärung／Sapere aude）",
     "work": "啓蒙とは何か",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "けいもうとはなにか",
     "raw": "啓蒙とは何か"
@@ -2516,6 +2753,7 @@
     "concept": "永遠平和（ewiger Friede／共和制・国家連合）",
     "work": "永遠平和のために",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "えいえんへいわのために",
     "raw": "永遠平和のために"
@@ -2526,6 +2764,7 @@
     "concept": "非社交的社交性（ungesellige Geselligkeit）",
     "work": "世界市民的見地における普遍史の理念",
     "section": "（歴史論文）",
+    "display_section": "（歴史論文）",
     "also": [],
     "reading": "せかいしみんてきけんちにおけるふへんしのりねん",
     "raw": "世界市民的見地における普遍史の理念（歴史論文）"
@@ -2536,6 +2775,7 @@
     "concept": "実用的見地の人間学（pragmatische Anthropologie）",
     "work": "実用的見地における人間学",
     "section": "",
+    "display_section": "",
     "also": [
       "自然地理学"
     ],
@@ -2548,6 +2788,7 @@
     "concept": "ヴィルトゥ（virtù）",
     "work": "君主論",
     "section": "",
+    "display_section": "",
     "also": [
       "ディスコルシ"
     ],
@@ -2560,6 +2801,7 @@
     "concept": "フォルトゥナ（fortuna）",
     "work": "君主論",
     "section": "25章",
+    "display_section": "25章",
     "also": [
       "ディスコルシ"
     ],
@@ -2572,6 +2814,7 @@
     "concept": "ネチェシタ（必要・necessità）",
     "work": "君主論",
     "section": "",
+    "display_section": "",
     "also": [
       "ディスコルシ"
     ],
@@ -2584,6 +2827,7 @@
     "concept": "オッカジオーネ（好機・occasione）",
     "work": "君主論",
     "section": "6章",
+    "display_section": "6章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論6章"
@@ -2594,6 +2838,7 @@
     "concept": "プルデンツァ（思慮・prudenza）",
     "work": "君主論",
     "section": "21章",
+    "display_section": "21章",
     "also": [
       "ディスコルシ"
     ],
@@ -2606,6 +2851,7 @@
     "concept": "グロリア（栄光・gloria）",
     "work": "君主論",
     "section": "",
+    "display_section": "",
     "also": [
       "ディスコルシ"
     ],
@@ -2618,6 +2864,7 @@
     "concept": "アンビツィオーネ（野心・ambizione）",
     "work": "ディスコルシ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ"
@@ -2628,6 +2875,7 @@
     "concept": "オツィオ（安逸・惰眠・ozio）",
     "work": "ディスコルシ",
     "section": "",
+    "display_section": "",
     "also": [
       "フィレンツェ史"
     ],
@@ -2640,6 +2888,7 @@
     "concept": "ライオンと狐（forza e fraude／力と狡知）",
     "work": "君主論",
     "section": "18章",
+    "display_section": "18章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論18章"
@@ -2650,6 +2899,7 @@
     "concept": "新君主（il principe nuovo）",
     "work": "君主論",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論"
@@ -2660,6 +2910,7 @@
     "concept": "スタート（国家・lo stato）",
     "work": "君主論",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論"
@@ -2670,6 +2921,7 @@
     "concept": "恐れられるか愛されるか（timore vs amore）",
     "work": "君主論",
     "section": "17章",
+    "display_section": "17章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論17章"
@@ -2680,6 +2932,7 @@
     "concept": "武装した予言者（profeti armati）",
     "work": "君主論",
     "section": "6章",
+    "display_section": "6章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論6章"
@@ -2690,6 +2943,7 @@
     "concept": "残虐の善用（crudeltà bene usate／残虐の経済）",
     "work": "君主論",
     "section": "8章",
+    "display_section": "8章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論8章"
@@ -2700,6 +2954,7 @@
     "concept": "寛大と吝嗇（liberalità e parsimonia）",
     "work": "君主論",
     "section": "16章",
+    "display_section": "16章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論16章"
@@ -2710,6 +2965,7 @@
     "concept": "偽装と韜晦（simulare e dissimulare）",
     "work": "君主論",
     "section": "18章",
+    "display_section": "18章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論18章"
@@ -2720,6 +2976,7 @@
     "concept": "自前の武器（armi proprie）",
     "work": "君主論",
     "section": "",
+    "display_section": "",
     "also": [
       "戦術論"
     ],
@@ -2732,6 +2989,7 @@
     "concept": "傭兵と援軍（armi mercenarie e ausiliarie）",
     "work": "君主論",
     "section": "12–13章",
+    "display_section": "12–13章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論12–13章"
@@ -2742,6 +3000,7 @@
     "concept": "要塞（fortezze）",
     "work": "君主論",
     "section": "20章",
+    "display_section": "20章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論20章"
@@ -2752,6 +3011,7 @@
     "concept": "中立の禁（neutralità を避けよ）",
     "work": "君主論",
     "section": "21章",
+    "display_section": "21章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論21章"
@@ -2762,6 +3022,7 @@
     "concept": "実効的真理（verità effettuale della cosa）",
     "work": "君主論",
     "section": "15章",
+    "display_section": "15章",
     "also": [],
     "reading": "くんしゅろん",
     "raw": "君主論15章"
@@ -2772,6 +3033,7 @@
     "concept": "市民軍／民兵（ordinanza・milizia）",
     "work": "戦術論",
     "section": "",
+    "display_section": "",
     "also": [
       "君主論"
     ],
@@ -2784,6 +3046,7 @@
     "concept": "戦争の技術（arte della guerra）",
     "work": "君主論",
     "section": "14章",
+    "display_section": "14章",
     "also": [
       "戦術論"
     ],
@@ -2796,6 +3059,7 @@
     "concept": "規律と歩兵優位",
     "work": "戦術論",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "せんじゅつろん",
     "raw": "戦術論"
@@ -2806,6 +3070,7 @@
     "concept": "ヴィヴェレ・リベロ（自由な生・vivere libero）",
     "work": "ディスコルシ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ"
@@ -2816,6 +3081,7 @@
     "concept": "ヴィヴェレ・シクーロ（安全な生・vivere sicuro）",
     "work": "ディスコルシ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ"
@@ -2826,6 +3092,7 @@
     "concept": "ウモーリ（体液・二つの欲望・umori）",
     "work": "君主論",
     "section": "9章",
+    "display_section": "9章",
     "also": [
       "ディスコルシ1巻"
     ],
@@ -2838,6 +3105,7 @@
     "concept": "トゥムルティ（騒擾・tumulti）",
     "work": "ディスコルシ",
     "section": "1巻4章",
+    "display_section": "1巻4章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ1巻4章"
@@ -2848,6 +3116,7 @@
     "concept": "オルディーニ（制度・法・ordini）",
     "work": "ディスコルシ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ"
@@ -2858,6 +3127,7 @@
     "concept": "混合政体（governo misto）",
     "work": "ディスコルシ",
     "section": "1巻2章",
+    "display_section": "1巻2章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ1巻2章"
@@ -2868,6 +3138,7 @@
     "concept": "政体循環（anaciclosi・政体の堕落サイクル）",
     "work": "ディスコルシ",
     "section": "1巻2章",
+    "display_section": "1巻2章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ1巻2章"
@@ -2878,6 +3149,7 @@
     "concept": "民衆の知恵（民は君主より賢い）",
     "work": "ディスコルシ",
     "section": "1巻58章",
+    "display_section": "1巻58章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ1巻58章"
@@ -2888,6 +3160,7 @@
     "concept": "告発と中傷（accuse e calunnie）",
     "work": "ディスコルシ",
     "section": "1巻7–8章",
+    "display_section": "1巻7–8章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ1巻7–8章"
@@ -2898,6 +3171,7 @@
     "concept": "独裁官（dittatura・期限つき非常大権）",
     "work": "ディスコルシ",
     "section": "1巻34章",
+    "display_section": "1巻34章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ1巻34章"
@@ -2908,6 +3182,7 @@
     "concept": "パトリア（祖国・patria）",
     "work": "ディスコルシ",
     "section": "3巻41章",
+    "display_section": "3巻41章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ3巻41章"
@@ -2918,6 +3193,7 @@
     "concept": "コルツィオーネ（腐敗・corruzione）",
     "work": "ディスコルシ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ"
@@ -2928,6 +3204,7 @@
     "concept": "原点回帰（ritorno ai principi・刷新 rinnovazione）",
     "work": "ディスコルシ",
     "section": "3巻1章",
+    "display_section": "3巻1章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ3巻1章"
@@ -2938,6 +3215,7 @@
     "concept": "党派・徒党（sette・fazioni）",
     "work": "フィレンツェ史",
     "section": "",
+    "display_section": "",
     "also": [
       "ディスコルシ"
     ],
@@ -2950,6 +3228,7 @@
     "concept": "宗教の政治利用（religione civile・市民宗教）",
     "work": "ディスコルシ",
     "section": "1巻11–15章",
+    "display_section": "1巻11–15章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ1巻11–15章"
@@ -2960,6 +3239,7 @@
     "concept": "キリスト教批判（現在の宗教への難詰）",
     "work": "ディスコルシ",
     "section": "2巻2章",
+    "display_section": "2巻2章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ2巻2章"
@@ -2970,6 +3250,7 @@
     "concept": "古代の模倣（imitazione degli antichi）",
     "work": "ディスコルシ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ序文"
@@ -2980,6 +3261,7 @@
     "concept": "人間性の不変（歴史反復の前提）",
     "work": "ディスコルシ",
     "section": "1巻39章",
+    "display_section": "1巻39章",
     "also": [],
     "reading": "でぃすこるし",
     "raw": "ディスコルシ1巻39章"
@@ -2990,6 +3272,7 @@
     "concept": "マンドラゴラ的シニシズム（堕落の喜劇）",
     "work": "マンドラゴラ",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "まんどらごら",
     "raw": "マンドラゴラ"
@@ -3000,6 +3283,7 @@
     "concept": "心即理（しんそくり / xīn jí lǐ）",
     "work": "伝習録",
     "section": "（徐愛との対話）「心の外に事なく、心の外に理なし」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録上（徐愛との対話）「心の外に事なく、心の外に理なし」"
@@ -3010,6 +3294,7 @@
     "concept": "心外無理・心外無物（しんがいむり・しんがいむぶつ）",
     "work": "伝習録",
     "section": "。「山中の花」の対話（君がそれを見るとき、花の色は一時に明らかになる）が代表例",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録上。「山中の花」の対話（君がそれを見るとき、花の色は一時に明らかになる）が代表例。"
@@ -3020,6 +3305,7 @@
     "concept": "本心・本体（ほんしん・ほんたい）",
     "work": "伝習録",
     "section": "。鏡を磨いて曇りを去る比喩が反復される",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録全般。鏡を磨いて曇りを去る比喩が反復される。"
@@ -3030,6 +3316,7 @@
     "concept": "良知（りょうち / liángzhī）",
     "work": "孟子",
     "section": "「良知良能」に由来。陽明思想の中期以降の核（伝習録中・書簡群）",
+    "display_section": "",
     "also": [],
     "reading": "もうし",
     "raw": "孟子「良知良能」に由来。陽明思想の中期以降の核（伝習録中・書簡群）。"
@@ -3040,6 +3327,7 @@
     "concept": "致良知（ちりょうち / zhì liángzhī）",
     "work": "伝習録",
     "section": "（晩年の書簡で確立）。「致良知の三字、これ千古の聖学の真血脈」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録中（晩年の書簡で確立）。「致良知の三字、これ千古の聖学の真血脈」。"
@@ -3050,6 +3338,7 @@
     "concept": "是非の心（ぜひのこころ）",
     "work": "孟子",
     "section": "「是非の心は智の端」を承け、伝習録で良知と重ねる",
+    "display_section": "",
     "also": [],
     "reading": "もうし",
     "raw": "孟子「是非の心は智の端」を承け、伝習録で良知と重ねる。"
@@ -3060,6 +3349,7 @@
     "concept": "良知の自知（りょうちのじち）",
     "work": "伝習録",
     "section": "。「爾の一点の良知は、爾自身の準則」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録下。「爾の一点の良知は、爾自身の準則」。"
@@ -3070,6 +3360,7 @@
     "concept": "良知は現成（げんじょう）",
     "work": "晩年の門流",
     "section": "（とくに王畿ら）が強調。陽明自身も「良知は本来円満」と説く",
+    "display_section": "が強調",
     "also": [],
     "reading": "ばんねんのもんりゅう",
     "raw": "晩年の門流（とくに王畿ら）が強調。陽明自身も「良知は本来円満」と説く。"
@@ -3080,6 +3371,7 @@
     "concept": "知行合一（ちこうごういつ / zhī xíng hé yī）",
     "work": "伝習録",
     "section": "（徐愛との最初期の主題）。「未だ知りて行わざる者あらず。知りて行わざるは、ただ未だ知らざるなり」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録上（徐愛との最初期の主題）。「未だ知りて行わざる者あらず。知りて行わざるは、ただ未だ知らざるなり」。"
@@ -3090,6 +3382,7 @@
     "concept": "知は行の始め、行は知の成（ちはこうのはじめ）",
     "work": "伝習録",
     "section": "。「知は行の始め、行は知の成なり」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録上。「知は行の始め、行は知の成なり」。"
@@ -3100,6 +3393,7 @@
     "concept": "真知（しんち）",
     "work": "伝習録",
     "section": "。痛みを知る者は自ら痛んだ者、寒さを知る者は自ら寒さに遭った者",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録上。痛みを知る者は自ら痛んだ者、寒さを知る者は自ら寒さに遭った者。"
@@ -3110,6 +3404,7 @@
     "concept": "一念発動即是行（いちねんはつどうそくぜこう）",
     "work": "伝習録",
     "section": "。「一念発動する処、便ち是れ行なり」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録下。「一念発動する処、便ち是れ行なり」。"
@@ -3120,6 +3415,7 @@
     "concept": "格物（かくぶつ / gé wù）",
     "work": "伝習録",
     "section": "。「格は正なり。其の不正を正して以て正に帰す」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録・大学問。「格は正なり。其の不正を正して以て正に帰す」。"
@@ -3130,6 +3426,7 @@
     "concept": "竹を格す（かくちく / 格竹の挫折）",
     "work": "伝習録",
     "section": "。陽明思想の転回を示すエピソード",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録下で回顧。陽明思想の転回を示すエピソード。"
@@ -3140,6 +3437,7 @@
     "concept": "誠意（せいい / chéng yì）",
     "work": "大学問",
     "section": "。陽明は『大学』の眼目を「誠意」に置いた",
+    "display_section": "",
     "also": [],
     "reading": "だいがくもん",
     "raw": "大学問・伝習録。陽明は『大学』の眼目を「誠意」に置いた。"
@@ -3150,6 +3448,7 @@
     "concept": "正心（せいしん）",
     "work": "大学",
     "section": "八条目を陽明流に貫いた大学問の一節",
+    "display_section": "八条目を陽明流に貫いた大学問の一節",
     "also": [],
     "reading": "だいがく",
     "raw": "『大学』八条目を陽明流に貫いた大学問の一節。"
@@ -3160,6 +3459,7 @@
     "concept": "為善去悪（いぜんきょあく）",
     "work": "四句教",
     "section": "「為善去悪是格物」",
+    "display_section": "",
     "also": [],
     "reading": "しくきょう",
     "raw": "四句教「為善去悪是格物」。"
@@ -3170,6 +3470,7 @@
     "concept": "万物一体の仁（ばんぶついったいのじん / wànwù yītǐ）",
     "work": "大学問",
     "section": "。「大人は天地万物を以て一体と為す者なり」",
+    "display_section": "",
     "also": [],
     "reading": "だいがくもん",
     "raw": "大学問の冒頭。「大人は天地万物を以て一体と為す者なり」。"
@@ -3180,6 +3481,7 @@
     "concept": "惻隠の心（そくいんのこころ）",
     "work": "孟子",
     "section": "。大学問で「孺子の井に入らんとするを見て怵惕惻隠す」と引く",
+    "display_section": "",
     "also": [],
     "reading": "もうし",
     "raw": "孟子由来。大学問で「孺子の井に入らんとするを見て怵惕惻隠す」と引く。"
@@ -3190,6 +3492,7 @@
     "concept": "明徳と親民（めいとく・しんみん）",
     "work": "大学問",
     "section": "。陽明は朱熹の「新民」を「親民」と読み、徳の発露としての他者への関わりを重んじた",
+    "display_section": "",
     "also": [],
     "reading": "だいがくもん",
     "raw": "大学問。陽明は朱熹の「新民」を「親民」と読み、徳の発露としての他者への関わりを重んじた。"
@@ -3200,6 +3503,7 @@
     "concept": "事上磨錬（じじょうまれん / shì shàng móliàn）",
     "work": "伝習録",
     "section": "。「人はすべからく事上に在りて磨くべし、方に立ち得て住まる」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録下。「人はすべからく事上に在りて磨くべし、方に立ち得て住まる」。"
@@ -3210,6 +3514,7 @@
     "concept": "立志（りっし / lì zhì）",
     "work": "伝習録",
     "section": "（門人への教え）。「学を為すには、まず志を立つるを要す」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録・書簡（門人への教え）。「学を為すには、まず志を立つるを要す」。"
@@ -3220,6 +3525,7 @@
     "concept": "立志は種、養うは時を待つ（りっしのよう）",
     "work": "孟子",
     "section": "「揠苗助長」を承けた修養観。伝習録の植物比喩群",
+    "display_section": "",
     "also": [],
     "reading": "もうし",
     "raw": "孟子「揠苗助長」を承けた修養観。伝習録の植物比喩群。"
@@ -3230,6 +3536,7 @@
     "concept": "静坐（せいざ）",
     "work": "伝習録",
     "section": "。当初は静坐を説いたが、後に「事上磨錬」へ重心を移す",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録上・中。当初は静坐を説いたが、後に「事上磨錬」へ重心を移す。"
@@ -3240,6 +3547,7 @@
     "concept": "省察克治（せいさつこくち）",
     "work": "伝習録",
     "section": "。「常に己の私欲を省察し、これを克治す」",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録上。「常に己の私欲を省察し、これを克治す」。"
@@ -3250,6 +3558,7 @@
     "concept": "不動心（ふどうしん）",
     "work": "陽明の生涯",
     "section": "（反乱鎮定・讒言・貶謫）に体現。語録より行跡に現れる徳",
+    "display_section": "に体現",
     "also": [],
     "reading": "ようめいのしょうがい",
     "raw": "陽明の生涯（反乱鎮定・讒言・貶謫）に体現。語録より行跡に現れる徳。"
@@ -3260,6 +3569,7 @@
     "concept": "龍場の悟り（りゅうじょうのさとり）",
     "work": "伝習録",
     "section": "。陽明思想（心即理）の出発点となる転回点",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "年譜・伝習録。陽明思想（心即理）の出発点となる転回点。"
@@ -3270,6 +3580,7 @@
     "concept": "四句教（しくきょう / sìjù jiào）",
     "work": "伝習録",
     "section": "「天泉証道」。銭徳洪・王畿との対話の場で説かれた",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録下「天泉証道」。銭徳洪・王畿との対話の場で説かれた。"
@@ -3280,6 +3591,7 @@
     "concept": "無善無悪・心之体（むぜんむあく しんのたい）",
     "work": "四句教",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "しくきょう",
     "raw": "四句教第一句。"
@@ -3290,6 +3602,7 @@
     "concept": "四有と四無（しゆう・しむ）",
     "work": "伝習録",
     "section": "。陽明は両者を「上根の者は四無、その他は四有から入れ」と裁定し、両立を説いた",
+    "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
     "raw": "伝習録下。陽明は両者を「上根の者は四無、その他は四有から入れ」と裁定し、両立を説いた。"
@@ -3300,6 +3613,7 @@
     "concept": "朱子晩年定論（しゅしばんねんていろん）",
     "work": "同名の編著",
     "section": "（中巻に関連書簡）",
+    "display_section": "（中巻に関連書簡）",
     "also": [],
     "reading": "どうめいのへんちょ",
     "raw": "同名の編著（中巻に関連書簡）。"
@@ -3310,6 +3624,7 @@
     "concept": "知行本一（ちこうもといつ）／工夫の単一化",
     "work": "大学問",
     "section": "",
+    "display_section": "",
     "also": [],
     "reading": "だいがくもん",
     "raw": "大学問・伝習録中。"
@@ -3320,6 +3635,7 @@
     "concept": "実体（substantia）",
     "work": "エチカ",
     "section": "I def3、I p14（神以外に実体はありえない）",
+    "display_section": "I def3",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ I def3、I p14（神以外に実体はありえない）"
@@ -3330,6 +3646,7 @@
     "concept": "属性（attributum）",
     "work": "エチカ",
     "section": "I def4、II p1（思惟）・II p2（延長）",
+    "display_section": "I def4",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ I def4、II p1（思惟）・II p2（延長）"
@@ -3340,6 +3657,7 @@
     "concept": "様態（modus）",
     "work": "エチカ",
     "section": "I def5、I p25c（個物は神の属性の変様）",
+    "display_section": "I def5",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ I def5、I p25c（個物は神の属性の変様）"
@@ -3350,6 +3668,7 @@
     "concept": "神即自然（Deus sive Natura）",
     "work": "エチカ",
     "section": "IV 序文、I p15・I p29",
+    "display_section": "IV 序文",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ IV 序文、I p15・I p29"
@@ -3360,6 +3679,7 @@
     "concept": "産出する自然／産出された自然（natura naturans / natura naturata）",
     "work": "エチカ",
     "section": "I p29s",
+    "display_section": "I p29s",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ I p29s"
@@ -3370,6 +3690,7 @@
     "concept": "自己原因（causa sui）",
     "work": "エチカ",
     "section": "I def1、I p11（神は必然的に存在する）",
+    "display_section": "I def1",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ I def1、I p11（神は必然的に存在する）"
@@ -3380,6 +3701,7 @@
     "concept": "必然性・決定論（necessitas）",
     "work": "エチカ",
     "section": "I p29・I p33、I app（目的論の否定）、II p48（意志の自由の否定）",
+    "display_section": "I p29",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ I p29・I p33、I app（目的論の否定）、II p48（意志の自由の否定）"
@@ -3390,6 +3712,7 @@
     "concept": "無限と永遠（infinitum / aeternitas）",
     "work": "エチカ",
     "section": "I def6（無限）・I def8（永遠）",
+    "display_section": "I def6",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ I def6（無限）・I def8（永遠）"
@@ -3400,6 +3723,7 @@
     "concept": "観念（idea）",
     "work": "エチカ",
     "section": "II def3、II p43（真理は自らの基準）",
+    "display_section": "II def3",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II def3、II p43（真理は自らの基準）"
@@ -3410,6 +3734,7 @@
     "concept": "並行論（ordo et connexio）",
     "work": "エチカ",
     "section": "II p7・II p7s",
+    "display_section": "II p7",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II p7・II p7s"
@@ -3420,6 +3745,7 @@
     "concept": "精神＝身体の観念（mens）",
     "work": "エチカ",
     "section": "II p11・II p13",
+    "display_section": "II p11",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II p11・II p13"
@@ -3430,6 +3756,7 @@
     "concept": "コナトゥス（conatus）",
     "work": "エチカ",
     "section": "III p6・III p7・III p9s",
+    "display_section": "III p6",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III p6・III p7・III p9s"
@@ -3440,6 +3767,7 @@
     "concept": "第一種・想像知（imaginatio / cognitio primi generis）",
     "work": "エチカ",
     "section": "II p40s2・II p41",
+    "display_section": "II p40s2",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II p40s2・II p41"
@@ -3450,6 +3778,7 @@
     "concept": "第二種・理性知（ratio / cognitio secundi generis）",
     "work": "エチカ",
     "section": "II p40s2・II p44c2",
+    "display_section": "II p40s2",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II p40s2・II p44c2"
@@ -3460,6 +3789,7 @@
     "concept": "第三種・直観知（scientia intuitiva）",
     "work": "エチカ",
     "section": "II p40s2・V p25・V p36s",
+    "display_section": "II p40s2",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II p40s2・V p25・V p36s"
@@ -3470,6 +3800,7 @@
     "concept": "共通概念（notiones communes）",
     "work": "エチカ",
     "section": "II p38・II p39・II p40",
+    "display_section": "II p38",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II p38・II p39・II p40"
@@ -3480,6 +3811,7 @@
     "concept": "妥当／非妥当な観念（idea adaequata / inadaequata）",
     "work": "エチカ",
     "section": "II def4、II p36",
+    "display_section": "II def4",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II def4、II p36"
@@ -3490,6 +3822,7 @@
     "concept": "永遠の相のもとに（sub specie aeternitatis）",
     "work": "エチカ",
     "section": "II p44c2、V p29s",
+    "display_section": "II p44c2",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ II p44c2、V p29s"
@@ -3500,6 +3833,7 @@
     "concept": "感情（affectus）／能動と受動",
     "work": "エチカ",
     "section": "III def3、III def1-2、III p1",
+    "display_section": "III def3",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III def3、III def1-2、III p1"
@@ -3510,6 +3844,7 @@
     "concept": "欲望（cupiditas）",
     "work": "エチカ",
     "section": "III 感情の定義1",
+    "display_section": "III 感情の定義1",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III 感情の定義1"
@@ -3520,6 +3855,7 @@
     "concept": "喜び（laetitia）",
     "work": "エチカ",
     "section": "III p11s、III 感情の定義2",
+    "display_section": "III p11s",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III p11s、III 感情の定義2"
@@ -3530,6 +3866,7 @@
     "concept": "悲しみ（tristitia）",
     "work": "エチカ",
     "section": "III p11s、III 感情の定義3",
+    "display_section": "III p11s",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III p11s、III 感情の定義3"
@@ -3540,6 +3877,7 @@
     "concept": "愛（amor）／憎しみ（odium）",
     "work": "エチカ",
     "section": "III p13s、III 感情の定義6・7",
+    "display_section": "III p13s",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III p13s、III 感情の定義6・7"
@@ -3550,6 +3888,7 @@
     "concept": "希望（spes）／恐れ（metus）",
     "work": "エチカ",
     "section": "III p18s2、III 感情の定義12・13",
+    "display_section": "III p18s2",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III p18s2、III 感情の定義12・13"
@@ -3560,6 +3899,7 @@
     "concept": "嫉妬（invidia）",
     "work": "エチカ",
     "section": "III p24s、III 感情の定義23",
+    "display_section": "III p24s",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III p24s、III 感情の定義23"
@@ -3570,6 +3910,7 @@
     "concept": "名誉・虚栄（gloria）",
     "work": "エチカ",
     "section": "III p30s、III 感情の定義30・31",
+    "display_section": "III p30s",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III p30s、III 感情の定義30・31"
@@ -3580,6 +3921,7 @@
     "concept": "自己満足（acquiescentia in se ipso）",
     "work": "エチカ",
     "section": "III p55s、IV p52、III 感情の定義25",
+    "display_section": "III p55s",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III p55s、IV p52、III 感情の定義25"
@@ -3590,6 +3932,7 @@
     "concept": "高慢（superbia）／謙遜（humilitas）",
     "work": "エチカ",
     "section": "III 感情の定義26・28、IV p53・IV p54",
+    "display_section": "III 感情の定義26",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III 感情の定義26・28、IV p53・IV p54"
@@ -3600,6 +3943,7 @@
     "concept": "後悔（poenitentia）／良心の呵責（conscientiae morsus）",
     "work": "エチカ",
     "section": "III 感情の定義17・27、IV p54",
+    "display_section": "III 感情の定義17",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III 感情の定義17・27、IV p54"
@@ -3610,6 +3954,7 @@
     "concept": "同情・憐れみ（commiseratio / misericordia）",
     "work": "エチカ",
     "section": "III 感情の定義18・24、IV p50",
+    "display_section": "III 感情の定義18",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III 感情の定義18・24、IV p50"
@@ -3620,6 +3965,7 @@
     "concept": "感情の定義 全48（エチカ第3部末尾「感情の定義」）",
     "work": "エチカ",
     "section": "III「感情の定義」（Affectuum Definitiones, 全48）",
+    "display_section": "III",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ III「感情の定義」（Affectuum Definitiones, 全48）"
@@ -3630,6 +3976,7 @@
     "concept": "人間の隷属（servitus humana）",
     "work": "エチカ",
     "section": "IV 序文・IV p17s",
+    "display_section": "IV 序文",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ IV 序文・IV p17s"
@@ -3640,6 +3987,7 @@
     "concept": "自由・自由な人（libertas / homo liber）",
     "work": "エチカ",
     "section": "I def7、IV p67・IV p66s",
+    "display_section": "I def7",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ I def7、IV p67・IV p66s"
@@ -3650,6 +3998,7 @@
     "concept": "徳＝力（virtus = potentia）",
     "work": "エチカ",
     "section": "IV def8、IV p18s・IV p24",
+    "display_section": "IV def8",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ IV def8、IV p18s・IV p24"
@@ -3660,6 +4009,7 @@
     "concept": "神への知的愛（amor Dei intellectualis）",
     "work": "エチカ",
     "section": "V p32c・V p35・V p36",
+    "display_section": "V p32c",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ V p32c・V p35・V p36"
@@ -3670,6 +4020,7 @@
     "concept": "至福（beatitudo）",
     "work": "エチカ",
     "section": "V p42",
+    "display_section": "V p42",
     "also": [],
     "reading": "えちか",
     "raw": "エチカ V p42"
@@ -3680,6 +4031,7 @@
     "concept": "自然権（jus naturale）",
     "work": "神学・政治論",
     "section": "第16章",
+    "display_section": "第16章",
     "also": [
       "政治論 第2章"
     ],
@@ -3692,6 +4044,7 @@
     "concept": "社会契約・国家（pactum / civitas / imperium）",
     "work": "神学・政治論",
     "section": "第16章・第20章",
+    "display_section": "第16章",
     "also": [
       "政治論 第3章"
     ],
@@ -3704,6 +4057,7 @@
     "concept": "多数者の力（potentia multitudinis）",
     "work": "政治論",
     "section": "第2章・第7章・第11章（民主政、未完で中断）",
+    "display_section": "第2章",
     "also": [],
     "reading": "せいじろん",
     "raw": "政治論 第2章・第7章・第11章（民主政、未完で中断）"
@@ -3714,6 +4068,7 @@
     "concept": "思想・言論の自由（libertas philosophandi）",
     "work": "神学・政治論",
     "section": "第20章（「各人に思考の自由・思うことを語る自由を認めうる」）",
+    "display_section": "第20章",
     "also": [],
     "reading": "しんがくせいじろん",
     "raw": "神学・政治論 第20章（「各人に思考の自由・思うことを語る自由を認めうる」）"
@@ -3724,6 +4079,7 @@
     "concept": "聖書解釈（哲学と神学の分離）",
     "work": "神学・政治論",
     "section": "第1-2章（預言）・第6章（奇跡）・第7章（解釈法）・第14-15章（信仰と哲学の分離）",
+    "display_section": "第1-2章",
     "also": [],
     "reading": "しんがくせいじろん",
     "raw": "神学・政治論 第1-2章（預言）・第6章（奇跡）・第7章（解釈法）・第14-15章（信仰と哲学の分離）"

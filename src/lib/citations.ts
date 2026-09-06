@@ -19,6 +19,10 @@ export interface Citation {
   concept: string;
   work: string;
   section: string;
+  /** section から導出した、栞テロップ表示用の短い章節（build-citations.mjs の
+   *  deriveDisplaySection 参照）。section は参照用にそのまま残るが、栞の
+   *  テロップ/リスト表示には display_section を使う（Issue #173 Phase B）。 */
+  display_section: string;
   /** 出典行に複数著作が並んでいた場合の2つ目以降（例: `カテゴリー論／形而上学Δ` の `形而上学Δ`）。
    *  raw の補助情報として持つだけで、栞のテロップ/リスト表示には使わない（work/section のみ表示）。 */
   also: string[];
@@ -114,7 +118,8 @@ export function getCitationsForSlug(slug: string): Citation[] {
   return results;
 }
 
-/** 栞1件の表示文言（『著作名（よみがな）』章節）。apply-citations.mjs の telop 本文と同じ組み方。 */
+/** 栞1件の表示文言（『著作名（よみがな）』章節）。apply-citations.mjs の telop 本文と同じ組み方。
+ * 章節は display_section（短縮済み表示用）を使う。section（完全形）はここでは使わない。 */
 export function formatCitation(citation: Citation): string {
-  return `『${citation.work}（${citation.reading}）』${citation.section ?? ""}`;
+  return `『${citation.work}（${citation.reading}）』${citation.display_section ?? ""}`;
 }

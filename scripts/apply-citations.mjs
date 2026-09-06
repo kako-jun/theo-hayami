@@ -38,9 +38,11 @@ function loadMap() {
   return entries;
 }
 
-/** citation 1件を `[テロップ: 『著作名（よみがな）』章節, 種別=しおり]` の1行にする。 */
+/** citation 1件を `[テロップ: 『著作名（よみがな）』章節, 種別=しおり]` の1行にする。
+ * 章節は display_section（短縮済み表示用。build-citations.mjs の deriveDisplaySection 参照）を使う。
+ * section（完全形・参照用）はここでは使わない。 */
 export function buildTelopLine(citation) {
-  let body = `『${citation.work}（${citation.reading}）』${citation.section ?? ""}`;
+  let body = `『${citation.work}（${citation.reading}）』${citation.display_section ?? ""}`;
   // 本文に `,` を含める場合は全角にする（name-name #674 仕様。章節に半角カンマが
   // 紛れ込んでもディレクティブの引数区切りと衝突しないための安全策）。
   body = body.replace(/,/g, "，");

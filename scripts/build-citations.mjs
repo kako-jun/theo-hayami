@@ -158,6 +158,48 @@ export function japaneseIdFromHeading(heading) {
   return base.replace(/[\s、・「」＝]/gu, "");
 }
 
+// section（参照用・章節ロケータの完全形）から、栞テロップに載せる短い表示用文言
+// display_section を導出する（Issue #173 Phase B・テロップ本文が長すぎる問題の修正）。
+// 適用順序:
+// (0) section 全体がまるごと1つの説明括弧（`（…）`）の場合はそのまま残す
+//     （『大論理学』（有論）のような部位指定。hegru-止揚 の section="（有論）" 等）。
+//     この判定は元の raw section で行う（(1)で他の括弧を削った後の残骸ではない）。
+// (1) それ以外は `（…）` を（先頭にあっても）全て除去する
+//     （例: ou-知行合一 の section は丸ごと1個の説明括弧で始まり、直後に 。「引用」が
+//     続く＝(0)には該当しない＝除去され display_section は空になる）。
+// (2) 最初の `。` 以降を捨てる（出典行の引用文の地の文が続くケースを切る）
+// (3) 最初の `「` 以降を捨てる（括弧に包まれていない引用の頭出し）
+// (4) 最初の `、` 以降を捨てる（複数ロケータの列挙は先頭だけ）
+// (5) 残った文字列に数字が含まれる場合に限り、最初の `・` 以降も捨てる
+//     （`I p29・I p33` のような「同じ形式のロケータの列挙」は先頭だけにする一方、
+//     `I・X`・`Ζ・Η` のような数字を伴わない章の並記は、複数章にまたがる一体の指定か
+//     単なる列挙か判別できないため、切らずにそのまま残す＝aristo-エウダイモニア
+//     `I・X`、aristo-実体 `Ζ・Η` はこのまま）。
+// (6) trim
+export function deriveDisplaySection(section) {
+  const raw = section ?? "";
+  const trimmedRaw = raw.trim();
+  if (/^（[^（）]*）$/.test(trimmedRaw)) return trimmedRaw;
+
+  let s = raw.replace(/（[^）]*）/g, "");
+
+  const periodIdx = s.indexOf("。");
+  if (periodIdx !== -1) s = s.slice(0, periodIdx);
+
+  const quoteIdx = s.indexOf("「");
+  if (quoteIdx !== -1) s = s.slice(0, quoteIdx);
+
+  const toutenIdx = s.indexOf("、");
+  if (toutenIdx !== -1) s = s.slice(0, toutenIdx);
+
+  if (/\d/.test(s)) {
+    const nakaguroIdx = s.indexOf("・");
+    if (nakaguroIdx !== -1) s = s.slice(0, nakaguroIdx);
+  }
+
+  return s.trim();
+}
+
 function loadReadings() {
   const json = JSON.parse(readFileSync(READINGS_PATH, "utf-8"));
   const lookup = new Map(); // 著作名（正本 or alias）→ { canonical, reading }
@@ -254,6 +296,7 @@ function main() {
         concept: entry.concept,
         work: hit.canonical,
         section: entry.section,
+        display_section: deriveDisplaySection(entry.section),
         also: entry.also,
         reading: hit.reading,
         raw: entry.raw,
