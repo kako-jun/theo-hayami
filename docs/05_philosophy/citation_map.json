@@ -360,6 +360,10 @@
     {
       "block": 9,
       "id": "aristo-目的論"
+    },
+    {
+      "block": 11,
+      "id": "aristo-機能論証"
     }
   ],
   "free/izon__aristo.md": [
@@ -396,6 +400,10 @@
     {
       "block": 3,
       "id": "aristo-エウダイモニア"
+    },
+    {
+      "block": 11,
+      "id": "aristo-習慣づけと性向"
     }
   ],
   "free/koukai__aristo.md": [
@@ -638,6 +646,10 @@
   ],
   "free/mayoi__hegru.md": [
     {
+      "block": 10,
+      "id": "hegru-止揚"
+    },
+    {
       "block": 12,
       "id": "hegru-概念判断推論"
     }
@@ -802,6 +814,10 @@
       "id": "kantia-目的それ自体の法式"
     },
     {
+      "block": 12,
+      "id": "kantia-普遍化の法式"
+    },
+    {
       "block": 14,
       "id": "kantia-目的の王国"
     }
@@ -874,6 +890,10 @@
     {
       "block": 8,
       "id": "kantia-反省的判断力"
+    },
+    {
+      "block": 13,
+      "id": "kantia-啓蒙"
     }
   ],
   "free/mie__kantia.md": [
@@ -1090,6 +1110,10 @@
     {
       "block": 7,
       "id": "dekaris-自由意志"
+    },
+    {
+      "block": 15,
+      "id": "dekaris-誤謬の理論"
     }
   ],
   "free/kitai__dekaris.md": [
@@ -1141,7 +1165,7 @@
   "free/mujun__dekaris.md": [
     {
       "block": 9,
-      "id": "dekaris-自由意志"
+      "id": "dekaris-誤謬の理論"
     }
   ],
   "free/namake__dekaris.md": [
@@ -1163,6 +1187,10 @@
     }
   ],
   "free/shi__dekaris.md": [
+    {
+      "block": 5,
+      "id": "dekaris-身体機械"
+    },
     {
       "block": 9,
       "id": "dekaris-思考する実体"
@@ -1308,6 +1336,10 @@
   ],
   "free/ikari__spino.md": [
     {
+      "block": 7,
+      "id": "spino-感情"
+    },
+    {
       "block": 11,
       "id": "spino-妥当"
     }
@@ -1328,9 +1360,17 @@
     {
       "block": 7,
       "id": "spino-無限と永遠"
+    },
+    {
+      "block": 9,
+      "id": "spino-永遠の相のもとに"
     }
   ],
   "free/jiyuu__spino.md": [
+    {
+      "block": 3,
+      "id": "spino-必然性決定論"
+    },
     {
       "block": 7,
       "id": "spino-自由自由な人"
@@ -1346,6 +1386,10 @@
     {
       "block": 5,
       "id": "spino-実体"
+    },
+    {
+      "block": 7,
+      "id": "spino-様態"
     }
   ],
   "free/koufuku__spino.md": [
@@ -1356,11 +1400,19 @@
   ],
   "free/koukai__spino.md": [
     {
+      "block": 5,
+      "id": "spino-必然性決定論"
+    },
+    {
       "block": 9,
       "id": "spino-後悔"
     }
   ],
   "free/mayoi__spino.md": [
+    {
+      "block": 5,
+      "id": "spino-第一種想像知"
+    },
     {
       "block": 9,
       "id": "spino-第二種理性知"
@@ -1370,6 +1422,10 @@
     {
       "block": 9,
       "id": "spino-名誉虚栄"
+    },
+    {
+      "block": 11,
+      "id": "spino-自己満足"
     }
   ],
   "free/moke__spino.md": [
@@ -1416,12 +1472,20 @@
     {
       "block": 5,
       "id": "spino-思想言論の自由"
+    },
+    {
+      "block": 13,
+      "id": "spino-必然性決定論"
     }
   ],
   "free/shuuchaku__spino.md": [
     {
       "block": 5,
       "id": "spino-感情の定義全48"
+    },
+    {
+      "block": 13,
+      "id": "spino-徳力"
     }
   ],
   "free/soushitsu__spino.md": [
@@ -1546,6 +1610,10 @@
     {
       "block": 5,
       "id": "makiya-オルディーニ"
+    },
+    {
+      "block": 11,
+      "id": "makiya-原点回帰"
     }
   ],
   "free/ikari__makiya.md": [
@@ -1557,6 +1625,10 @@
   "free/imi__makiya.md": [
     {
       "block": 5,
+      "id": "makiya-実効的真理"
+    },
+    {
+      "block": 7,
       "id": "makiya-宗教の政治利用"
     }
   ],
@@ -1573,6 +1645,10 @@
     }
   ],
   "free/jiyuu__makiya.md": [
+    {
+      "block": 5,
+      "id": "makiya-ヴィヴェレシクーロ"
+    },
     {
       "block": 7,
       "id": "makiya-ヴィヴェレリベロ"
@@ -1622,6 +1698,10 @@
     {
       "block": 7,
       "id": "makiya-ネチェシタ"
+    },
+    {
+      "block": 11,
+      "id": "makiya-プルデンツァ"
     }
   ],
   "free/namake__makiya.md": [
@@ -1660,6 +1740,10 @@
     {
       "block": 6,
       "id": "makiya-グロリア"
+    },
+    {
+      "block": 8,
+      "id": "makiya-人間性の不変"
     }
   ],
   "free/shihai__makiya.md": [
@@ -1798,6 +1882,10 @@
   ],
   "free/ikari__hue.md": [
     {
+      "block": 5,
+      "id": "hue-理性は情念の奴隷"
+    },
+    {
       "block": 7,
       "id": "hue-穏やかな情念と激しい情念"
     },
@@ -1820,6 +1908,10 @@
   ],
   "free/jikan__hue.md": [
     {
+      "block": 3,
+      "id": "hue-束理論"
+    },
+    {
       "block": 9,
       "id": "hue-付録の困惑"
     }
@@ -1834,6 +1926,10 @@
     {
       "block": 9,
       "id": "hue-帰納の問題"
+    },
+    {
+      "block": 12,
+      "id": "hue-習慣慣れ"
     }
   ],
   "free/kodoku__hue.md": [
@@ -2042,6 +2138,10 @@
     {
       "block": 5,
       "id": "ou-明徳と親民"
+    },
+    {
+      "block": 11,
+      "id": "ou-知行合一"
     }
   ],
   "free/henka__ou.md": [
@@ -2064,12 +2164,20 @@
     {
       "block": 5,
       "id": "ou-一念発動即是行"
+    },
+    {
+      "block": 11,
+      "id": "ou-知行合一"
     }
   ],
   "free/jiyuu__ou.md": [
     {
       "block": 5,
       "id": "ou-致良知"
+    },
+    {
+      "block": 9,
+      "id": "ou-知行合一"
     }
   ],
   "free/kitai__ou.md": [
@@ -2082,30 +2190,50 @@
     {
       "block": 7,
       "id": "ou-明徳と親民"
+    },
+    {
+      "block": 11,
+      "id": "ou-知行合一"
     }
   ],
   "free/koufuku__ou.md": [
     {
       "block": 9,
       "id": "ou-良知は現成"
+    },
+    {
+      "block": 13,
+      "id": "ou-省察克治"
     }
   ],
   "free/koukai__ou.md": [
     {
       "block": 5,
       "id": "ou-知は行の始め行は知の成"
+    },
+    {
+      "block": 11,
+      "id": "ou-知行合一"
     }
   ],
   "free/mayoi__ou.md": [
     {
       "block": 7,
       "id": "ou-知行本一"
+    },
+    {
+      "block": 13,
+      "id": "ou-知行合一"
     }
   ],
   "free/mie__ou.md": [
     {
       "block": 5,
       "id": "ou-誠意"
+    },
+    {
+      "block": 11,
+      "id": "ou-知行合一"
     }
   ],
   "free/moke__ou.md": [
@@ -2154,18 +2282,30 @@
     {
       "block": 5,
       "id": "ou-格物"
+    },
+    {
+      "block": 11,
+      "id": "ou-知行合一"
     }
   ],
   "free/shuuchaku__ou.md": [
     {
       "block": 7,
       "id": "ou-無善無悪心之体"
+    },
+    {
+      "block": 11,
+      "id": "ou-知行合一"
     }
   ],
   "free/soushitsu__ou.md": [
     {
       "block": 7,
       "id": "ou-静坐"
+    },
+    {
+      "block": 13,
+      "id": "ou-知行合一"
     }
   ],
   "free/taikutsu__ou.md": [
@@ -2430,8 +2570,16 @@
       "id": "aristo-習慣づけと性向"
     },
     {
+      "block": 6,
+      "id": "aristo-機能論証"
+    },
+    {
       "block": 11,
       "id": "dekaris-良識"
+    },
+    {
+      "block": 13,
+      "id": "dekaris-直観と演繹"
     },
     {
       "block": 14,
@@ -2439,6 +2587,10 @@
     }
   ],
   "current-drafts/confession.md": [
+    {
+      "block": 1,
+      "id": "hegru-承認"
+    },
     {
       "block": 3,
       "id": "ou-知行合一"
@@ -2448,8 +2600,24 @@
       "id": "aristo-思慮"
     },
     {
+      "block": 6,
+      "id": "hegru-矛盾"
+    },
+    {
       "block": 8,
       "id": "hegru-主と奴"
+    },
+    {
+      "block": 10,
+      "id": "ou-良知"
+    },
+    {
+      "block": 12,
+      "id": "aristo-友愛"
+    },
+    {
+      "block": 17,
+      "id": "hegru-止揚"
     }
   ],
   "current-drafts/cosmic-loneliness.md": [
@@ -2478,12 +2646,24 @@
     {
       "block": 4,
       "id": "kantia-物自体"
+    },
+    {
+      "block": 5,
+      "id": "spino-徳力"
     }
   ],
   "current-drafts/discrimination.md": [
     {
       "block": 1,
       "id": "hegru-承認"
+    },
+    {
+      "block": 5,
+      "id": "kantia-目的それ自体の法式"
+    },
+    {
+      "block": 10,
+      "id": "hegru-規定的否定"
     },
     {
       "block": 12,
@@ -2504,11 +2684,23 @@
       "id": "spino-愛"
     },
     {
+      "block": 8,
+      "id": "makiya-グロリア"
+    },
+    {
       "block": 10,
       "id": "makiya-偽装と韜晦"
+    },
+    {
+      "block": 14,
+      "id": "spino-名誉虚栄"
     }
   ],
   "current-drafts/failed-work.md": [
+    {
+      "block": 2,
+      "id": "hegru-疎外外化"
+    },
     {
       "block": 3,
       "id": "dekaris-明晰判明"
@@ -2520,6 +2712,14 @@
     {
       "block": 10,
       "id": "hegru-止揚"
+    },
+    {
+      "block": 12,
+      "id": "hegru-精神"
+    },
+    {
+      "block": 17,
+      "id": "aristo-思慮"
     }
   ],
   "current-drafts/family-anger.md": [
@@ -2532,8 +2732,16 @@
       "id": "kantia-非社交的社交性"
     },
     {
+      "block": 6,
+      "id": "kantia-自律と他律"
+    },
+    {
       "block": 10,
       "id": "ou-静坐"
+    },
+    {
+      "block": 13,
+      "id": "ou-一念発動即是行"
     }
   ],
   "current-drafts/farewell.md": [
@@ -2546,8 +2754,16 @@
       "id": "hegru-承認"
     },
     {
+      "block": 13,
+      "id": "aristo-習慣づけと性向"
+    },
+    {
       "block": 15,
       "id": "hue-想像力"
+    },
+    {
+      "block": 17,
+      "id": "hegru-規定的否定"
     }
   ],
   "current-drafts/future-seen.md": [
@@ -2980,12 +3196,28 @@
   ],
   "current-drafts/comiket-desire.md": [
     {
+      "block": 2,
+      "id": "spino-悲しみ"
+    },
+    {
       "block": 3,
       "id": "makiya-実効的真理"
     },
     {
+      "block": 7,
+      "id": "aristo-死んだ手の同名異義"
+    },
+    {
+      "block": 9,
+      "id": "spino-自己満足"
+    },
+    {
       "block": 14,
       "id": "spino-嫉妬"
+    },
+    {
+      "block": 15,
+      "id": "makiya-パトリア"
     },
     {
       "block": 16,
@@ -3040,6 +3272,26 @@
     {
       "block": 14,
       "id": "kantia-物自体"
+    }
+  ],
+  "free/imi__ou.md": [
+    {
+      "block": 3,
+      "id": "ou-本心本体"
+    },
+    {
+      "block": 9,
+      "id": "ou-心外無理心外無物"
+    },
+    {
+      "block": 13,
+      "id": "ou-知行合一"
+    }
+  ],
+  "free/jikan__ou.md": [
+    {
+      "block": 5,
+      "id": "ou-本心本体"
     }
   ]
 }
