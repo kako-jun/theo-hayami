@@ -18,6 +18,9 @@ export interface Citation {
   concept: string;
   work: string;
   section: string;
+  /** 出典行に複数著作が並んでいた場合の2つ目以降（例: `カテゴリー論／形而上学Δ` の `形而上学Δ`）。
+   *  raw の補助情報として持つだけで、栞のテロップ/リスト表示には使わない（work/section のみ表示）。 */
+  also: string[];
   reading: string;
   raw: string;
 }

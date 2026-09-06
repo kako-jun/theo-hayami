@@ -49,8 +49,11 @@ function stripTrailing(s) {
   return s.replace(/[。、\s]+$/u, "").trim();
 }
 
-/** 出典行の本文（ラベル除去済み）を { work, section } に分ける。 */
-export function splitWorkSection(raw) {
+/**
+ * 断片（既に「1著作ぶん」に割られたテキスト）から { work, section } を取り出す。
+ * 複数著作の分割（splitIntoWorkFragments）を経由した最初の断片にだけ適用する内部ヘルパー。
+ */
+export function extractLeadingWork(raw) {
   const body = raw.trim();
   for (const [open, close] of QUOTE_PAIRS) {
     if (!body.startsWith(open)) continue;
@@ -68,6 +71,60 @@ export function splitWorkSection(raw) {
   const work = stripTrailing(body.slice(0, idx));
   const section = stripTrailing(body.slice(idx).replace(/^[、／/\s]+/u, ""));
   return { work, section };
+}
+
+// 読点が「著作の区切り」か「同じ著作内のロケータ区切り／ふつうの日本語の読点」かを
+// 判定する材料。読点の直後（次の区切り文字まで）を extractLeadingWork で覗き見て、
+// その結果が work_readings.json に登録済みの著作名（正本 or alias）と完全一致する
+// ときだけ著作の区切りとみなす（「エチカ IV 序文、I p15・I p29」のような同一著作内の
+// ロケータ列挙まで割ってしまわないため）。
+function splitOnWorkBoundaryTouten(text, registeredNames) {
+  const boundaries = [];
+  let searchFrom = 0;
+  for (;;) {
+    const idx = text.indexOf("、", searchFrom);
+    if (idx === -1) break;
+    const after = text.slice(idx + 1);
+    const candidate = extractLeadingWork(after).work;
+    if (candidate && registeredNames.has(candidate)) boundaries.push(idx);
+    searchFrom = idx + 1;
+  }
+  if (boundaries.length === 0) return [text];
+  const out = [];
+  let start = 0;
+  for (const idx of boundaries) {
+    out.push(text.slice(start, idx));
+    start = idx + 1;
+  }
+  out.push(text.slice(start));
+  return out;
+}
+
+/**
+ * 出典行の本文を「著作ごとの断片」に分割する（例: `形而上学Ζ・Η／カテゴリー論` →
+ * `["形而上学Ζ・Η", "カテゴリー論"]`）。まず ／（全角/半角）で無条件に割り、
+ * 各断片をさらに「両側が著作名の読点」で割る。
+ */
+export function splitIntoWorkFragments(raw, registeredNames) {
+  const slashParts = raw.trim().split(/[／/]/);
+  const fragments = [];
+  for (const part of slashParts) {
+    fragments.push(...splitOnWorkBoundaryTouten(part, registeredNames));
+  }
+  return fragments.map((f) => stripTrailing(f)).filter(Boolean);
+}
+
+/**
+ * 出典行の本文（ラベル除去済み）を { work, section, also } に分ける。
+ * 複数著作が並ぶ出典行（`カテゴリー論／形而上学Δ` 等）は、**最初の断片だけ**から
+ * work/section を取る。2つ目以降の断片は also に入れるだけで section には混ぜない
+ * （section に別の著作名が紛れ込むレビュー指摘・#173 の修正）。
+ */
+export function splitWorkSection(raw, registeredNames) {
+  const fragments = splitIntoWorkFragments(raw, registeredNames);
+  const [first, ...restFragments] = fragments;
+  const { work, section } = extractLeadingWork(first ?? "");
+  return { work, section, also: restFragments };
 }
 
 function isRomanizable(seg) {
@@ -113,7 +170,7 @@ function loadReadings() {
 }
 
 /** 1住人ぶんの thinkers md を走査して、出典を持つ概念見出しの一覧を返す。 */
-export function parseThinkerFile(text, residentSlug) {
+export function parseThinkerFile(text, residentSlug, registeredNames) {
   const lines = text.split("\n");
   const residentName = RESIDENT_NAMES[residentSlug];
   const citations = [];
@@ -129,12 +186,12 @@ export function parseThinkerFile(text, residentSlug) {
       if (!m) continue;
       seq += 1;
       const raw = m[1].trim();
-      const { work, section } = splitWorkSection(raw);
+      const { work, section, also } = splitWorkSection(raw, registeredNames);
       const slug = conceptSlug(heading);
       let id = slug ? `${residentSlug}-${slug}` : null;
       if (!id || usedIds.has(id)) id = `${residentSlug}-${seq}`;
       usedIds.add(id);
-      citations.push({ id, resident: residentName, concept: heading, work, section, raw });
+      citations.push({ id, resident: residentName, concept: heading, work, section, also, raw });
       break; // 1概念1出典行（既存データで確認済み・複数出典行を持つ概念は無い）
     }
     heading = null;
@@ -158,6 +215,7 @@ export function parseThinkerFile(text, residentSlug) {
 
 function main() {
   const readings = loadReadings();
+  const registeredNames = new Set(readings.keys());
   const files = readdirSync(THINKERS_DIR)
     .filter((f) => f.endsWith(".md"))
     .sort();
@@ -168,7 +226,7 @@ function main() {
   for (const file of files) {
     const residentSlug = path.basename(file, ".md");
     const text = readFileSync(path.join(THINKERS_DIR, file), "utf-8");
-    const entries = parseThinkerFile(text, residentSlug);
+    const entries = parseThinkerFile(text, residentSlug, registeredNames);
     for (const entry of entries) {
       const hit = readings.get(entry.work);
       if (!hit) {
@@ -181,6 +239,7 @@ function main() {
         concept: entry.concept,
         work: hit.canonical,
         section: entry.section,
+        also: entry.also,
         reading: hit.reading,
         raw: entry.raw,
       });
@@ -202,6 +261,23 @@ function main() {
       throw new Error(`id が重複しています: ${entry.id}`);
     }
     ids.add(entry.id);
+  }
+
+  // 自己検査: section の先頭が登録済みの著作名（正本 or alias）と一致するもの＝
+  // 複数著作の分割漏れで section に別著作が混入したケースを検出する（レビュー指摘・#173）。
+  const sectionLeaks = [];
+  for (const entry of all) {
+    if (!entry.section) continue;
+    const leadingWork = extractLeadingWork(entry.section).work;
+    if (leadingWork && readings.has(leadingWork)) {
+      sectionLeaks.push(`${entry.id}: section="${entry.section}"（先頭が著作名 "${leadingWork}"）`);
+    }
+  }
+  if (sectionLeaks.length > 0) {
+    console.error(`[build-citations] section に別の著作名が混入しています（自己検査）:`);
+    for (const s of sectionLeaks) console.error(`  - ${s}`);
+    process.exitCode = 1;
+    return;
   }
 
   writeFileSync(OUTPUT_PATH, JSON.stringify(all, null, 2) + "\n", "utf-8");

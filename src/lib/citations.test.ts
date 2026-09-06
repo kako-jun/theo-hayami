@@ -12,7 +12,13 @@ import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { applyCitationsToText } from "../../scripts/apply-citations.mjs";
-import { conceptSlug, parseThinkerFile, splitWorkSection } from "../../scripts/build-citations.mjs";
+import {
+  conceptSlug,
+  extractLeadingWork,
+  parseThinkerFile,
+  splitIntoWorkFragments,
+  splitWorkSection,
+} from "../../scripts/build-citations.mjs";
 import { fileKeyToReaderSlug, formatCitation, getCitationsForSlug } from "./citations";
 
 interface Citation {
@@ -21,6 +27,7 @@ interface Citation {
   concept: string;
   work: string;
   section: string;
+  also: string[];
   reading: string;
   raw: string;
 }
@@ -47,6 +54,14 @@ const citationMap = Object.fromEntries(
   Object.entries(citationMapRaw).filter(([key]) => !key.startsWith("_")),
 ) as Record<string, CitationPlacement[]>;
 
+// splitWorkSection / splitIntoWorkFragments が「読点の右側が著作名か」を判定するのに使う
+// 登録済み著作名集合（正本 + alias）。build-citations.mjs の main() と同じ組み方。
+const registeredNames = new Set<string>();
+for (const [canonical, entry] of Object.entries(readings.works)) {
+  registeredNames.add(canonical);
+  for (const alias of entry.aliases ?? []) registeredNames.add(alias);
+}
+
 // 話者ブロック開始行。apply-citations.mjs の SPEAKER_LINE_RE と同じ判定
 // （`**話者**:` または `**話者** (表情, 位置):`）。
 const SPEAKER_LINE_RE = /^\*\*[^*]+\*\*/;
@@ -68,26 +83,50 @@ describe("citations.json（台帳・生成物）", () => {
 
   it("thinkers md を再走査しても同じ件数・未登録の著作名0件になる（mdが正本・生成物と同期している）", () => {
     const files = readdirSync(THINKERS_DIR).filter((f) => f.endsWith(".md"));
-    const lookup = new Set<string>();
-    for (const [canonical, entry] of Object.entries(readings.works)) {
-      lookup.add(canonical);
-      for (const alias of entry.aliases ?? []) lookup.add(alias);
-    }
 
     let total = 0;
     const missing = new Set<string>();
     for (const file of files) {
       const residentSlug = path.basename(file, ".md");
       const text = readFileSync(path.join(THINKERS_DIR, file), "utf-8");
-      const entries = parseThinkerFile(text, residentSlug);
+      const entries = parseThinkerFile(text, residentSlug, registeredNames);
       total += entries.length;
       for (const entry of entries) {
-        if (!lookup.has(entry.work)) missing.add(entry.work);
+        if (!registeredNames.has(entry.work)) missing.add(entry.work);
       }
     }
 
     expect([...missing].sort()).toEqual([]);
     expect(total).toBe(citations.length);
+  });
+
+  it("section の先頭に別の著作名が混入していない（複数著作の出典行の分割漏れガード）", () => {
+    // レビュー指摘（#173）: `カテゴリー論／形而上学Δ` のような複数著作の出典行で、
+    // 2つ目以降の著作名が section に紛れ込んでいないか。section の先頭を
+    // extractLeadingWork で覗き見て、それが登録済みの著作名（正本 or alias）と
+    // 一致するものが無いことを確認する（build-citations.mjs の自己検査と同じ判定）。
+    const leaks = citations
+      .filter((c) => c.section)
+      .map((c) => ({ id: c.id, section: c.section, leadingWork: extractLeadingWork(c.section).work }))
+      .filter((c) => registeredNames.has(c.leadingWork));
+    expect(leaks).toEqual([]);
+  });
+
+  it("複数著作の出典行は最初の著作だけが work/section になり、残りは also に入る", () => {
+    const kategoriai = citations.find((c) => c.id === "aristo-kategoriai");
+    expect(kategoriai?.work).toBe("カテゴリー論");
+    expect(kategoriai?.section).toBe("");
+    expect(kategoriai?.also).toEqual(["形而上学Δ"]);
+
+    const ousia = citations.find((c) => c.id === "aristo-ousia");
+    expect(ousia?.work).toBe("形而上学");
+    expect(ousia?.section).toBe("Ζ・Η");
+    expect(ousia?.also).toEqual(["カテゴリー論"]);
+
+    const eudaimonia = citations.find((c) => c.id === "aristo-eudaimonia");
+    expect(eudaimonia?.work).toBe("ニコマコス倫理学");
+    expect(eudaimonia?.section).toBe("I・X");
+    expect(eudaimonia?.also).toEqual(["エウデモス倫理学"]);
   });
 });
 
@@ -137,25 +176,74 @@ describe("apply-citations の冪等性", () => {
 });
 
 describe("splitWorkSection / conceptSlug（build-citations.mjs のパース単体）", () => {
-  it("区切り文字（空白・ローマ数字・数字・括弧）の手前までを work にする", () => {
-    expect(splitWorkSection("純粋理性批判")).toEqual({ work: "純粋理性批判", section: "" });
-    expect(splitWorkSection("分析論後書 II.19")).toEqual({ work: "分析論後書", section: "II.19" });
-    expect(splitWorkSection("形而上学Γ（IV）")).toEqual({ work: "形而上学", section: "Γ（IV）" });
-    expect(splitWorkSection("君主論25章、ディスコルシ")).toEqual({
+  it("区切り文字（空白・ローマ数字・数字・括弧）の手前までを work にする（単一著作）", () => {
+    expect(splitWorkSection("純粋理性批判", registeredNames)).toEqual({
+      work: "純粋理性批判",
+      section: "",
+      also: [],
+    });
+    expect(splitWorkSection("分析論後書 II.19", registeredNames)).toEqual({
+      work: "分析論後書",
+      section: "II.19",
+      also: [],
+    });
+    expect(splitWorkSection("形而上学Γ（IV）", registeredNames)).toEqual({
+      work: "形而上学",
+      section: "Γ（IV）",
+      also: [],
+    });
+  });
+
+  it("／区切りの複数著作は最初の断片だけが work/section になり、以降は also に入る（section に別著作名を混ぜない）", () => {
+    expect(splitWorkSection("カテゴリー論／形而上学Δ", registeredNames)).toEqual({
+      work: "カテゴリー論",
+      section: "",
+      also: ["形而上学Δ"],
+    });
+    expect(splitWorkSection("形而上学Ζ・Η／カテゴリー論", registeredNames)).toEqual({
+      work: "形而上学",
+      section: "Ζ・Η",
+      also: ["カテゴリー論"],
+    });
+  });
+
+  it("読点区切りでも、右側が登録済みの著作名のときだけ著作の境界とみなす", () => {
+    // 「君主論25章、ディスコルシ」: 読点の右「ディスコルシ」が登録済み著作名 → 境界。
+    expect(splitWorkSection("君主論25章、ディスコルシ", registeredNames)).toEqual({
       work: "君主論",
-      section: "25章、ディスコルシ",
+      section: "25章",
+      also: ["ディスコルシ"],
+    });
+    // 「エチカ IV 序文、I p15・I p29」: 読点の右「I p15・I p29」は著作名ではない
+    // （同じ著作内のロケータ列挙）→ 境界にしない・section は割らずに残す。
+    expect(splitWorkSection("エチカ IV 序文、I p15・I p29", registeredNames)).toEqual({
+      work: "エチカ",
+      section: "IV 序文、I p15・I p29",
+      also: [],
     });
   });
 
   it("行頭の引用（「」／『』）は閉じ括弧までを work にする", () => {
-    expect(splitWorkSection("「原始契約について」／人間本性論III.ii.7–10")).toEqual({
+    expect(splitWorkSection("「原始契約について」／人間本性論III.ii.7–10", registeredNames)).toEqual({
       work: "原始契約について",
-      section: "人間本性論III.ii.7–10",
+      section: "",
+      also: ["人間本性論III.ii.7–10"],
     });
-    expect(splitWorkSection("『大学』八条目を陽明流に貫いた大学問の一節")).toEqual({
+    expect(splitWorkSection("『大学』八条目を陽明流に貫いた大学問の一節", registeredNames)).toEqual({
       work: "大学",
       section: "八条目を陽明流に貫いた大学問の一節",
+      also: [],
     });
+  });
+
+  it("splitIntoWorkFragments は／と著作境界の読点で断片に割る", () => {
+    expect(splitIntoWorkFragments("形而上学Ζ・Η／カテゴリー論", registeredNames)).toEqual([
+      "形而上学Ζ・Η",
+      "カテゴリー論",
+    ]);
+    expect(splitIntoWorkFragments("エチカ IV 序文、I p15・I p29", registeredNames)).toEqual([
+      "エチカ IV 序文、I p15・I p29",
+    ]);
   });
 
   it("見出しの（... / ...）からラテン文字のセグメントを kebab-case で取り出す", () => {
