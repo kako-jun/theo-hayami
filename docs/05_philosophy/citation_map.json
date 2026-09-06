@@ -1,9 +1,65 @@
 {
-  "_comment": "脚本ファイル（content/scripts/ からの相対パス）→ 挿入する栞の配置一覧（Issue #173 Phase A）。after_block は 1始まりの話者ブロック番号（`**話者**` 行の出現順）。id は docs/05_philosophy/citations.json の id。1本あたり最大2箇所（レビューで担保）。scripts/apply-citations.mjs がこのファイルを読んで脚本MDに `[テロップ: ..., 種別=しおり]` を挿入する。",
+  "_comment": "脚本ファイル（content/scripts/ からの相対パス）→ 挿入する栞の配置一覧（Issue #173 Phase A/B）。after_block は 1始まりの話者ブロック番号（`**話者**` 行の出現順）。id は docs/05_philosophy/citations.json の id。1本あたり最大2箇所（レビューで担保）。scripts/apply-citations.mjs がこのファイルを読んで脚本MDに `[テロップ: ..., 種別=しおり]` を挿入する。",
   "current/temperature.md": [
-    { "after_block": 2, "id": "kantia-アンチノミー" }
+    { "after_block": 2, "id": "kantia-アンチノミー" },
+    { "after_block": 3, "id": "hue-習慣慣れ" }
+  ],
+  "current/ai-job.md": [
+    { "after_block": 6, "id": "ou-知行合一" },
+    { "after_block": 7, "id": "kantia-目的それ自体の法式" }
+  ],
+  "current/finite-life.md": [
+    { "after_block": 14, "id": "ou-知行合一" }
+  ],
+  "current/genius.md": [
+    { "after_block": 4, "id": "kantia-天才" },
+    { "after_block": 8, "id": "hue-趣味の繊細さ" }
+  ],
+  "current/media-agitation.md": [
+    { "after_block": 12, "id": "spino-感情" },
+    { "after_block": 17, "id": "hue-習慣慣れ" }
+  ],
+  "current/scandal.md": [
+    { "after_block": 2, "id": "kantia-目的それ自体の法式" },
+    { "after_block": 6, "id": "hue-比較の原理" }
+  ],
+  "current/unpersuadable.md": [
+    { "after_block": 14, "id": "spino-思想言論の自由" },
+    { "after_block": 16, "id": "hegru-止揚" }
+  ],
+  "current/wc-luck.md": [
+    { "after_block": 3, "id": "makiya-フォルトゥナ" },
+    { "after_block": 6, "id": "spino-必然性決定論" }
+  ],
+  "current/youtube-monetization.md": [
+    { "after_block": 18, "id": "makiya-フォルトゥナ" },
+    { "after_block": 25, "id": "aristo-エウダイモニア" }
+  ],
+  "main/ohako-dekaris.md": [
+    { "after_block": 5, "id": "dekaris-夢の論証" },
+    { "after_block": 11, "id": "dekaris-コギト" }
+  ],
+  "main/ohako-hegru.md": [
+    { "after_block": 9, "id": "hegru-止揚" },
+    { "after_block": 11, "id": "hegru-矛盾" }
+  ],
+  "main/ohako-hue.md": [
+    { "after_block": 7, "id": "hue-帰納の問題" },
+    { "after_block": 9, "id": "hue-習慣慣れ" }
   ],
   "main/ohako-kantia.md": [
-    { "after_block": 7, "id": "kantia-現象" }
+    { "after_block": 7, "id": "kantia-現象" },
+    { "after_block": 9, "id": "kantia-物自体" }
+  ],
+  "main/ohako-makiya.md": [
+    { "after_block": 7, "id": "makiya-実効的真理" }
+  ],
+  "main/ohako-ou.md": [
+    { "after_block": 11, "id": "ou-知は行の始め行は知の成" },
+    { "after_block": 15, "id": "ou-知行合一" }
+  ],
+  "main/ohako-spino.md": [
+    { "after_block": 7, "id": "spino-様態" },
+    { "after_block": 9, "id": "spino-産出する自然" }
   ]
 }
