@@ -13,6 +13,7 @@ character_scale: 0.5
 skip_enabled: false
 debug_enabled: false
 seekbar_color: "#b8934f"
+telop_reserve: true
 ---
 
 ## hub: お題を選ぶ
