@@ -156,10 +156,11 @@ describe("main story continuity", () => {
           .split(/\r?\n/u)
           .flatMap((line, index) => {
             const match = line.match(/^\[待機:\s*(\d+)\]\s*$/u);
-            if (!match || allowedWaitMs.has(match[1])) {
+            const waitMs = match?.[1];
+            if (waitMs === undefined || allowedWaitMs.has(waitMs)) {
               return [];
             }
-            return [`${path.relative(process.cwd(), file)}:${index + 1}:${match[1]}`];
+            return [`${path.relative(process.cwd(), file)}:${index + 1}:${waitMs}`];
           }),
       );
     expect(bad).toEqual([]);
