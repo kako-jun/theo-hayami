@@ -141,6 +141,34 @@ describe("applyCitationsToText: 1ファイル2箇所配置", () => {
   });
 });
 
+describe("applyCitationsToText: 本文行0行の話者ブロック（レビュー指摘N7）", () => {
+  it("話者行の直後が[で始まる（本文行0行）場合、しおりは話者行の直後に挿入される", () => {
+    // Bブロックは本文行を持たず、話者行の直後がいきなり[選択]ディレクティブ。
+    const noBody = `---
+title: "テスト"
+---
+
+**A** (a/normal, 右):
+台詞A
+
+**B** (b/normal, 左):
+[選択]
+- 選択肢1 → x
+- 選択肢2 → y
+
+**C** (c/normal, 右):
+台詞C
+`;
+    const placements = [{ after_block: 2, id: "work-b" }];
+    const applied = applyCitationsToText(noBody, placements, CITATIONS_BY_ID);
+    const lines = applied.split("\n");
+    const speakerBIndex = lines.findIndex((l) => l.startsWith("**B**"));
+    // 本文行が無いので、しおりは話者行の直後（+1行目）に来る。
+    expect(lines[speakerBIndex + 1]).toBe("[テロップ: 『著作B（ちょさくびー）』, 種別=しおり]");
+    expect(lines[speakerBIndex + 2]).toBe("[選択]");
+  });
+});
+
 describe("applyCitationsToText: --check 相当（差分の有無で適用可否を判定する仕組み）", () => {
   it("適用済みテキストへ同じ台帳を再適用しても差分が出ない（--check が『一致』と判定するケース）", () => {
     const placements = [{ after_block: 2, id: "work-a" }];
