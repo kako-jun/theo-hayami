@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // docs/05_philosophy/citation_map.json の配置台帳に従って、対象の脚本MDへ
-// `[テロップ: 『著作名（よみがな）』章節, 種別=しおり]` を挿入する（Issue #173 Phase A）。
+// `[テロップ: 『著作名（よみがな）』章節, 種別=しおり]` を挿入する（Issue #173 Phase A、
+// Issue #176 で発火位置を「ブロックの終わり」から「ブロックの語り始め」に変更）。
 //
 // 冪等: 実行のたびに既存の `種別=しおり` テロップ行を全て取り除いてから、台帳どおりに
 // 再挿入する。だから2回連続で流しても差分は出ない（citation_map.json / citations.json /
@@ -49,14 +50,18 @@ export function buildTelopLine(citation) {
   return `[テロップ: ${body}, 種別=しおり]`;
 }
 
-/** 脚本MDのテキストに、指定された配置一覧（[{after_block, id}]）を適用したテキストを返す。 */
+/** 脚本MDのテキストに、指定された配置一覧（[{block, id}]）を適用したテキストを返す。
+ * 挿入位置は「ブロック N の `**話者**` 行の直前」（住人が理論を語り始めた瞬間に栞を出す・
+ * Issue #176）。ブロック1の場合も同じ規則が自然に働く: 冒頭演出ブロック（`[待機: 表示完了]` 等）の
+ * 後にある空行の後、最初の話者行の直前に挿さる。テロップ行と話者行の間に空行は入れない
+ * （話者行の直前に直接テロップ行を差し込むだけなので、本文行数には依存しない）。 */
 export function applyCitationsToText(text, placements, citationsById) {
   const byBlock = new Map();
   for (const p of placements) {
-    if (byBlock.has(p.after_block)) {
-      throw new Error(`citation_map.json: after_block が重複しています: ${p.after_block}`);
+    if (byBlock.has(p.block)) {
+      throw new Error(`citation_map.json: block が重複しています: ${p.block}`);
     }
-    byBlock.set(p.after_block, p);
+    byBlock.set(p.block, p);
   }
 
   // まず既存の しおり テロップ行を全て除去する（冪等の要。これをしないと2回目の実行で
@@ -65,20 +70,9 @@ export function applyCitationsToText(text, placements, citationsById) {
 
   const out = [];
   let blockIndex = 0;
-  let i = 0;
-  while (i < lines.length) {
-    const line = lines[i];
+  for (const line of lines) {
     if (SPEAKER_LINE_RE.test(line)) {
       blockIndex += 1;
-      out.push(line);
-      i += 1;
-      // このブロックの本文行（空行・次の話者・次のディレクティブのどれかで終端）を消費する。
-      while (i < lines.length) {
-        const l = lines[i];
-        if (l.trim() === "" || SPEAKER_LINE_RE.test(l) || l.startsWith("[")) break;
-        out.push(l);
-        i += 1;
-      }
       const placement = byBlock.get(blockIndex);
       if (placement) {
         const citation = citationsById.get(placement.id);
@@ -87,18 +81,14 @@ export function applyCitationsToText(text, placements, citationsById) {
         }
         out.push(buildTelopLine(citation));
       }
-      continue;
     }
     out.push(line);
-    i += 1;
   }
 
   const maxBlock = blockIndex;
   for (const p of placements) {
-    if (p.after_block < 1 || p.after_block > maxBlock) {
-      throw new Error(
-        `citation_map.json: after_block=${p.after_block} は話者ブロック数(${maxBlock})の範囲外です`,
-      );
+    if (p.block < 1 || p.block > maxBlock) {
+      throw new Error(`citation_map.json: block=${p.block} は話者ブロック数(${maxBlock})の範囲外です`);
     }
   }
 

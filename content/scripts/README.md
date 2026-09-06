@@ -84,16 +84,16 @@ name-name 側はプロジェクト設定 `scriptsDir: content/scripts` で `cont
 **4×4×4 の詳細は [`../../docs/09_production/script_format.md`](../../docs/09_production/script_format.md) を参照。**
 **これは作り手のガイド。** 各話で選んだ振り付けは**脚本MDに埋め込まない**（name-name にコメント構文が無い）。必要なら制作メモ / PR に書く。
 
-## 栞（出典）の運用（Issue #173）
+## 栞（出典）の運用（Issue #173, #176）
 
-住人の決め台詞に出典（著作名・章節・読み仮名）を右下カットインで示し、読了後にサイトで出典リストを灯す仕組み。正本は `docs/05_philosophy/thinkers/*.md`（各住人の概念インベントリ）で、以下は全て**そこから機械的に導出する生成物・設定物**（thinkers md を直接編集して出典を直さない）。
+住人が理論を**語り始めた瞬間**に出典（著作名・章節・読み仮名）を右下カットインで示し、読了後にサイトで出典リストを灯す仕組み（Issue #176 決定: 語り終えて頁が変わる瞬間ではなく、語り始めに灯す）。正本は `docs/05_philosophy/thinkers/*.md`（各住人の概念インベントリ）で、以下は全て**そこから機械的に導出する生成物・設定物**（thinkers md を直接編集して出典を直さない）。
 
 1. **正本**: `docs/05_philosophy/thinkers/*.md` の各概念見出し直下の `出典:` 行。新しい著作名を出典に足したら、まず `docs/05_philosophy/work_readings.json`（読み仮名の正本。省略形・別表記は `aliases` で同じ著作へ寄せる）に読みを登録する。
 2. **台帳生成**: `npm run citations:build`（`scripts/build-citations.mjs`）が thinkers md 全体を走査し `docs/05_philosophy/citations.json`（`{ id, resident, concept, work, section, display_section, also, reading, raw }` の配列。`also` は同じ出典行に並んだ2つ目以降の著作名で raw の補助情報。栞の表示には使わない）を書き出す。`work_readings.json` に無い著作名があれば全件洗い出して exit 1 する（曲解防止。未登録を1件ずつ直しては再実行、を繰り返さなくていいよう一括で出す）。複数著作が並ぶ出典行（`カテゴリー論／形而上学Δ` 等）は最初の著作だけから work/section を取り、2つ目以降を section に混ぜない。
    - **`display_section`**（Issue #173 Phase B）: `section`（参照用・完全形）から栞テロップ表示用に短縮した章節。`deriveDisplaySection`（`build-citations.mjs`）が導出する: 説明括弧 `（…）` は除去（ただし section が丸ごと1個の部位指定括弧＝『大論理学』（有論）のような場合だけ残す）→ 最初の `。`/`「`（出典行の引用文）以降を捨てる → 最初の `、` 以降を捨てる → 数字を含む場合に限り最初の `・` 以降も捨てる（`I・X`・`Ζ・Η` のような数字を伴わない章の並記は一体指定か列挙か判別できないため残す）。栞テロップ・栞リストの表示は `section` ではなく `display_section` を使う。
    - **id は見出しの日本語語句そのもの**＝`{住人slug}-{見出しの「（」または「／」の手前までの語句（空白・中黒・かぎ括弧・全角イコール・読点を除去）}`（例: `kantia-現象`、`kantia-アンチノミー`、`ou-知は行の始め行は知の成`）。**英字スラッグ・連番は使わない**（ラテン文字の原語併記が無い見出しで連番にフォールバックすると、thinkers md に見出しを1つ挿すだけで以降の id が全部ずれ、citation_map.json が別概念を指す事故になるため）。同一住人内で id が衝突したら生成を失敗させる（見出し文言を直して回避する）。
-3. **配置**: `docs/05_philosophy/citation_map.json` に脚本ファイル（`content/scripts/` からの相対パス）→ `[{ after_block, id }]` を手で足す。`id` は `citations:build` が出す `citations.json` から探して転記する（上記の日本語 id）。`after_block` は 1始まりの話者ブロック番号（`**話者**` 行の出現順）。**1本あたり最大2箇所**（レビューで担保）。章節が thinkers md に無い出典は著作名のみでよい（`section` 空）。thinkers md に書かれていない出典を作らない（引用の正確さを人の目で担保する既存方針と同じ）。
-4. **適用**: `npm run citations:apply`（`scripts/apply-citations.mjs`）が台帳どおりに脚本MDへ `[テロップ: 『著作名（よみがな）』章節, 種別=しおり]` を挿入する（既存の `種別=しおり` 行は毎回全消しして再挿入＝冪等）。挿入位置は**話者ブロックの本文行の直後、本文行が0行（話者行の直後がいきなり `[` 始まりのディレクティブ）なら話者行の直後**（`src/lib/apply-citations.abnormal.test.ts` で固定）。`npm run citations:check` は検証用（`scripts/apply-citations.mjs --check`。適用済みと一致しなければ exit 1。**CI は未設定**、ローカルで手動実行する）。
+3. **配置**: `docs/05_philosophy/citation_map.json` に脚本ファイル（`content/scripts/` からの相対パス）→ `[{ block, id }]` を手で足す。`id` は `citations:build` が出す `citations.json` から探して転記する（上記の日本語 id）。`block` は 1始まりの話者ブロック番号（`**話者**` 行の出現順）で、**そのブロックの語り始めに栞が灯る**（後述4参照）。**1本あたり最大2箇所**（レビューで担保）。章節が thinkers md に無い出典は著作名のみでよい（`section` 空）。thinkers md に書かれていない出典を作らない（引用の正確さを人の目で担保する既存方針と同じ）。
+4. **適用**: `npm run citations:apply`（`scripts/apply-citations.mjs`）が台帳どおりに脚本MDへ `[テロップ: 『著作名（よみがな）』章節, 種別=しおり]` を挿入する（既存の `種別=しおり` 行は毎回全消しして再挿入＝冪等）。挿入位置は**ブロック `block` の `**話者**` 行の直前**（前のブロック本文の後にある空行の後・話者行との間に空行は挟まない。ブロック1なら冒頭演出ブロック（`[待機: 表示完了]` 等）の後）。本文行数には依存しない（`src/lib/apply-citations.abnormal.test.ts` で固定）。`npm run citations:check` は検証用（`scripts/apply-citations.mjs --check`。適用済みと一致しなければ exit 1。**CI は未設定**、ローカルで手動実行する）。
 5. **commit**: `work_readings.json` / `citation_map.json` を編集したら、`citations:build` → `citations:apply` を順に流し、`citations.json` と脚本MDの差分も一緒にコミットする（citations.json は生成物だが手編集はしない）。
 
 サイト側は `src/lib/citations.ts` の `getCitationsForSlug(slug)` が `citation_map.json` を読み、`ReaderFrame.astro` が埋め込みの直下に栞リスト（`.th-shiori`）を描く。**既読のときだけ灯る**（未読は `hidden`）。表示するのは**著作名・読み仮名・短縮章節のみ**（`work` / `reading` / `display_section`）で、`concept`（概念見出し）・`raw`（thinkers md の生テキスト）・`also`（2つ目以降の著作名）・`section`（完全形・参照用）は表示しない。

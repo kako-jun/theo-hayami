@@ -35,7 +35,7 @@ interface Citation {
 }
 
 interface CitationPlacement {
-  after_block: number;
+  block: number;
   id: string;
 }
 
@@ -178,13 +178,13 @@ describe("citation_map.json（配置台帳）", () => {
     expect(bad).toEqual([]);
   });
 
-  it("全 after_block が対象ファイルの実在する話者ブロック数の範囲内", () => {
+  it("全 block が対象ファイルの実在する話者ブロック数の範囲内", () => {
     for (const [file, placements] of Object.entries(citationMap)) {
       const text = readFileSync(path.join(SCRIPTS_CONTENT_DIR, file), "utf-8");
       const blockCount = countSpeakerBlocks(text);
       for (const p of placements) {
-        expect(p.after_block, `${file}: after_block`).toBeGreaterThanOrEqual(1);
-        expect(p.after_block, `${file}: after_block`).toBeLessThanOrEqual(blockCount);
+        expect(p.block, `${file}: block`).toBeGreaterThanOrEqual(1);
+        expect(p.block, `${file}: block`).toBeLessThanOrEqual(blockCount);
       }
     }
   });
@@ -401,14 +401,14 @@ describe("citations.json の id（レビュー指摘・#173: 連番フォール�
 
 describe("getCitationsForSlug / fileKeyToReaderSlug（src/lib/citations.ts）", () => {
   it("current/temperature.md の栞は tea-temperature の読むページに灯る", () => {
-    // Phase B seed で after_block:3 に hue-習慣慣れ が2件目として追加された（citation_map.json）。
+    // Phase B seed で block:3 に hue-習慣慣れ が2件目として追加された（citation_map.json）。
     const result = getCitationsForSlug("tea-temperature");
     expect(result.map((c) => c.id)).toEqual(["kantia-アンチノミー", "hue-習慣慣れ"]);
     expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
   });
 
   it("main/ohako-kantia.md の栞は ohako-kantia の読むページに灯る", () => {
-    // Phase B seed で after_block:9 に kantia-物自体 が2件目として追加された（citation_map.json）。
+    // Phase B seed で block:9 に kantia-物自体 が2件目として追加された（citation_map.json）。
     const result = getCitationsForSlug("ohako-kantia");
     expect(result.map((c) => c.id)).toEqual(["kantia-現象", "kantia-物自体"]);
     expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
