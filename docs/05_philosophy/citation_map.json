@@ -1271,5 +1271,247 @@
       "after_block": 9,
       "id": "spino-後悔"
     }
+  ],
+  "free/ai__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-恐れられるか愛されるか"
+    }
+  ],
+  "free/aseri__makiya.md": [
+    {
+      "after_block": 3,
+      "id": "makiya-独裁官"
+    }
+  ],
+  "free/atarimae__makiya.md": [
+    {
+      "after_block": 3,
+      "id": "makiya-コルツィオーネ"
+    }
+  ],
+  "free/douchou__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-中立の禁"
+    }
+  ],
+  "free/fuan__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-ヴィヴェレシクーロ"
+    }
+  ],
+  "free/fukushuu__makiya.md": [
+    {
+      "after_block": 3,
+      "id": "makiya-残虐の善用"
+    }
+  ],
+  "free/fushin__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-傭兵と援軍"
+    }
+  ],
+  "free/gensou__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-マンドラゴラ的シニシズム"
+    }
+  ],
+  "free/gouman__makiya.md": [
+    {
+      "after_block": 9,
+      "id": "makiya-民衆の知恵"
+    }
+  ],
+  "free/henka__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-オルディーニ"
+    }
+  ],
+  "free/ikari__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-フォルトゥナ"
+    }
+  ],
+  "free/imi__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-宗教の政治利用"
+    }
+  ],
+  "free/izon__makiya.md": [
+    {
+      "after_block": 9,
+      "id": "makiya-オツィオ"
+    }
+  ],
+  "free/jikan__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-政体循環"
+    }
+  ],
+  "free/jiyuu__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-ヴィヴェレリベロ"
+    }
+  ],
+  "free/kitai__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-人間性の不変"
+    }
+  ],
+  "free/kodoku__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-新君主"
+    }
+  ],
+  "free/koufuku__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-混合政体"
+    }
+  ],
+  "free/koukai__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-原点回帰"
+    }
+  ],
+  "free/mayoi__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-規律と歩兵優位"
+    }
+  ],
+  "free/mie__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-寛大と吝嗇"
+    }
+  ],
+  "free/mujun__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-ライオンと狐"
+    },
+    {
+      "after_block": 7,
+      "id": "makiya-ネチェシタ"
+    }
+  ],
+  "free/namake__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-戦争の技術"
+    }
+  ],
+  "free/netami__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-ウモーリ"
+    }
+  ],
+  "free/oi__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-プルデンツァ"
+    },
+    {
+      "after_block": 11,
+      "id": "makiya-オッカジオーネ"
+    }
+  ],
+  "free/ronpa__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-実効的真理"
+    }
+  ],
+  "free/shi__makiya.md": [
+    {
+      "after_block": 2,
+      "id": "makiya-古代の模倣"
+    },
+    {
+      "after_block": 6,
+      "id": "makiya-グロリア"
+    }
+  ],
+  "free/shihai__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-アンビツィオーネ"
+    }
+  ],
+  "free/shuuchaku__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-要塞"
+    }
+  ],
+  "free/soushitsu__makiya.md": [
+    {
+      "after_block": 3,
+      "id": "makiya-フォルトゥナ"
+    },
+    {
+      "after_block": 7,
+      "id": "makiya-ヴィルトゥ"
+    }
+  ],
+  "free/tadashisa__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-トゥムルティ"
+    }
+  ],
+  "free/taikutsu__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-キリスト教批判"
+    }
+  ],
+  "free/uso__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-偽装と韜晦"
+    }
+  ],
+  "free/wakattete__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-武装した予言者"
+    },
+    {
+      "after_block": 13,
+      "id": "makiya-自前の武器"
+    }
+  ],
+  "free/wakeru__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-党派徒党"
+    }
+  ],
+  "free/yurushi__makiya.md": [
+    {
+      "after_block": 5,
+      "id": "makiya-告発と中傷"
+    }
+  ],
+  "free/zaiakukan__makiya.md": [
+    {
+      "after_block": 7,
+      "id": "makiya-パトリア"
+    }
   ]
 }
