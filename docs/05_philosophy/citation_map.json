@@ -750,6 +750,10 @@
   ],
   "free/yurushi__hegru.md": [
     {
+      "block": 3,
+      "id": "hegru-止揚"
+    },
+    {
       "block": 9,
       "id": "hegru-和解"
     }
@@ -758,6 +762,14 @@
     {
       "block": 5,
       "id": "hegru-不幸な意識"
+    },
+    {
+      "block": 9,
+      "id": "hegru-疎外外化"
+    },
+    {
+      "block": 11,
+      "id": "hegru-止揚"
     }
   ],
   "free/ai__kantia.md": [
@@ -1032,12 +1044,24 @@
     {
       "block": 7,
       "id": "kantia-現象"
+    },
+    {
+      "block": 9,
+      "id": "kantia-超越論的仮象"
     }
   ],
   "free/zaiakukan__kantia.md": [
     {
+      "block": 7,
+      "id": "kantia-美と崇高"
+    },
+    {
       "block": 9,
       "id": "kantia-道徳法則への尊敬"
+    },
+    {
+      "block": 11,
+      "id": "kantia-普遍化の法式"
     }
   ],
   "free/ai__dekaris.md": [
@@ -1287,6 +1311,10 @@
     }
   ],
   "free/wakeru__dekaris.md": [
+    {
+      "block": 5,
+      "id": "dekaris-延長する実体"
+    },
     {
       "block": 9,
       "id": "dekaris-思考する実体"
@@ -1566,6 +1594,10 @@
   ],
   "free/wakattete__spino.md": [
     {
+      "block": 2,
+      "id": "spino-第一種想像知"
+    },
+    {
       "block": 6,
       "id": "spino-第三種直観知"
     }
@@ -1580,12 +1612,20 @@
     {
       "block": 5,
       "id": "spino-愛"
+    },
+    {
+      "block": 11,
+      "id": "spino-徳力"
     }
   ],
   "free/zaiakukan__spino.md": [
     {
       "block": 9,
       "id": "spino-後悔"
+    },
+    {
+      "block": 11,
+      "id": "spino-徳力"
     }
   ],
   "free/ai__makiya.md": [
@@ -2162,6 +2202,10 @@
     {
       "block": 7,
       "id": "hue-是認と否認"
+    },
+    {
+      "block": 9,
+      "id": "hue-一般的視点"
     }
   ],
   "free/ai__ou.md": [
@@ -2438,6 +2482,10 @@
     {
       "block": 7,
       "id": "ou-正心"
+    },
+    {
+      "block": 9,
+      "id": "ou-知行合一"
     }
   ],
   "main/act3-04.md": [
@@ -3432,6 +3480,22 @@
     {
       "block": 4,
       "id": "hegru-美しい魂"
+    }
+  ],
+  "free/wakeru__kantia.md": [
+    {
+      "block": 5,
+      "id": "kantia-反省的判断力"
+    },
+    {
+      "block": 11,
+      "id": "kantia-目的それ自体の法式"
+    }
+  ],
+  "free/zaiakukan__ou.md": [
+    {
+      "block": 9,
+      "id": "ou-知行合一"
     }
   ]
 }
