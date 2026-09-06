@@ -228,9 +228,10 @@ describe("citation_map.json（配置台帳）", () => {
     }
   });
 
-  it("1本あたりの上限は5箇所（ティータイムは住人全員に1箇所以上、自由行動・本編も1人で2箇所以上あってよい。#183）", () => {
+  it("1本の中で同じ出典 id を繰り返さない（上限は設けない・#185）", () => {
     for (const [file, placements] of Object.entries(citationMap)) {
-      expect(placements.length, file).toBeLessThanOrEqual(5);
+      const ids = placements.map((p) => p.id);
+      expect(new Set(ids).size, file).toBe(ids.length);
     }
   });
 
