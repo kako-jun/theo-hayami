@@ -32,6 +32,7 @@
     "display_section": "",
     "also": [],
     "reading": "ぶんせきろんぜんしょ",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%86%E6%9E%90%E8%AB%96%E5%89%8D%E6%9B%B8",
     "raw": "分析論前書"
   },
   {
@@ -43,6 +44,7 @@
     "display_section": "",
     "also": [],
     "reading": "ぶんせきろんこうしょ",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%86%E6%9E%90%E8%AB%96%E5%BE%8C%E6%9B%B8",
     "raw": "分析論後書"
   },
   {
@@ -54,6 +56,7 @@
     "display_section": "II.19",
     "also": [],
     "reading": "ぶんせきろんこうしょ",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%86%E6%9E%90%E8%AB%96%E5%BE%8C%E6%9B%B8",
     "raw": "分析論後書 II.19"
   },
   {
@@ -67,6 +70,7 @@
       "トピカ"
     ],
     "reading": "ぶんせきろんこうしょ",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%86%E6%9E%90%E8%AB%96%E5%BE%8C%E6%9B%B8",
     "raw": "分析論後書／トピカ"
   },
   {
@@ -80,6 +84,7 @@
       "ソフィスト的論駁"
     ],
     "reading": "とぴか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%94%E3%82%AB_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "トピカ／ソフィスト的論駁"
   },
   {
@@ -91,6 +96,7 @@
     "display_section": "",
     "also": [],
     "reading": "とぴか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%94%E3%82%AB_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "トピカ"
   },
   {
@@ -102,6 +108,7 @@
     "display_section": "Γ",
     "also": [],
     "reading": "けいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "形而上学Γ（IV）"
   },
   {
@@ -113,6 +120,7 @@
     "display_section": "Γ・Ε",
     "also": [],
     "reading": "けいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "形而上学Γ・Ε"
   },
   {
@@ -126,6 +134,7 @@
       "カテゴリー論"
     ],
     "reading": "けいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "形而上学Ζ・Η／カテゴリー論"
   },
   {
@@ -139,6 +148,7 @@
       "自然学"
     ],
     "reading": "けいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "形而上学Ζ・Η／自然学"
   },
   {
@@ -152,6 +162,7 @@
       "自然学"
     ],
     "reading": "けいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "形而上学Θ／自然学"
   },
   {
@@ -165,6 +176,7 @@
       "形而上学"
     ],
     "reading": "しぜんがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "自然学II／形而上学"
   },
   {
@@ -176,6 +188,7 @@
     "display_section": "Ζ",
     "also": [],
     "reading": "けいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "形而上学Ζ"
   },
   {
@@ -189,6 +202,7 @@
       "自然学VIII"
     ],
     "reading": "けいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "形而上学Λ（XII）／自然学VIII"
   },
   {
@@ -200,6 +214,7 @@
     "display_section": "Γ・Δ",
     "also": [],
     "reading": "けいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "形而上学Γ・Δ"
   },
   {
@@ -211,6 +226,7 @@
     "display_section": "II",
     "also": [],
     "reading": "しぜんがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "自然学II"
   },
   {
@@ -222,6 +238,7 @@
     "display_section": "III",
     "also": [],
     "reading": "しぜんがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "自然学III"
   },
   {
@@ -235,6 +252,7 @@
       "動物部分論"
     ],
     "reading": "しぜんがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "自然学II／動物部分論"
   },
   {
@@ -248,6 +266,7 @@
       "天体論"
     ],
     "reading": "しぜんがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "自然学IV／天体論"
   },
   {
@@ -259,6 +278,7 @@
     "display_section": "IV",
     "also": [],
     "reading": "しぜんがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "自然学IV"
   },
   {
@@ -270,6 +290,7 @@
     "display_section": "III",
     "also": [],
     "reading": "しぜんがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "自然学III"
   },
   {
@@ -281,6 +302,7 @@
     "display_section": "VI",
     "also": [],
     "reading": "しぜんがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "自然学VI"
   },
   {
@@ -292,6 +314,7 @@
     "display_section": "",
     "also": [],
     "reading": "てんたいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%A4%A9%E4%BD%93%E8%AB%96_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "天体論"
   },
   {
@@ -303,6 +326,7 @@
     "display_section": "II",
     "also": [],
     "reading": "たましいについて",
+    "link": "https://ja.wikipedia.org/wiki/%E9%9C%8A%E9%AD%82%E8%AB%96",
     "raw": "魂についてII"
   },
   {
@@ -314,6 +338,7 @@
     "display_section": "II",
     "also": [],
     "reading": "たましいについて",
+    "link": "https://ja.wikipedia.org/wiki/%E9%9C%8A%E9%AD%82%E8%AB%96",
     "raw": "魂についてII"
   },
   {
@@ -325,6 +350,7 @@
     "display_section": "II・III",
     "also": [],
     "reading": "たましいについて",
+    "link": "https://ja.wikipedia.org/wiki/%E9%9C%8A%E9%AD%82%E8%AB%96",
     "raw": "魂についてII・III"
   },
   {
@@ -336,6 +362,7 @@
     "display_section": "III",
     "also": [],
     "reading": "たましいについて",
+    "link": "https://ja.wikipedia.org/wiki/%E9%9C%8A%E9%AD%82%E8%AB%96",
     "raw": "魂についてIII"
   },
   {
@@ -347,6 +374,7 @@
     "display_section": "III",
     "also": [],
     "reading": "たましいについて",
+    "link": "https://ja.wikipedia.org/wiki/%E9%9C%8A%E9%AD%82%E8%AB%96",
     "raw": "魂についてIII"
   },
   {
@@ -358,6 +386,7 @@
     "display_section": "III.5",
     "also": [],
     "reading": "たましいについて",
+    "link": "https://ja.wikipedia.org/wiki/%E9%9C%8A%E9%AD%82%E8%AB%96",
     "raw": "魂についてIII.5"
   },
   {
@@ -371,6 +400,7 @@
       "動物運動論"
     ],
     "reading": "たましいについて",
+    "link": "https://ja.wikipedia.org/wiki/%E9%9C%8A%E9%AD%82%E8%AB%96",
     "raw": "魂についてIII／動物運動論"
   },
   {
@@ -384,6 +414,7 @@
       "エウデモス倫理学"
     ],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学I・X／エウデモス倫理学"
   },
   {
@@ -395,6 +426,7 @@
     "display_section": "I.7",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学I.7"
   },
   {
@@ -406,6 +438,7 @@
     "display_section": "II",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学II"
   },
   {
@@ -417,6 +450,7 @@
     "display_section": "II.1",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学II.1"
   },
   {
@@ -428,6 +462,7 @@
     "display_section": "II",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学II"
   },
   {
@@ -439,6 +474,7 @@
     "display_section": "VI",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学VI"
   },
   {
@@ -450,6 +486,7 @@
     "display_section": "VII",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学VII"
   },
   {
@@ -461,6 +498,7 @@
     "display_section": "III.1",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学III.1"
   },
   {
@@ -472,6 +510,7 @@
     "display_section": "VIII・IX",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学VIII・IX"
   },
   {
@@ -483,6 +522,7 @@
     "display_section": "X",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学X"
   },
   {
@@ -494,6 +534,7 @@
     "display_section": "V",
     "also": [],
     "reading": "にこまこすりんりがく",
+    "link": "https://ja.wikipedia.org/wiki/%E3%83%8B%E3%82%B3%E3%83%9E%E3%82%B3%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6",
     "raw": "ニコマコス倫理学V"
   },
   {
@@ -505,6 +546,7 @@
     "display_section": "I",
     "also": [],
     "reading": "せいじがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E6%B2%BB%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "政治学I"
   },
   {
@@ -516,6 +558,7 @@
     "display_section": "I・III",
     "also": [],
     "reading": "せいじがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E6%B2%BB%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "政治学I・III"
   },
   {
@@ -527,6 +570,7 @@
     "display_section": "III",
     "also": [],
     "reading": "せいじがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E6%B2%BB%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "政治学III"
   },
   {
@@ -538,6 +582,7 @@
     "display_section": "IV",
     "also": [],
     "reading": "せいじがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E6%B2%BB%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "政治学IV"
   },
   {
@@ -549,6 +594,7 @@
     "display_section": "I",
     "also": [],
     "reading": "せいじがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E6%B2%BB%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "政治学I"
   },
   {
@@ -560,6 +606,7 @@
     "display_section": "",
     "also": [],
     "reading": "しがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%A9%A9%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "詩学"
   },
   {
@@ -571,6 +618,7 @@
     "display_section": "",
     "also": [],
     "reading": "しがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%A9%A9%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "詩学"
   },
   {
@@ -582,6 +630,7 @@
     "display_section": "",
     "also": [],
     "reading": "しがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%A9%A9%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "詩学"
   },
   {
@@ -593,6 +642,7 @@
     "display_section": "",
     "also": [],
     "reading": "しがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%A9%A9%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "詩学"
   },
   {
@@ -604,6 +654,7 @@
     "display_section": "",
     "also": [],
     "reading": "しがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%A9%A9%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "詩学"
   },
   {
@@ -615,6 +666,7 @@
     "display_section": "9",
     "also": [],
     "reading": "しがく",
+    "link": "https://ja.wikipedia.org/wiki/%E8%A9%A9%E5%AD%A6_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "詩学9"
   },
   {
@@ -626,6 +678,7 @@
     "display_section": "I",
     "also": [],
     "reading": "べんろんじゅつ",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BC%81%E8%AB%96%E8%A1%93_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "弁論術I"
   },
   {
@@ -637,6 +690,7 @@
     "display_section": "I",
     "also": [],
     "reading": "べんろんじゅつ",
+    "link": "https://ja.wikipedia.org/wiki/%E5%BC%81%E8%AB%96%E8%A1%93_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "弁論術I"
   },
   {
@@ -650,6 +704,7 @@
       "魂について"
     ],
     "reading": "どうぶつし",
+    "link": "https://ja.wikipedia.org/wiki/%E5%8B%95%E7%89%A9%E8%AA%8C_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "動物誌／魂について"
   },
   {
@@ -661,6 +716,7 @@
     "display_section": "I",
     "also": [],
     "reading": "どうぶつぶぶんろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%8B%95%E7%89%A9%E9%83%A8%E5%88%86%E8%AB%96",
     "raw": "動物部分論I"
   },
   {
@@ -674,6 +730,7 @@
       "魂についてII"
     ],
     "reading": "どうぶつぶぶんろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%8B%95%E7%89%A9%E9%83%A8%E5%88%86%E8%AB%96",
     "raw": "動物部分論I／魂についてII"
   },
   {
@@ -687,6 +744,7 @@
       "動物部分論"
     ],
     "reading": "どうぶつし",
+    "link": "https://ja.wikipedia.org/wiki/%E5%8B%95%E7%89%A9%E8%AA%8C_%28%E3%82%A2%E3%83%AA%E3%82%B9%E3%83%88%E3%83%86%E3%83%AC%E3%82%B9%29",
     "raw": "動物誌／動物部分論"
   },
   {
@@ -698,6 +756,7 @@
     "display_section": "第一部",
     "also": [],
     "reading": "ほうほうじょせつ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%96%B9%E6%B3%95%E5%BA%8F%E8%AA%AC",
     "raw": "方法序説 第一部"
   },
   {
@@ -709,6 +768,7 @@
     "display_section": "第二部",
     "also": [],
     "reading": "ほうほうじょせつ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%96%B9%E6%B3%95%E5%BA%8F%E8%AA%AC",
     "raw": "方法序説 第二部"
   },
   {
@@ -779,6 +839,7 @@
       "省察 第一"
     ],
     "reading": "ほうほうじょせつ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%96%B9%E6%B3%95%E5%BA%8F%E8%AA%AC",
     "raw": "方法序説 第四部／省察 第一"
   },
   {
@@ -790,6 +851,7 @@
     "display_section": "第一",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第一"
   },
   {
@@ -801,6 +863,7 @@
     "display_section": "第一",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第一"
   },
   {
@@ -812,6 +875,7 @@
     "display_section": "第一",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第一"
   },
   {
@@ -823,6 +887,7 @@
     "display_section": "第三部",
     "also": [],
     "reading": "ほうほうじょせつ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%96%B9%E6%B3%95%E5%BA%8F%E8%AA%AC",
     "raw": "方法序説 第三部"
   },
   {
@@ -849,6 +914,7 @@
       "省察 第二"
     ],
     "reading": "ほうほうじょせつ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%96%B9%E6%B3%95%E5%BA%8F%E8%AA%AC",
     "raw": "方法序説 第四部／省察 第二"
   },
   {
@@ -860,6 +926,7 @@
     "display_section": "第二",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第二"
   },
   {
@@ -871,6 +938,7 @@
     "display_section": "第二・第六",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第二・第六"
   },
   {
@@ -882,6 +950,7 @@
     "display_section": "第三",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第三"
   },
   {
@@ -893,6 +962,7 @@
     "display_section": "第三",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第三"
   },
   {
@@ -906,6 +976,7 @@
       "哲学原理 第一部"
     ],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第五／哲学原理 第一部"
   },
   {
@@ -917,6 +988,7 @@
     "display_section": "第三・第四",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第三・第四"
   },
   {
@@ -939,6 +1011,7 @@
     "display_section": "第四",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第四"
   },
   {
@@ -963,6 +1036,7 @@
       "哲学原理"
     ],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第六／哲学原理"
   },
   {
@@ -976,6 +1050,7 @@
       "哲学原理 第二部"
     ],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第五・第六／哲学原理 第二部"
   },
   {
@@ -987,6 +1062,7 @@
     "display_section": "第六／エリザベト宛書簡",
     "also": [],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第六／エリザベト宛書簡（1643）"
   },
   {
@@ -1000,6 +1076,7 @@
       "人間論"
     ],
     "reading": "じょうねんろん",
+    "link": "https://ja.wikipedia.org/wiki/%E6%83%85%E5%BF%B5%E8%AB%96",
     "raw": "情念論 第一部／人間論"
   },
   {
@@ -1026,6 +1103,7 @@
       "人間論"
     ],
     "reading": "ほうほうじょせつ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%96%B9%E6%B3%95%E5%BA%8F%E8%AA%AC",
     "raw": "方法序説 第五部／人間論"
   },
   {
@@ -1109,6 +1187,7 @@
     "display_section": "第一部",
     "also": [],
     "reading": "じょうねんろん",
+    "link": "https://ja.wikipedia.org/wiki/%E6%83%85%E5%BF%B5%E8%AB%96",
     "raw": "情念論 第一部"
   },
   {
@@ -1120,6 +1199,7 @@
     "display_section": "第二部",
     "also": [],
     "reading": "じょうねんろん",
+    "link": "https://ja.wikipedia.org/wiki/%E6%83%85%E5%BF%B5%E8%AB%96",
     "raw": "情念論 第二部"
   },
   {
@@ -1131,6 +1211,7 @@
     "display_section": "第三部",
     "also": [],
     "reading": "じょうねんろん",
+    "link": "https://ja.wikipedia.org/wiki/%E6%83%85%E5%BF%B5%E8%AB%96",
     "raw": "情念論 第三部"
   },
   {
@@ -1144,6 +1225,7 @@
       "情念論 第三部"
     ],
     "reading": "せいさつ",
+    "link": "https://ja.wikipedia.org/wiki/%E7%9C%81%E5%AF%9F",
     "raw": "省察 第四／情念論 第三部"
   },
   {
@@ -1360,6 +1442,7 @@
       "小論理学"
     ],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学（序文）、小論理学"
   },
   {
@@ -1373,6 +1456,7 @@
       "精神哲学（エンツィクロペディー第3部）"
     ],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学、精神哲学（エンツィクロペディー第3部）"
   },
   {
@@ -1384,6 +1468,7 @@
     "display_section": "（序論）",
     "also": [],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学（序論）"
   },
   {
@@ -1395,6 +1480,7 @@
     "display_section": "（A. 意識）",
     "also": [],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学（A. 意識）"
   },
   {
@@ -1406,6 +1492,7 @@
     "display_section": "（B. 自己意識）",
     "also": [],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学（B. 自己意識）"
   },
   {
@@ -1420,6 +1507,7 @@
       "精神哲学"
     ],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学、法の哲学、精神哲学"
   },
   {
@@ -1431,6 +1519,7 @@
     "display_section": "（B. 自己意識）",
     "also": [],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学（B. 自己意識）"
   },
   {
@@ -1444,6 +1533,7 @@
       "小論理学"
     ],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学（C. 理性）、小論理学"
   },
   {
@@ -1457,6 +1547,7 @@
       "精神哲学"
     ],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学、精神哲学"
   },
   {
@@ -1468,6 +1559,7 @@
     "display_section": "（最終章）",
     "also": [],
     "reading": "せいしんげんしょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B2%BE%E7%A5%9E%E7%8F%BE%E8%B1%A1%E5%AD%A6",
     "raw": "精神現象学（最終章）"
   },
   {
@@ -1501,6 +1593,7 @@
     "display_section": "",
     "also": [],
     "reading": "れきしてつがくこうぎ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%AD%B4%E5%8F%B2%E5%93%B2%E5%AD%A6%E8%AC%9B%E7%BE%A9",
     "raw": "歴史哲学講義"
   },
   {
@@ -1512,6 +1605,7 @@
     "display_section": "（序論）",
     "also": [],
     "reading": "れきしてつがくこうぎ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%AD%B4%E5%8F%B2%E5%93%B2%E5%AD%A6%E8%AC%9B%E7%BE%A9",
     "raw": "歴史哲学講義（序論）"
   },
   {
@@ -1523,6 +1617,7 @@
     "display_section": "（序論）",
     "also": [],
     "reading": "れきしてつがくこうぎ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%AD%B4%E5%8F%B2%E5%93%B2%E5%AD%A6%E8%AC%9B%E7%BE%A9",
     "raw": "歴史哲学講義（序論）"
   },
   {
@@ -1534,6 +1629,7 @@
     "display_section": "（序論）",
     "also": [],
     "reading": "れきしてつがくこうぎ",
+    "link": "https://ja.wikipedia.org/wiki/%E6%AD%B4%E5%8F%B2%E5%93%B2%E5%AD%A6%E8%AC%9B%E7%BE%A9",
     "raw": "歴史哲学講義（序論）"
   },
   {
@@ -1545,6 +1641,7 @@
     "display_section": "（序文）",
     "also": [],
     "reading": "ほうのてつがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%B3%95%E3%81%AE%E5%93%B2%E5%AD%A6",
     "raw": "法の哲学（序文）"
   },
   {
@@ -1556,6 +1653,7 @@
     "display_section": "（序論）",
     "also": [],
     "reading": "ほうのてつがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%B3%95%E3%81%AE%E5%93%B2%E5%AD%A6",
     "raw": "法の哲学（序論）"
   },
   {
@@ -1567,6 +1665,7 @@
     "display_section": "",
     "also": [],
     "reading": "ほうのてつがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%B3%95%E3%81%AE%E5%93%B2%E5%AD%A6",
     "raw": "法の哲学"
   },
   {
@@ -1578,6 +1677,7 @@
     "display_section": "（第3部）",
     "also": [],
     "reading": "ほうのてつがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%B3%95%E3%81%AE%E5%93%B2%E5%AD%A6",
     "raw": "法の哲学（第3部）"
   },
   {
@@ -1589,6 +1689,7 @@
     "display_section": "（第3部）",
     "also": [],
     "reading": "ほうのてつがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%B3%95%E3%81%AE%E5%93%B2%E5%AD%A6",
     "raw": "法の哲学（第3部）"
   },
   {
@@ -1600,6 +1701,7 @@
     "display_section": "（序文）",
     "also": [],
     "reading": "ほうのてつがく",
+    "link": "https://ja.wikipedia.org/wiki/%E6%B3%95%E3%81%AE%E5%93%B2%E5%AD%A6",
     "raw": "法の哲学（序文）"
   },
   {
@@ -1694,6 +1796,7 @@
       "人間知性研究"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I／人間知性研究。"
   },
   {
@@ -1707,6 +1810,7 @@
       "人間知性研究2"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.i／人間知性研究2。"
   },
   {
@@ -1720,6 +1824,7 @@
       "人間知性研究2"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.i.1／人間知性研究2。"
   },
   {
@@ -1731,6 +1836,7 @@
     "display_section": "I.i.1",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.i.1。"
   },
   {
@@ -1744,6 +1850,7 @@
       "人間知性研究3"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.i.4／人間知性研究3。"
   },
   {
@@ -1768,6 +1875,7 @@
       "人間知性研究4"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.ii／人間知性研究4。"
   },
   {
@@ -1779,6 +1887,7 @@
     "display_section": "I",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I。"
   },
   {
@@ -1792,6 +1901,7 @@
       "人間知性研究2"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.i.1／人間知性研究2。"
   },
   {
@@ -1805,6 +1915,7 @@
       "人間知性研究7"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.iii／人間知性研究7。"
   },
   {
@@ -1818,6 +1929,7 @@
       "人間知性研究7"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.iii.14／人間知性研究7。"
   },
   {
@@ -1866,6 +1978,7 @@
       "人間知性研究5"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.iii.7／人間知性研究5。"
   },
   {
@@ -1879,6 +1992,7 @@
       "人間知性研究6"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.iii.11–13／人間知性研究6。"
   },
   {
@@ -1890,6 +2004,7 @@
     "display_section": "I.iv.6",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.iv.6。"
   },
   {
@@ -1901,6 +2016,7 @@
     "display_section": "I.iv.6",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論I.iv.6。"
   },
   {
@@ -1912,6 +2028,7 @@
     "display_section": "",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論・付録。"
   },
   {
@@ -1923,6 +2040,7 @@
     "display_section": "II.i",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論II.i。"
   },
   {
@@ -1936,6 +2054,7 @@
       "情念論"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論II／情念論。"
   },
   {
@@ -1947,6 +2066,7 @@
     "display_section": "II.iii.3",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論II.iii.3。"
   },
   {
@@ -1958,6 +2078,7 @@
     "display_section": "II.i",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論II.i。"
   },
   {
@@ -1969,6 +2090,7 @@
     "display_section": "II.i",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論II.i。"
   },
   {
@@ -1980,6 +2102,7 @@
     "display_section": "II.i.11／III",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論II.i.11／III。"
   },
   {
@@ -1991,6 +2114,7 @@
     "display_section": "II.ii.8",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論II.ii.8。"
   },
   {
@@ -2002,6 +2126,7 @@
     "display_section": "II.iii.3",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論II.iii.3。"
   },
   {
@@ -2015,6 +2140,7 @@
       "道徳原理研究"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.i.1／道徳原理研究。"
   },
   {
@@ -2026,6 +2152,7 @@
     "display_section": "III.i.1",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.i.1。"
   },
   {
@@ -2037,6 +2164,7 @@
     "display_section": "III.i.1",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.i.1。"
   },
   {
@@ -2048,6 +2176,7 @@
     "display_section": "III.i.1",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.i.1。"
   },
   {
@@ -2061,6 +2190,7 @@
       "道徳原理研究"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III／道徳原理研究。"
   },
   {
@@ -2072,6 +2202,7 @@
     "display_section": "III.iii.1",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.iii.1。"
   },
   {
@@ -2094,6 +2225,7 @@
     "display_section": "III.ii–iii",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.ii–iii。"
   },
   {
@@ -2107,6 +2239,7 @@
       "道徳原理研究3"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.ii.1–2／道徳原理研究3。"
   },
   {
@@ -2118,6 +2251,7 @@
     "display_section": "III.ii.2",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.ii.2。"
   },
   {
@@ -2131,6 +2265,7 @@
       "道徳原理研究3"
     ],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.ii.2／道徳原理研究3。"
   },
   {
@@ -2142,6 +2277,7 @@
     "display_section": "III.ii.5",
     "also": [],
     "reading": "にんげんほんせいろん",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E6%9C%AC%E6%80%A7%E8%AB%96",
     "raw": "人間本性論III.ii.5。"
   },
   {
@@ -2278,6 +2414,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2289,6 +2426,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2302,6 +2440,7 @@
       "プロレゴメナ"
     ],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判 / プロレゴメナ"
   },
   {
@@ -2313,6 +2452,7 @@
     "display_section": "（第二版序文）",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判（第二版序文）"
   },
   {
@@ -2326,6 +2466,7 @@
       "純粋理性批判"
     ],
     "reading": "ぷろれごめな",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AD%A6%E3%81%A8%E3%81%97%E3%81%A6%E7%8F%BE%E3%82%8C%E3%82%8B%E3%81%A7%E3%81%82%E3%82%8D%E3%81%86%E3%81%82%E3%82%89%E3%82%86%E3%82%8B%E5%B0%86%E6%9D%A5%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%83%97%E3%83%AD%E3%83%AC%E3%82%B4%E3%83%A1%E3%83%8A",
     "raw": "プロレゴメナ / 純粋理性批判"
   },
   {
@@ -2339,6 +2480,7 @@
       "プロレゴメナ"
     ],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判 / プロレゴメナ"
   },
   {
@@ -2350,6 +2492,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2361,6 +2504,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2372,6 +2516,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2383,6 +2528,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2394,6 +2540,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2407,6 +2554,7 @@
       "判断力批判"
     ],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判 / 判断力批判"
   },
   {
@@ -2418,6 +2566,7 @@
     "display_section": "（超越論的弁証論）",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判（超越論的弁証論）"
   },
   {
@@ -2429,6 +2578,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2440,6 +2590,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2451,6 +2602,7 @@
     "display_section": "",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判"
   },
   {
@@ -2462,6 +2614,7 @@
     "display_section": "（超越論的弁証論）",
     "also": [],
     "reading": "じゅんすいりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%B4%94%E7%B2%8B%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "純粋理性批判（超越論的弁証論）"
   },
   {
@@ -2475,6 +2628,7 @@
       "純粋理性批判"
     ],
     "reading": "ぷろれごめな",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AD%A6%E3%81%A8%E3%81%97%E3%81%A6%E7%8F%BE%E3%82%8C%E3%82%8B%E3%81%A7%E3%81%82%E3%82%8D%E3%81%86%E3%81%82%E3%82%89%E3%82%86%E3%82%8B%E5%B0%86%E6%9D%A5%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AE%E3%83%97%E3%83%AD%E3%83%AC%E3%82%B4%E3%83%A1%E3%83%8A",
     "raw": "プロレゴメナ / 純粋理性批判"
   },
   {
@@ -2486,6 +2640,7 @@
     "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
@@ -2499,6 +2654,7 @@
       "実践理性批判"
     ],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ / 実践理性批判"
   },
   {
@@ -2510,6 +2666,7 @@
     "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
@@ -2521,6 +2678,7 @@
     "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
@@ -2532,6 +2690,7 @@
     "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
@@ -2543,6 +2702,7 @@
     "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
@@ -2556,6 +2716,7 @@
       "実践理性批判"
     ],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ / 実践理性批判"
   },
   {
@@ -2567,6 +2728,7 @@
     "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
@@ -2578,6 +2740,7 @@
     "display_section": "",
     "also": [],
     "reading": "じっせんりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AE%9F%E8%B7%B5%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "実践理性批判"
   },
   {
@@ -2591,6 +2754,7 @@
       "人倫の形而上学の基礎づけ"
     ],
     "reading": "じっせんりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AE%9F%E8%B7%B5%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "実践理性批判 / 人倫の形而上学の基礎づけ"
   },
   {
@@ -2602,6 +2766,7 @@
     "display_section": "",
     "also": [],
     "reading": "じっせんりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AE%9F%E8%B7%B5%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "実践理性批判"
   },
   {
@@ -2613,6 +2778,7 @@
     "display_section": "",
     "also": [],
     "reading": "じっせんりせいひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AE%9F%E8%B7%B5%E7%90%86%E6%80%A7%E6%89%B9%E5%88%A4",
     "raw": "実践理性批判"
   },
   {
@@ -2624,6 +2790,7 @@
     "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがくのきそづけ",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A5%E3%81%91",
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
@@ -2635,6 +2802,7 @@
     "display_section": "",
     "also": [],
     "reading": "じんりんのけいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6",
     "raw": "人倫の形而上学"
   },
   {
@@ -2646,6 +2814,7 @@
     "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%A4%E6%96%AD%E5%8A%9B%E6%89%B9%E5%88%A4",
     "raw": "判断力批判"
   },
   {
@@ -2657,6 +2826,7 @@
     "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%A4%E6%96%AD%E5%8A%9B%E6%89%B9%E5%88%A4",
     "raw": "判断力批判"
   },
   {
@@ -2668,6 +2838,7 @@
     "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%A4%E6%96%AD%E5%8A%9B%E6%89%B9%E5%88%A4",
     "raw": "判断力批判"
   },
   {
@@ -2679,6 +2850,7 @@
     "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%A4%E6%96%AD%E5%8A%9B%E6%89%B9%E5%88%A4",
     "raw": "判断力批判"
   },
   {
@@ -2690,6 +2862,7 @@
     "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%A4%E6%96%AD%E5%8A%9B%E6%89%B9%E5%88%A4",
     "raw": "判断力批判"
   },
   {
@@ -2701,6 +2874,7 @@
     "display_section": "（目的論的判断力の批判）",
     "also": [],
     "reading": "はんだんりょくひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%A4%E6%96%AD%E5%8A%9B%E6%89%B9%E5%88%A4",
     "raw": "判断力批判（目的論的判断力の批判）"
   },
   {
@@ -2712,6 +2886,7 @@
     "display_section": "",
     "also": [],
     "reading": "はんだんりょくひはん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%88%A4%E6%96%AD%E5%8A%9B%E6%89%B9%E5%88%A4",
     "raw": "判断力批判"
   },
   {
@@ -2756,6 +2931,7 @@
     "display_section": "",
     "also": [],
     "reading": "えいえんへいわのために",
+    "link": "https://ja.wikipedia.org/wiki/%E6%B0%B8%E9%81%A0%E5%B9%B3%E5%92%8C%E3%81%AE%E3%81%9F%E3%82%81%E3%81%AB",
     "raw": "永遠平和のために"
   },
   {
@@ -2793,6 +2969,7 @@
       "ディスコルシ"
     ],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論、ディスコルシ"
   },
   {
@@ -2806,6 +2983,7 @@
       "ディスコルシ"
     ],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論25章、ディスコルシ"
   },
   {
@@ -2819,6 +2997,7 @@
       "ディスコルシ"
     ],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論、ディスコルシ"
   },
   {
@@ -2830,6 +3009,7 @@
     "display_section": "6章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論6章"
   },
   {
@@ -2843,6 +3023,7 @@
       "ディスコルシ"
     ],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論21章、ディスコルシ"
   },
   {
@@ -2856,6 +3037,7 @@
       "ディスコルシ"
     ],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論、ディスコルシ"
   },
   {
@@ -2867,6 +3049,7 @@
     "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ"
   },
   {
@@ -2880,6 +3063,7 @@
       "フィレンツェ史"
     ],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ、フィレンツェ史"
   },
   {
@@ -2891,6 +3075,7 @@
     "display_section": "18章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論18章"
   },
   {
@@ -2902,6 +3087,7 @@
     "display_section": "",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論"
   },
   {
@@ -2913,6 +3099,7 @@
     "display_section": "",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論"
   },
   {
@@ -2924,6 +3111,7 @@
     "display_section": "17章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論17章"
   },
   {
@@ -2935,6 +3123,7 @@
     "display_section": "6章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論6章"
   },
   {
@@ -2946,6 +3135,7 @@
     "display_section": "8章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論8章"
   },
   {
@@ -2957,6 +3147,7 @@
     "display_section": "16章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論16章"
   },
   {
@@ -2968,6 +3159,7 @@
     "display_section": "18章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論18章"
   },
   {
@@ -2981,6 +3173,7 @@
       "戦術論"
     ],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論、戦術論"
   },
   {
@@ -2992,6 +3185,7 @@
     "display_section": "12–13章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論12–13章"
   },
   {
@@ -3003,6 +3197,7 @@
     "display_section": "20章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論20章"
   },
   {
@@ -3014,6 +3209,7 @@
     "display_section": "21章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論21章"
   },
   {
@@ -3025,6 +3221,7 @@
     "display_section": "15章",
     "also": [],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論15章"
   },
   {
@@ -3038,6 +3235,7 @@
       "君主論"
     ],
     "reading": "せんじゅつろん",
+    "link": "https://ja.wikipedia.org/wiki/%E6%88%A6%E8%A1%93%E8%AB%96",
     "raw": "戦術論、君主論"
   },
   {
@@ -3051,6 +3249,7 @@
       "戦術論"
     ],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論14章、戦術論"
   },
   {
@@ -3062,6 +3261,7 @@
     "display_section": "",
     "also": [],
     "reading": "せんじゅつろん",
+    "link": "https://ja.wikipedia.org/wiki/%E6%88%A6%E8%A1%93%E8%AB%96",
     "raw": "戦術論"
   },
   {
@@ -3073,6 +3273,7 @@
     "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ"
   },
   {
@@ -3084,6 +3285,7 @@
     "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ"
   },
   {
@@ -3097,6 +3299,7 @@
       "ディスコルシ1巻"
     ],
     "reading": "くんしゅろん",
+    "link": "https://ja.wikipedia.org/wiki/%E5%90%9B%E4%B8%BB%E8%AB%96",
     "raw": "君主論9章、ディスコルシ1巻"
   },
   {
@@ -3108,6 +3311,7 @@
     "display_section": "1巻4章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ1巻4章"
   },
   {
@@ -3119,6 +3323,7 @@
     "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ"
   },
   {
@@ -3130,6 +3335,7 @@
     "display_section": "1巻2章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ1巻2章"
   },
   {
@@ -3141,6 +3347,7 @@
     "display_section": "1巻2章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ1巻2章"
   },
   {
@@ -3152,6 +3359,7 @@
     "display_section": "1巻58章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ1巻58章"
   },
   {
@@ -3163,6 +3371,7 @@
     "display_section": "1巻7–8章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ1巻7–8章"
   },
   {
@@ -3174,6 +3383,7 @@
     "display_section": "1巻34章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ1巻34章"
   },
   {
@@ -3185,6 +3395,7 @@
     "display_section": "3巻41章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ3巻41章"
   },
   {
@@ -3196,6 +3407,7 @@
     "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ"
   },
   {
@@ -3207,6 +3419,7 @@
     "display_section": "3巻1章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ3巻1章"
   },
   {
@@ -3231,6 +3444,7 @@
     "display_section": "1巻11–15章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ1巻11–15章"
   },
   {
@@ -3242,6 +3456,7 @@
     "display_section": "2巻2章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ2巻2章"
   },
   {
@@ -3253,6 +3468,7 @@
     "display_section": "",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ序文"
   },
   {
@@ -3264,6 +3480,7 @@
     "display_section": "1巻39章",
     "also": [],
     "reading": "でぃすこるし",
+    "link": "https://ja.wikipedia.org/wiki/%E6%94%BF%E7%95%A5%E8%AB%96",
     "raw": "ディスコルシ1巻39章"
   },
   {
@@ -3286,6 +3503,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録上（徐愛との対話）「心の外に事なく、心の外に理なし」"
   },
   {
@@ -3297,6 +3515,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録上。「山中の花」の対話（君がそれを見るとき、花の色は一時に明らかになる）が代表例。"
   },
   {
@@ -3308,6 +3527,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録全般。鏡を磨いて曇りを去る比喩が反復される。"
   },
   {
@@ -3319,6 +3539,7 @@
     "display_section": "",
     "also": [],
     "reading": "もうし",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AD%9F%E5%AD%90_%28%E6%9B%B8%E7%89%A9%29",
     "raw": "孟子「良知良能」に由来。陽明思想の中期以降の核（伝習録中・書簡群）。"
   },
   {
@@ -3330,6 +3551,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録中（晩年の書簡で確立）。「致良知の三字、これ千古の聖学の真血脈」。"
   },
   {
@@ -3341,6 +3563,7 @@
     "display_section": "",
     "also": [],
     "reading": "もうし",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AD%9F%E5%AD%90_%28%E6%9B%B8%E7%89%A9%29",
     "raw": "孟子「是非の心は智の端」を承け、伝習録で良知と重ねる。"
   },
   {
@@ -3352,6 +3575,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録下。「爾の一点の良知は、爾自身の準則」。"
   },
   {
@@ -3374,6 +3598,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録上（徐愛との最初期の主題）。「未だ知りて行わざる者あらず。知りて行わざるは、ただ未だ知らざるなり」。"
   },
   {
@@ -3385,6 +3610,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録上。「知は行の始め、行は知の成なり」。"
   },
   {
@@ -3396,6 +3622,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録上。痛みを知る者は自ら痛んだ者、寒さを知る者は自ら寒さに遭った者。"
   },
   {
@@ -3407,6 +3634,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録下。「一念発動する処、便ち是れ行なり」。"
   },
   {
@@ -3418,6 +3646,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録・大学問。「格は正なり。其の不正を正して以て正に帰す」。"
   },
   {
@@ -3429,6 +3658,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録下で回顧。陽明思想の転回を示すエピソード。"
   },
   {
@@ -3451,6 +3681,7 @@
     "display_section": "八条目を陽明流に貫いた大学問の一節",
     "also": [],
     "reading": "だいがく",
+    "link": "https://ja.wikipedia.org/wiki/%E5%A4%A7%E5%AD%A6_%28%E6%9B%B8%E7%89%A9%29",
     "raw": "『大学』八条目を陽明流に貫いた大学問の一節。"
   },
   {
@@ -3484,6 +3715,7 @@
     "display_section": "",
     "also": [],
     "reading": "もうし",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AD%9F%E5%AD%90_%28%E6%9B%B8%E7%89%A9%29",
     "raw": "孟子由来。大学問で「孺子の井に入らんとするを見て怵惕惻隠す」と引く。"
   },
   {
@@ -3506,6 +3738,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録下。「人はすべからく事上に在りて磨くべし、方に立ち得て住まる」。"
   },
   {
@@ -3517,6 +3750,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録・書簡（門人への教え）。「学を為すには、まず志を立つるを要す」。"
   },
   {
@@ -3528,6 +3762,7 @@
     "display_section": "",
     "also": [],
     "reading": "もうし",
+    "link": "https://ja.wikipedia.org/wiki/%E5%AD%9F%E5%AD%90_%28%E6%9B%B8%E7%89%A9%29",
     "raw": "孟子「揠苗助長」を承けた修養観。伝習録の植物比喩群。"
   },
   {
@@ -3539,6 +3774,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録上・中。当初は静坐を説いたが、後に「事上磨錬」へ重心を移す。"
   },
   {
@@ -3550,6 +3786,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録上。「常に己の私欲を省察し、これを克治す」。"
   },
   {
@@ -3572,6 +3809,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "年譜・伝習録。陽明思想（心即理）の出発点となる転回点。"
   },
   {
@@ -3583,6 +3821,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録下「天泉証道」。銭徳洪・王畿との対話の場で説かれた。"
   },
   {
@@ -3605,6 +3844,7 @@
     "display_section": "",
     "also": [],
     "reading": "でんしゅうろく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BC%9D%E7%BF%92%E9%8C%B2",
     "raw": "伝習録下。陽明は両者を「上根の者は四無、その他は四有から入れ」と裁定し、両立を説いた。"
   },
   {
@@ -3638,6 +3878,7 @@
     "display_section": "I def3",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ I def3、I p14（神以外に実体はありえない）"
   },
   {
@@ -3649,6 +3890,7 @@
     "display_section": "I def4",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ I def4、II p1（思惟）・II p2（延長）"
   },
   {
@@ -3660,6 +3902,7 @@
     "display_section": "I def5",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ I def5、I p25c（個物は神の属性の変様）"
   },
   {
@@ -3671,6 +3914,7 @@
     "display_section": "IV 序文",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ IV 序文、I p15・I p29"
   },
   {
@@ -3682,6 +3926,7 @@
     "display_section": "I p29s",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ I p29s"
   },
   {
@@ -3693,6 +3938,7 @@
     "display_section": "I def1",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ I def1、I p11（神は必然的に存在する）"
   },
   {
@@ -3704,6 +3950,7 @@
     "display_section": "I p29",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ I p29・I p33、I app（目的論の否定）、II p48（意志の自由の否定）"
   },
   {
@@ -3715,6 +3962,7 @@
     "display_section": "I def6",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ I def6（無限）・I def8（永遠）"
   },
   {
@@ -3726,6 +3974,7 @@
     "display_section": "II def3",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II def3、II p43（真理は自らの基準）"
   },
   {
@@ -3737,6 +3986,7 @@
     "display_section": "II p7",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II p7・II p7s"
   },
   {
@@ -3748,6 +3998,7 @@
     "display_section": "II p11",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II p11・II p13"
   },
   {
@@ -3759,6 +4010,7 @@
     "display_section": "III p6",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III p6・III p7・III p9s"
   },
   {
@@ -3770,6 +4022,7 @@
     "display_section": "II p40s2",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II p40s2・II p41"
   },
   {
@@ -3781,6 +4034,7 @@
     "display_section": "II p40s2",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II p40s2・II p44c2"
   },
   {
@@ -3792,6 +4046,7 @@
     "display_section": "II p40s2",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II p40s2・V p25・V p36s"
   },
   {
@@ -3803,6 +4058,7 @@
     "display_section": "II p38",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II p38・II p39・II p40"
   },
   {
@@ -3814,6 +4070,7 @@
     "display_section": "II def4",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II def4、II p36"
   },
   {
@@ -3825,6 +4082,7 @@
     "display_section": "II p44c2",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ II p44c2、V p29s"
   },
   {
@@ -3836,6 +4094,7 @@
     "display_section": "III def3",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III def3、III def1-2、III p1"
   },
   {
@@ -3847,6 +4106,7 @@
     "display_section": "III 感情の定義1",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III 感情の定義1"
   },
   {
@@ -3858,6 +4118,7 @@
     "display_section": "III p11s",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III p11s、III 感情の定義2"
   },
   {
@@ -3869,6 +4130,7 @@
     "display_section": "III p11s",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III p11s、III 感情の定義3"
   },
   {
@@ -3880,6 +4142,7 @@
     "display_section": "III p13s",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III p13s、III 感情の定義6・7"
   },
   {
@@ -3891,6 +4154,7 @@
     "display_section": "III p18s2",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III p18s2、III 感情の定義12・13"
   },
   {
@@ -3902,6 +4166,7 @@
     "display_section": "III p24s",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III p24s、III 感情の定義23"
   },
   {
@@ -3913,6 +4178,7 @@
     "display_section": "III p30s",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III p30s、III 感情の定義30・31"
   },
   {
@@ -3924,6 +4190,7 @@
     "display_section": "III p55s",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III p55s、IV p52、III 感情の定義25"
   },
   {
@@ -3935,6 +4202,7 @@
     "display_section": "III 感情の定義26",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III 感情の定義26・28、IV p53・IV p54"
   },
   {
@@ -3946,6 +4214,7 @@
     "display_section": "III 感情の定義17",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III 感情の定義17・27、IV p54"
   },
   {
@@ -3957,6 +4226,7 @@
     "display_section": "III 感情の定義18",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III 感情の定義18・24、IV p50"
   },
   {
@@ -3968,6 +4238,7 @@
     "display_section": "III",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ III「感情の定義」（Affectuum Definitiones, 全48）"
   },
   {
@@ -3979,6 +4250,7 @@
     "display_section": "IV 序文",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ IV 序文・IV p17s"
   },
   {
@@ -3990,6 +4262,7 @@
     "display_section": "I def7",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ I def7、IV p67・IV p66s"
   },
   {
@@ -4001,6 +4274,7 @@
     "display_section": "IV def8",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ IV def8、IV p18s・IV p24"
   },
   {
@@ -4012,6 +4286,7 @@
     "display_section": "V p32c",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ V p32c・V p35・V p36"
   },
   {
@@ -4023,6 +4298,7 @@
     "display_section": "V p42",
     "also": [],
     "reading": "えちか",
+    "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%81%E3%82%AB_%28%E3%82%B9%E3%83%94%E3%83%8E%E3%82%B6%29",
     "raw": "エチカ V p42"
   },
   {
@@ -4036,6 +4312,7 @@
       "政治論 第2章"
     ],
     "reading": "しんがくせいじろん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%A5%9E%E5%AD%A6%E3%83%BB%E6%94%BF%E6%B2%BB%E8%AB%96",
     "raw": "神学・政治論 第16章、政治論 第2章"
   },
   {
@@ -4049,6 +4326,7 @@
       "政治論 第3章"
     ],
     "reading": "しんがくせいじろん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%A5%9E%E5%AD%A6%E3%83%BB%E6%94%BF%E6%B2%BB%E8%AB%96",
     "raw": "神学・政治論 第16章・第20章、政治論 第3章"
   },
   {
@@ -4071,6 +4349,7 @@
     "display_section": "第20章",
     "also": [],
     "reading": "しんがくせいじろん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%A5%9E%E5%AD%A6%E3%83%BB%E6%94%BF%E6%B2%BB%E8%AB%96",
     "raw": "神学・政治論 第20章（「各人に思考の自由・思うことを語る自由を認めうる」）"
   },
   {
@@ -4082,6 +4361,7 @@
     "display_section": "第1-2章",
     "also": [],
     "reading": "しんがくせいじろん",
+    "link": "https://ja.wikipedia.org/wiki/%E7%A5%9E%E5%AD%A6%E3%83%BB%E6%94%BF%E6%B2%BB%E8%AB%96",
     "raw": "神学・政治論 第1-2章（預言）・第6章（奇跡）・第7章（解釈法）・第14-15章（信仰と哲学の分離）"
   }
 ]

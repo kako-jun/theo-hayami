@@ -85,9 +85,17 @@ const citations = getCitationsForSlug(slug);
   <section class="th-shiori" data-shiori-for={slug} hidden>
     <h3 class="th-shiori__title">栞</h3>
     <ul class="th-shiori__list">
-      {citations.map((citation) => (
-        <li>{formatCitation(citation)}</li>
-      ))}
+      {citations.map((citation) =>
+        citation.link ? (
+          <li>
+            <a class="th-shiori__link" href={citation.link} target="_blank" rel="noopener noreferrer">
+              {formatCitation(citation)}
+            </a>
+          </li>
+        ) : (
+          <li>{formatCitation(citation)}</li>
+        ),
+      )}
     </ul>
   </section>
 )}

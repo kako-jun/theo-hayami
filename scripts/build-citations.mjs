@@ -202,11 +202,11 @@ export function deriveDisplaySection(section) {
 
 function loadReadings() {
   const json = JSON.parse(readFileSync(READINGS_PATH, "utf-8"));
-  const lookup = new Map(); // 著作名（正本 or alias）→ { canonical, reading }
+  const lookup = new Map(); // 著作名（正本 or alias）→ { canonical, reading, link }
   for (const [canonical, entry] of Object.entries(json.works ?? {})) {
-    lookup.set(canonical, { canonical, reading: entry.reading });
+    lookup.set(canonical, { canonical, reading: entry.reading, link: entry.link });
     for (const alias of entry.aliases ?? []) {
-      lookup.set(alias, { canonical, reading: entry.reading });
+      lookup.set(alias, { canonical, reading: entry.reading, link: entry.link });
     }
   }
   return lookup;
@@ -299,6 +299,9 @@ function main() {
         display_section: deriveDisplaySection(entry.section),
         also: entry.also,
         reading: hit.reading,
+        // 日本語版 Wikipedia の著作記事 URL（Issue #178）。work_readings.json に無ければ
+        // undefined のまま → JSON.stringify が省略する（リンク無し表示）。
+        link: hit.link,
         raw: entry.raw,
       });
     }

@@ -27,6 +27,9 @@ export interface Citation {
    *  raw の補助情報として持つだけで、栞のテロップ/リスト表示には使わない（work/section のみ表示）。 */
   also: string[];
   reading: string;
+  /** 日本語版 Wikipedia の著作記事 URL（work_readings.json の link。Issue #178）。
+   *  記事が実在しない著作（別項目にしか無い・記事が無い）は undefined＝栞リストではリンクにせずテキスト表示。 */
+  link?: string;
   raw: string;
 }
 
