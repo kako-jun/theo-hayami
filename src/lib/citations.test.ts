@@ -458,16 +458,20 @@ describe("citations.json の id（レビュー指摘・#173: 連番フォール�
 
 describe("getCitationsForSlug / fileKeyToReaderSlug（src/lib/citations.ts）", () => {
   it("current/temperature.md の栞は tea-temperature の読むページに灯る", () => {
-    // Phase B seed で block:3 に hue-習慣慣れ が2件目として追加された（citation_map.json）。
+    // Phase B seed の2件（kantia-アンチノミー / hue-習慣慣れ）が先頭にあり、第2巡（#185）で後ろに増えている。
+    // 件数は台帳の運用で増減するので固定しない（先頭2件と block 昇順だけを見る）。
     const result = getCitationsForSlug("tea-temperature");
-    expect(result.map((c) => c.id)).toEqual(["kantia-アンチノミー", "hue-習慣慣れ"]);
+    expect(result.slice(0, 2).map((c) => c.id)).toEqual(["kantia-アンチノミー", "hue-習慣慣れ"]);
+    expect(result.length).toBeGreaterThanOrEqual(2);
+    const blocks = result.map((c) => c.block);
+    expect([...blocks].sort((a, b) => a - b)).toEqual(blocks);
     expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
   });
 
   it("main/ohako-kantia.md の栞は ohako-kantia の読むページに灯る", () => {
     // Phase B seed で block:9 に kantia-物自体 が2件目として追加された（citation_map.json）。
     const result = getCitationsForSlug("ohako-kantia");
-    expect(result.map((c) => c.id)).toEqual(["kantia-現象", "kantia-物自体"]);
+    expect(result.slice(0, 2).map((c) => c.id)).toEqual(["kantia-現象", "kantia-物自体"]);
     expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
   });
 
