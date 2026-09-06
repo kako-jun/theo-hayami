@@ -500,6 +500,10 @@
     {
       "block": 5,
       "id": "aristo-アクラシア"
+    },
+    {
+      "block": 11,
+      "id": "aristo-習慣づけと性向"
     }
   ],
   "free/yurushi__aristo.md": [
@@ -676,6 +680,10 @@
     {
       "block": 6,
       "id": "hegru-主と奴"
+    },
+    {
+      "block": 8,
+      "id": "hegru-承認"
     }
   ],
   "free/oi__hegru.md": [
@@ -924,8 +932,16 @@
       "id": "kantia-尊厳と価格"
     },
     {
+      "block": 11,
+      "id": "kantia-目的それ自体の法式"
+    },
+    {
       "block": 13,
       "id": "kantia-自律と他律"
+    },
+    {
+      "block": 15,
+      "id": "kantia-目的の王国"
     }
   ],
   "free/namake__kantia.md": [
@@ -936,8 +952,20 @@
   ],
   "free/oi__kantia.md": [
     {
+      "block": 3,
+      "id": "kantia-現象"
+    },
+    {
+      "block": 5,
+      "id": "kantia-純粋直観としての空間と時間"
+    },
+    {
       "block": 7,
       "id": "kantia-超越論的統覚"
+    },
+    {
+      "block": 14,
+      "id": "kantia-誤謬推理"
     }
   ],
   "free/ronpa__kantia.md": [
@@ -978,6 +1006,10 @@
     {
       "block": 9,
       "id": "kantia-アプリオリ"
+    },
+    {
+      "block": 11,
+      "id": "kantia-普遍化の法式"
     }
   ],
   "free/taikutsu__kantia.md": [
@@ -990,6 +1022,10 @@
     {
       "block": 9,
       "id": "kantia-根本悪"
+    },
+    {
+      "block": 11,
+      "id": "kantia-道徳的回心と理性宗教"
     }
   ],
   "free/yurushi__kantia.md": [
@@ -1222,6 +1258,10 @@
     {
       "block": 7,
       "id": "dekaris-神の存在論的証明"
+    },
+    {
+      "block": 13,
+      "id": "dekaris-方法的懐疑"
     }
   ],
   "free/taikutsu__dekaris.md": [
@@ -1446,6 +1486,10 @@
   ],
   "free/namake__spino.md": [
     {
+      "block": 7,
+      "id": "spino-喜び"
+    },
+    {
       "block": 9,
       "id": "spino-悲しみ"
     }
@@ -1454,6 +1498,10 @@
     {
       "block": 5,
       "id": "spino-嫉妬"
+    },
+    {
+      "block": 7,
+      "id": "spino-感情"
     }
   ],
   "free/oi__spino.md": [
@@ -1498,6 +1546,10 @@
     {
       "block": 7,
       "id": "spino-共通概念"
+    },
+    {
+      "block": 11,
+      "id": "spino-第二種理性知"
     }
   ],
   "free/taikutsu__spino.md": [
@@ -1722,6 +1774,10 @@
       "id": "makiya-プルデンツァ"
     },
     {
+      "block": 9,
+      "id": "makiya-フォルトゥナ"
+    },
+    {
       "block": 11,
       "id": "makiya-オッカジオーネ"
     }
@@ -1730,6 +1786,10 @@
     {
       "block": 7,
       "id": "makiya-実効的真理"
+    },
+    {
+      "block": 9,
+      "id": "makiya-恐れられるか愛されるか"
     }
   ],
   "free/shi__makiya.md": [
@@ -1778,12 +1838,20 @@
     {
       "block": 5,
       "id": "makiya-キリスト教批判"
+    },
+    {
+      "block": 7,
+      "id": "makiya-オツィオ"
     }
   ],
   "free/uso__makiya.md": [
     {
       "block": 5,
       "id": "makiya-偽装と韜晦"
+    },
+    {
+      "block": 7,
+      "id": "makiya-実効的真理"
     }
   ],
   "free/wakattete__makiya.md": [
@@ -1988,6 +2056,10 @@
     {
       "block": 7,
       "id": "hue-比較の原理"
+    },
+    {
+      "block": 11,
+      "id": "hue-共感"
     }
   ],
   "free/oi__hue.md": [
@@ -2001,6 +2073,10 @@
     }
   ],
   "free/ronpa__hue.md": [
+    {
+      "block": 7,
+      "id": "hue-習慣慣れ"
+    },
     {
       "block": 9,
       "id": "hue-理性は情念の奴隷"
@@ -2032,12 +2108,20 @@
   ],
   "free/tadashisa__hue.md": [
     {
+      "block": 5,
+      "id": "hue-ヒュームのフォーク"
+    },
+    {
       "block": 7,
       "id": "hue-道徳判断は理性に由来しない"
     },
     {
       "block": 9,
       "id": "hue-是認と否認"
+    },
+    {
+      "block": 11,
+      "id": "hue-一般的視点"
     }
   ],
   "free/taikutsu__hue.md": [
@@ -2252,9 +2336,17 @@
     {
       "block": 5,
       "id": "ou-知は行の始め行は知の成"
+    },
+    {
+      "block": 7,
+      "id": "ou-真知"
     }
   ],
   "free/netami__ou.md": [
+    {
+      "block": 5,
+      "id": "ou-万物一体の仁"
+    },
     {
       "block": 11,
       "id": "ou-本心本体"
@@ -2262,11 +2354,23 @@
   ],
   "free/oi__ou.md": [
     {
+      "block": 5,
+      "id": "ou-本心本体"
+    },
+    {
       "block": 11,
       "id": "ou-不動心"
     }
   ],
   "free/ronpa__ou.md": [
+    {
+      "block": 5,
+      "id": "ou-良知"
+    },
+    {
+      "block": 7,
+      "id": "ou-省察克治"
+    },
     {
       "block": 9,
       "id": "ou-良知の自知"
@@ -2312,6 +2416,10 @@
     {
       "block": 7,
       "id": "ou-心外無理心外無物"
+    },
+    {
+      "block": 13,
+      "id": "ou-知行合一"
     }
   ],
   "free/uso__ou.md": [
@@ -3292,6 +3400,38 @@
     {
       "block": 5,
       "id": "ou-本心本体"
+    }
+  ],
+  "free/netami__aristo.md": [
+    {
+      "block": 5,
+      "id": "aristo-嫉み義憤競争心"
+    },
+    {
+      "block": 9,
+      "id": "aristo-配分的正義"
+    }
+  ],
+  "free/ronpa__hegru.md": [
+    {
+      "block": 11,
+      "id": "hegru-止揚"
+    }
+  ],
+  "free/tadashisa__ou.md": [
+    {
+      "block": 7,
+      "id": "ou-龍場の悟り"
+    },
+    {
+      "block": 9,
+      "id": "ou-心即理"
+    }
+  ],
+  "free/wakattete__hegru.md": [
+    {
+      "block": 4,
+      "id": "hegru-美しい魂"
     }
   ]
 }
