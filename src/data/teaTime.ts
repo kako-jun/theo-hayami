@@ -13,6 +13,16 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "temperature",
+    title: "温度の不思議",
+    question:
+      "温度の低い限界の近くに私たちがいる不思議を、どう考えればよいでしょうか。",
+    number: 9,
+    publishedAt: "2026-09-07",
+    sceneId: "tea-temperature",
+    residents: ["hue", "kantia", "theo"],
+  },
+  {
     slug: "finite-life",
     title: "全部は読めない、行けないつらさ",
     question:
@@ -138,12 +148,6 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
     title: "宇宙の孤独",
     question:
       "宇宙に人間のような存在が必ずいるわけではない現実を、どう受け止めればよいでしょうか。",
-  },
-  {
-    slug: "temperature",
-    title: "温度の不思議",
-    question:
-      "温度の低い限界の近くに私たちがいる不思議を、どう考えればよいでしょうか。",
   },
   { slug: "one-world", title: "世界が一つになること", question: "世界の国が一つになることは、本当に理想なのでしょうか。" },
   {
