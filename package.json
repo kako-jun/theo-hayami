@@ -14,6 +14,9 @@
     "build": "npm run sync-assets && PUBLIC_BUILD_DATE=$(TZ=Asia/Tokyo date +%Y-%m-%d) astro build && npm run check-sitemap && npm run build:sw",
     "build:sw": "node scripts/build-sw.mjs",
     "check-sitemap": "node scripts/check-sitemap.mjs",
+    "citations:build": "node scripts/build-citations.mjs",
+    "citations:apply": "node scripts/apply-citations.mjs",
+    "citations:check": "node scripts/apply-citations.mjs --check",
     "preview": "astro preview",
     "typecheck": "astro check",
     "test": "vitest run"

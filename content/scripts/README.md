@@ -83,3 +83,18 @@ name-name 側はプロジェクト設定 `scriptsDir: content/scripts` で `cont
 退屈させないため、振り付け（始まり／中間／終わりの引き出し）を毎回変える。
 **4×4×4 の詳細は [`../../docs/09_production/script_format.md`](../../docs/09_production/script_format.md) を参照。**
 **これは作り手のガイド。** 各話で選んだ振り付けは**脚本MDに埋め込まない**（name-name にコメント構文が無い）。必要なら制作メモ / PR に書く。
+
+## 栞（出典）の運用（Issue #173）
+
+住人の決め台詞に出典（著作名・章節・読み仮名）を右下カットインで示し、読了後にサイトで出典リストを灯す仕組み。正本は `docs/05_philosophy/thinkers/*.md`（各住人の概念インベントリ）で、以下は全て**そこから機械的に導出する生成物・設定物**（thinkers md を直接編集して出典を直さない）。
+
+1. **正本**: `docs/05_philosophy/thinkers/*.md` の各概念見出し直下の `出典:` 行。新しい著作名を出典に足したら、まず `docs/05_philosophy/work_readings.json`（読み仮名の正本。省略形・別表記は `aliases` で同じ著作へ寄せる）に読みを登録する。
+2. **台帳生成**: `npm run citations:build`（`scripts/build-citations.mjs`）が thinkers md 全体を走査し `docs/05_philosophy/citations.json`（`{ id, resident, concept, work, section, also, reading, raw }` の配列。`also` は同じ出典行に並んだ2つ目以降の著作名で raw の補助情報。栞の表示には使わない）を書き出す。`work_readings.json` に無い著作名があれば全件洗い出して exit 1 する（曲解防止。未登録を1件ずつ直しては再実行、を繰り返さなくていいよう一括で出す）。複数著作が並ぶ出典行（`カテゴリー論／形而上学Δ` 等）は最初の著作だけから work/section を取り、2つ目以降を section に混ぜない。
+   - **id は見出しの日本語語句そのもの**＝`{住人slug}-{見出しの「（」または「／」の手前までの語句（空白・中黒・かぎ括弧・全角イコール・読点を除去）}`（例: `kantia-現象`、`kantia-アンチノミー`、`ou-知は行の始め行は知の成`）。**英字スラッグ・連番は使わない**（ラテン文字の原語併記が無い見出しで連番にフォールバックすると、thinkers md に見出しを1つ挿すだけで以降の id が全部ずれ、citation_map.json が別概念を指す事故になるため）。同一住人内で id が衝突したら生成を失敗させる（見出し文言を直して回避する）。
+3. **配置**: `docs/05_philosophy/citation_map.json` に脚本ファイル（`content/scripts/` からの相対パス）→ `[{ after_block, id }]` を手で足す。`id` は `citations:build` が出す `citations.json` から探して転記する（上記の日本語 id）。`after_block` は 1始まりの話者ブロック番号（`**話者**` 行の出現順）。**1本あたり最大2箇所**（レビューで担保）。章節が thinkers md に無い出典は著作名のみでよい（`section` 空）。thinkers md に書かれていない出典を作らない（引用の正確さを人の目で担保する既存方針と同じ）。
+4. **適用**: `npm run citations:apply`（`scripts/apply-citations.mjs`）が台帳どおりに脚本MDへ `[テロップ: 『著作名（よみがな）』章節, 種別=しおり]` を挿入する（既存の `種別=しおり` 行は毎回全消しして再挿入＝冪等）。挿入位置は**話者ブロックの本文行の直後、本文行が0行（話者行の直後がいきなり `[` 始まりのディレクティブ）なら話者行の直後**（`src/lib/apply-citations.abnormal.test.ts` で固定）。`npm run citations:check` は検証用（`scripts/apply-citations.mjs --check`。適用済みと一致しなければ exit 1。**CI は未設定**、ローカルで手動実行する）。
+5. **commit**: `work_readings.json` / `citation_map.json` を編集したら、`citations:build` → `citations:apply` を順に流し、`citations.json` と脚本MDの差分も一緒にコミットする（citations.json は生成物だが手編集はしない）。
+
+サイト側は `src/lib/citations.ts` の `getCitationsForSlug(slug)` が `citation_map.json` を読み、`ReaderFrame.astro` が埋め込みの直下に栞リスト（`.th-shiori`）を描く。**既読のときだけ灯る**（未読は `hidden`）。表示するのは**著作名・読み仮名・章節のみ**（`work` / `reading` / `section`）で、`concept`（概念見出し）・`raw`（thinkers md の生テキスト）・`also`（2つ目以降の著作名）は表示しない。
+
+**注意（`telop_reserve: true`）**: `script.md`（エントリ frontmatter）に `telop_reserve: true` を設定しており、これは**全脚本**の novel 本文領域を1段狭める（動的な帯回避ではなく常時予約。kako-jun 決定の仕様）。改頁位置が変わりうるため、栞まわりをマージした後は長い頁を数本実機確認する。

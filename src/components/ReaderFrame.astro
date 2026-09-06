@@ -45,6 +45,8 @@
 //   （readStore.ts / pwa-update.ts と同じ流儀）。それらを import するため、この
 //   コンポーネントの script は2本とも通常の module script にしてある。embedSrc/title は
 //   define:vars ではなく data-* 属性（ReadMarks.astro 等と同じ idiom）でDOMに載せて渡す。
+import { formatCitation, getCitationsForSlug } from "../lib/citations";
+
 interface Props {
   sceneId: string;
   title: string;
@@ -55,6 +57,10 @@ const { sceneId, title, slug } = Astro.props;
 
 const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
 const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponent(sceneId)}`;
+
+// 栞（出典）一覧（Issue #173 Phase A）。citation_map.json に配置が無いセルは空配列＝何も出さない。
+// 既読のときだけ灯す（.th-shiori-reveal.ts が isRead(slug) を見て hidden を外す）。
+const citations = getCitationsForSlug(slug);
 ---
 
 <div
@@ -74,6 +80,17 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     </button>
   </div>
 </div>
+
+{citations.length > 0 && (
+  <section class="th-shiori" data-shiori-for={slug} hidden>
+    <h3 class="th-shiori__title">栞</h3>
+    <ul class="th-shiori__list">
+      {citations.map((citation) => (
+        <li>{formatCitation(citation)}</li>
+      ))}
+    </ul>
+  </section>
+)}
 
 <script>
   // 読む/全画面で読むボタン（Issue #61）。module script なので document.currentScript は
@@ -207,7 +224,9 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
   // name-name は終劇（endStory）到達時、埋め込み時のみ親へ postMessage する（契約: name-name #395）。
   // origin と source/type を検証し、このページの slug（scene ではなく確定値）を既読に記録する。
   // 全画面で読んでいた場合はここで埋め込み表示へ戻す（Issue #61）。
-  import { markRead } from "../lib/readStore";
+  // 栞（出典）リストの反映も同じスクリプトで行う（Issue #173）: ページ読み込み時に既読なら
+  // 最初から灯し、まだ未読ならここで markRead 直後にも灯す（読み終えた瞬間に灯る）。
+  import { isRead, markRead } from "../lib/readStore";
   import { pickExitFullscreenFn, shouldExitFullscreen } from "../lib/fullscreenReader";
 
   const NAME_NAME_ORIGIN = "https://name-name.llll-ll.com";
@@ -233,6 +252,17 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     }
   }
 
+  // 既読のときだけ栞リストを灯す（暗くせず灯す＝既読の意匠語彙、CLAUDE.md/ReadMarks.astro と同じ）。
+  // citation_map.json に配置が無いセルは [data-shiori-for] 要素自体が無いので何もしない。
+  function revealShioriIfRead() {
+    const shiori = document.querySelector<HTMLElement>("[data-shiori-for]");
+    if (!shiori) return;
+    const shioriSlug = shiori.dataset.shioriFor ?? "";
+    if (!shioriSlug || !isRead(shioriSlug)) return;
+    shiori.hidden = false;
+    shiori.classList.add("is-lit");
+  }
+
   window.addEventListener("message", (event) => {
     // 本番の name-name オリジンからのメッセージだけ受ける（他オリジンの偽装を弾く）。
     if (event.origin !== NAME_NAME_ORIGIN) return;
@@ -240,6 +270,13 @@ const embedSrc = `${NAME_NAME_ORIGIN}/play/theo-hayami?scene=${encodeURIComponen
     if (data?.source !== "name-name" || data?.type !== "story-ended") return;
     // scene ではなくページ自身の slug を使う（埋め込みは1セルなので確実・Issue #30）。
     if (slug) markRead(slug);
+    revealShioriIfRead();
     exitFullscreenIfActive();
   });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", revealShioriIfRead);
+  } else {
+    revealShioriIfRead();
+  }
 </script>
