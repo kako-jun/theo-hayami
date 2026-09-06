@@ -72,7 +72,11 @@ const VALID_FILE_KEY_RE = /^(current|current-drafts|free|main)\/([A-Za-z0-9_-]+)
 export function fileKeyToReaderSlug(fileKey: string): string | null {
   const m = fileKey.match(VALID_FILE_KEY_RE);
   if (!m) return null;
-  const [, dir, base] = m;
+  // noUncheckedIndexedAccess: RegExpMatchArray の要素分割代入は string | undefined になる
+  // （正規表現の構造上、m[1]/m[2] は必ずキャプチャされるが型上は保証されない・レビュー指摘M1）。
+  const dir = m[1];
+  const base = m[2];
+  if (dir === undefined || base === undefined) return null;
   if (dir === "current") return `tea-${base}`;
   if (dir === "free" || dir === "main") return base;
   return null; // current-drafts: 形式は正当だが栞の対象外
