@@ -2806,6 +2806,18 @@
     "raw": "人倫の形而上学"
   },
   {
+    "id": "kantia-自己汚辱自然に反する情欲",
+    "resident": "カンティア",
+    "concept": "自己汚辱・自然に反する情欲（Selbstschändung / crimina carnis contra naturam）",
+    "work": "人倫の形而上学",
+    "section": "（徳論 第一部 §7）",
+    "display_section": "（徳論 第一部 §7）",
+    "also": [],
+    "reading": "じんりんのけいじじょうがく",
+    "link": "https://ja.wikipedia.org/wiki/%E4%BA%BA%E5%80%AB%E3%81%AE%E5%BD%A2%E8%80%8C%E4%B8%8A%E5%AD%A6",
+    "raw": "人倫の形而上学（徳論 第一部 §7）"
+  },
+  {
     "id": "kantia-趣味判断と無関心の満足",
     "resident": "カンティア",
     "concept": "趣味判断と無関心の満足（Geschmacksurteil / interesseloses Wohlgefallen）",
