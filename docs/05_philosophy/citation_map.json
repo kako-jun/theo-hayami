@@ -18,15 +18,31 @@
     {
       "block": 7,
       "id": "kantia-目的それ自体の法式"
+    },
+    {
+      "block": 10,
+      "id": "makiya-自前の武器"
     }
   ],
   "current/finite-life.md": [
+    {
+      "block": 4,
+      "id": "kantia-現象"
+    },
+    {
+      "block": 5,
+      "id": "hue-想像力"
+    },
     {
       "block": 14,
       "id": "ou-知行合一"
     }
   ],
   "current/genius.md": [
+    {
+      "block": 3,
+      "id": "dekaris-方法的懐疑"
+    },
     {
       "block": 4,
       "id": "kantia-天才"
@@ -38,6 +54,10 @@
   ],
   "current/media-agitation.md": [
     {
+      "block": 2,
+      "id": "dekaris-方法的懐疑"
+    },
+    {
       "block": 12,
       "id": "spino-感情"
     },
@@ -48,6 +68,10 @@
   ],
   "current/scandal.md": [
     {
+      "block": 1,
+      "id": "dekaris-方法的懐疑"
+    },
+    {
       "block": 2,
       "id": "kantia-目的それ自体の法式"
     },
@@ -57,6 +81,10 @@
     }
   ],
   "current/unpersuadable.md": [
+    {
+      "block": 7,
+      "id": "aristo-エンテュメーマと弁論の三類型"
+    },
     {
       "block": 14,
       "id": "spino-思想言論の自由"
@@ -74,12 +102,20 @@
     {
       "block": 6,
       "id": "spino-必然性決定論"
+    },
+    {
+      "block": 9,
+      "id": "ou-良知"
     }
   ],
   "current/youtube-monetization.md": [
     {
       "block": 18,
       "id": "makiya-フォルトゥナ"
+    },
+    {
+      "block": 23,
+      "id": "hue-帰納の問題"
     },
     {
       "block": 25,
@@ -1988,6 +2024,10 @@
   ],
   "current-drafts/aging-parents-remote.md": [
     {
+      "block": 4,
+      "id": "aristo-魂の三能力"
+    },
+    {
       "block": 5,
       "id": "kantia-法論と徳論"
     },
@@ -2000,6 +2040,10 @@
     {
       "block": 2,
       "id": "kantia-現象"
+    },
+    {
+      "block": 3,
+      "id": "makiya-実効的真理"
     },
     {
       "block": 17,
@@ -2018,6 +2062,10 @@
   ],
   "current-drafts/birth-country.md": [
     {
+      "block": 4,
+      "id": "hue-共感"
+    },
+    {
       "block": 9,
       "id": "spino-必然性決定論"
     },
@@ -2032,6 +2080,10 @@
       "id": "aristo-四原因"
     },
     {
+      "block": 3,
+      "id": "dekaris-方法的懐疑"
+    },
+    {
       "block": 14,
       "id": "spino-徳力"
     }
@@ -2044,9 +2096,17 @@
     {
       "block": 7,
       "id": "ou-不動心"
+    },
+    {
+      "block": 10,
+      "id": "aristo-可能態と現実態"
     }
   ],
   "current-drafts/cancel-apology.md": [
+    {
+      "block": 3,
+      "id": "kantia-義務"
+    },
     {
       "block": 4,
       "id": "spino-後悔"
@@ -2057,6 +2117,10 @@
     }
   ],
   "current-drafts/child-bored.md": [
+    {
+      "block": 7,
+      "id": "makiya-ネチェシタ"
+    },
     {
       "block": 11,
       "id": "aristo-観想"
@@ -2074,6 +2138,10 @@
     {
       "block": 11,
       "id": "dekaris-欺く神悪霊"
+    },
+    {
+      "block": 17,
+      "id": "ou-誠意"
     }
   ],
   "current-drafts/competition.md": [
@@ -2084,12 +2152,20 @@
     {
       "block": 11,
       "id": "dekaris-良識"
+    },
+    {
+      "block": 14,
+      "id": "ou-立志"
     }
   ],
   "current-drafts/confession.md": [
     {
       "block": 3,
       "id": "ou-知行合一"
+    },
+    {
+      "block": 5,
+      "id": "aristo-思慮"
     },
     {
       "block": 8,
@@ -2102,6 +2178,10 @@
       "id": "aristo-友愛"
     },
     {
+      "block": 10,
+      "id": "hue-共感"
+    },
+    {
       "block": 12,
       "id": "spino-様態"
     }
@@ -2112,11 +2192,19 @@
       "id": "spino-コナトゥス"
     },
     {
+      "block": 3,
+      "id": "hue-想像力"
+    },
+    {
       "block": 4,
       "id": "kantia-物自体"
     }
   ],
   "current-drafts/discrimination.md": [
+    {
+      "block": 1,
+      "id": "hegru-承認"
+    },
     {
       "block": 12,
       "id": "spino-感情"
@@ -2134,9 +2222,17 @@
     {
       "block": 5,
       "id": "spino-愛"
+    },
+    {
+      "block": 10,
+      "id": "makiya-偽装と韜晦"
     }
   ],
   "current-drafts/failed-work.md": [
+    {
+      "block": 3,
+      "id": "dekaris-明晰判明"
+    },
     {
       "block": 4,
       "id": "aristo-習慣づけと性向"
@@ -2147,6 +2243,10 @@
     }
   ],
   "current-drafts/family-anger.md": [
+    {
+      "block": 3,
+      "id": "spino-愛"
+    },
     {
       "block": 4,
       "id": "kantia-非社交的社交性"
@@ -2164,9 +2264,17 @@
     {
       "block": 11,
       "id": "hegru-承認"
+    },
+    {
+      "block": 15,
+      "id": "hue-想像力"
     }
   ],
   "current-drafts/future-seen.md": [
+    {
+      "block": 1,
+      "id": "dekaris-方法的懐疑"
+    },
     {
       "block": 8,
       "id": "hegru-規定的否定"
@@ -2182,11 +2290,19 @@
       "id": "aristo-可能態と現実態"
     },
     {
+      "block": 11,
+      "id": "hegru-承認"
+    },
+    {
       "block": 18,
       "id": "spino-至福"
     }
   ],
   "current-drafts/immortal-state.md": [
+    {
+      "block": 3,
+      "id": "dekaris-渦動説"
+    },
     {
       "block": 4,
       "id": "makiya-原点回帰"
@@ -2202,11 +2318,19 @@
       "id": "kantia-尊厳と価格"
     },
     {
+      "block": 5,
+      "id": "aristo-エウダイモニア"
+    },
+    {
       "block": 17,
       "id": "ou-良知"
     }
   ],
   "current-drafts/military.md": [
+    {
+      "block": 2,
+      "id": "hue-帰納の問題"
+    },
     {
       "block": 5,
       "id": "makiya-武装した予言者"
@@ -2222,6 +2346,10 @@
       "id": "dekaris-方法的懐疑"
     },
     {
+      "block": 3,
+      "id": "hue-共感"
+    },
+    {
       "block": 5,
       "id": "kantia-普遍化の法式"
     }
@@ -2234,6 +2362,10 @@
     {
       "block": 2,
       "id": "makiya-ウモーリ"
+    },
+    {
+      "block": 5,
+      "id": "hegru-家族市民社会国家"
     }
   ],
   "current-drafts/one-world.md": [
@@ -2242,11 +2374,19 @@
       "id": "ou-万物一体の仁"
     },
     {
+      "block": 9,
+      "id": "kantia-永遠平和"
+    },
+    {
       "block": 13,
       "id": "makiya-トゥムルティ"
     }
   ],
   "current-drafts/parenting.md": [
+    {
+      "block": 2,
+      "id": "spino-コナトゥス"
+    },
     {
       "block": 7,
       "id": "aristo-中庸"
@@ -2258,6 +2398,10 @@
   ],
   "current-drafts/political-hack.md": [
     {
+      "block": 1,
+      "id": "ou-知行合一"
+    },
+    {
       "block": 3,
       "id": "hegru-自由意志"
     },
@@ -2267,6 +2411,10 @@
     }
   ],
   "current-drafts/red-ocean.md": [
+    {
+      "block": 5,
+      "id": "spino-妥当"
+    },
     {
       "block": 12,
       "id": "makiya-要塞"
@@ -2284,9 +2432,17 @@
     {
       "block": 13,
       "id": "spino-徳力"
+    },
+    {
+      "block": 14,
+      "id": "aristo-エウダイモニア"
     }
   ],
   "current-drafts/someone-slacking.md": [
+    {
+      "block": 2,
+      "id": "hue-是認と否認"
+    },
     {
       "block": 3,
       "id": "aristo-配分的正義"
@@ -2304,9 +2460,17 @@
     {
       "block": 3,
       "id": "spino-悲しみ"
+    },
+    {
+      "block": 4,
+      "id": "ou-良知の自知"
     }
   ],
   "current-drafts/war.md": [
+    {
+      "block": 3,
+      "id": "ou-知行合一"
+    },
     {
       "block": 7,
       "id": "makiya-告発と中傷"

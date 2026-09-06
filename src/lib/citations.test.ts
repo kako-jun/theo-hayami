@@ -228,19 +228,26 @@ describe("citation_map.json（配置台帳）", () => {
     }
   });
 
-  it("1本あたりの上限: ティータイムは3箇所（住人1人につき1箇所・#183）、自由行動・本編は2箇所", () => {
+  it("1本あたりの上限は5箇所（ティータイムは住人全員に1箇所以上、自由行動・本編も1人で2箇所以上あってよい。#183）", () => {
     for (const [file, placements] of Object.entries(citationMap)) {
-      const isTeaTime = file.startsWith("current/") || file.startsWith("current-drafts/");
-      expect(placements.length, file).toBeLessThanOrEqual(isTeaTime ? 3 : 2);
+      expect(placements.length, file).toBeLessThanOrEqual(5);
     }
   });
 
-  it("ティータイムでは同じ住人に2箇所配置しない（1人1箇所）", () => {
+  it("ティータイムでは、話す住人全員に栞が最低1箇所ある（セオ／ヴィンチアは出典を持たないので対象外・#183）", () => {
     const residentOf = new Map(citations.map((c) => [c.id, c.resident]));
-    for (const [file, placements] of Object.entries(citationMap)) {
-      if (!(file.startsWith("current/") || file.startsWith("current-drafts/"))) continue;
-      const residents = placements.map((p) => residentOf.get(p.id));
-      expect(new Set(residents).size, file).toBe(residents.length);
+    const residents = new Set(["アリスト", "カンティア", "ヘグル", "デカリス", "スピノ", "ヒュー", "マキヤ", "オウ"]);
+    for (const dir of ["current", "current-drafts"]) {
+      for (const name of readdirSync(path.join(SCRIPTS_CONTENT_DIR, dir)).filter((n) => n.endsWith(".md"))) {
+        const file = `${dir}/${name}`;
+        const text = readFileSync(path.join(SCRIPTS_CONTENT_DIR, file), "utf-8");
+        const speakers = new Set(
+          [...text.matchAll(/^\*\*([^*]+)\*\*/gmu)].map((m) => m[1]).filter((s) => residents.has(s)),
+        );
+        const placed = new Set((citationMap[file] ?? []).map((p) => residentOf.get(p.id)));
+        const missing = [...speakers].filter((s) => !placed.has(s));
+        expect(missing, file).toEqual([]);
+      }
     }
   });
 });
