@@ -415,8 +415,8 @@ describe("getCitationsForSlug / fileKeyToReaderSlug（src/lib/citations.ts）", 
   });
 
   it("配置の無い slug は空配列（何も灯さない）", () => {
-    expect(getCitationsForSlug("ai__aristo")).toEqual([]);
-    expect(getCitationsForSlug("act1-01")).toEqual([]);
+    expect(getCitationsForSlug("nonexistent__nobody")).toEqual([]);
+    expect(getCitationsForSlug("act9-99")).toEqual([]);
   });
 
   it("fileKeyToReaderSlug の対応表（current→tea- prefix・free/main→そのまま）", () => {
