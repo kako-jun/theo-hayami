@@ -31,7 +31,9 @@ export interface Citation {
 }
 
 export interface CitationPlacement {
-  after_block: number;
+  /** 1始まりの話者ブロック番号（`**話者**` 行の出現順）。栞はこのブロックの語り始め
+   *  （`**話者**` 行の直前）に灯る（Issue #176。旧 after_block はブロック本文の直後だった）。 */
+  block: number;
   id: string;
 }
 
@@ -101,19 +103,24 @@ export function fileKeyToReaderSlug(fileKey: string): string | null {
   return null; // current-drafts: 形式は正当だが栞の対象外
 }
 
-/** 読むページの slug から、その扉に灯す栞（出典）の一覧を返す（配置順）。無ければ空配列。 */
+/** 読むページの slug から、その扉に灯す栞（出典）の一覧を返す（block 昇順＝脚本の登場順）。
+ *  無ければ空配列。 */
 export function getCitationsForSlug(slug: string): Citation[] {
   const map = loadCitationMap();
   const citations = loadCitations();
   const byId = new Map(citations.map((c) => [c.id, c]));
 
-  const results: Citation[] = [];
+  const matched: CitationPlacement[] = [];
   for (const [fileKey, placements] of Object.entries(map)) {
     if (fileKeyToReaderSlug(fileKey) !== slug) continue;
-    for (const placement of placements) {
-      const citation = byId.get(placement.id);
-      if (citation) results.push(citation);
-    }
+    matched.push(...placements);
+  }
+  matched.sort((a, b) => a.block - b.block);
+
+  const results: Citation[] = [];
+  for (const placement of matched) {
+    const citation = byId.get(placement.id);
+    if (citation) results.push(citation);
   }
   return results;
 }
