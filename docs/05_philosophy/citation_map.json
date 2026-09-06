@@ -579,5 +579,477 @@
       "after_block": 5,
       "id": "hegru-不幸な意識"
     }
+  ],
+  "free/ai__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-神の存在証明批判"
+    }
+  ],
+  "free/aseri__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-最高善"
+    }
+  ],
+  "free/atarimae__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-コペルニクス的転回"
+    }
+  ],
+  "free/douchou__kantia.md": [
+    {
+      "after_block": 13,
+      "id": "kantia-共通感覚"
+    }
+  ],
+  "free/fuan__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-超越論的仮象"
+    }
+  ],
+  "free/fukushuu__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-普遍化の法式"
+    }
+  ],
+  "free/fushin__kantia.md": [
+    {
+      "after_block": 5,
+      "id": "kantia-永遠平和"
+    }
+  ],
+  "free/gensou__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-超越論的観念論"
+    }
+  ],
+  "free/gouman__kantia.md": [
+    {
+      "after_block": 5,
+      "id": "kantia-目的それ自体の法式"
+    },
+    {
+      "after_block": 14,
+      "id": "kantia-目的の王国"
+    }
+  ],
+  "free/henka__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-根本悪"
+    },
+    {
+      "after_block": 11,
+      "id": "kantia-道徳的回心と理性宗教"
+    }
+  ],
+  "free/ikari__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-自律と他律"
+    }
+  ],
+  "free/imi__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-自然目的としての有機体"
+    }
+  ],
+  "free/izon__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-因果性への回答"
+    }
+  ],
+  "free/jikan__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-純粋直観としての空間と時間"
+    }
+  ],
+  "free/jiyuu__kantia.md": [
+    {
+      "after_block": 11,
+      "id": "kantia-意志の自由"
+    }
+  ],
+  "free/kitai__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-理性の理念と統制的使用"
+    }
+  ],
+  "free/kodoku__kantia.md": [
+    {
+      "after_block": 3,
+      "id": "kantia-非社交的社交性"
+    }
+  ],
+  "free/koufuku__kantia.md": [
+    {
+      "after_block": 5,
+      "id": "kantia-善意志"
+    }
+  ],
+  "free/koukai__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-構想力"
+    }
+  ],
+  "free/mayoi__kantia.md": [
+    {
+      "after_block": 8,
+      "id": "kantia-反省的判断力"
+    }
+  ],
+  "free/mie__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-義務"
+    }
+  ],
+  "free/moke__kantia.md": [
+    {
+      "after_block": 3,
+      "id": "kantia-仮言命法"
+    },
+    {
+      "after_block": 9,
+      "id": "kantia-定言命法"
+    }
+  ],
+  "free/mujun__kantia.md": [
+    {
+      "after_block": 3,
+      "id": "kantia-アンチノミー"
+    }
+  ],
+  "free/netami__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-尊厳と価格"
+    },
+    {
+      "after_block": 13,
+      "id": "kantia-自律と他律"
+    }
+  ],
+  "free/namake__kantia.md": [
+    {
+      "after_block": 3,
+      "id": "kantia-実用的見地の人間学"
+    }
+  ],
+  "free/oi__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-超越論的統覚"
+    }
+  ],
+  "free/ronpa__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-啓蒙"
+    }
+  ],
+  "free/shi__kantia.md": [
+    {
+      "after_block": 3,
+      "id": "kantia-物自体"
+    },
+    {
+      "after_block": 9,
+      "id": "kantia-実践理性の要請"
+    }
+  ],
+  "free/shihai__kantia.md": [
+    {
+      "after_block": 5,
+      "id": "kantia-法論と徳論"
+    }
+  ],
+  "free/shuuchaku__kantia.md": [
+    {
+      "after_block": 5,
+      "id": "kantia-趣味判断と無関心の満足"
+    }
+  ],
+  "free/soushitsu__kantia.md": [
+    {
+      "after_block": 11,
+      "id": "kantia-美と崇高"
+    }
+  ],
+  "free/tadashisa__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-アプリオリ"
+    }
+  ],
+  "free/taikutsu__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-目的なき合目的性"
+    }
+  ],
+  "free/wakattete__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-根本悪"
+    }
+  ],
+  "free/yurushi__kantia.md": [
+    {
+      "after_block": 7,
+      "id": "kantia-現象"
+    }
+  ],
+  "free/zaiakukan__kantia.md": [
+    {
+      "after_block": 9,
+      "id": "kantia-道徳法則への尊敬"
+    }
+  ],
+  "free/ai__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-六つの基本情念"
+    }
+  ],
+  "free/aseri__dekaris.md": [
+    {
+      "after_block": 11,
+      "id": "dekaris-普遍数学"
+    }
+  ],
+  "free/atarimae__dekaris.md": [
+    {
+      "after_block": 11,
+      "id": "dekaris-枚挙"
+    }
+  ],
+  "free/douchou__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-微粒子論と三元素"
+    }
+  ],
+  "free/fuan__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-渦動説"
+    }
+  ],
+  "free/fukushuu__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-六つの基本情念"
+    }
+  ],
+  "free/fushin__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-欺く神悪霊"
+    },
+    {
+      "after_block": 13,
+      "id": "dekaris-欺かない神"
+    }
+  ],
+  "free/gouman__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-良識"
+    }
+  ],
+  "free/henka__dekaris.md": [
+    {
+      "after_block": 9,
+      "id": "dekaris-実体属性様態"
+    }
+  ],
+  "free/ikari__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-身体機械"
+    },
+    {
+      "after_block": 7,
+      "id": "dekaris-情念"
+    }
+  ],
+  "free/imi__dekaris.md": [
+    {
+      "after_block": 12,
+      "id": "dekaris-神の因果論証"
+    }
+  ],
+  "free/izon__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-松果腺"
+    }
+  ],
+  "free/jikan__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-単純本性"
+    }
+  ],
+  "free/jiyuu__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-自由意志"
+    }
+  ],
+  "free/kitai__dekaris.md": [
+    {
+      "after_block": 3,
+      "id": "dekaris-六つの基本情念"
+    }
+  ],
+  "free/kodoku__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-心身合一"
+    }
+  ],
+  "free/koufuku__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-六つの基本情念"
+    },
+    {
+      "after_block": 9,
+      "id": "dekaris-高邁"
+    }
+  ],
+  "free/koukai__dekaris.md": [
+    {
+      "after_block": 3,
+      "id": "dekaris-六つの基本情念"
+    }
+  ],
+  "free/mayoi__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-方法の四つの規則"
+    }
+  ],
+  "free/mie__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-観念の三種"
+    }
+  ],
+  "free/moke__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-暫定道徳"
+    }
+  ],
+  "free/mujun__dekaris.md": [
+    {
+      "after_block": 9,
+      "id": "dekaris-自由意志"
+    }
+  ],
+  "free/namake__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-運動法則と運動量保存"
+    }
+  ],
+  "free/netami__dekaris.md": [
+    {
+      "after_block": 9,
+      "id": "dekaris-高邁"
+    }
+  ],
+  "free/ronpa__dekaris.md": [
+    {
+      "after_block": 11,
+      "id": "dekaris-明晰判明"
+    }
+  ],
+  "free/shi__dekaris.md": [
+    {
+      "after_block": 9,
+      "id": "dekaris-思考する実体"
+    }
+  ],
+  "free/shihai__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-充満と真空否定"
+    },
+    {
+      "after_block": 7,
+      "id": "dekaris-運動法則と運動量保存"
+    }
+  ],
+  "free/shuuchaku__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-延長する実体"
+    }
+  ],
+  "free/soushitsu__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-蜜蝋の分析"
+    }
+  ],
+  "free/tadashisa__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-神の存在論的証明"
+    }
+  ],
+  "free/taikutsu__dekaris.md": [
+    {
+      "after_block": 5,
+      "id": "dekaris-六つの基本情念"
+    }
+  ],
+  "free/uso__dekaris.md": [
+    {
+      "after_block": 13,
+      "id": "dekaris-心身二元論"
+    }
+  ],
+  "free/wakattete__dekaris.md": [
+    {
+      "after_block": 7,
+      "id": "dekaris-情念"
+    },
+    {
+      "after_block": 11,
+      "id": "dekaris-動物精気"
+    }
+  ],
+  "free/wakeru__dekaris.md": [
+    {
+      "after_block": 9,
+      "id": "dekaris-思考する実体"
+    }
+  ],
+  "free/yurushi__dekaris.md": [
+    {
+      "after_block": 9,
+      "id": "dekaris-誤謬の理論"
+    }
+  ],
+  "free/zaiakukan__dekaris.md": [
+    {
+      "after_block": 9,
+      "id": "dekaris-デカルトの循環"
+    }
   ]
 }

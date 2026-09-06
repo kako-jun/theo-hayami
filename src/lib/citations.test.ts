@@ -356,7 +356,7 @@ describe("deriveDisplaySection（build-citations.mjs・栞テロップの短縮�
 });
 
 describe("栞テロップ本文の長さの安全網（Issue #173 Phase B）", () => {
-  it("citation_map.json に実際に配置されている全テロップ本文が40字以内", () => {
+  it("citation_map.json に実際に配置されている全テロップ本文が56字以内（折り返しは name-name #679）", () => {
     const byId = new Map(citations.map((c) => [c.id, c]));
     const overLong: string[] = [];
     for (const [file, placements] of Object.entries(citationMap)) {
@@ -364,7 +364,7 @@ describe("栞テロップ本文の長さの安全網（Issue #173 Phase B）", (
         const citation = byId.get(p.id);
         if (!citation) continue;
         const body = formatCitation(citation);
-        if (body.length > 40) overLong.push(`${file}#${p.id}: "${body}"（${body.length}字）`);
+        if (body.length > 56) overLong.push(`${file}#${p.id}: "${body}"（${body.length}字）`);
       }
     }
     expect(overLong).toEqual([]);
