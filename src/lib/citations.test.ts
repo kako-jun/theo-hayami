@@ -170,8 +170,8 @@ describe("splitWorkSection / conceptSlug（build-citations.mjs のパース単�
 describe("getCitationsForSlug / fileKeyToReaderSlug（src/lib/citations.ts）", () => {
   it("current/temperature.md の栞は tea-temperature の読むページに灯る", () => {
     const result = getCitationsForSlug("tea-temperature");
-    expect(result.map((c) => c.id)).toEqual(["kantia-das-schone"]);
-    expect(formatCitation(result[0]!)).toBe("『判断力批判（はんだんりょくひはん）』");
+    expect(result.map((c) => c.id)).toEqual(["kantia-antinomie"]);
+    expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
   });
 
   it("main/ohako-kantia.md の栞は ohako-kantia の読むページに灯る", () => {
