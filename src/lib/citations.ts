@@ -7,6 +7,7 @@
 // （process.cwd() 起点の相対パス・モジュールキャッシュ）に揃える。
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { publishedTeaTimeQuestions } from "../data/teaTime";
 
 const PHILOSOPHY_DIR = path.join(process.cwd(), "docs", "05_philosophy");
 const CITATIONS_PATH = path.join(PHILOSOPHY_DIR, "citations.json");
@@ -54,10 +55,15 @@ function loadCitationMap(): Record<string, CitationPlacement[]> {
 }
 
 /**
- * citation_map.json のファイルキー（`content/scripts/` からの相対パス。例 `current/temperature.md`）を、
+ * citation_map.json のファイルキー（`content/scripts/` からの相対パス。例 `current/wc-luck.md`）を、
  * 読むページの slug（ReaderFrame の `slug` prop・readStore の既読判定キーと同じ値）に変換する。
- * - `current/x.md`（けふのティータイム）→ ReaderFrame の slug は `tea-x`（tea-time/[slug].astro が
- *   `slug={`tea-${question.slug}`}` で渡す。src/data/teaTime.ts の sceneId も `tea-x` で揃っている）。
+ * - `current/x.md`（けふのティータイム）→ ReaderFrame の slug は `tea-${question.slug}`
+ *   （src/data/teaTime.ts の公開 slug 基準。tea-time/[slug].astro が
+ *   `slug={`tea-${question.slug}`}` で渡す）。ファイル名 `x` と公開 slug は一致しないことがある
+ *   （例: `current/wc-luck.md` は公開 slug `world-cup`。sceneId `tea-wc-luck` の方がファイル名と
+ *   揃っている）。そのため `publishedTeaTimeQuestions` を引き、sceneId の `tea-` 以降がファイル名と
+ *   一致する、または slug 自体がファイル名と一致するエントリを探して、その `slug` から
+ *   `tea-${slug}` を組み直す。該当エントリが無ければ null（未公開・栞の対象外）。
  * - `free/a__b.md` → `a__b`（そのまま。free/[slug].astro の episode.slug と一致）。
  * - `main/x.md`（本筋・おはこ）→ `x`（そのまま。main/[slug].astro の slug と一致）。
  * 未知の1階層目（`current-drafts/` 等）は null（栞の対象外）。
@@ -69,6 +75,15 @@ function loadCitationMap(): Record<string, CitationPlacement[]> {
  */
 const VALID_FILE_KEY_RE = /^(current|current-drafts|free|main)\/([A-Za-z0-9_-]+)\.md$/;
 
+/** `current/{base}.md` のファイル名 base を、公開 slug 基準の ReaderFrame slug に解決する（レビュー指摘M2）。 */
+function currentFileBaseToReaderSlug(base: string): string | null {
+  const question = publishedTeaTimeQuestions.find((q) => {
+    const sceneSuffix = q.sceneId?.startsWith("tea-") ? q.sceneId.slice("tea-".length) : undefined;
+    return sceneSuffix === base || q.slug === base;
+  });
+  return question ? `tea-${question.slug}` : null;
+}
+
 export function fileKeyToReaderSlug(fileKey: string): string | null {
   const m = fileKey.match(VALID_FILE_KEY_RE);
   if (!m) return null;
@@ -77,7 +92,7 @@ export function fileKeyToReaderSlug(fileKey: string): string | null {
   const dir = m[1];
   const base = m[2];
   if (dir === undefined || base === undefined) return null;
-  if (dir === "current") return `tea-${base}`;
+  if (dir === "current") return currentFileBaseToReaderSlug(base);
   if (dir === "free" || dir === "main") return base;
   return null; // current-drafts: 形式は正当だが栞の対象外
 }

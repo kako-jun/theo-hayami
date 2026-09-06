@@ -316,4 +316,13 @@ describe("getCitationsForSlug / fileKeyToReaderSlug（src/lib/citations.ts）", 
     expect(fileKeyToReaderSlug("main/ohako-kantia.md")).toBe("ohako-kantia");
     expect(fileKeyToReaderSlug("current-drafts/x.md")).toBe(null);
   });
+
+  it("current/x.md はファイル名でなく公開 slug 基準で ReaderFrame の slug と一致する（#173 M2）", () => {
+    // content/scripts/current/wc-luck.md は publishedTeaTimeQuestions 上で
+    // slug: "world-cup" / sceneId: "tea-wc-luck"（sceneId の tea- 以降がファイル名と一致）。
+    // ReaderFrame に渡る実際の slug は `tea-${question.slug}` = "tea-world-cup" であり、
+    // ファイル名からナイーブに組んだ "tea-wc-luck" とは異なる。
+    expect(fileKeyToReaderSlug("current/wc-luck.md")).toBe("tea-world-cup");
+    expect(fileKeyToReaderSlug("current/wc-luck.md")).not.toBe("tea-wc-luck");
+  });
 });
