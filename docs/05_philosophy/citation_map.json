@@ -1955,5 +1955,21 @@
       "after_block": 7,
       "id": "ou-正心"
     }
+  ],
+  "main/act3-04.md": [
+    {
+      "after_block": 4,
+      "id": "dekaris-誇張的懐疑"
+    }
+  ],
+  "main/act4-01.md": [
+    {
+      "after_block": 7,
+      "id": "ou-知行合一"
+    },
+    {
+      "after_block": 22,
+      "id": "makiya-実効的真理"
+    }
   ]
 }
