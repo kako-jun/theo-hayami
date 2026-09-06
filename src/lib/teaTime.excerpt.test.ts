@@ -1,29 +1,21 @@
-// ティータイム一覧の相談文の長さ（Issue #182）。長い相談文はそのまま一覧に出さず、
-// 一覧用の一文要約 excerpt を持つことを固定する。詳細ページの引用は全文のまま。
+// ティータイムの相談文の長さ（Issue #182 / #184）。サイトに出す question は一文の要約で、
+// 相談者の原文そのままは載せない（原文は Issue に記録、要点は脚本の司会役が紹介で語る）。
 import { describe, expect, it } from "vitest";
 import { publishedTeaTimeQuestions, teaTimeQuestions } from "../data/teaTime";
 
-const LONG_QUESTION = 90;
-const MAX_EXCERPT = 70;
+const MAX_QUESTION = 90;
 const all = [...publishedTeaTimeQuestions, ...teaTimeQuestions];
 
-describe("ティータイム一覧の要約（excerpt）", () => {
-  it("90字を超える相談文には一覧用の excerpt がある", () => {
-    const missing = all.filter((q) => q.question.length > LONG_QUESTION && !q.excerpt).map((q) => q.slug);
-    expect(missing).toEqual([]);
+describe("ティータイムの相談文（question）", () => {
+  it("90字以内の一文要約になっている（原文をそのまま載せない）", () => {
+    const tooLong = all.filter((q) => q.question.length > MAX_QUESTION).map((q) => `${q.slug}:${q.question.length}`);
+    expect(tooLong).toEqual([]);
   });
 
-  it("excerpt は70字以内・空でない・question と同一でない", () => {
+  it("空でなく、疑問の形で終わる", () => {
     for (const q of all) {
-      if (q.excerpt === undefined) continue;
-      expect(q.excerpt.length, q.slug).toBeGreaterThan(0);
-      expect(q.excerpt.length, q.slug).toBeLessThanOrEqual(MAX_EXCERPT);
-      expect(q.excerpt, q.slug).not.toBe(q.question);
+      expect(q.question.length, q.slug).toBeGreaterThan(0);
+      expect(q.question, q.slug).toMatch(/[か。？]$/u);
     }
-  });
-
-  it("短い相談文は excerpt を持たない（二重管理を増やさない）", () => {
-    const needless = all.filter((q) => q.question.length <= LONG_QUESTION && q.excerpt).map((q) => q.slug);
-    expect(needless).toEqual([]);
   });
 });
