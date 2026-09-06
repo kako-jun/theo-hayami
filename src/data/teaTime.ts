@@ -18,7 +18,7 @@ export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
     question:
       "温度の低い限界の近くに私たちがいる不思議を、どう考えればよいでしょうか。",
     number: 9,
-    publishedAt: "2026-09-07",
+    publishedAt: "2026-09-06",
     sceneId: "tea-temperature",
     residents: ["hue", "kantia", "theo"],
   },
