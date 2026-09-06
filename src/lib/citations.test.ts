@@ -13,8 +13,8 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { applyCitationsToText } from "../../scripts/apply-citations.mjs";
 import {
-  conceptSlug,
   extractLeadingWork,
+  japaneseIdFromHeading,
   parseThinkerFile,
   splitIntoWorkFragments,
   splitWorkSection,
@@ -113,17 +113,17 @@ describe("citations.json（台帳・生成物）", () => {
   });
 
   it("複数著作の出典行は最初の著作だけが work/section になり、残りは also に入る", () => {
-    const kategoriai = citations.find((c) => c.id === "aristo-kategoriai");
+    const kategoriai = citations.find((c) => c.id === "aristo-カテゴリー");
     expect(kategoriai?.work).toBe("カテゴリー論");
     expect(kategoriai?.section).toBe("");
     expect(kategoriai?.also).toEqual(["形而上学Δ"]);
 
-    const ousia = citations.find((c) => c.id === "aristo-ousia");
+    const ousia = citations.find((c) => c.id === "aristo-実体");
     expect(ousia?.work).toBe("形而上学");
     expect(ousia?.section).toBe("Ζ・Η");
     expect(ousia?.also).toEqual(["カテゴリー論"]);
 
-    const eudaimonia = citations.find((c) => c.id === "aristo-eudaimonia");
+    const eudaimonia = citations.find((c) => c.id === "aristo-エウダイモニア");
     expect(eudaimonia?.work).toBe("ニコマコス倫理学");
     expect(eudaimonia?.section).toBe("I・X");
     expect(eudaimonia?.also).toEqual(["エウデモス倫理学"]);
@@ -175,7 +175,7 @@ describe("apply-citations の冪等性", () => {
   });
 });
 
-describe("splitWorkSection / conceptSlug（build-citations.mjs のパース単体）", () => {
+describe("splitWorkSection / japaneseIdFromHeading（build-citations.mjs のパース単体）", () => {
   it("区切り文字（空白・ローマ数字・数字・括弧）の手前までを work にする（単一著作）", () => {
     expect(splitWorkSection("純粋理性批判", registeredNames)).toEqual({
       work: "純粋理性批判",
@@ -246,25 +246,61 @@ describe("splitWorkSection / conceptSlug（build-citations.mjs のパース単�
     ]);
   });
 
-  it("見出しの（... / ...）からラテン文字のセグメントを kebab-case で取り出す", () => {
-    expect(conceptSlug("現象（Erscheinung）")).toBe("erscheinung");
-    expect(conceptSlug("美と崇高（das Schöne / das Erhabene）")).toBe("das-schone");
-    expect(conceptSlug("カテゴリー（κατηγορίαι / katēgoriai）")).toBe("kategoriai");
-    expect(conceptSlug("A. 論理・認識（オルガノン）")).toBe(null);
-    expect(conceptSlug("見出しに括弧が無い")).toBe(null);
+  it("japaneseIdFromHeading: 見出しの（or／の手前までの日本語語句を、空白・中黒・かぎ括弧・全角イコールを除いて取り出す", () => {
+    // レビュー指摘（#173）: id は英字スラッグ（旧 conceptSlug）ではなく見出しの日本語語句そのもの由来にする
+    // （ラテン文字の原語併記が無い見出しで連番にフォールバックし、md 編集のたびに id がずれる事故を防ぐ）。
+    expect(japaneseIdFromHeading("現象（Erscheinung）")).toBe("現象");
+    expect(japaneseIdFromHeading("アンチノミー（Antinomie）")).toBe("アンチノミー");
+    expect(japaneseIdFromHeading("カテゴリー（κατηγορίαι / katēgoriai）")).toBe("カテゴリー");
+    // ／が（より先に出る見出しは／の手前まで（2つ目の対語は捨てる。id の安定性・簡潔さ優先）。
+    expect(japaneseIdFromHeading("自発的／非自発的（ἑκούσιον / hekousion・ἀκούσιον）")).toBe("自発的");
+    // 空白・中黒・かぎ括弧・全角イコールを除去する。読点（、）も除去する。
+    expect(japaneseIdFromHeading("知は行の始め、行は知の成（ちはこうのはじめ）")).toBe("知は行の始め行は知の成");
+    expect(japaneseIdFromHeading("感情の定義 全48（エチカ第3部末尾「感情の定義」）")).toBe("感情の定義全48");
+    expect(japaneseIdFromHeading("身体＝機械（人間機械論の生理学）")).toBe("身体機械");
+    // 括弧も／も無い見出しは全体を使う。
+    expect(japaneseIdFromHeading("見出しに括弧が無い")).toBe("見出しに括弧が無い");
+  });
+});
+
+describe("citations.json の id（レビュー指摘・#173: 連番フォールバック禁止）", () => {
+  it("id に連番形式（末尾 -数字）が無い", () => {
+    const numericSuffix = citations.filter((c) => /-\d+$/.test(c.id));
+    expect(numericSuffix.map((c) => c.id)).toEqual([]);
+  });
+
+  it("全 id が `{residentSlug}-{見出し由来の日本語id}` として機械的に導出できる（安定 id）", () => {
+    // RESIDENT_NAMES（カタカナ表示名）→ ファイル名スラッグの逆引き。
+    const residentSlugByName: Record<string, string> = {
+      アリスト: "aristo",
+      デカリス: "dekaris",
+      ヘグル: "hegru",
+      ヒュー: "hue",
+      カンティア: "kantia",
+      マキヤ: "makiya",
+      オウ: "ou",
+      スピノ: "spino",
+    };
+    const bad: string[] = [];
+    for (const c of citations) {
+      const residentSlug = residentSlugByName[c.resident];
+      const expectedId = `${residentSlug}-${japaneseIdFromHeading(c.concept)}`;
+      if (c.id !== expectedId) bad.push(`${c.id} (concept=${c.concept} から期待される id は ${expectedId})`);
+    }
+    expect(bad).toEqual([]);
   });
 });
 
 describe("getCitationsForSlug / fileKeyToReaderSlug（src/lib/citations.ts）", () => {
   it("current/temperature.md の栞は tea-temperature の読むページに灯る", () => {
     const result = getCitationsForSlug("tea-temperature");
-    expect(result.map((c) => c.id)).toEqual(["kantia-antinomie"]);
+    expect(result.map((c) => c.id)).toEqual(["kantia-アンチノミー"]);
     expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
   });
 
   it("main/ohako-kantia.md の栞は ohako-kantia の読むページに灯る", () => {
     const result = getCitationsForSlug("ohako-kantia");
-    expect(result.map((c) => c.id)).toEqual(["kantia-erscheinung"]);
+    expect(result.map((c) => c.id)).toEqual(["kantia-現象"]);
     expect(formatCitation(result[0]!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』");
   });
 

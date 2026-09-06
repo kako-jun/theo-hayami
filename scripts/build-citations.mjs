@@ -127,34 +127,20 @@ export function splitWorkSection(raw, registeredNames) {
   return { work, section, also: restFragments };
 }
 
-function isRomanizable(seg) {
-  if (!/[A-Za-z]/.test(seg)) return false;
-  if (/[぀-ヿ一-鿿Ͱ-Ͽ]/.test(seg)) return false;
-  return true;
-}
-
-function slugify(seg) {
-  const norm = seg.normalize("NFKD").replace(/[̀-ͯ]/g, "");
-  return norm
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-/** 見出しの `（... / ...）` からラテン文字のセグメントを拾って kebab-case にする。無ければ null。 */
-export function conceptSlug(heading) {
-  const m = heading.match(/[（(]([^（）()]*)[）)]/);
-  if (!m) return null;
-  const segments = m[1]
-    .split(/\s*\/\s*/)
-    .map((s) => s.trim())
-    .filter(Boolean);
-  for (const seg of segments) {
-    if (!isRomanizable(seg)) continue;
-    const slug = slugify(seg);
-    if (slug.length >= 2) return slug;
-  }
-  return null;
+/**
+ * 見出しから安定した id 用の日本語語句を取り出す（レビュー指摘・#173）。
+ * 英字スラッグ（旧 conceptSlug）は使わない: 見出しにラテン文字の原語併記が無い概念
+ * （356件中75件）が連番 `{residentSlug}-{n}` にフォールバックしており、thinkers md に
+ * 見出しを1つ挿すだけで以降の連番が全部ずれ、citation_map.json が別概念を指す事故に
+ * なるため。見出しの最初の `（`/`(`/`／`/`/` の手前まで（無ければ見出し全体）を使い、
+ * 空白・中黒・かぎ括弧・全角イコールを取り除く。
+ * 例: `現象（Erscheinung）` → `現象`、`アンチノミー（Antinomie）` → `アンチノミー`、
+ * `知は行の始め、行は知の成（ちはこうのはじめ）` → `知は行の始め行は知の成`。
+ */
+export function japaneseIdFromHeading(heading) {
+  const cutIdx = heading.search(/[（(／/]/);
+  const base = cutIdx === -1 ? heading : heading.slice(0, cutIdx);
+  return base.replace(/[\s、・「」＝]/gu, "");
 }
 
 function loadReadings() {
@@ -177,19 +163,24 @@ export function parseThinkerFile(text, residentSlug, registeredNames) {
   const usedIds = new Set();
   let heading = null;
   let body = [];
-  let seq = 0;
 
   const flush = () => {
     if (heading === null) return;
     for (const line of body) {
       const m = line.match(CITATION_LINE_RE);
       if (!m) continue;
-      seq += 1;
       const raw = m[1].trim();
       const { work, section, also } = splitWorkSection(raw, registeredNames);
-      const slug = conceptSlug(heading);
-      let id = slug ? `${residentSlug}-${slug}` : null;
-      if (!id || usedIds.has(id)) id = `${residentSlug}-${seq}`;
+      const idBase = japaneseIdFromHeading(heading);
+      if (!idBase) {
+        throw new Error(`見出しから id を作れません（${residentSlug}）: ${JSON.stringify(heading)}`);
+      }
+      const id = `${residentSlug}-${idBase}`;
+      if (usedIds.has(id)) {
+        // 連番へのフォールバックはしない（thinkers md に見出しを1つ挿すだけで既存 id が
+        // ずれる事故を防ぐため・レビュー指摘#173）。衝突したら見出し側を直してもらう。
+        throw new Error(`id が衝突しています（${residentSlug}）: ${id}（見出し: ${JSON.stringify(heading)}）`);
+      }
       usedIds.add(id);
       citations.push({ id, resident: residentName, concept: heading, work, section, also, raw });
       break; // 1概念1出典行（既存データで確認済み・複数出典行を持つ概念は無い）

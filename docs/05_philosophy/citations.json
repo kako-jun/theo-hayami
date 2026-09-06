@@ -1,6 +1,6 @@
 [
   {
-    "id": "aristo-kategoriai",
+    "id": "aristo-カテゴリー",
     "resident": "アリスト",
     "concept": "カテゴリー（κατηγορίαι / katēgoriai）",
     "work": "カテゴリー論",
@@ -12,7 +12,7 @@
     "raw": "カテゴリー論／形而上学Δ"
   },
   {
-    "id": "aristo-prote",
+    "id": "aristo-第一実体と第二実体",
     "resident": "アリスト",
     "concept": "第一実体と第二実体（prōtē / deutera ousia）",
     "work": "カテゴリー論",
@@ -22,7 +22,7 @@
     "raw": "カテゴリー論"
   },
   {
-    "id": "aristo-syllogismos",
+    "id": "aristo-三段論法",
     "resident": "アリスト",
     "concept": "三段論法（συλλογισμός / syllogismos）",
     "work": "分析論前書",
@@ -32,7 +32,7 @@
     "raw": "分析論前書"
   },
   {
-    "id": "aristo-episteme",
+    "id": "aristo-論証と学的知",
     "resident": "アリスト",
     "concept": "論証と学的知（ἀπόδειξις / apodeixis・ἐπιστήμη / epistēmē）",
     "work": "分析論後書",
@@ -42,7 +42,7 @@
     "raw": "分析論後書"
   },
   {
-    "id": "aristo-nous",
+    "id": "aristo-第一原理と知性的把握",
     "resident": "アリスト",
     "concept": "第一原理と知性的把握（ἀρχαί / archai・νοῦς / nous）",
     "work": "分析論後書",
@@ -52,7 +52,7 @@
     "raw": "分析論後書 II.19"
   },
   {
-    "id": "aristo-epagoge",
+    "id": "aristo-帰納",
     "resident": "アリスト",
     "concept": "帰納（ἐπαγωγή / epagōgē）",
     "work": "分析論後書",
@@ -64,7 +64,7 @@
     "raw": "分析論後書／トピカ"
   },
   {
-    "id": "aristo-endoxa",
+    "id": "aristo-弁証術と通念",
     "resident": "アリスト",
     "concept": "弁証術と通念（διαλεκτική / dialektikē・ἔνδοξα / endoxa）",
     "work": "トピカ",
@@ -76,7 +76,7 @@
     "raw": "トピカ／ソフィスト的論駁"
   },
   {
-    "id": "aristo-predicables",
+    "id": "aristo-述語可能項",
     "resident": "アリスト",
     "concept": "述語可能項（predicables）",
     "work": "トピカ",
@@ -86,7 +86,7 @@
     "raw": "トピカ"
   },
   {
-    "id": "aristo-law-of-non-contradiction",
+    "id": "aristo-矛盾律",
     "resident": "アリスト",
     "concept": "矛盾律（law of non-contradiction）",
     "work": "形而上学",
@@ -96,7 +96,7 @@
     "raw": "形而上学Γ（IV）"
   },
   {
-    "id": "aristo-on-hei-on",
+    "id": "aristo-有を有として",
     "resident": "アリスト",
     "concept": "有を有として（τὸ ὂν ᾗ ὄν / on hēi on）",
     "work": "形而上学",
@@ -106,7 +106,7 @@
     "raw": "形而上学Γ・Ε"
   },
   {
-    "id": "aristo-ousia",
+    "id": "aristo-実体",
     "resident": "アリスト",
     "concept": "実体（οὐσία / ousia）",
     "work": "形而上学",
@@ -118,7 +118,7 @@
     "raw": "形而上学Ζ・Η／カテゴリー論"
   },
   {
-    "id": "aristo-hylomorphism",
+    "id": "aristo-質料形相論",
     "resident": "アリスト",
     "concept": "質料形相論（ヒュロモルフィズム / hylomorphism）",
     "work": "形而上学",
@@ -130,7 +130,7 @@
     "raw": "形而上学Ζ・Η／自然学"
   },
   {
-    "id": "aristo-entelecheia",
+    "id": "aristo-可能態と現実態",
     "resident": "アリスト",
     "concept": "可能態と現実態（δύναμις / dunamis・ἐνέργεια / energeia・ἐντελέχεια / entelecheia）",
     "work": "形而上学",
@@ -142,7 +142,7 @@
     "raw": "形而上学Θ／自然学"
   },
   {
-    "id": "aristo-aitiai",
+    "id": "aristo-四原因",
     "resident": "アリスト",
     "concept": "四原因（αἰτίαι / aitiai）",
     "work": "自然学",
@@ -154,7 +154,7 @@
     "raw": "自然学II／形而上学"
   },
   {
-    "id": "aristo-to-ti-en-einai",
+    "id": "aristo-本質",
     "resident": "アリスト",
     "concept": "本質（τὸ τί ἦν εἶναι / to ti ēn einai）",
     "work": "形而上学",
@@ -164,7 +164,7 @@
     "raw": "形而上学Ζ"
   },
   {
-    "id": "aristo-unmoved-mover",
+    "id": "aristo-不動の動者",
     "resident": "アリスト",
     "concept": "不動の動者（πρῶτον κινοῦν ἀκίνητον / unmoved mover）",
     "work": "形而上学",
@@ -176,7 +176,7 @@
     "raw": "形而上学Λ（XII）／自然学VIII"
   },
   {
-    "id": "aristo-pollachos-legetai",
+    "id": "aristo-あるは多様に語られる",
     "resident": "アリスト",
     "concept": "「ある」は多様に語られる（πολλαχῶς λέγεται / pollachōs legetai）",
     "work": "形而上学",
@@ -186,7 +186,7 @@
     "raw": "形而上学Γ・Δ"
   },
   {
-    "id": "aristo-phusis",
+    "id": "aristo-自然",
     "resident": "アリスト",
     "concept": "自然（φύσις / phusis）",
     "work": "自然学",
@@ -196,7 +196,7 @@
     "raw": "自然学II"
   },
   {
-    "id": "aristo-kinesis",
+    "id": "aristo-運動変化",
     "resident": "アリスト",
     "concept": "運動・変化（κίνησις / kinēsis）",
     "work": "自然学",
@@ -206,7 +206,7 @@
     "raw": "自然学III"
   },
   {
-    "id": "aristo-20",
+    "id": "aristo-目的論",
     "resident": "アリスト",
     "concept": "目的論（τέλος / telos・teleology）",
     "work": "自然学",
@@ -218,7 +218,7 @@
     "raw": "自然学II／動物部分論"
   },
   {
-    "id": "aristo-21",
+    "id": "aristo-場所と自然な場所",
     "resident": "アリスト",
     "concept": "場所と自然な場所（τόπος / topos・natural place）",
     "work": "自然学",
@@ -230,7 +230,7 @@
     "raw": "自然学IV／天体論"
   },
   {
-    "id": "aristo-chronos",
+    "id": "aristo-時間",
     "resident": "アリスト",
     "concept": "時間（χρόνος / chronos）",
     "work": "自然学",
@@ -240,7 +240,7 @@
     "raw": "自然学IV"
   },
   {
-    "id": "aristo-apeiron",
+    "id": "aristo-無限",
     "resident": "アリスト",
     "concept": "無限（ἄπειρον / apeiron）",
     "work": "自然学",
@@ -250,7 +250,7 @@
     "raw": "自然学III"
   },
   {
-    "id": "aristo-syneches",
+    "id": "aristo-連続",
     "resident": "アリスト",
     "concept": "連続（συνεχές / syneches）",
     "work": "自然学",
@@ -260,7 +260,7 @@
     "raw": "自然学VI"
   },
   {
-    "id": "aristo-aether",
+    "id": "aristo-四元素と第五元素",
     "resident": "アリスト",
     "concept": "四元素と第五元素（elements・αἰθήρ / aether）",
     "work": "天体論",
@@ -270,7 +270,7 @@
     "raw": "天体論"
   },
   {
-    "id": "aristo-psuche",
+    "id": "aristo-魂",
     "resident": "アリスト",
     "concept": "魂（ψυχή / psuchē）",
     "work": "魂について",
@@ -280,7 +280,7 @@
     "raw": "魂についてII"
   },
   {
-    "id": "aristo-27",
+    "id": "aristo-魂の三能力",
     "resident": "アリスト",
     "concept": "魂の三能力（栄養・感覚・理性）",
     "work": "魂について",
@@ -290,7 +290,7 @@
     "raw": "魂についてII"
   },
   {
-    "id": "aristo-aisthesis",
+    "id": "aristo-感覚",
     "resident": "アリスト",
     "concept": "感覚（αἴσθησις / aisthēsis）",
     "work": "魂について",
@@ -300,7 +300,7 @@
     "raw": "魂についてII・III"
   },
   {
-    "id": "aristo-koine-aisthesis",
+    "id": "aristo-共通感覚",
     "resident": "アリスト",
     "concept": "共通感覚（κοινὴ αἴσθησις / koinē aisthēsis）",
     "work": "魂について",
@@ -310,7 +310,7 @@
     "raw": "魂についてIII"
   },
   {
-    "id": "aristo-phantasia",
+    "id": "aristo-想像",
     "resident": "アリスト",
     "concept": "想像（φαντασία / phantasia）",
     "work": "魂について",
@@ -320,7 +320,7 @@
     "raw": "魂についてIII"
   },
   {
-    "id": "aristo-31",
+    "id": "aristo-能動知性と受動知性",
     "resident": "アリスト",
     "concept": "能動知性と受動知性（νοῦς ποιητικός / passive・active intellect）",
     "work": "魂について",
@@ -330,7 +330,7 @@
     "raw": "魂についてIII.5"
   },
   {
-    "id": "aristo-orexis",
+    "id": "aristo-欲求",
     "resident": "アリスト",
     "concept": "欲求（ὄρεξις / orexis）",
     "work": "魂について",
@@ -342,7 +342,7 @@
     "raw": "魂についてIII／動物運動論"
   },
   {
-    "id": "aristo-eudaimonia",
+    "id": "aristo-エウダイモニア",
     "resident": "アリスト",
     "concept": "エウダイモニア（εὐδαιμονία / eudaimonia）",
     "work": "ニコマコス倫理学",
@@ -354,7 +354,7 @@
     "raw": "ニコマコス倫理学I・X／エウデモス倫理学"
   },
   {
-    "id": "aristo-ergon-argument",
+    "id": "aristo-機能論証",
     "resident": "アリスト",
     "concept": "機能論証（ἔργον / ergon argument）",
     "work": "ニコマコス倫理学",
@@ -364,7 +364,7 @@
     "raw": "ニコマコス倫理学I.7"
   },
   {
-    "id": "aristo-arete",
+    "id": "aristo-徳",
     "resident": "アリスト",
     "concept": "徳（ἀρετή / aretē）",
     "work": "ニコマコス倫理学",
@@ -374,7 +374,7 @@
     "raw": "ニコマコス倫理学II"
   },
   {
-    "id": "aristo-ethismos",
+    "id": "aristo-習慣づけと性向",
     "resident": "アリスト",
     "concept": "習慣づけと性向（ἕξις / hexis・ἐθισμός / ethismos）",
     "work": "ニコマコス倫理学",
@@ -384,7 +384,7 @@
     "raw": "ニコマコス倫理学II.1"
   },
   {
-    "id": "aristo-mesotes",
+    "id": "aristo-中庸",
     "resident": "アリスト",
     "concept": "中庸（μεσότης / mesotēs / doctrine of the mean）",
     "work": "ニコマコス倫理学",
@@ -394,7 +394,7 @@
     "raw": "ニコマコス倫理学II"
   },
   {
-    "id": "aristo-phronesis",
+    "id": "aristo-思慮",
     "resident": "アリスト",
     "concept": "思慮（φρόνησις / phronēsis）",
     "work": "ニコマコス倫理学",
@@ -404,7 +404,7 @@
     "raw": "ニコマコス倫理学VI"
   },
   {
-    "id": "aristo-akrasia",
+    "id": "aristo-アクラシア",
     "resident": "アリスト",
     "concept": "アクラシア（ἀκρασία / akrasia）",
     "work": "ニコマコス倫理学",
@@ -414,7 +414,7 @@
     "raw": "ニコマコス倫理学VII"
   },
   {
-    "id": "aristo-40",
+    "id": "aristo-自発的",
     "resident": "アリスト",
     "concept": "自発的／非自発的（ἑκούσιον / hekousion・ἀκούσιον）",
     "work": "ニコマコス倫理学",
@@ -424,7 +424,7 @@
     "raw": "ニコマコス倫理学III.1"
   },
   {
-    "id": "aristo-philia",
+    "id": "aristo-友愛",
     "resident": "アリスト",
     "concept": "友愛（φιλία / philia）",
     "work": "ニコマコス倫理学",
@@ -434,7 +434,7 @@
     "raw": "ニコマコス倫理学VIII・IX"
   },
   {
-    "id": "aristo-theoria",
+    "id": "aristo-観想",
     "resident": "アリスト",
     "concept": "観想（θεωρία / theōria）",
     "work": "ニコマコス倫理学",
@@ -444,7 +444,7 @@
     "raw": "ニコマコス倫理学X"
   },
   {
-    "id": "aristo-distributive-justice",
+    "id": "aristo-配分的正義",
     "resident": "アリスト",
     "concept": "配分的正義（distributive justice）",
     "work": "ニコマコス倫理学",
@@ -454,7 +454,7 @@
     "raw": "ニコマコス倫理学V"
   },
   {
-    "id": "aristo-zoon-politikon",
+    "id": "aristo-政治的動物",
     "resident": "アリスト",
     "concept": "政治的動物（ζῷον πολιτικόν / zōon politikon）",
     "work": "政治学",
@@ -464,7 +464,7 @@
     "raw": "政治学I"
   },
   {
-    "id": "aristo-polis",
+    "id": "aristo-ポリス",
     "resident": "アリスト",
     "concept": "ポリス（πόλις / polis）",
     "work": "政治学",
@@ -474,7 +474,7 @@
     "raw": "政治学I・III"
   },
   {
-    "id": "aristo-politeia",
+    "id": "aristo-国制の六分類",
     "resident": "アリスト",
     "concept": "国制の六分類（πολιτεία / politeia）",
     "work": "政治学",
@@ -484,7 +484,7 @@
     "raw": "政治学III"
   },
   {
-    "id": "aristo-47",
+    "id": "aristo-中間者の政体",
     "resident": "アリスト",
     "concept": "中間者の政体（polity・middle class）",
     "work": "政治学",
@@ -494,7 +494,7 @@
     "raw": "政治学IV"
   },
   {
-    "id": "aristo-48",
+    "id": "aristo-家政と生来の奴隷",
     "resident": "アリスト",
     "concept": "家政と「生来の奴隷」（οἶκος / oikos・natural slavery）",
     "work": "政治学",
@@ -504,7 +504,7 @@
     "raw": "政治学I"
   },
   {
-    "id": "aristo-mimesis",
+    "id": "aristo-ミメーシス",
     "resident": "アリスト",
     "concept": "ミメーシス（μίμησις / mimēsis）",
     "work": "詩学",
@@ -514,7 +514,7 @@
     "raw": "詩学"
   },
   {
-    "id": "aristo-mythos",
+    "id": "aristo-筋",
     "resident": "アリスト",
     "concept": "筋（μῦθος / mythos）と悲劇の定義",
     "work": "詩学",
@@ -524,7 +524,7 @@
     "raw": "詩学"
   },
   {
-    "id": "aristo-katharsis",
+    "id": "aristo-カタルシス",
     "resident": "アリスト",
     "concept": "カタルシス（κάθαρσις / katharsis）",
     "work": "詩学",
@@ -534,7 +534,7 @@
     "raw": "詩学"
   },
   {
-    "id": "aristo-hamartia",
+    "id": "aristo-ハマルティア",
     "resident": "アリスト",
     "concept": "ハマルティア（ἁμαρτία / hamartia）",
     "work": "詩学",
@@ -544,7 +544,7 @@
     "raw": "詩学"
   },
   {
-    "id": "aristo-anagnorisis",
+    "id": "aristo-逆転と認知",
     "resident": "アリスト",
     "concept": "逆転と認知（περιπέτεια / peripeteia・ἀναγνώρισις / anagnōrisis）",
     "work": "詩学",
@@ -554,7 +554,7 @@
     "raw": "詩学"
   },
   {
-    "id": "aristo-54",
+    "id": "aristo-詩と歴史",
     "resident": "アリスト",
     "concept": "詩と歴史（普遍と個別）",
     "work": "詩学",
@@ -564,7 +564,7 @@
     "raw": "詩学9"
   },
   {
-    "id": "aristo-logos",
+    "id": "aristo-説得の三様式",
     "resident": "アリスト",
     "concept": "説得の三様式（ἦθος / ethos・πάθος / pathos・λόγος / logos）",
     "work": "弁論術",
@@ -574,7 +574,7 @@
     "raw": "弁論術I"
   },
   {
-    "id": "aristo-enthymeme",
+    "id": "aristo-エンテュメーマと弁論の三類型",
     "resident": "アリスト",
     "concept": "エンテュメーマと弁論の三類型（ἐνθύμημα / enthymeme）",
     "work": "弁論術",
@@ -584,7 +584,7 @@
     "raw": "弁論術I"
   },
   {
-    "id": "aristo-scala-naturae",
+    "id": "aristo-自然の階梯",
     "resident": "アリスト",
     "concept": "自然の階梯（scala naturae）",
     "work": "動物誌",
@@ -596,7 +596,7 @@
     "raw": "動物誌／魂について"
   },
   {
-    "id": "aristo-58",
+    "id": "aristo-複合種差による分類",
     "resident": "アリスト",
     "concept": "複合種差による分類",
     "work": "動物部分論",
@@ -606,7 +606,7 @@
     "raw": "動物部分論I"
   },
   {
-    "id": "aristo-homonymy",
+    "id": "aristo-死んだ手の同名異義",
     "resident": "アリスト",
     "concept": "死んだ手の同名異義（homonymy）",
     "work": "動物部分論",
@@ -618,7 +618,7 @@
     "raw": "動物部分論I／魂についてII"
   },
   {
-    "id": "aristo-empirical-method",
+    "id": "aristo-観察と経験的方法",
     "resident": "アリスト",
     "concept": "観察と経験的方法（empirical method）",
     "work": "動物誌",
@@ -630,7 +630,7 @@
     "raw": "動物誌／動物部分論"
   },
   {
-    "id": "dekaris-bon-sens",
+    "id": "dekaris-良識",
     "resident": "デカリス",
     "concept": "良識／理性（bon sens / raison）",
     "work": "方法序説",
@@ -640,7 +640,7 @@
     "raw": "方法序説 第一部"
   },
   {
-    "id": "dekaris-les-quatre-preceptes",
+    "id": "dekaris-方法の四つの規則",
     "resident": "デカリス",
     "concept": "方法の四つの規則（les quatre préceptes）",
     "work": "方法序説",
@@ -650,7 +650,7 @@
     "raw": "方法序説 第二部"
   },
   {
-    "id": "dekaris-intuitus",
+    "id": "dekaris-直観と演繹",
     "resident": "デカリス",
     "concept": "直観と演繹（intuitus / deductio）",
     "work": "精神指導の規則",
@@ -660,7 +660,7 @@
     "raw": "精神指導の規則"
   },
   {
-    "id": "dekaris-naturae-simplices",
+    "id": "dekaris-単純本性",
     "resident": "デカリス",
     "concept": "単純本性（naturae simplices / simple natures）",
     "work": "精神指導の規則",
@@ -670,7 +670,7 @@
     "raw": "精神指導の規則"
   },
   {
-    "id": "dekaris-enumeratio",
+    "id": "dekaris-枚挙",
     "resident": "デカリス",
     "concept": "枚挙（enumeratio）",
     "work": "精神指導の規則",
@@ -680,7 +680,7 @@
     "raw": "精神指導の規則"
   },
   {
-    "id": "dekaris-analysis",
+    "id": "dekaris-分析と総合",
     "resident": "デカリス",
     "concept": "分析と総合（analysis / synthesis）",
     "work": "省察への第二答弁",
@@ -690,7 +690,7 @@
     "raw": "省察への第二答弁"
   },
   {
-    "id": "dekaris-ordo-rationum",
+    "id": "dekaris-理由の順序",
     "resident": "デカリス",
     "concept": "理由の順序（ordo rationum）",
     "work": "精神指導の規則",
@@ -702,7 +702,7 @@
     "raw": "精神指導の規則／省察"
   },
   {
-    "id": "dekaris-doute-methodique",
+    "id": "dekaris-方法的懐疑",
     "resident": "デカリス",
     "concept": "方法的懐疑（doute méthodique）",
     "work": "方法序説",
@@ -714,7 +714,7 @@
     "raw": "方法序説 第四部／省察 第一"
   },
   {
-    "id": "dekaris-doute-hyperbolique",
+    "id": "dekaris-誇張的懐疑",
     "resident": "デカリス",
     "concept": "誇張的懐疑（doute hyperbolique）",
     "work": "省察",
@@ -724,7 +724,7 @@
     "raw": "省察 第一"
   },
   {
-    "id": "dekaris-argument-du-reve",
+    "id": "dekaris-夢の論証",
     "resident": "デカリス",
     "concept": "夢の論証（argument du rêve）",
     "work": "省察",
@@ -734,7 +734,7 @@
     "raw": "省察 第一"
   },
   {
-    "id": "dekaris-deus-deceptor",
+    "id": "dekaris-欺く神悪霊",
     "resident": "デカリス",
     "concept": "欺く神・悪霊（deus deceptor / malin génie）",
     "work": "省察",
@@ -744,7 +744,7 @@
     "raw": "省察 第一"
   },
   {
-    "id": "dekaris-morale-par-provision",
+    "id": "dekaris-暫定道徳",
     "resident": "デカリス",
     "concept": "暫定道徳（morale par provision）",
     "work": "方法序説",
@@ -754,7 +754,7 @@
     "raw": "方法序説 第三部"
   },
   {
-    "id": "dekaris-clara-et-distincta-perceptio",
+    "id": "dekaris-明晰判明",
     "resident": "デカリス",
     "concept": "明晰判明（clara et distincta perceptio）",
     "work": "哲学原理",
@@ -766,7 +766,7 @@
     "raw": "哲学原理 第一部／省察"
   },
   {
-    "id": "dekaris-cogito-ergo-sum",
+    "id": "dekaris-コギト",
     "resident": "デカリス",
     "concept": "コギト（cogito, ergo sum / je pense, donc je suis）",
     "work": "方法序説",
@@ -778,7 +778,7 @@
     "raw": "方法序説 第四部／省察 第二"
   },
   {
-    "id": "dekaris-l-analyse-du-morceau-de-cire",
+    "id": "dekaris-蜜蝋の分析",
     "resident": "デカリス",
     "concept": "蜜蝋の分析（l'analyse du morceau de cire）",
     "work": "省察",
@@ -788,7 +788,7 @@
     "raw": "省察 第二"
   },
   {
-    "id": "dekaris-res-cogitans",
+    "id": "dekaris-思考する実体",
     "resident": "デカリス",
     "concept": "思考する実体（res cogitans）",
     "work": "省察",
@@ -798,7 +798,7 @@
     "raw": "省察 第二・第六"
   },
   {
-    "id": "dekaris-17",
+    "id": "dekaris-観念の三種",
     "resident": "デカリス",
     "concept": "観念の三種（生得・外来・作為）",
     "work": "省察",
@@ -808,7 +808,7 @@
     "raw": "省察 第三"
   },
   {
-    "id": "dekaris-trademark-argument",
+    "id": "dekaris-神の因果論証",
     "resident": "デカリス",
     "concept": "神の因果論証（証印論証 / trademark argument）",
     "work": "省察",
@@ -818,7 +818,7 @@
     "raw": "省察 第三"
   },
   {
-    "id": "dekaris-argument-ontologique",
+    "id": "dekaris-神の存在論的証明",
     "resident": "デカリス",
     "concept": "神の存在論的証明（argument ontologique）",
     "work": "省察",
@@ -830,7 +830,7 @@
     "raw": "省察 第五／哲学原理 第一部"
   },
   {
-    "id": "dekaris-20",
+    "id": "dekaris-欺かない神",
     "resident": "デカリス",
     "concept": "欺かない神（真理の保証者）",
     "work": "省察",
@@ -840,7 +840,7 @@
     "raw": "省察 第三・第四"
   },
   {
-    "id": "dekaris-cercle-cartesien",
+    "id": "dekaris-デカルトの循環",
     "resident": "デカリス",
     "concept": "デカルトの循環（cercle cartésien）",
     "work": "第四反論と答弁",
@@ -850,7 +850,7 @@
     "raw": "第四反論と答弁"
   },
   {
-    "id": "dekaris-22",
+    "id": "dekaris-誤謬の理論",
     "resident": "デカリス",
     "concept": "誤謬の理論（意志と知性のズレ）",
     "work": "省察",
@@ -860,7 +860,7 @@
     "raw": "省察 第四"
   },
   {
-    "id": "dekaris-substantia",
+    "id": "dekaris-実体属性様態",
     "resident": "デカリス",
     "concept": "実体・属性・様態（substantia / attributum / modus）",
     "work": "哲学原理",
@@ -870,7 +870,7 @@
     "raw": "哲学原理 第一部"
   },
   {
-    "id": "dekaris-dualisme-ame-corps",
+    "id": "dekaris-心身二元論",
     "resident": "デカリス",
     "concept": "心身二元論（dualisme âme-corps）",
     "work": "省察",
@@ -882,7 +882,7 @@
     "raw": "省察 第六／哲学原理"
   },
   {
-    "id": "dekaris-res-extensa",
+    "id": "dekaris-延長する実体",
     "resident": "デカリス",
     "concept": "延長する実体（res extensa）",
     "work": "省察",
@@ -894,7 +894,7 @@
     "raw": "省察 第五・第六／哲学原理 第二部"
   },
   {
-    "id": "dekaris-union-de-l-ame-et-du-corps",
+    "id": "dekaris-心身合一",
     "resident": "デカリス",
     "concept": "心身合一（union de l'âme et du corps）",
     "work": "省察",
@@ -906,7 +906,7 @@
     "raw": "省察 第六／エリザベト宛書簡（1643）"
   },
   {
-    "id": "dekaris-glande-pineale",
+    "id": "dekaris-松果腺",
     "resident": "デカリス",
     "concept": "松果腺（glande pinéale / conarion）",
     "work": "情念論",
@@ -918,7 +918,7 @@
     "raw": "情念論 第一部／人間論"
   },
   {
-    "id": "dekaris-esprits-animaux",
+    "id": "dekaris-動物精気",
     "resident": "デカリス",
     "concept": "動物精気（esprits animaux）",
     "work": "人間論",
@@ -930,7 +930,7 @@
     "raw": "人間論／情念論 第一部"
   },
   {
-    "id": "dekaris-bete-machine",
+    "id": "dekaris-動物機械論",
     "resident": "デカリス",
     "concept": "動物機械論（bête-machine / animal automaton）",
     "work": "方法序説",
@@ -942,7 +942,7 @@
     "raw": "方法序説 第五部／人間論"
   },
   {
-    "id": "dekaris-mecanisme",
+    "id": "dekaris-機械論的自然観",
     "resident": "デカリス",
     "concept": "機械論的自然観（mécanisme）",
     "work": "世界論",
@@ -954,7 +954,7 @@
     "raw": "世界論／哲学原理 第二〜四部"
   },
   {
-    "id": "dekaris-plenum",
+    "id": "dekaris-充満と真空否定",
     "resident": "デカリス",
     "concept": "充満と真空否定（plenum）",
     "work": "哲学原理",
@@ -964,7 +964,7 @@
     "raw": "哲学原理 第二部"
   },
   {
-    "id": "dekaris-lois-de-la-nature",
+    "id": "dekaris-運動法則と運動量保存",
     "resident": "デカリス",
     "concept": "運動法則と運動量保存（lois de la nature）",
     "work": "世界論",
@@ -976,7 +976,7 @@
     "raw": "世界論／哲学原理 第二部"
   },
   {
-    "id": "dekaris-theorie-des-tourbillons",
+    "id": "dekaris-渦動説",
     "resident": "デカリス",
     "concept": "渦動説（théorie des tourbillons / vortices）",
     "work": "哲学原理",
@@ -986,7 +986,7 @@
     "raw": "哲学原理 第三部"
   },
   {
-    "id": "dekaris-corpuscularisme",
+    "id": "dekaris-微粒子論と三元素",
     "resident": "デカリス",
     "concept": "微粒子論と三元素（corpuscularisme / trois éléments）",
     "work": "世界論",
@@ -998,7 +998,7 @@
     "raw": "世界論／哲学原理 第三部"
   },
   {
-    "id": "dekaris-35",
+    "id": "dekaris-身体機械",
     "resident": "デカリス",
     "concept": "身体＝機械（人間機械論の生理学）",
     "work": "人間論",
@@ -1008,7 +1008,7 @@
     "raw": "人間論"
   },
   {
-    "id": "dekaris-passions-de-l-ame",
+    "id": "dekaris-情念",
     "resident": "デカリス",
     "concept": "情念（passions de l'âme）",
     "work": "情念論",
@@ -1018,7 +1018,7 @@
     "raw": "情念論 第一部"
   },
   {
-    "id": "dekaris-passions-primitives",
+    "id": "dekaris-六つの基本情念",
     "resident": "デカリス",
     "concept": "六つの基本情念（passions primitives）",
     "work": "情念論",
@@ -1028,7 +1028,7 @@
     "raw": "情念論 第二部"
   },
   {
-    "id": "dekaris-generosite",
+    "id": "dekaris-高邁",
     "resident": "デカリス",
     "concept": "高邁（générosité）",
     "work": "情念論",
@@ -1038,7 +1038,7 @@
     "raw": "情念論 第三部"
   },
   {
-    "id": "dekaris-liberte",
+    "id": "dekaris-自由意志",
     "resident": "デカリス",
     "concept": "自由意志（liberté / libre arbitre）",
     "work": "省察",
@@ -1050,7 +1050,7 @@
     "raw": "省察 第四／情念論 第三部"
   },
   {
-    "id": "dekaris-geometrie-analytique",
+    "id": "dekaris-解析幾何学",
     "resident": "デカリス",
     "concept": "解析幾何学（géométrie analytique）",
     "work": "幾何学",
@@ -1060,7 +1060,7 @@
     "raw": "幾何学（1637）"
   },
   {
-    "id": "dekaris-mathesis-universalis",
+    "id": "dekaris-普遍数学",
     "resident": "デカリス",
     "concept": "普遍数学（mathesis universalis）",
     "work": "精神指導の規則",
@@ -1070,7 +1070,7 @@
     "raw": "精神指導の規則 第四"
   },
   {
-    "id": "hegru-dialektik",
+    "id": "hegru-弁証法",
     "resident": "ヘグル",
     "concept": "弁証法（Dialektik）",
     "work": "小論理学",
@@ -1082,7 +1082,7 @@
     "raw": "小論理学（エンツィクロペディー第1部）、大論理学"
   },
   {
-    "id": "hegru-aufhebung",
+    "id": "hegru-止揚",
     "resident": "ヘグル",
     "concept": "止揚（Aufhebung / aufheben）",
     "work": "大論理学",
@@ -1092,7 +1092,7 @@
     "raw": "大論理学（有論）"
   },
   {
-    "id": "hegru-bestimmte-negation",
+    "id": "hegru-規定的否定",
     "resident": "ヘグル",
     "concept": "規定的否定（bestimmte Negation）",
     "work": "大論理学",
@@ -1104,7 +1104,7 @@
     "raw": "大論理学、精神現象学（序論）"
   },
   {
-    "id": "hegru-an-sich",
+    "id": "hegru-即自対自即且対自",
     "resident": "ヘグル",
     "concept": "即自・対自・即且対自（An sich / Für sich / An und für sich）",
     "work": "大論理学",
@@ -1116,7 +1116,7 @@
     "raw": "大論理学、精神現象学"
   },
   {
-    "id": "hegru-sein",
+    "id": "hegru-有無成",
     "resident": "ヘグル",
     "concept": "有・無・成（Sein / Nichts / Werden）",
     "work": "大論理学",
@@ -1128,7 +1128,7 @@
     "raw": "大論理学（有論）、小論理学"
   },
   {
-    "id": "hegru-dasein",
+    "id": "hegru-定有或るもの",
     "resident": "ヘグル",
     "concept": "定有・或るもの（Dasein / Etwas）",
     "work": "大論理学",
@@ -1138,7 +1138,7 @@
     "raw": "大論理学（有論）"
   },
   {
-    "id": "hegru-qualitat",
+    "id": "hegru-質量度",
     "resident": "ヘグル",
     "concept": "質・量・度（Qualität / Quantität / Maß）",
     "work": "大論理学",
@@ -1150,7 +1150,7 @@
     "raw": "大論理学（有論）、小論理学"
   },
   {
-    "id": "hegru-wahrhafte",
+    "id": "hegru-真無限と悪無限",
     "resident": "ヘグル",
     "concept": "真無限と悪無限（wahrhafte / schlechte Unendlichkeit）",
     "work": "大論理学",
@@ -1160,7 +1160,7 @@
     "raw": "大論理学（有論）"
   },
   {
-    "id": "hegru-wesen",
+    "id": "hegru-本質仮象反省",
     "resident": "ヘグル",
     "concept": "本質・仮象・反省（Wesen / Schein / Reflexion）",
     "work": "大論理学",
@@ -1170,7 +1170,7 @@
     "raw": "大論理学（本質論）"
   },
   {
-    "id": "hegru-widerspruch",
+    "id": "hegru-矛盾",
     "resident": "ヘグル",
     "concept": "矛盾（Widerspruch）",
     "work": "大論理学",
@@ -1180,7 +1180,7 @@
     "raw": "大論理学（本質論）"
   },
   {
-    "id": "hegru-grund",
+    "id": "hegru-根拠",
     "resident": "ヘグル",
     "concept": "根拠（Grund）",
     "work": "大論理学",
@@ -1190,7 +1190,7 @@
     "raw": "大論理学（本質論）"
   },
   {
-    "id": "hegru-begriff",
+    "id": "hegru-概念判断推論",
     "resident": "ヘグル",
     "concept": "概念・判断・推論（Begriff / Urteil / Schluss）",
     "work": "大論理学",
@@ -1202,7 +1202,7 @@
     "raw": "大論理学（概念論）、小論理学"
   },
   {
-    "id": "hegru-das-konkrete-allgemeine",
+    "id": "hegru-具体的普遍",
     "resident": "ヘグル",
     "concept": "具体的普遍（das konkrete Allgemeine）",
     "work": "大論理学",
@@ -1212,7 +1212,7 @@
     "raw": "大論理学（概念論）"
   },
   {
-    "id": "hegru-idee",
+    "id": "hegru-理念",
     "resident": "ヘグル",
     "concept": "理念（Idee）",
     "work": "大論理学",
@@ -1224,7 +1224,7 @@
     "raw": "大論理学（概念論）、小論理学"
   },
   {
-    "id": "hegru-absolute-idee",
+    "id": "hegru-絶対理念",
     "resident": "ヘグル",
     "concept": "絶対理念（absolute Idee）",
     "work": "大論理学",
@@ -1236,7 +1236,7 @@
     "raw": "大論理学、小論理学"
   },
   {
-    "id": "hegru-das-spekulative",
+    "id": "hegru-思弁的なもの",
     "resident": "ヘグル",
     "concept": "思弁的なもの／思弁的命題（das Spekulative / der spekulative Satz）",
     "work": "精神現象学",
@@ -1248,7 +1248,7 @@
     "raw": "精神現象学（序文）、小論理学"
   },
   {
-    "id": "hegru-geist",
+    "id": "hegru-精神",
     "resident": "ヘグル",
     "concept": "精神（Geist）",
     "work": "精神現象学",
@@ -1260,7 +1260,7 @@
     "raw": "精神現象学、精神哲学（エンツィクロペディー第3部）"
   },
   {
-    "id": "hegru-die-erfahrung-des-bewu-tseins",
+    "id": "hegru-意識の経験の学",
     "resident": "ヘグル",
     "concept": "意識の経験の学（die Erfahrung des Bewußtseins）",
     "work": "精神現象学",
@@ -1270,7 +1270,7 @@
     "raw": "精神現象学（序論）"
   },
   {
-    "id": "hegru-sinnliche-gewi-heit",
+    "id": "hegru-感覚的確信",
     "resident": "ヘグル",
     "concept": "感覚的確信（sinnliche Gewißheit）",
     "work": "精神現象学",
@@ -1280,7 +1280,7 @@
     "raw": "精神現象学（A. 意識）"
   },
   {
-    "id": "hegru-herrschaft-und-knechtschaft",
+    "id": "hegru-主と奴",
     "resident": "ヘグル",
     "concept": "主と奴（Herrschaft und Knechtschaft）",
     "work": "精神現象学",
@@ -1290,7 +1290,7 @@
     "raw": "精神現象学（B. 自己意識）"
   },
   {
-    "id": "hegru-anerkennung",
+    "id": "hegru-承認",
     "resident": "ヘグル",
     "concept": "承認（Anerkennung）",
     "work": "精神現象学",
@@ -1303,7 +1303,7 @@
     "raw": "精神現象学、法の哲学、精神哲学"
   },
   {
-    "id": "hegru-ungluckliches-bewu-tsein",
+    "id": "hegru-不幸な意識",
     "resident": "ヘグル",
     "concept": "不幸な意識（unglückliches Bewußtsein）",
     "work": "精神現象学",
@@ -1313,7 +1313,7 @@
     "raw": "精神現象学（B. 自己意識）"
   },
   {
-    "id": "hegru-vernunft",
+    "id": "hegru-理性",
     "resident": "ヘグル",
     "concept": "理性（Vernunft）",
     "work": "精神現象学",
@@ -1325,7 +1325,7 @@
     "raw": "精神現象学（C. 理性）、小論理学"
   },
   {
-    "id": "hegru-entfremdung",
+    "id": "hegru-疎外外化",
     "resident": "ヘグル",
     "concept": "疎外・外化（Entfremdung / Entäußerung）",
     "work": "精神現象学",
@@ -1337,7 +1337,7 @@
     "raw": "精神現象学、精神哲学"
   },
   {
-    "id": "hegru-absolutes-wissen",
+    "id": "hegru-絶対知",
     "resident": "ヘグル",
     "concept": "絶対知（absolutes Wissen）",
     "work": "精神現象学",
@@ -1347,7 +1347,7 @@
     "raw": "精神現象学（最終章）"
   },
   {
-    "id": "hegru-natur-als-idee-im-anderssein",
+    "id": "hegru-自然理念の外化態",
     "resident": "ヘグル",
     "concept": "自然＝理念の外化態（Natur als Idee im Anderssein）",
     "work": "自然哲学",
@@ -1357,7 +1357,7 @@
     "raw": "自然哲学（エンツィクロペディー第2部）"
   },
   {
-    "id": "hegru-subjektiver",
+    "id": "hegru-主観的精神客観的精神絶対的精神",
     "resident": "ヘグル",
     "concept": "主観的精神・客観的精神・絶対的精神（subjektiver / objektiver / absoluter Geist）",
     "work": "精神哲学",
@@ -1367,7 +1367,7 @@
     "raw": "精神哲学（エンツィクロペディー第3部）"
   },
   {
-    "id": "hegru-weltgeist",
+    "id": "hegru-世界精神",
     "resident": "ヘグル",
     "concept": "世界精神（Weltgeist）",
     "work": "歴史哲学講義",
@@ -1377,7 +1377,7 @@
     "raw": "歴史哲学講義"
   },
   {
-    "id": "hegru-list-der-vernunft",
+    "id": "hegru-理性の狡知",
     "resident": "ヘグル",
     "concept": "理性の狡知（List der Vernunft）",
     "work": "歴史哲学講義",
@@ -1387,7 +1387,7 @@
     "raw": "歴史哲学講義（序論）"
   },
   {
-    "id": "hegru-welthistorisches-individuum",
+    "id": "hegru-世界史的個人",
     "resident": "ヘグル",
     "concept": "世界史的個人（welthistorisches Individuum）",
     "work": "歴史哲学講義",
@@ -1397,7 +1397,7 @@
     "raw": "歴史哲学講義（序論）"
   },
   {
-    "id": "hegru-fortschritt-im-bewu-tsein-der-freiheit",
+    "id": "hegru-自由の意識の進歩",
     "resident": "ヘグル",
     "concept": "自由の意識の進歩（Fortschritt im Bewußtsein der Freiheit）",
     "work": "歴史哲学講義",
@@ -1407,7 +1407,7 @@
     "raw": "歴史哲学講義（序論）"
   },
   {
-    "id": "hegru-die-eule-der-minerva",
+    "id": "hegru-ミネルヴァの梟",
     "resident": "ヘグル",
     "concept": "ミネルヴァの梟（die Eule der Minerva）",
     "work": "法の哲学",
@@ -1417,7 +1417,7 @@
     "raw": "法の哲学（序文）"
   },
   {
-    "id": "hegru-freier-wille",
+    "id": "hegru-自由意志",
     "resident": "ヘグル",
     "concept": "自由意志（freier Wille）",
     "work": "法の哲学",
@@ -1427,7 +1427,7 @@
     "raw": "法の哲学（序論）"
   },
   {
-    "id": "hegru-abstraktes-recht",
+    "id": "hegru-抽象法道徳人倫",
     "resident": "ヘグル",
     "concept": "抽象法・道徳・人倫（abstraktes Recht / Moralität / Sittlichkeit）",
     "work": "法の哲学",
@@ -1437,7 +1437,7 @@
     "raw": "法の哲学"
   },
   {
-    "id": "hegru-sittlichkeit",
+    "id": "hegru-人倫",
     "resident": "ヘグル",
     "concept": "人倫（Sittlichkeit）",
     "work": "法の哲学",
@@ -1447,7 +1447,7 @@
     "raw": "法の哲学（第3部）"
   },
   {
-    "id": "hegru-familie",
+    "id": "hegru-家族市民社会国家",
     "resident": "ヘグル",
     "concept": "家族・市民社会・国家（Familie / bürgerliche Gesellschaft / Staat）",
     "work": "法の哲学",
@@ -1457,7 +1457,7 @@
     "raw": "法の哲学（第3部）"
   },
   {
-    "id": "hegru-was-vernunftig-ist-das-ist-wirklich-und-was-wirklich-ist-das-ist-vernunftig",
+    "id": "hegru-理性的なものは現実的現実的なものは理性的",
     "resident": "ヘグル",
     "concept": "「理性的なものは現実的、現実的なものは理性的」（Was vernünftig ist, das ist wirklich; und was wirklich ist, das ist vernünftig）",
     "work": "法の哲学",
@@ -1467,7 +1467,7 @@
     "raw": "法の哲学（序文）"
   },
   {
-    "id": "hegru-das-sinnliche-scheinen-der-idee",
+    "id": "hegru-美理念の感性的顕現",
     "resident": "ヘグル",
     "concept": "美＝理念の感性的顕現（das sinnliche Scheinen der Idee）",
     "work": "美学講義",
@@ -1477,7 +1477,7 @@
     "raw": "美学講義"
   },
   {
-    "id": "hegru-symbolisch",
+    "id": "hegru-象徴的古典的ロマン的芸術形式",
     "resident": "ヘグル",
     "concept": "象徴的・古典的・ロマン的芸術形式（symbolisch / klassisch / romantisch）",
     "work": "美学講義",
@@ -1487,7 +1487,7 @@
     "raw": "美学講義"
   },
   {
-    "id": "hegru-vergangenheitscharakter-der-kunst",
+    "id": "hegru-芸術の終焉",
     "resident": "ヘグル",
     "concept": "芸術の終焉／芸術の過去性（Vergangenheitscharakter der Kunst）",
     "work": "美学講義",
@@ -1497,7 +1497,7 @@
     "raw": "美学講義（序論）"
   },
   {
-    "id": "hegru-vorstellung",
+    "id": "hegru-表象",
     "resident": "ヘグル",
     "concept": "表象（Vorstellung）",
     "work": "宗教哲学講義",
@@ -1509,7 +1509,7 @@
     "raw": "宗教哲学講義、精神哲学"
   },
   {
-    "id": "hegru-geoffenbarte",
+    "id": "hegru-啓示宗教",
     "resident": "ヘグル",
     "concept": "啓示宗教／絶対宗教（geoffenbarte / absolute Religion）",
     "work": "宗教哲学講義",
@@ -1519,7 +1519,7 @@
     "raw": "宗教哲学講義"
   },
   {
-    "id": "hegru-versohnung",
+    "id": "hegru-和解",
     "resident": "ヘグル",
     "concept": "和解（Versöhnung）",
     "work": "宗教哲学講義",
@@ -1531,7 +1531,7 @@
     "raw": "宗教哲学講義、精神現象学"
   },
   {
-    "id": "hegru-geschichte-der-philosophie-als-system",
+    "id": "hegru-哲学史理念の自己展開",
     "resident": "ヘグル",
     "concept": "哲学史＝理念の自己展開（Geschichte der Philosophie als System）",
     "work": "哲学史講義",
@@ -1541,7 +1541,7 @@
     "raw": "哲学史講義（序論）"
   },
   {
-    "id": "hue-perceptions",
+    "id": "hue-知覚",
     "resident": "ヒュー",
     "concept": "知覚（perceptions）",
     "work": "人間本性論",
@@ -1553,7 +1553,7 @@
     "raw": "人間本性論I／人間知性研究。"
   },
   {
-    "id": "hue-impressions",
+    "id": "hue-印象と観念",
     "resident": "ヒュー",
     "concept": "印象と観念（impressions / ideas）",
     "work": "人間本性論",
@@ -1565,7 +1565,7 @@
     "raw": "人間本性論I.i／人間知性研究2。"
   },
   {
-    "id": "hue-copy-principle",
+    "id": "hue-模写原理",
     "resident": "ヒュー",
     "concept": "模写原理／コピー原理（copy principle）",
     "work": "人間本性論",
@@ -1577,7 +1577,7 @@
     "raw": "人間本性論I.i.1／人間知性研究2。"
   },
   {
-    "id": "hue-simple",
+    "id": "hue-単純と複合",
     "resident": "ヒュー",
     "concept": "単純と複合（simple / complex perceptions）",
     "work": "人間本性論",
@@ -1587,7 +1587,7 @@
     "raw": "人間本性論I.i.1。"
   },
   {
-    "id": "hue-association-of-ideas",
+    "id": "hue-観念連合の三原理",
     "resident": "ヒュー",
     "concept": "観念連合の三原理（association of ideas）",
     "work": "人間本性論",
@@ -1599,7 +1599,7 @@
     "raw": "人間本性論I.i.4／人間知性研究3。"
   },
   {
-    "id": "hue-hume-s-fork",
+    "id": "hue-ヒュームのフォーク",
     "resident": "ヒュー",
     "concept": "ヒュームのフォーク（Hume's Fork）",
     "work": "人間知性研究",
@@ -1611,7 +1611,7 @@
     "raw": "人間知性研究4／12。"
   },
   {
-    "id": "hue-conceivability-principle",
+    "id": "hue-構想可能性原理",
     "resident": "ヒュー",
     "concept": "構想可能性原理（conceivability principle）",
     "work": "人間本性論",
@@ -1623,7 +1623,7 @@
     "raw": "人間本性論I.ii／人間知性研究4。"
   },
   {
-    "id": "hue-imagination",
+    "id": "hue-想像力",
     "resident": "ヒュー",
     "concept": "想像力（imagination）",
     "work": "人間本性論",
@@ -1633,7 +1633,7 @@
     "raw": "人間本性論I。"
   },
   {
-    "id": "hue-missing-shade-of-blue",
+    "id": "hue-欠けた青の色合い",
     "resident": "ヒュー",
     "concept": "欠けた青の色合い（missing shade of blue）",
     "work": "人間本性論",
@@ -1645,7 +1645,7 @@
     "raw": "人間本性論I.i.1／人間知性研究2。"
   },
   {
-    "id": "hue-constant-conjunction",
+    "id": "hue-恒常的連接",
     "resident": "ヒュー",
     "concept": "恒常的連接（constant conjunction）",
     "work": "人間本性論",
@@ -1657,7 +1657,7 @@
     "raw": "人間本性論I.iii／人間知性研究7。"
   },
   {
-    "id": "hue-necessary-connection",
+    "id": "hue-必然的結合",
     "resident": "ヒュー",
     "concept": "必然的結合（necessary connection）",
     "work": "人間本性論",
@@ -1669,7 +1669,7 @@
     "raw": "人間本性論I.iii.14／人間知性研究7。"
   },
   {
-    "id": "hue-two-definitions-of-cause",
+    "id": "hue-因果の二つの定義",
     "resident": "ヒュー",
     "concept": "因果の二つの定義（two definitions of cause）",
     "work": "人間知性研究",
@@ -1681,7 +1681,7 @@
     "raw": "人間知性研究7／人間本性論I.iii.14。"
   },
   {
-    "id": "hue-problem-of-induction",
+    "id": "hue-帰納の問題",
     "resident": "ヒュー",
     "concept": "帰納の問題（problem of induction）",
     "work": "人間知性研究",
@@ -1691,7 +1691,7 @@
     "raw": "人間知性研究4。"
   },
   {
-    "id": "hue-custom",
+    "id": "hue-習慣慣れ",
     "resident": "ヒュー",
     "concept": "習慣・慣れ（custom / habit）",
     "work": "人間知性研究",
@@ -1701,7 +1701,7 @@
     "raw": "人間知性研究5。"
   },
   {
-    "id": "hue-belief",
+    "id": "hue-信念",
     "resident": "ヒュー",
     "concept": "信念（belief）",
     "work": "人間本性論",
@@ -1713,7 +1713,7 @@
     "raw": "人間本性論I.iii.7／人間知性研究5。"
   },
   {
-    "id": "hue-probability",
+    "id": "hue-蓋然性",
     "resident": "ヒュー",
     "concept": "蓋然性（probability）",
     "work": "人間本性論",
@@ -1725,7 +1725,7 @@
     "raw": "人間本性論I.iii.11–13／人間知性研究6。"
   },
   {
-    "id": "hue-bundle-theory-of-self",
+    "id": "hue-束理論",
     "resident": "ヒュー",
     "concept": "束理論（bundle theory of self）",
     "work": "人間本性論",
@@ -1735,7 +1735,7 @@
     "raw": "人間本性論I.iv.6。"
   },
   {
-    "id": "hue-personal-identity-as-fiction",
+    "id": "hue-人格の同一性は虚構",
     "resident": "ヒュー",
     "concept": "人格の同一性は虚構（personal identity as fiction）",
     "work": "人間本性論",
@@ -1745,7 +1745,7 @@
     "raw": "人間本性論I.iv.6。"
   },
   {
-    "id": "hue-the-appendix-problem",
+    "id": "hue-付録の困惑",
     "resident": "ヒュー",
     "concept": "付録の困惑（the Appendix problem）",
     "work": "人間本性論",
@@ -1755,7 +1755,7 @@
     "raw": "人間本性論・付録。"
   },
   {
-    "id": "hue-secondary",
+    "id": "hue-二次印象",
     "resident": "ヒュー",
     "concept": "二次印象（secondary / reflective impressions）",
     "work": "人間本性論",
@@ -1765,7 +1765,7 @@
     "raw": "人間本性論II.i。"
   },
   {
-    "id": "hue-direct",
+    "id": "hue-直接情念と間接情念",
     "resident": "ヒュー",
     "concept": "直接情念と間接情念（direct / indirect passions）",
     "work": "人間本性論",
@@ -1777,7 +1777,7 @@
     "raw": "人間本性論II／情念論。"
   },
   {
-    "id": "hue-calm",
+    "id": "hue-穏やかな情念と激しい情念",
     "resident": "ヒュー",
     "concept": "穏やかな情念と激しい情念（calm / violent passions）",
     "work": "人間本性論",
@@ -1787,7 +1787,7 @@
     "raw": "人間本性論II.iii.3。"
   },
   {
-    "id": "hue-double-relation-of-impressions-and-ideas",
+    "id": "hue-印象と観念の二重関係",
     "resident": "ヒュー",
     "concept": "印象と観念の二重関係（double relation of impressions and ideas）",
     "work": "人間本性論",
@@ -1797,7 +1797,7 @@
     "raw": "人間本性論II.i。"
   },
   {
-    "id": "hue-pride-and-humility",
+    "id": "hue-誇りと卑下",
     "resident": "ヒュー",
     "concept": "誇りと卑下（pride and humility）",
     "work": "人間本性論",
@@ -1807,7 +1807,7 @@
     "raw": "人間本性論II.i。"
   },
   {
-    "id": "hue-sympathy",
+    "id": "hue-共感",
     "resident": "ヒュー",
     "concept": "共感（sympathy）",
     "work": "人間本性論",
@@ -1819,7 +1819,7 @@
     "raw": "人間本性論II.i.11／III。"
   },
   {
-    "id": "hue-comparison",
+    "id": "hue-比較の原理",
     "resident": "ヒュー",
     "concept": "比較の原理（comparison）",
     "work": "人間本性論",
@@ -1829,7 +1829,7 @@
     "raw": "人間本性論II.ii.8。"
   },
   {
-    "id": "hue-reason-is-the-slave-of-the-passions",
+    "id": "hue-理性は情念の奴隷",
     "resident": "ヒュー",
     "concept": "理性は情念の奴隷（reason is the slave of the passions）",
     "work": "人間本性論",
@@ -1839,7 +1839,7 @@
     "raw": "人間本性論II.iii.3。"
   },
   {
-    "id": "hue-moral-sentimentalism",
+    "id": "hue-道徳感情主義",
     "resident": "ヒュー",
     "concept": "道徳感情主義（moral sentimentalism）",
     "work": "人間本性論",
@@ -1851,7 +1851,7 @@
     "raw": "人間本性論III.i.1／道徳原理研究。"
   },
   {
-    "id": "hue-moral-distinctions-not-derived-from-reason",
+    "id": "hue-道徳判断は理性に由来しない",
     "resident": "ヒュー",
     "concept": "道徳判断は理性に由来しない（moral distinctions not derived from reason）",
     "work": "人間本性論",
@@ -1861,7 +1861,7 @@
     "raw": "人間本性論III.i.1。"
   },
   {
-    "id": "hue-the-motivation-argument",
+    "id": "hue-動機づけの議論",
     "resident": "ヒュー",
     "concept": "動機づけの議論（the motivation argument）",
     "work": "人間本性論",
@@ -1871,7 +1871,7 @@
     "raw": "人間本性論III.i.1。"
   },
   {
-    "id": "hue-is-ought-gap",
+    "id": "hue-ヒュームの法則",
     "resident": "ヒュー",
     "concept": "ヒュームの法則／is-ought（is-ought gap）",
     "work": "人間本性論",
@@ -1881,7 +1881,7 @@
     "raw": "人間本性論III.i.1。"
   },
   {
-    "id": "hue-approbation",
+    "id": "hue-是認と否認",
     "resident": "ヒュー",
     "concept": "是認と否認（approbation / disapprobation）",
     "work": "人間本性論",
@@ -1893,7 +1893,7 @@
     "raw": "人間本性論III／道徳原理研究。"
   },
   {
-    "id": "hue-the-general",
+    "id": "hue-一般的視点",
     "resident": "ヒュー",
     "concept": "一般的視点（the general / common point of view）",
     "work": "人間本性論",
@@ -1903,7 +1903,7 @@
     "raw": "人間本性論III.iii.1。"
   },
   {
-    "id": "hue-utility",
+    "id": "hue-効用",
     "resident": "ヒュー",
     "concept": "効用（utility）",
     "work": "道徳原理研究",
@@ -1913,7 +1913,7 @@
     "raw": "道徳原理研究。"
   },
   {
-    "id": "hue-natural",
+    "id": "hue-自然的徳と人為的徳",
     "resident": "ヒュー",
     "concept": "自然的徳と人為的徳（natural / artificial virtues）",
     "work": "人間本性論",
@@ -1923,7 +1923,7 @@
     "raw": "人間本性論III.ii–iii。"
   },
   {
-    "id": "hue-justice-as-artificial-virtue",
+    "id": "hue-正義は人為的徳",
     "resident": "ヒュー",
     "concept": "正義は人為的徳（justice as artificial virtue）",
     "work": "人間本性論",
@@ -1935,7 +1935,7 @@
     "raw": "人間本性論III.ii.1–2／道徳原理研究3。"
   },
   {
-    "id": "hue-convention",
+    "id": "hue-黙約",
     "resident": "ヒュー",
     "concept": "黙約／コンヴェンション（convention）",
     "work": "人間本性論",
@@ -1945,7 +1945,7 @@
     "raw": "人間本性論III.ii.2。"
   },
   {
-    "id": "hue-circumstances-of-justice",
+    "id": "hue-正義の境遇",
     "resident": "ヒュー",
     "concept": "正義の境遇（circumstances of justice）",
     "work": "人間本性論",
@@ -1957,7 +1957,7 @@
     "raw": "人間本性論III.ii.2／道徳原理研究3。"
   },
   {
-    "id": "hue-promise-and-obligation",
+    "id": "hue-約束と義務",
     "resident": "ヒュー",
     "concept": "約束と義務（promise and obligation）",
     "work": "人間本性論",
@@ -1967,7 +1967,7 @@
     "raw": "人間本性論III.ii.5。"
   },
   {
-    "id": "hue-critique-of-the-original-contract",
+    "id": "hue-原始契約批判",
     "resident": "ヒュー",
     "concept": "原始契約批判（critique of the original contract）",
     "work": "原始契約について",
@@ -1979,7 +1979,7 @@
     "raw": "「原始契約について」／人間本性論III.ii.7–10。"
   },
   {
-    "id": "hue-government-founded-on-opinion",
+    "id": "hue-統治は世論に立つ",
     "resident": "ヒュー",
     "concept": "統治は世論に立つ（government founded on opinion）",
     "work": "統治の原理について",
@@ -1989,7 +1989,7 @@
     "raw": "「統治の原理について」。"
   },
   {
-    "id": "hue-liberty-and-necessity",
+    "id": "hue-自由と必然の両立",
     "resident": "ヒュー",
     "concept": "自由と必然の両立（liberty and necessity）",
     "work": "人間知性研究",
@@ -2001,7 +2001,7 @@
     "raw": "人間知性研究8／人間本性論II.iii.1–2。"
   },
   {
-    "id": "hue-of-miracles",
+    "id": "hue-奇跡論",
     "resident": "ヒュー",
     "concept": "奇跡論（of miracles）",
     "work": "人間知性研究",
@@ -2011,7 +2011,7 @@
     "raw": "人間知性研究10。"
   },
   {
-    "id": "hue-critique-of-the-design-argument",
+    "id": "hue-デザイン論証批判",
     "resident": "ヒュー",
     "concept": "デザイン論証批判（critique of the design argument）",
     "work": "自然宗教をめぐる対話",
@@ -2021,7 +2021,7 @@
     "raw": "自然宗教をめぐる対話。"
   },
   {
-    "id": "hue-the-problem-of-evil",
+    "id": "hue-悪の問題",
     "resident": "ヒュー",
     "concept": "悪の問題（the problem of evil）",
     "work": "自然宗教をめぐる対話",
@@ -2031,7 +2031,7 @@
     "raw": "自然宗教をめぐる対話・第10–11部。"
   },
   {
-    "id": "hue-natural-history-of-religion",
+    "id": "hue-宗教の自然史",
     "resident": "ヒュー",
     "concept": "宗教の自然史（natural history of religion）",
     "work": "宗教の自然史",
@@ -2041,7 +2041,7 @@
     "raw": "宗教の自然史。"
   },
   {
-    "id": "hue-standard-of-taste",
+    "id": "hue-趣味の標準",
     "resident": "ヒュー",
     "concept": "趣味の標準（standard of taste）",
     "work": "趣味の標準について",
@@ -2051,7 +2051,7 @@
     "raw": "「趣味の標準について」。"
   },
   {
-    "id": "hue-true-judges",
+    "id": "hue-真の判定者",
     "resident": "ヒュー",
     "concept": "真の判定者（true judges / ideal critics）",
     "work": "趣味の標準について",
@@ -2061,7 +2061,7 @@
     "raw": "「趣味の標準について」。"
   },
   {
-    "id": "hue-delicacy-of-taste",
+    "id": "hue-趣味の繊細さ",
     "resident": "ヒュー",
     "concept": "趣味の繊細さ（delicacy of taste）",
     "work": "趣味の標準について",
@@ -2071,7 +2071,7 @@
     "raw": "「趣味の標準について」。"
   },
   {
-    "id": "hue-paradox-of-tragedy",
+    "id": "hue-悲劇のパラドックス",
     "resident": "ヒュー",
     "concept": "悲劇のパラドックス（paradox of tragedy）",
     "work": "悲劇について",
@@ -2081,7 +2081,7 @@
     "raw": "「悲劇について」。"
   },
   {
-    "id": "kantia-transzendentaler-idealismus",
+    "id": "kantia-超越論的観念論",
     "resident": "カンティア",
     "concept": "超越論的観念論（transzendentaler Idealismus）",
     "work": "純粋理性批判",
@@ -2091,7 +2091,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-erscheinung",
+    "id": "kantia-現象",
     "resident": "カンティア",
     "concept": "現象（Erscheinung）",
     "work": "純粋理性批判",
@@ -2101,7 +2101,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-ding-an-sich",
+    "id": "kantia-物自体",
     "resident": "カンティア",
     "concept": "物自体（Ding an sich）",
     "work": "純粋理性批判",
@@ -2113,7 +2113,7 @@
     "raw": "純粋理性批判 / プロレゴメナ"
   },
   {
-    "id": "kantia-kopernikanische-wende",
+    "id": "kantia-コペルニクス的転回",
     "resident": "カンティア",
     "concept": "コペルニクス的転回（kopernikanische Wende）",
     "work": "純粋理性批判",
@@ -2123,7 +2123,7 @@
     "raw": "純粋理性批判（第二版序文）"
   },
   {
-    "id": "kantia-synthetisches-urteil-a-priori",
+    "id": "kantia-先天的総合判断",
     "resident": "カンティア",
     "concept": "先天的総合判断（synthetisches Urteil a priori）",
     "work": "プロレゴメナ",
@@ -2135,7 +2135,7 @@
     "raw": "プロレゴメナ / 純粋理性批判"
   },
   {
-    "id": "kantia-a-priori",
+    "id": "kantia-アプリオリ",
     "resident": "カンティア",
     "concept": "ア・プリオリ／ア・ポステリオリ（a priori / a posteriori）",
     "work": "純粋理性批判",
@@ -2147,7 +2147,7 @@
     "raw": "純粋理性批判 / プロレゴメナ"
   },
   {
-    "id": "kantia-raum-und-zeit",
+    "id": "kantia-純粋直観としての空間と時間",
     "resident": "カンティア",
     "concept": "純粋直観としての空間と時間（Raum und Zeit）",
     "work": "純粋理性批判",
@@ -2157,7 +2157,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-8",
+    "id": "kantia-カテゴリー",
     "resident": "カンティア",
     "concept": "カテゴリー（Kategorien／純粋悟性概念）",
     "work": "純粋理性批判",
@@ -2167,7 +2167,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-transzendentale-deduktion",
+    "id": "kantia-超越論的演繹",
     "resident": "カンティア",
     "concept": "超越論的演繹（transzendentale Deduktion）",
     "work": "純粋理性批判",
@@ -2177,7 +2177,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-10",
+    "id": "kantia-超越論的統覚",
     "resident": "カンティア",
     "concept": "超越論的統覚（transzendentale Apperzeption／「我思う」）",
     "work": "純粋理性批判",
@@ -2187,7 +2187,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-schematismus",
+    "id": "kantia-図式論",
     "resident": "カンティア",
     "concept": "図式論（Schematismus）",
     "work": "純粋理性批判",
@@ -2197,7 +2197,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-einbildungskraft",
+    "id": "kantia-構想力",
     "resident": "カンティア",
     "concept": "構想力（Einbildungskraft）",
     "work": "純粋理性批判",
@@ -2209,7 +2209,7 @@
     "raw": "純粋理性批判 / 判断力批判"
   },
   {
-    "id": "kantia-idee-regulativ-vs-konstitutiv",
+    "id": "kantia-理性の理念と統制的使用",
     "resident": "カンティア",
     "concept": "理性の理念と統制的使用（Idee／regulativ vs konstitutiv）",
     "work": "純粋理性批判",
@@ -2219,7 +2219,7 @@
     "raw": "純粋理性批判（超越論的弁証論）"
   },
   {
-    "id": "kantia-transzendentaler-schein",
+    "id": "kantia-超越論的仮象",
     "resident": "カンティア",
     "concept": "超越論的仮象（transzendentaler Schein）",
     "work": "純粋理性批判",
@@ -2229,7 +2229,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-antinomie",
+    "id": "kantia-アンチノミー",
     "resident": "カンティア",
     "concept": "アンチノミー（Antinomie）",
     "work": "純粋理性批判",
@@ -2239,7 +2239,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-paralogismus",
+    "id": "kantia-誤謬推理",
     "resident": "カンティア",
     "concept": "誤謬推理（Paralogismus）",
     "work": "純粋理性批判",
@@ -2249,7 +2249,7 @@
     "raw": "純粋理性批判"
   },
   {
-    "id": "kantia-17",
+    "id": "kantia-神の存在証明批判",
     "resident": "カンティア",
     "concept": "神の存在証明批判（存在論的・宇宙論的・自然神学的証明）",
     "work": "純粋理性批判",
@@ -2259,7 +2259,7 @@
     "raw": "純粋理性批判（超越論的弁証論）"
   },
   {
-    "id": "kantia-18",
+    "id": "kantia-因果性への回答",
     "resident": "カンティア",
     "concept": "因果性への回答（ヒューム問題への応答）",
     "work": "プロレゴメナ",
@@ -2271,7 +2271,7 @@
     "raw": "プロレゴメナ / 純粋理性批判"
   },
   {
-    "id": "kantia-guter-wille",
+    "id": "kantia-善意志",
     "resident": "カンティア",
     "concept": "善意志（guter Wille）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2281,7 +2281,7 @@
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
-    "id": "kantia-pflicht",
+    "id": "kantia-義務",
     "resident": "カンティア",
     "concept": "義務（Pflicht）と適法性／道徳性（Legalität / Moralität）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2293,7 +2293,7 @@
     "raw": "人倫の形而上学の基礎づけ / 実践理性批判"
   },
   {
-    "id": "kantia-kategorischer-imperativ",
+    "id": "kantia-定言命法",
     "resident": "カンティア",
     "concept": "定言命法（kategorischer Imperativ）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2303,7 +2303,7 @@
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
-    "id": "kantia-hypothetischer-imperativ",
+    "id": "kantia-仮言命法",
     "resident": "カンティア",
     "concept": "仮言命法（hypothetischer Imperativ）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2313,7 +2313,7 @@
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
-    "id": "kantia-23",
+    "id": "kantia-普遍化の法式",
     "resident": "カンティア",
     "concept": "普遍化の法式（普遍的法則の法式）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2323,7 +2323,7 @@
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
-    "id": "kantia-24",
+    "id": "kantia-目的それ自体の法式",
     "resident": "カンティア",
     "concept": "目的それ自体の法式（人間性の定式）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2333,7 +2333,7 @@
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
-    "id": "kantia-autonomie",
+    "id": "kantia-自律と他律",
     "resident": "カンティア",
     "concept": "自律と他律（Autonomie / Heteronomie）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2345,7 +2345,7 @@
     "raw": "人倫の形而上学の基礎づけ / 実践理性批判"
   },
   {
-    "id": "kantia-reich-der-zwecke",
+    "id": "kantia-目的の王国",
     "resident": "カンティア",
     "concept": "目的の王国（Reich der Zwecke）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2355,7 +2355,7 @@
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
-    "id": "kantia-achtung",
+    "id": "kantia-道徳法則への尊敬",
     "resident": "カンティア",
     "concept": "道徳法則への尊敬（Achtung）",
     "work": "実践理性批判",
@@ -2365,7 +2365,7 @@
     "raw": "実践理性批判"
   },
   {
-    "id": "kantia-28",
+    "id": "kantia-意志の自由",
     "resident": "カンティア",
     "concept": "意志の自由（Freiheit／叡知界と感性界）",
     "work": "実践理性批判",
@@ -2377,7 +2377,7 @@
     "raw": "実践理性批判 / 人倫の形而上学の基礎づけ"
   },
   {
-    "id": "kantia-hochstes-gut",
+    "id": "kantia-最高善",
     "resident": "カンティア",
     "concept": "最高善（höchstes Gut）",
     "work": "実践理性批判",
@@ -2387,7 +2387,7 @@
     "raw": "実践理性批判"
   },
   {
-    "id": "kantia-30",
+    "id": "kantia-実践理性の要請",
     "resident": "カンティア",
     "concept": "実践理性の要請（Postulate：自由・霊魂の不死・神）",
     "work": "実践理性批判",
@@ -2397,7 +2397,7 @@
     "raw": "実践理性批判"
   },
   {
-    "id": "kantia-wurde",
+    "id": "kantia-尊厳と価格",
     "resident": "カンティア",
     "concept": "尊厳と価格（Würde / Preis）",
     "work": "人倫の形而上学の基礎づけ",
@@ -2407,7 +2407,7 @@
     "raw": "人倫の形而上学の基礎づけ"
   },
   {
-    "id": "kantia-recht",
+    "id": "kantia-法論と徳論",
     "resident": "カンティア",
     "concept": "法論と徳論（Recht / Tugend）",
     "work": "人倫の形而上学",
@@ -2417,7 +2417,7 @@
     "raw": "人倫の形而上学"
   },
   {
-    "id": "kantia-geschmacksurteil",
+    "id": "kantia-趣味判断と無関心の満足",
     "resident": "カンティア",
     "concept": "趣味判断と無関心の満足（Geschmacksurteil / interesseloses Wohlgefallen）",
     "work": "判断力批判",
@@ -2427,7 +2427,7 @@
     "raw": "判断力批判"
   },
   {
-    "id": "kantia-das-schone",
+    "id": "kantia-美と崇高",
     "resident": "カンティア",
     "concept": "美と崇高（das Schöne / das Erhabene）",
     "work": "判断力批判",
@@ -2437,7 +2437,7 @@
     "raw": "判断力批判"
   },
   {
-    "id": "kantia-sensus-communis",
+    "id": "kantia-共通感覚",
     "resident": "カンティア",
     "concept": "共通感覚（sensus communis）",
     "work": "判断力批判",
@@ -2447,7 +2447,7 @@
     "raw": "判断力批判"
   },
   {
-    "id": "kantia-zweckma-igkeit-ohne-zweck",
+    "id": "kantia-目的なき合目的性",
     "resident": "カンティア",
     "concept": "目的なき合目的性（Zweckmäßigkeit ohne Zweck）",
     "work": "判断力批判",
@@ -2457,7 +2457,7 @@
     "raw": "判断力批判"
   },
   {
-    "id": "kantia-reflektierende-urteilskraft",
+    "id": "kantia-反省的判断力",
     "resident": "カンティア",
     "concept": "反省的判断力（reflektierende Urteilskraft）",
     "work": "判断力批判",
@@ -2467,7 +2467,7 @@
     "raw": "判断力批判"
   },
   {
-    "id": "kantia-naturzweck",
+    "id": "kantia-自然目的としての有機体",
     "resident": "カンティア",
     "concept": "自然目的としての有機体（Naturzweck）",
     "work": "判断力批判",
@@ -2477,7 +2477,7 @@
     "raw": "判断力批判（目的論的判断力の批判）"
   },
   {
-    "id": "kantia-genie",
+    "id": "kantia-天才",
     "resident": "カンティア",
     "concept": "天才（Genie）",
     "work": "判断力批判",
@@ -2487,7 +2487,7 @@
     "raw": "判断力批判"
   },
   {
-    "id": "kantia-radikales-bose",
+    "id": "kantia-根本悪",
     "resident": "カンティア",
     "concept": "根本悪（radikales Böse）",
     "work": "たんなる理性の限界内の宗教",
@@ -2497,7 +2497,7 @@
     "raw": "たんなる理性の限界内の宗教"
   },
   {
-    "id": "kantia-41",
+    "id": "kantia-道徳的回心と理性宗教",
     "resident": "カンティア",
     "concept": "道徳的回心と理性宗教（Gesinnungsänderung／理性の限界内の宗教）",
     "work": "たんなる理性の限界内の宗教",
@@ -2507,7 +2507,7 @@
     "raw": "たんなる理性の限界内の宗教"
   },
   {
-    "id": "kantia-aufklarung-sapere-aude",
+    "id": "kantia-啓蒙",
     "resident": "カンティア",
     "concept": "啓蒙（Aufklärung／Sapere aude）",
     "work": "啓蒙とは何か",
@@ -2517,7 +2517,7 @@
     "raw": "啓蒙とは何か"
   },
   {
-    "id": "kantia-43",
+    "id": "kantia-永遠平和",
     "resident": "カンティア",
     "concept": "永遠平和（ewiger Friede／共和制・国家連合）",
     "work": "永遠平和のために",
@@ -2527,7 +2527,7 @@
     "raw": "永遠平和のために"
   },
   {
-    "id": "kantia-ungesellige-geselligkeit",
+    "id": "kantia-非社交的社交性",
     "resident": "カンティア",
     "concept": "非社交的社交性（ungesellige Geselligkeit）",
     "work": "世界市民的見地における普遍史の理念",
@@ -2537,7 +2537,7 @@
     "raw": "世界市民的見地における普遍史の理念（歴史論文）"
   },
   {
-    "id": "kantia-pragmatische-anthropologie",
+    "id": "kantia-実用的見地の人間学",
     "resident": "カンティア",
     "concept": "実用的見地の人間学（pragmatische Anthropologie）",
     "work": "実用的見地における人間学",
@@ -2549,7 +2549,7 @@
     "raw": "実用的見地における人間学 / 自然地理学"
   },
   {
-    "id": "makiya-virtu",
+    "id": "makiya-ヴィルトゥ",
     "resident": "マキヤ",
     "concept": "ヴィルトゥ（virtù）",
     "work": "君主論",
@@ -2561,7 +2561,7 @@
     "raw": "君主論、ディスコルシ"
   },
   {
-    "id": "makiya-fortuna",
+    "id": "makiya-フォルトゥナ",
     "resident": "マキヤ",
     "concept": "フォルトゥナ（fortuna）",
     "work": "君主論",
@@ -2573,7 +2573,7 @@
     "raw": "君主論25章、ディスコルシ"
   },
   {
-    "id": "makiya-3",
+    "id": "makiya-ネチェシタ",
     "resident": "マキヤ",
     "concept": "ネチェシタ（必要・necessità）",
     "work": "君主論",
@@ -2585,7 +2585,7 @@
     "raw": "君主論、ディスコルシ"
   },
   {
-    "id": "makiya-4",
+    "id": "makiya-オッカジオーネ",
     "resident": "マキヤ",
     "concept": "オッカジオーネ（好機・occasione）",
     "work": "君主論",
@@ -2595,7 +2595,7 @@
     "raw": "君主論6章"
   },
   {
-    "id": "makiya-5",
+    "id": "makiya-プルデンツァ",
     "resident": "マキヤ",
     "concept": "プルデンツァ（思慮・prudenza）",
     "work": "君主論",
@@ -2607,7 +2607,7 @@
     "raw": "君主論21章、ディスコルシ"
   },
   {
-    "id": "makiya-6",
+    "id": "makiya-グロリア",
     "resident": "マキヤ",
     "concept": "グロリア（栄光・gloria）",
     "work": "君主論",
@@ -2619,7 +2619,7 @@
     "raw": "君主論、ディスコルシ"
   },
   {
-    "id": "makiya-7",
+    "id": "makiya-アンビツィオーネ",
     "resident": "マキヤ",
     "concept": "アンビツィオーネ（野心・ambizione）",
     "work": "ディスコルシ",
@@ -2629,7 +2629,7 @@
     "raw": "ディスコルシ"
   },
   {
-    "id": "makiya-8",
+    "id": "makiya-オツィオ",
     "resident": "マキヤ",
     "concept": "オツィオ（安逸・惰眠・ozio）",
     "work": "ディスコルシ",
@@ -2641,7 +2641,7 @@
     "raw": "ディスコルシ、フィレンツェ史"
   },
   {
-    "id": "makiya-9",
+    "id": "makiya-ライオンと狐",
     "resident": "マキヤ",
     "concept": "ライオンと狐（forza e fraude／力と狡知）",
     "work": "君主論",
@@ -2651,7 +2651,7 @@
     "raw": "君主論18章"
   },
   {
-    "id": "makiya-il-principe-nuovo",
+    "id": "makiya-新君主",
     "resident": "マキヤ",
     "concept": "新君主（il principe nuovo）",
     "work": "君主論",
@@ -2661,7 +2661,7 @@
     "raw": "君主論"
   },
   {
-    "id": "makiya-11",
+    "id": "makiya-スタート",
     "resident": "マキヤ",
     "concept": "スタート（国家・lo stato）",
     "work": "君主論",
@@ -2671,7 +2671,7 @@
     "raw": "君主論"
   },
   {
-    "id": "makiya-timore-vs-amore",
+    "id": "makiya-恐れられるか愛されるか",
     "resident": "マキヤ",
     "concept": "恐れられるか愛されるか（timore vs amore）",
     "work": "君主論",
@@ -2681,7 +2681,7 @@
     "raw": "君主論17章"
   },
   {
-    "id": "makiya-profeti-armati",
+    "id": "makiya-武装した予言者",
     "resident": "マキヤ",
     "concept": "武装した予言者（profeti armati）",
     "work": "君主論",
@@ -2691,7 +2691,7 @@
     "raw": "君主論6章"
   },
   {
-    "id": "makiya-14",
+    "id": "makiya-残虐の善用",
     "resident": "マキヤ",
     "concept": "残虐の善用（crudeltà bene usate／残虐の経済）",
     "work": "君主論",
@@ -2701,7 +2701,7 @@
     "raw": "君主論8章"
   },
   {
-    "id": "makiya-liberalita-e-parsimonia",
+    "id": "makiya-寛大と吝嗇",
     "resident": "マキヤ",
     "concept": "寛大と吝嗇（liberalità e parsimonia）",
     "work": "君主論",
@@ -2711,7 +2711,7 @@
     "raw": "君主論16章"
   },
   {
-    "id": "makiya-simulare-e-dissimulare",
+    "id": "makiya-偽装と韜晦",
     "resident": "マキヤ",
     "concept": "偽装と韜晦（simulare e dissimulare）",
     "work": "君主論",
@@ -2721,7 +2721,7 @@
     "raw": "君主論18章"
   },
   {
-    "id": "makiya-armi-proprie",
+    "id": "makiya-自前の武器",
     "resident": "マキヤ",
     "concept": "自前の武器（armi proprie）",
     "work": "君主論",
@@ -2733,7 +2733,7 @@
     "raw": "君主論、戦術論"
   },
   {
-    "id": "makiya-armi-mercenarie-e-ausiliarie",
+    "id": "makiya-傭兵と援軍",
     "resident": "マキヤ",
     "concept": "傭兵と援軍（armi mercenarie e ausiliarie）",
     "work": "君主論",
@@ -2743,7 +2743,7 @@
     "raw": "君主論12–13章"
   },
   {
-    "id": "makiya-fortezze",
+    "id": "makiya-要塞",
     "resident": "マキヤ",
     "concept": "要塞（fortezze）",
     "work": "君主論",
@@ -2753,7 +2753,7 @@
     "raw": "君主論20章"
   },
   {
-    "id": "makiya-20",
+    "id": "makiya-中立の禁",
     "resident": "マキヤ",
     "concept": "中立の禁（neutralità を避けよ）",
     "work": "君主論",
@@ -2763,7 +2763,7 @@
     "raw": "君主論21章"
   },
   {
-    "id": "makiya-verita-effettuale-della-cosa",
+    "id": "makiya-実効的真理",
     "resident": "マキヤ",
     "concept": "実効的真理（verità effettuale della cosa）",
     "work": "君主論",
@@ -2773,7 +2773,7 @@
     "raw": "君主論15章"
   },
   {
-    "id": "makiya-22",
+    "id": "makiya-市民軍",
     "resident": "マキヤ",
     "concept": "市民軍／民兵（ordinanza・milizia）",
     "work": "戦術論",
@@ -2785,7 +2785,7 @@
     "raw": "戦術論、君主論"
   },
   {
-    "id": "makiya-arte-della-guerra",
+    "id": "makiya-戦争の技術",
     "resident": "マキヤ",
     "concept": "戦争の技術（arte della guerra）",
     "work": "君主論",
@@ -2797,7 +2797,7 @@
     "raw": "君主論14章、戦術論"
   },
   {
-    "id": "makiya-24",
+    "id": "makiya-規律と歩兵優位",
     "resident": "マキヤ",
     "concept": "規律と歩兵優位",
     "work": "戦術論",
@@ -2807,7 +2807,7 @@
     "raw": "戦術論"
   },
   {
-    "id": "makiya-25",
+    "id": "makiya-ヴィヴェレリベロ",
     "resident": "マキヤ",
     "concept": "ヴィヴェレ・リベロ（自由な生・vivere libero）",
     "work": "ディスコルシ",
@@ -2817,7 +2817,7 @@
     "raw": "ディスコルシ"
   },
   {
-    "id": "makiya-26",
+    "id": "makiya-ヴィヴェレシクーロ",
     "resident": "マキヤ",
     "concept": "ヴィヴェレ・シクーロ（安全な生・vivere sicuro）",
     "work": "ディスコルシ",
@@ -2827,7 +2827,7 @@
     "raw": "ディスコルシ"
   },
   {
-    "id": "makiya-27",
+    "id": "makiya-ウモーリ",
     "resident": "マキヤ",
     "concept": "ウモーリ（体液・二つの欲望・umori）",
     "work": "君主論",
@@ -2839,7 +2839,7 @@
     "raw": "君主論9章、ディスコルシ1巻"
   },
   {
-    "id": "makiya-28",
+    "id": "makiya-トゥムルティ",
     "resident": "マキヤ",
     "concept": "トゥムルティ（騒擾・tumulti）",
     "work": "ディスコルシ",
@@ -2849,7 +2849,7 @@
     "raw": "ディスコルシ1巻4章"
   },
   {
-    "id": "makiya-29",
+    "id": "makiya-オルディーニ",
     "resident": "マキヤ",
     "concept": "オルディーニ（制度・法・ordini）",
     "work": "ディスコルシ",
@@ -2859,7 +2859,7 @@
     "raw": "ディスコルシ"
   },
   {
-    "id": "makiya-governo-misto",
+    "id": "makiya-混合政体",
     "resident": "マキヤ",
     "concept": "混合政体（governo misto）",
     "work": "ディスコルシ",
@@ -2869,7 +2869,7 @@
     "raw": "ディスコルシ1巻2章"
   },
   {
-    "id": "makiya-31",
+    "id": "makiya-政体循環",
     "resident": "マキヤ",
     "concept": "政体循環（anaciclosi・政体の堕落サイクル）",
     "work": "ディスコルシ",
@@ -2879,7 +2879,7 @@
     "raw": "ディスコルシ1巻2章"
   },
   {
-    "id": "makiya-32",
+    "id": "makiya-民衆の知恵",
     "resident": "マキヤ",
     "concept": "民衆の知恵（民は君主より賢い）",
     "work": "ディスコルシ",
@@ -2889,7 +2889,7 @@
     "raw": "ディスコルシ1巻58章"
   },
   {
-    "id": "makiya-accuse-e-calunnie",
+    "id": "makiya-告発と中傷",
     "resident": "マキヤ",
     "concept": "告発と中傷（accuse e calunnie）",
     "work": "ディスコルシ",
@@ -2899,7 +2899,7 @@
     "raw": "ディスコルシ1巻7–8章"
   },
   {
-    "id": "makiya-34",
+    "id": "makiya-独裁官",
     "resident": "マキヤ",
     "concept": "独裁官（dittatura・期限つき非常大権）",
     "work": "ディスコルシ",
@@ -2909,7 +2909,7 @@
     "raw": "ディスコルシ1巻34章"
   },
   {
-    "id": "makiya-35",
+    "id": "makiya-パトリア",
     "resident": "マキヤ",
     "concept": "パトリア（祖国・patria）",
     "work": "ディスコルシ",
@@ -2919,7 +2919,7 @@
     "raw": "ディスコルシ3巻41章"
   },
   {
-    "id": "makiya-36",
+    "id": "makiya-コルツィオーネ",
     "resident": "マキヤ",
     "concept": "コルツィオーネ（腐敗・corruzione）",
     "work": "ディスコルシ",
@@ -2929,7 +2929,7 @@
     "raw": "ディスコルシ"
   },
   {
-    "id": "makiya-37",
+    "id": "makiya-原点回帰",
     "resident": "マキヤ",
     "concept": "原点回帰（ritorno ai principi・刷新 rinnovazione）",
     "work": "ディスコルシ",
@@ -2939,7 +2939,7 @@
     "raw": "ディスコルシ3巻1章"
   },
   {
-    "id": "makiya-38",
+    "id": "makiya-党派徒党",
     "resident": "マキヤ",
     "concept": "党派・徒党（sette・fazioni）",
     "work": "フィレンツェ史",
@@ -2951,7 +2951,7 @@
     "raw": "フィレンツェ史、ディスコルシ"
   },
   {
-    "id": "makiya-39",
+    "id": "makiya-宗教の政治利用",
     "resident": "マキヤ",
     "concept": "宗教の政治利用（religione civile・市民宗教）",
     "work": "ディスコルシ",
@@ -2961,7 +2961,7 @@
     "raw": "ディスコルシ1巻11–15章"
   },
   {
-    "id": "makiya-40",
+    "id": "makiya-キリスト教批判",
     "resident": "マキヤ",
     "concept": "キリスト教批判（現在の宗教への難詰）",
     "work": "ディスコルシ",
@@ -2971,7 +2971,7 @@
     "raw": "ディスコルシ2巻2章"
   },
   {
-    "id": "makiya-imitazione-degli-antichi",
+    "id": "makiya-古代の模倣",
     "resident": "マキヤ",
     "concept": "古代の模倣（imitazione degli antichi）",
     "work": "ディスコルシ",
@@ -2981,7 +2981,7 @@
     "raw": "ディスコルシ序文"
   },
   {
-    "id": "makiya-42",
+    "id": "makiya-人間性の不変",
     "resident": "マキヤ",
     "concept": "人間性の不変（歴史反復の前提）",
     "work": "ディスコルシ",
@@ -2991,7 +2991,7 @@
     "raw": "ディスコルシ1巻39章"
   },
   {
-    "id": "makiya-43",
+    "id": "makiya-マンドラゴラ的シニシズム",
     "resident": "マキヤ",
     "concept": "マンドラゴラ的シニシズム（堕落の喜劇）",
     "work": "マンドラゴラ",
@@ -3001,7 +3001,7 @@
     "raw": "マンドラゴラ"
   },
   {
-    "id": "ou-xin-ji-li",
+    "id": "ou-心即理",
     "resident": "オウ",
     "concept": "心即理（しんそくり / xīn jí lǐ）",
     "work": "伝習録",
@@ -3011,7 +3011,7 @@
     "raw": "伝習録上（徐愛との対話）「心の外に事なく、心の外に理なし」"
   },
   {
-    "id": "ou-2",
+    "id": "ou-心外無理心外無物",
     "resident": "オウ",
     "concept": "心外無理・心外無物（しんがいむり・しんがいむぶつ）",
     "work": "伝習録",
@@ -3021,7 +3021,7 @@
     "raw": "伝習録上。「山中の花」の対話（君がそれを見るとき、花の色は一時に明らかになる）が代表例。"
   },
   {
-    "id": "ou-3",
+    "id": "ou-本心本体",
     "resident": "オウ",
     "concept": "本心・本体（ほんしん・ほんたい）",
     "work": "伝習録",
@@ -3031,7 +3031,7 @@
     "raw": "伝習録全般。鏡を磨いて曇りを去る比喩が反復される。"
   },
   {
-    "id": "ou-liangzhi",
+    "id": "ou-良知",
     "resident": "オウ",
     "concept": "良知（りょうち / liángzhī）",
     "work": "孟子",
@@ -3041,7 +3041,7 @@
     "raw": "孟子「良知良能」に由来。陽明思想の中期以降の核（伝習録中・書簡群）。"
   },
   {
-    "id": "ou-zhi-liangzhi",
+    "id": "ou-致良知",
     "resident": "オウ",
     "concept": "致良知（ちりょうち / zhì liángzhī）",
     "work": "伝習録",
@@ -3051,7 +3051,7 @@
     "raw": "伝習録中（晩年の書簡で確立）。「致良知の三字、これ千古の聖学の真血脈」。"
   },
   {
-    "id": "ou-6",
+    "id": "ou-是非の心",
     "resident": "オウ",
     "concept": "是非の心（ぜひのこころ）",
     "work": "孟子",
@@ -3061,7 +3061,7 @@
     "raw": "孟子「是非の心は智の端」を承け、伝習録で良知と重ねる。"
   },
   {
-    "id": "ou-7",
+    "id": "ou-良知の自知",
     "resident": "オウ",
     "concept": "良知の自知（りょうちのじち）",
     "work": "伝習録",
@@ -3071,7 +3071,7 @@
     "raw": "伝習録下。「爾の一点の良知は、爾自身の準則」。"
   },
   {
-    "id": "ou-8",
+    "id": "ou-良知は現成",
     "resident": "オウ",
     "concept": "良知は現成（げんじょう）",
     "work": "晩年の門流",
@@ -3081,7 +3081,7 @@
     "raw": "晩年の門流（とくに王畿ら）が強調。陽明自身も「良知は本来円満」と説く。"
   },
   {
-    "id": "ou-zhi-xing-he-yi",
+    "id": "ou-知行合一",
     "resident": "オウ",
     "concept": "知行合一（ちこうごういつ / zhī xíng hé yī）",
     "work": "伝習録",
@@ -3091,7 +3091,7 @@
     "raw": "伝習録上（徐愛との最初期の主題）。「未だ知りて行わざる者あらず。知りて行わざるは、ただ未だ知らざるなり」。"
   },
   {
-    "id": "ou-10",
+    "id": "ou-知は行の始め行は知の成",
     "resident": "オウ",
     "concept": "知は行の始め、行は知の成（ちはこうのはじめ）",
     "work": "伝習録",
@@ -3101,7 +3101,7 @@
     "raw": "伝習録上。「知は行の始め、行は知の成なり」。"
   },
   {
-    "id": "ou-11",
+    "id": "ou-真知",
     "resident": "オウ",
     "concept": "真知（しんち）",
     "work": "伝習録",
@@ -3111,7 +3111,7 @@
     "raw": "伝習録上。痛みを知る者は自ら痛んだ者、寒さを知る者は自ら寒さに遭った者。"
   },
   {
-    "id": "ou-12",
+    "id": "ou-一念発動即是行",
     "resident": "オウ",
     "concept": "一念発動即是行（いちねんはつどうそくぜこう）",
     "work": "伝習録",
@@ -3121,7 +3121,7 @@
     "raw": "伝習録下。「一念発動する処、便ち是れ行なり」。"
   },
   {
-    "id": "ou-ge-wu",
+    "id": "ou-格物",
     "resident": "オウ",
     "concept": "格物（かくぶつ / gé wù）",
     "work": "伝習録",
@@ -3131,7 +3131,7 @@
     "raw": "伝習録・大学問。「格は正なり。其の不正を正して以て正に帰す」。"
   },
   {
-    "id": "ou-14",
+    "id": "ou-竹を格す",
     "resident": "オウ",
     "concept": "竹を格す（かくちく / 格竹の挫折）",
     "work": "伝習録",
@@ -3141,7 +3141,7 @@
     "raw": "伝習録下で回顧。陽明思想の転回を示すエピソード。"
   },
   {
-    "id": "ou-cheng-yi",
+    "id": "ou-誠意",
     "resident": "オウ",
     "concept": "誠意（せいい / chéng yì）",
     "work": "大学問",
@@ -3151,7 +3151,7 @@
     "raw": "大学問・伝習録。陽明は『大学』の眼目を「誠意」に置いた。"
   },
   {
-    "id": "ou-16",
+    "id": "ou-正心",
     "resident": "オウ",
     "concept": "正心（せいしん）",
     "work": "大学",
@@ -3161,7 +3161,7 @@
     "raw": "『大学』八条目を陽明流に貫いた大学問の一節。"
   },
   {
-    "id": "ou-17",
+    "id": "ou-為善去悪",
     "resident": "オウ",
     "concept": "為善去悪（いぜんきょあく）",
     "work": "四句教",
@@ -3171,7 +3171,7 @@
     "raw": "四句教「為善去悪是格物」。"
   },
   {
-    "id": "ou-wanwu-yiti",
+    "id": "ou-万物一体の仁",
     "resident": "オウ",
     "concept": "万物一体の仁（ばんぶついったいのじん / wànwù yītǐ）",
     "work": "大学問",
@@ -3181,7 +3181,7 @@
     "raw": "大学問の冒頭。「大人は天地万物を以て一体と為す者なり」。"
   },
   {
-    "id": "ou-19",
+    "id": "ou-惻隠の心",
     "resident": "オウ",
     "concept": "惻隠の心（そくいんのこころ）",
     "work": "孟子",
@@ -3191,7 +3191,7 @@
     "raw": "孟子由来。大学問で「孺子の井に入らんとするを見て怵惕惻隠す」と引く。"
   },
   {
-    "id": "ou-20",
+    "id": "ou-明徳と親民",
     "resident": "オウ",
     "concept": "明徳と親民（めいとく・しんみん）",
     "work": "大学問",
@@ -3201,7 +3201,7 @@
     "raw": "大学問。陽明は朱熹の「新民」を「親民」と読み、徳の発露としての他者への関わりを重んじた。"
   },
   {
-    "id": "ou-shi-shang-molian",
+    "id": "ou-事上磨錬",
     "resident": "オウ",
     "concept": "事上磨錬（じじょうまれん / shì shàng móliàn）",
     "work": "伝習録",
@@ -3211,7 +3211,7 @@
     "raw": "伝習録下。「人はすべからく事上に在りて磨くべし、方に立ち得て住まる」。"
   },
   {
-    "id": "ou-li-zhi",
+    "id": "ou-立志",
     "resident": "オウ",
     "concept": "立志（りっし / lì zhì）",
     "work": "伝習録",
@@ -3221,7 +3221,7 @@
     "raw": "伝習録・書簡（門人への教え）。「学を為すには、まず志を立つるを要す」。"
   },
   {
-    "id": "ou-23",
+    "id": "ou-立志は種養うは時を待つ",
     "resident": "オウ",
     "concept": "立志は種、養うは時を待つ（りっしのよう）",
     "work": "孟子",
@@ -3231,7 +3231,7 @@
     "raw": "孟子「揠苗助長」を承けた修養観。伝習録の植物比喩群。"
   },
   {
-    "id": "ou-24",
+    "id": "ou-静坐",
     "resident": "オウ",
     "concept": "静坐（せいざ）",
     "work": "伝習録",
@@ -3241,7 +3241,7 @@
     "raw": "伝習録上・中。当初は静坐を説いたが、後に「事上磨錬」へ重心を移す。"
   },
   {
-    "id": "ou-25",
+    "id": "ou-省察克治",
     "resident": "オウ",
     "concept": "省察克治（せいさつこくち）",
     "work": "伝習録",
@@ -3251,7 +3251,7 @@
     "raw": "伝習録上。「常に己の私欲を省察し、これを克治す」。"
   },
   {
-    "id": "ou-26",
+    "id": "ou-不動心",
     "resident": "オウ",
     "concept": "不動心（ふどうしん）",
     "work": "陽明の生涯",
@@ -3261,7 +3261,7 @@
     "raw": "陽明の生涯（反乱鎮定・讒言・貶謫）に体現。語録より行跡に現れる徳。"
   },
   {
-    "id": "ou-27",
+    "id": "ou-龍場の悟り",
     "resident": "オウ",
     "concept": "龍場の悟り（りゅうじょうのさとり）",
     "work": "伝習録",
@@ -3271,7 +3271,7 @@
     "raw": "年譜・伝習録。陽明思想（心即理）の出発点となる転回点。"
   },
   {
-    "id": "ou-siju-jiao",
+    "id": "ou-四句教",
     "resident": "オウ",
     "concept": "四句教（しくきょう / sìjù jiào）",
     "work": "伝習録",
@@ -3281,7 +3281,7 @@
     "raw": "伝習録下「天泉証道」。銭徳洪・王畿との対話の場で説かれた。"
   },
   {
-    "id": "ou-29",
+    "id": "ou-無善無悪心之体",
     "resident": "オウ",
     "concept": "無善無悪・心之体（むぜんむあく しんのたい）",
     "work": "四句教",
@@ -3291,7 +3291,7 @@
     "raw": "四句教第一句。"
   },
   {
-    "id": "ou-30",
+    "id": "ou-四有と四無",
     "resident": "オウ",
     "concept": "四有と四無（しゆう・しむ）",
     "work": "伝習録",
@@ -3301,7 +3301,7 @@
     "raw": "伝習録下。陽明は両者を「上根の者は四無、その他は四有から入れ」と裁定し、両立を説いた。"
   },
   {
-    "id": "ou-31",
+    "id": "ou-朱子晩年定論",
     "resident": "オウ",
     "concept": "朱子晩年定論（しゅしばんねんていろん）",
     "work": "同名の編著",
@@ -3311,7 +3311,7 @@
     "raw": "同名の編著（中巻に関連書簡）。"
   },
   {
-    "id": "ou-32",
+    "id": "ou-知行本一",
     "resident": "オウ",
     "concept": "知行本一（ちこうもといつ）／工夫の単一化",
     "work": "大学問",
@@ -3321,7 +3321,7 @@
     "raw": "大学問・伝習録中。"
   },
   {
-    "id": "spino-substantia",
+    "id": "spino-実体",
     "resident": "スピノ",
     "concept": "実体（substantia）",
     "work": "エチカ",
@@ -3331,7 +3331,7 @@
     "raw": "エチカ I def3、I p14（神以外に実体はありえない）"
   },
   {
-    "id": "spino-attributum",
+    "id": "spino-属性",
     "resident": "スピノ",
     "concept": "属性（attributum）",
     "work": "エチカ",
@@ -3341,7 +3341,7 @@
     "raw": "エチカ I def4、II p1（思惟）・II p2（延長）"
   },
   {
-    "id": "spino-modus",
+    "id": "spino-様態",
     "resident": "スピノ",
     "concept": "様態（modus）",
     "work": "エチカ",
@@ -3351,7 +3351,7 @@
     "raw": "エチカ I def5、I p25c（個物は神の属性の変様）"
   },
   {
-    "id": "spino-deus-sive-natura",
+    "id": "spino-神即自然",
     "resident": "スピノ",
     "concept": "神即自然（Deus sive Natura）",
     "work": "エチカ",
@@ -3361,7 +3361,7 @@
     "raw": "エチカ IV 序文、I p15・I p29"
   },
   {
-    "id": "spino-natura-naturans",
+    "id": "spino-産出する自然",
     "resident": "スピノ",
     "concept": "産出する自然／産出された自然（natura naturans / natura naturata）",
     "work": "エチカ",
@@ -3371,7 +3371,7 @@
     "raw": "エチカ I p29s"
   },
   {
-    "id": "spino-causa-sui",
+    "id": "spino-自己原因",
     "resident": "スピノ",
     "concept": "自己原因（causa sui）",
     "work": "エチカ",
@@ -3381,7 +3381,7 @@
     "raw": "エチカ I def1、I p11（神は必然的に存在する）"
   },
   {
-    "id": "spino-necessitas",
+    "id": "spino-必然性決定論",
     "resident": "スピノ",
     "concept": "必然性・決定論（necessitas）",
     "work": "エチカ",
@@ -3391,7 +3391,7 @@
     "raw": "エチカ I p29・I p33、I app（目的論の否定）、II p48（意志の自由の否定）"
   },
   {
-    "id": "spino-infinitum",
+    "id": "spino-無限と永遠",
     "resident": "スピノ",
     "concept": "無限と永遠（infinitum / aeternitas）",
     "work": "エチカ",
@@ -3401,7 +3401,7 @@
     "raw": "エチカ I def6（無限）・I def8（永遠）"
   },
   {
-    "id": "spino-idea",
+    "id": "spino-観念",
     "resident": "スピノ",
     "concept": "観念（idea）",
     "work": "エチカ",
@@ -3411,7 +3411,7 @@
     "raw": "エチカ II def3、II p43（真理は自らの基準）"
   },
   {
-    "id": "spino-ordo-et-connexio",
+    "id": "spino-並行論",
     "resident": "スピノ",
     "concept": "並行論（ordo et connexio）",
     "work": "エチカ",
@@ -3421,7 +3421,7 @@
     "raw": "エチカ II p7・II p7s"
   },
   {
-    "id": "spino-mens",
+    "id": "spino-精神身体の観念",
     "resident": "スピノ",
     "concept": "精神＝身体の観念（mens）",
     "work": "エチカ",
@@ -3431,7 +3431,7 @@
     "raw": "エチカ II p11・II p13"
   },
   {
-    "id": "spino-conatus",
+    "id": "spino-コナトゥス",
     "resident": "スピノ",
     "concept": "コナトゥス（conatus）",
     "work": "エチカ",
@@ -3441,7 +3441,7 @@
     "raw": "エチカ III p6・III p7・III p9s"
   },
   {
-    "id": "spino-imaginatio",
+    "id": "spino-第一種想像知",
     "resident": "スピノ",
     "concept": "第一種・想像知（imaginatio / cognitio primi generis）",
     "work": "エチカ",
@@ -3451,7 +3451,7 @@
     "raw": "エチカ II p40s2・II p41"
   },
   {
-    "id": "spino-ratio",
+    "id": "spino-第二種理性知",
     "resident": "スピノ",
     "concept": "第二種・理性知（ratio / cognitio secundi generis）",
     "work": "エチカ",
@@ -3461,7 +3461,7 @@
     "raw": "エチカ II p40s2・II p44c2"
   },
   {
-    "id": "spino-scientia-intuitiva",
+    "id": "spino-第三種直観知",
     "resident": "スピノ",
     "concept": "第三種・直観知（scientia intuitiva）",
     "work": "エチカ",
@@ -3471,7 +3471,7 @@
     "raw": "エチカ II p40s2・V p25・V p36s"
   },
   {
-    "id": "spino-notiones-communes",
+    "id": "spino-共通概念",
     "resident": "スピノ",
     "concept": "共通概念（notiones communes）",
     "work": "エチカ",
@@ -3481,7 +3481,7 @@
     "raw": "エチカ II p38・II p39・II p40"
   },
   {
-    "id": "spino-idea-adaequata",
+    "id": "spino-妥当",
     "resident": "スピノ",
     "concept": "妥当／非妥当な観念（idea adaequata / inadaequata）",
     "work": "エチカ",
@@ -3491,7 +3491,7 @@
     "raw": "エチカ II def4、II p36"
   },
   {
-    "id": "spino-sub-specie-aeternitatis",
+    "id": "spino-永遠の相のもとに",
     "resident": "スピノ",
     "concept": "永遠の相のもとに（sub specie aeternitatis）",
     "work": "エチカ",
@@ -3501,7 +3501,7 @@
     "raw": "エチカ II p44c2、V p29s"
   },
   {
-    "id": "spino-affectus",
+    "id": "spino-感情",
     "resident": "スピノ",
     "concept": "感情（affectus）／能動と受動",
     "work": "エチカ",
@@ -3511,7 +3511,7 @@
     "raw": "エチカ III def3、III def1-2、III p1"
   },
   {
-    "id": "spino-cupiditas",
+    "id": "spino-欲望",
     "resident": "スピノ",
     "concept": "欲望（cupiditas）",
     "work": "エチカ",
@@ -3521,7 +3521,7 @@
     "raw": "エチカ III 感情の定義1"
   },
   {
-    "id": "spino-laetitia",
+    "id": "spino-喜び",
     "resident": "スピノ",
     "concept": "喜び（laetitia）",
     "work": "エチカ",
@@ -3531,7 +3531,7 @@
     "raw": "エチカ III p11s、III 感情の定義2"
   },
   {
-    "id": "spino-tristitia",
+    "id": "spino-悲しみ",
     "resident": "スピノ",
     "concept": "悲しみ（tristitia）",
     "work": "エチカ",
@@ -3541,7 +3541,7 @@
     "raw": "エチカ III p11s、III 感情の定義3"
   },
   {
-    "id": "spino-amor",
+    "id": "spino-愛",
     "resident": "スピノ",
     "concept": "愛（amor）／憎しみ（odium）",
     "work": "エチカ",
@@ -3551,7 +3551,7 @@
     "raw": "エチカ III p13s、III 感情の定義6・7"
   },
   {
-    "id": "spino-spes",
+    "id": "spino-希望",
     "resident": "スピノ",
     "concept": "希望（spes）／恐れ（metus）",
     "work": "エチカ",
@@ -3561,7 +3561,7 @@
     "raw": "エチカ III p18s2、III 感情の定義12・13"
   },
   {
-    "id": "spino-invidia",
+    "id": "spino-嫉妬",
     "resident": "スピノ",
     "concept": "嫉妬（invidia）",
     "work": "エチカ",
@@ -3571,7 +3571,7 @@
     "raw": "エチカ III p24s、III 感情の定義23"
   },
   {
-    "id": "spino-gloria",
+    "id": "spino-名誉虚栄",
     "resident": "スピノ",
     "concept": "名誉・虚栄（gloria）",
     "work": "エチカ",
@@ -3581,7 +3581,7 @@
     "raw": "エチカ III p30s、III 感情の定義30・31"
   },
   {
-    "id": "spino-acquiescentia-in-se-ipso",
+    "id": "spino-自己満足",
     "resident": "スピノ",
     "concept": "自己満足（acquiescentia in se ipso）",
     "work": "エチカ",
@@ -3591,7 +3591,7 @@
     "raw": "エチカ III p55s、IV p52、III 感情の定義25"
   },
   {
-    "id": "spino-superbia",
+    "id": "spino-高慢",
     "resident": "スピノ",
     "concept": "高慢（superbia）／謙遜（humilitas）",
     "work": "エチカ",
@@ -3601,7 +3601,7 @@
     "raw": "エチカ III 感情の定義26・28、IV p53・IV p54"
   },
   {
-    "id": "spino-poenitentia",
+    "id": "spino-後悔",
     "resident": "スピノ",
     "concept": "後悔（poenitentia）／良心の呵責（conscientiae morsus）",
     "work": "エチカ",
@@ -3611,7 +3611,7 @@
     "raw": "エチカ III 感情の定義17・27、IV p54"
   },
   {
-    "id": "spino-commiseratio",
+    "id": "spino-同情憐れみ",
     "resident": "スピノ",
     "concept": "同情・憐れみ（commiseratio / misericordia）",
     "work": "エチカ",
@@ -3621,7 +3621,7 @@
     "raw": "エチカ III 感情の定義18・24、IV p50"
   },
   {
-    "id": "spino-31",
+    "id": "spino-感情の定義全48",
     "resident": "スピノ",
     "concept": "感情の定義 全48（エチカ第3部末尾「感情の定義」）",
     "work": "エチカ",
@@ -3631,7 +3631,7 @@
     "raw": "エチカ III「感情の定義」（Affectuum Definitiones, 全48）"
   },
   {
-    "id": "spino-servitus-humana",
+    "id": "spino-人間の隷属",
     "resident": "スピノ",
     "concept": "人間の隷属（servitus humana）",
     "work": "エチカ",
@@ -3641,7 +3641,7 @@
     "raw": "エチカ IV 序文・IV p17s"
   },
   {
-    "id": "spino-libertas",
+    "id": "spino-自由自由な人",
     "resident": "スピノ",
     "concept": "自由・自由な人（libertas / homo liber）",
     "work": "エチカ",
@@ -3651,7 +3651,7 @@
     "raw": "エチカ I def7、IV p67・IV p66s"
   },
   {
-    "id": "spino-virtus-potentia",
+    "id": "spino-徳力",
     "resident": "スピノ",
     "concept": "徳＝力（virtus = potentia）",
     "work": "エチカ",
@@ -3661,7 +3661,7 @@
     "raw": "エチカ IV def8、IV p18s・IV p24"
   },
   {
-    "id": "spino-amor-dei-intellectualis",
+    "id": "spino-神への知的愛",
     "resident": "スピノ",
     "concept": "神への知的愛（amor Dei intellectualis）",
     "work": "エチカ",
@@ -3671,7 +3671,7 @@
     "raw": "エチカ V p32c・V p35・V p36"
   },
   {
-    "id": "spino-beatitudo",
+    "id": "spino-至福",
     "resident": "スピノ",
     "concept": "至福（beatitudo）",
     "work": "エチカ",
@@ -3681,7 +3681,7 @@
     "raw": "エチカ V p42"
   },
   {
-    "id": "spino-jus-naturale",
+    "id": "spino-自然権",
     "resident": "スピノ",
     "concept": "自然権（jus naturale）",
     "work": "神学・政治論",
@@ -3693,7 +3693,7 @@
     "raw": "神学・政治論 第16章、政治論 第2章"
   },
   {
-    "id": "spino-pactum",
+    "id": "spino-社会契約国家",
     "resident": "スピノ",
     "concept": "社会契約・国家（pactum / civitas / imperium）",
     "work": "神学・政治論",
@@ -3705,7 +3705,7 @@
     "raw": "神学・政治論 第16章・第20章、政治論 第3章"
   },
   {
-    "id": "spino-potentia-multitudinis",
+    "id": "spino-多数者の力",
     "resident": "スピノ",
     "concept": "多数者の力（potentia multitudinis）",
     "work": "政治論",
@@ -3715,7 +3715,7 @@
     "raw": "政治論 第2章・第7章・第11章（民主政、未完で中断）"
   },
   {
-    "id": "spino-libertas-philosophandi",
+    "id": "spino-思想言論の自由",
     "resident": "スピノ",
     "concept": "思想・言論の自由（libertas philosophandi）",
     "work": "神学・政治論",
@@ -3725,7 +3725,7 @@
     "raw": "神学・政治論 第20章（「各人に思考の自由・思うことを語る自由を認めうる」）"
   },
   {
-    "id": "spino-41",
+    "id": "spino-聖書解釈",
     "resident": "スピノ",
     "concept": "聖書解釈（哲学と神学の分離）",
     "work": "神学・政治論",

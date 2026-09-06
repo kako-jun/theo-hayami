@@ -1,9 +1,9 @@
 {
   "_comment": "脚本ファイル（content/scripts/ からの相対パス）→ 挿入する栞の配置一覧（Issue #173 Phase A）。after_block は 1始まりの話者ブロック番号（`**話者**` 行の出現順）。id は docs/05_philosophy/citations.json の id。1本あたり最大2箇所（レビューで担保）。scripts/apply-citations.mjs がこのファイルを読んで脚本MDに `[テロップ: ..., 種別=しおり]` を挿入する。",
   "current/temperature.md": [
-    { "after_block": 2, "id": "kantia-antinomie" }
+    { "after_block": 2, "id": "kantia-アンチノミー" }
   ],
   "main/ohako-kantia.md": [
-    { "after_block": 7, "id": "kantia-erscheinung" }
+    { "after_block": 7, "id": "kantia-現象" }
   ]
 }
