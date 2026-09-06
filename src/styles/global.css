@@ -2224,3 +2224,16 @@ a {
 .th-shiori.is-lit .th-shiori__list {
   color: var(--color-th-ivory);
 }
+/* 栞リンク（Issue #178・日本語版 Wikipedia の著作記事）。色は栞の金に揃え、
+   下線は控えめ（薄い金・破線でなく直線を細く）、hover で少し明るくするだけ。 */
+.th-shiori__link {
+  color: var(--color-th-gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 147, 79, 0.45);
+  text-underline-offset: 0.15em;
+}
+.th-shiori__link:hover,
+.th-shiori__link:focus-visible {
+  color: var(--color-th-gold-bright);
+  text-decoration-color: var(--color-th-gold-bright);
+}
