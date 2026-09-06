@@ -12,6 +12,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { applyCitationsToText } from "../../scripts/apply-citations.mjs";
 
 const PHILOSOPHY_DIR = path.join(process.cwd(), "docs", "05_philosophy");
 const SCRIPTS_CONTENT_DIR = path.join(process.cwd(), "content", "scripts");
@@ -22,7 +23,7 @@ const citationMapRaw = JSON.parse(readFileSync(path.join(PHILOSOPHY_DIR, "citati
 >;
 const citationMap = Object.fromEntries(
   Object.entries(citationMapRaw).filter(([key]) => !key.startsWith("_")),
-) as Record<string, { after_block: number; id: string }[]>;
+) as Record<string, { block: number; id: string }[]>;
 
 // apply-citations.mjs の SHIORI_TELOP_RE と同一の判定。
 const SHIORI_TELOP_RE = /^\[テロップ:.*種別\s*=\s*しおり.*\]\s*$/;
@@ -73,5 +74,38 @@ describe("しおりテロップ行 と scripts.seo-wait.test.ts のセオ登場�
     // ただし今回の2ファイル（temperature.md / ohako-kantia.md）はどちらもセオ登場を持つため、
     // ここが0件のままテストが緑になることが無いよう明示的に確認しておく。
     expect(seoEntranceCount).toBeGreaterThan(0);
+  });
+});
+
+describe("しおりテロップ行 と『セオ開幕』脚本のブロック1配置（Issue #176: 語り始め＝話者行の直前）", () => {
+  it("block:1 の配置は content/scripts/current-drafts/adhd.md（セオ開幕の実脚本）でも [登場: セオ の直前・直後・2行上に来ない", () => {
+    // adhd.md はブロック1が **セオ** で、その手前に冒頭演出
+    // （[背景:]→[待機: 表示完了]→[登場: セオ]→[待機: 表示完了]→空行）が続く実際の脚本。
+    // block:1 の栞は「冒頭演出ブロックの後（空行の後・話者行の直前）」に挿さる仕様
+    // （scripts/apply-citations.mjs）なので、[登場: セオ の直後行にはならないはず
+    // （直後は既存の [待機: 表示完了] のまま）ということをここで実データに対して固定する。
+    const before = readFileSync(
+      path.join(SCRIPTS_CONTENT_DIR, "current-drafts", "adhd.md"),
+      "utf-8",
+    );
+    const citationsById = new Map([
+      [
+        "fixture-seo-open",
+        { id: "fixture-seo-open", work: "テスト著作", section: "", reading: "てすとちょさく", also: [] },
+      ],
+    ]);
+    const applied = applyCitationsToText(before, [{ block: 1, id: "fixture-seo-open" }], citationsById);
+    const lines = applied.split("\n");
+    lines.forEach((line, i) => {
+      if (!line.startsWith(SEO_ENTRANCE_PREFIX)) return;
+      const prev2 = i - 2 >= 0 ? lines[i - 2] : undefined;
+      const prev = i - 1 >= 0 ? lines[i - 1] : undefined;
+      const next = lines[i + 1];
+      expect(prev2 !== undefined && SHIORI_TELOP_RE.test(prev2), "2行上").toBe(false);
+      expect(prev !== undefined && SHIORI_TELOP_RE.test(prev), "直前").toBe(false);
+      expect(next !== undefined && SHIORI_TELOP_RE.test(next), "直後").toBe(false);
+    });
+    // しおりが実際に挿入されたことも確認する（挿入されず偽陽性で通る事故のガード）。
+    expect(lines.some((l) => SHIORI_TELOP_RE.test(l))).toBe(true);
   });
 });

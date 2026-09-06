@@ -59,8 +59,45 @@ describe("getCitationsForSlug: 1ファイル2配置", () => {
     ];
     fsMock.citationMap = {
       "main/two-shiori.md": [
-        { after_block: 1, id: "id-1" },
-        { after_block: 5, id: "id-2" },
+        { block: 1, id: "id-1" },
+        { block: 5, id: "id-2" },
+      ],
+    };
+    const { getCitationsForSlug } = await freshCitations();
+    const result = getCitationsForSlug("two-shiori");
+    expect(result.map((c) => c.id)).toEqual(["id-1", "id-2"]);
+  });
+
+  it("citation_map.json の記載順が block 降順でも、返る配列は block 昇順に並び替わる（Issue #176）", async () => {
+    fsMock.citations = [
+      {
+        id: "id-1",
+        resident: "R",
+        concept: "c1",
+        work: "著作1",
+        section: "",
+        display_section: "",
+        also: [],
+        reading: "いち",
+        raw: "",
+      },
+      {
+        id: "id-2",
+        resident: "R",
+        concept: "c2",
+        work: "著作2",
+        section: "",
+        display_section: "",
+        also: [],
+        reading: "に",
+        raw: "",
+      },
+    ];
+    // JSON の記載順はわざと block 降順（id-2 が先）にする。
+    fsMock.citationMap = {
+      "main/two-shiori.md": [
+        { block: 5, id: "id-2" },
+        { block: 1, id: "id-1" },
       ],
     };
     const { getCitationsForSlug } = await freshCitations();
@@ -84,7 +121,7 @@ describe("formatCitation: section の有無による形式", () => {
         raw: "",
       },
     ];
-    fsMock.citationMap = { "main/x.md": [{ after_block: 1, id: "id-1" }] };
+    fsMock.citationMap = { "main/x.md": [{ block: 1, id: "id-1" }] };
     const { getCitationsForSlug, formatCitation } = await freshCitations();
     const [c] = getCitationsForSlug("x");
     expect(formatCitation(c!)).toBe("『純粋理性批判（じゅんすいりせいひはん）』Ζ・Η");
@@ -105,7 +142,7 @@ describe("formatCitation: section の有無による形式", () => {
         raw: "",
       },
     ];
-    fsMock.citationMap = { "main/x.md": [{ after_block: 1, id: "id-1" }] };
+    fsMock.citationMap = { "main/x.md": [{ block: 1, id: "id-1" }] };
     const { getCitationsForSlug, formatCitation } = await freshCitations();
     const [c] = getCitationsForSlug("x");
     expect(formatCitation(c!)).toBe("『エチカ（えちか）』");
