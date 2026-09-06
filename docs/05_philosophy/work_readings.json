@@ -1,5 +1,5 @@
 {
-  "_comment": "住人8人の thinkers md 出典行に出てくる著作名の読み仮名 正本（Issue #173 Phase A）。scripts/build-citations.mjs が参照する。キーが正本の著作名、aliases は同じ著作を指す省略形・別表記（例: 伝習録上/中/下→伝習録）。thinkers md に新しい出典が増えたら、まずここに読みを足してから npm run citations:build を通す。",
+  "_comment": "住人8人の thinkers md 出典行に出てくる著作名の読み仮名 正本（Issue #173 Phase A）。scripts/build-citations.mjs が参照する。キーが正本の著作名、aliases は同じ著作を指す省略形・別表記（例: 伝習録上/中/下→伝習録）。link は日本語版 Wikipedia の著作記事 URL（Issue #178・HTTP実在確認済み・canonical キーにのみ設定、記事が無い著作は省略）。thinkers md に新しい出典が増えたら、まずここに読みを足してから npm run citations:build を通す。",
   "works": {
     "たんなる理性の限界内の宗教": { "reading": "たんなるりせいのげんかいないのしゅうきょう" },
     "エウデモス倫理学": { "reading": "えうでもすりんりがく", "link": "https://ja.wikipedia.org/wiki/%E3%82%A8%E3%82%A6%E3%83%87%E3%83%A2%E3%82%B9%E5%80%AB%E7%90%86%E5%AD%A6" },
