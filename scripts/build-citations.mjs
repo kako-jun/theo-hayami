@@ -73,43 +73,58 @@ export function extractLeadingWork(raw) {
   return { work, section };
 }
 
-// 読点が「著作の区切り」か「同じ著作内のロケータ区切り／ふつうの日本語の読点」かを
-// 判定する材料。読点の直後（次の区切り文字まで）を extractLeadingWork で覗き見て、
-// その結果が work_readings.json に登録済みの著作名（正本 or alias）と完全一致する
-// ときだけ著作の区切りとみなす（「エチカ IV 序文、I p15・I p29」のような同一著作内の
-// ロケータ列挙まで割ってしまわないため）。
-function splitOnWorkBoundaryTouten(text, registeredNames) {
+// 区切り文字（、 または ／／/）が「著作の区切り」か「同じ著作内のロケータ区切り／
+// ふつうの日本語の読点／別著作を指さない残骸」かを判定する材料。区切りの直後
+// （次の区切り文字まで）を extractLeadingWork で覗き見て、その結果が
+// work_readings.json に登録済みの著作名（正本 or alias）と完全一致するときだけ
+// 著作の区切りとみなす。
+// - 読点の例:「エチカ IV 序文、I p15・I p29」のような同一著作内のロケータ列挙を
+//   割ってしまわないため。
+// - ／の例（レビュー指摘S5）:「人間知性研究4／12」の `12`、「人間本性論II.i.11／III」の
+//   `III` はどちらも登録著作名ではない（章節の続き）ので、／があっても分割しない
+//   → section にそのまま `4／12`・`II.i.11／III` として残る。「省察 第六／エリザベト宛
+//   書簡（1643）」の書簡名も work_readings.json に未登録なので同様に分割せず、
+//   also に書簡名が漏れ出ることもない（書簡は著作でないため意図的に未登録のまま）。
+function splitOnWorkBoundary(text, delimiterRe, registeredNames) {
   const boundaries = [];
   let searchFrom = 0;
   for (;;) {
-    const idx = text.indexOf("、", searchFrom);
-    if (idx === -1) break;
-    const after = text.slice(idx + 1);
+    const rest = text.slice(searchFrom);
+    const m = rest.match(delimiterRe);
+    if (!m) break;
+    const idx = searchFrom + m.index;
+    const delimLen = m[0].length;
+    const after = text.slice(idx + delimLen);
     const candidate = extractLeadingWork(after).work;
-    if (candidate && registeredNames.has(candidate)) boundaries.push(idx);
-    searchFrom = idx + 1;
+    if (candidate && registeredNames.has(candidate)) boundaries.push({ idx, delimLen });
+    searchFrom = idx + delimLen;
   }
   if (boundaries.length === 0) return [text];
   const out = [];
   let start = 0;
-  for (const idx of boundaries) {
-    out.push(text.slice(start, idx));
-    start = idx + 1;
+  for (const b of boundaries) {
+    out.push(text.slice(start, b.idx));
+    start = b.idx + b.delimLen;
   }
   out.push(text.slice(start));
   return out;
 }
 
+const SLASH_DELIM_RE = /[／/]/;
+const TOUTEN_DELIM_RE = /、/;
+
 /**
  * 出典行の本文を「著作ごとの断片」に分割する（例: `形而上学Ζ・Η／カテゴリー論` →
- * `["形而上学Ζ・Η", "カテゴリー論"]`）。まず ／（全角/半角）で無条件に割り、
- * 各断片をさらに「両側が著作名の読点」で割る。
+ * `["形而上学Ζ・Η", "カテゴリー論"]`）。／（全角/半角）・読点のどちらも、区切りの右側が
+ * 登録済みの著作名（正本 or alias）で始まるときだけ著作境界として割る（レビュー指摘S5・
+ * 読点の既存規則に揃えた）。それ以外（ロケータの続き・未登録の書簡名など）は割らずに
+ * section の一部として残す。
  */
 export function splitIntoWorkFragments(raw, registeredNames) {
-  const slashParts = raw.trim().split(/[／/]/);
+  const slashParts = splitOnWorkBoundary(raw.trim(), SLASH_DELIM_RE, registeredNames);
   const fragments = [];
   for (const part of slashParts) {
-    fragments.push(...splitOnWorkBoundaryTouten(part, registeredNames));
+    fragments.push(...splitOnWorkBoundary(part, TOUTEN_DELIM_RE, registeredNames));
   }
   return fragments.map((f) => stripTrailing(f)).filter(Boolean);
 }
@@ -224,6 +239,15 @@ function main() {
         missing.add(entry.work);
         continue;
       }
+      // also（2つ目以降の著作）も同じ読み仮名台帳の登録チェック対象にする（レビュー指摘・#173 S4）。
+      // splitIntoWorkFragments の分割自体が registeredNames 済みの名前でしかしないため
+      // （S5）、通常はここで missing になることは無いはずだが、二重の安全網として
+      // also の各断片の先頭著作名（extractLeadingWork）も同様に検査し、未登録なら
+      // 一括で洗い出す（1件ずつ直して再実行、を繰り返さないため missing 側に集約する）。
+      for (const alsoFragment of entry.also) {
+        const alsoWork = extractLeadingWork(alsoFragment).work;
+        if (!alsoWork || !readings.has(alsoWork)) missing.add(alsoWork || alsoFragment);
+      }
       all.push({
         id: entry.id,
         resident: entry.resident,
@@ -267,6 +291,26 @@ function main() {
   if (sectionLeaks.length > 0) {
     console.error(`[build-citations] section に別の著作名が混入しています（自己検査）:`);
     for (const s of sectionLeaks) console.error(`  - ${s}`);
+    process.exitCode = 1;
+    return;
+  }
+
+  // 自己検査: also に「章節だけの断片」（ロケータの続きや未登録の書簡名など、著作名で
+  // 始まらない断片）が混入していないか（レビュー指摘・#173 S5）。splitIntoWorkFragments の
+  // 分割条件（登録済み著作名で始まる時だけ分割）が正しく効いていれば、also の各断片は
+  // 必ず登録済み著作名で始まるはず。混入があれば分割ロジックの回帰とみなして失敗させる。
+  const alsoSectionOnlyLeaks = [];
+  for (const entry of all) {
+    for (const alsoFragment of entry.also) {
+      const alsoWork = extractLeadingWork(alsoFragment).work;
+      if (!alsoWork || !readings.has(alsoWork)) {
+        alsoSectionOnlyLeaks.push(`${entry.id}: also="${alsoFragment}"（先頭が登録済み著作名と一致しません）`);
+      }
+    }
+  }
+  if (alsoSectionOnlyLeaks.length > 0) {
+    console.error(`[build-citations] also に章節だけの断片が混入しています（自己検査）:`);
+    for (const s of alsoSectionOnlyLeaks) console.error(`  - ${s}`);
     process.exitCode = 1;
     return;
   }

@@ -128,6 +128,39 @@ describe("citations.json（台帳・生成物）", () => {
     expect(eudaimonia?.section).toBe("I・X");
     expect(eudaimonia?.also).toEqual(["エウデモス倫理学"]);
   });
+
+  it("／の右側が登録済み著作名でない断片は別著作にせず section の続きとして残す（レビュー指摘S5）", () => {
+    // 人間知性研究4／12: 「12」は著作名でなく章節の続き。以前は also=["12"] に漏れていた。
+    const humesFork = citations.find((c) => c.id === "hue-ヒュームのフォーク");
+    expect(humesFork?.work).toBe("人間知性研究");
+    expect(humesFork?.section).toBe("4／12");
+    expect(humesFork?.also).toEqual([]);
+
+    // 人間本性論II.i.11／III: 「III」も章番号の続き。以前は also=["III"] に漏れていた。
+    const sympathy = citations.find((c) => c.id === "hue-共感");
+    expect(sympathy?.work).toBe("人間本性論");
+    expect(sympathy?.section).toBe("II.i.11／III");
+    expect(sympathy?.also).toEqual([]);
+
+    // 省察 第六／エリザベト宛書簡（1643）: 書簡は著作でないため未登録のまま
+    // （work_readings.json に登録しない）→ also に書簡名が漏れない。
+    const mindBody = citations.find((c) => c.id === "dekaris-心身合一");
+    expect(mindBody?.work).toBe("省察");
+    expect(mindBody?.also).toEqual([]);
+  });
+
+  it("also（2つ目以降の著作）も全件 work_readings.json に登録済み（レビュー指摘S4・章節だけの断片が無い）", () => {
+    const bad: string[] = [];
+    for (const c of citations) {
+      for (const alsoFragment of c.also) {
+        const alsoWork = extractLeadingWork(alsoFragment).work;
+        if (!alsoWork || !registeredNames.has(alsoWork)) {
+          bad.push(`${c.id}: also="${alsoFragment}"`);
+        }
+      }
+    }
+    expect(bad).toEqual([]);
+  });
 });
 
 describe("citation_map.json（配置台帳）", () => {
@@ -223,6 +256,29 @@ describe("splitWorkSection / japaneseIdFromHeading（build-citations.mjs のパ�
     });
   });
 
+  it("／区切りも、右側が登録済みの著作名のときだけ著作の境界とみなす（レビュー指摘S5・読点と同じ規則）", () => {
+    // 「人間知性研究4／12」: ／の右「12」は登録済み著作名ではない（同じ著作の章節の続き）
+    // → 境界にしない・section は割らずに「4／12」のまま残す（also に「12」を入れない）。
+    expect(splitWorkSection("人間知性研究4／12", registeredNames)).toEqual({
+      work: "人間知性研究",
+      section: "4／12",
+      also: [],
+    });
+    // 「人間本性論II.i.11／III」: ／の右「III」も著作名ではない（章番号の続き）。
+    expect(splitWorkSection("人間本性論II.i.11／III", registeredNames)).toEqual({
+      work: "人間本性論",
+      section: "II.i.11／III",
+      also: [],
+    });
+    // 「省察 第六／エリザベト宛書簡（1643）」: 書簡は著作ではないため work_readings.json に
+    // 未登録のまま（意図的）→ 境界にしない・also に書簡名を入れない（raw にだけ残る）。
+    expect(splitWorkSection("省察 第六／エリザベト宛書簡（1643）", registeredNames)).toEqual({
+      work: "省察",
+      section: "第六／エリザベト宛書簡（1643）",
+      also: [],
+    });
+  });
+
   it("行頭の引用（「」／『』）は閉じ括弧までを work にする", () => {
     expect(splitWorkSection("「原始契約について」／人間本性論III.ii.7–10", registeredNames)).toEqual({
       work: "原始契約について",
@@ -236,7 +292,7 @@ describe("splitWorkSection / japaneseIdFromHeading（build-citations.mjs のパ�
     });
   });
 
-  it("splitIntoWorkFragments は／と著作境界の読点で断片に割る", () => {
+  it("splitIntoWorkFragments は／と著作境界の読点で断片に割る（どちらも右側が登録済み著作名の時だけ）", () => {
     expect(splitIntoWorkFragments("形而上学Ζ・Η／カテゴリー論", registeredNames)).toEqual([
       "形而上学Ζ・Η",
       "カテゴリー論",
@@ -244,6 +300,9 @@ describe("splitWorkSection / japaneseIdFromHeading（build-citations.mjs のパ�
     expect(splitIntoWorkFragments("エチカ IV 序文、I p15・I p29", registeredNames)).toEqual([
       "エチカ IV 序文、I p15・I p29",
     ]);
+    // レビュー指摘S5: ／の右側が登録済み著作名でなければ割らない。
+    expect(splitIntoWorkFragments("人間知性研究4／12", registeredNames)).toEqual(["人間知性研究4／12"]);
+    expect(splitIntoWorkFragments("人間本性論II.i.11／III", registeredNames)).toEqual(["人間本性論II.i.11／III"]);
   });
 
   it("japaneseIdFromHeading: 見出しの（or／の手前までの日本語語句を、空白・中黒・かぎ括弧・全角イコールを除いて取り出す", () => {

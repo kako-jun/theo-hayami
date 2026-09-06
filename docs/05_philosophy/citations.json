@@ -898,10 +898,8 @@
     "resident": "デカリス",
     "concept": "心身合一（union de l'âme et du corps）",
     "work": "省察",
-    "section": "第六",
-    "also": [
-      "エリザベト宛書簡（1643）"
-    ],
+    "section": "第六／エリザベト宛書簡（1643）",
+    "also": [],
     "reading": "せいさつ",
     "raw": "省察 第六／エリザベト宛書簡（1643）"
   },
@@ -1603,10 +1601,8 @@
     "resident": "ヒュー",
     "concept": "ヒュームのフォーク（Hume's Fork）",
     "work": "人間知性研究",
-    "section": "4",
-    "also": [
-      "12"
-    ],
+    "section": "4／12",
+    "also": [],
     "reading": "にんげんちせいけんきゅう",
     "raw": "人間知性研究4／12。"
   },
@@ -1811,10 +1807,8 @@
     "resident": "ヒュー",
     "concept": "共感（sympathy）",
     "work": "人間本性論",
-    "section": "II.i.11",
-    "also": [
-      "III"
-    ],
+    "section": "II.i.11／III",
+    "also": [],
     "reading": "にんげんほんせいろん",
     "raw": "人間本性論II.i.11／III。"
   },
