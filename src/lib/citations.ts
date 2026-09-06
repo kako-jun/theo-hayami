@@ -1,0 +1,93 @@
+// 出典（栞）の読み出し（Issue #173 Phase A）。
+//
+// 正本は docs/05_philosophy/thinkers/*.md（住人ごとの概念インベントリ）。
+// docs/05_philosophy/citations.json（台帳・生成物）と docs/05_philosophy/citation_map.json
+// （配置・手編集）はどちらも scripts/build-citations.mjs 側の関心事で、ここは読むだけ。
+// content/scripts/*.md を fs でスキャンする src/lib/scripts.ts と同じ流儀
+// （process.cwd() 起点の相対パス・モジュールキャッシュ）に揃える。
+import { readFileSync } from "node:fs";
+import path from "node:path";
+
+const PHILOSOPHY_DIR = path.join(process.cwd(), "docs", "05_philosophy");
+const CITATIONS_PATH = path.join(PHILOSOPHY_DIR, "citations.json");
+const CITATION_MAP_PATH = path.join(PHILOSOPHY_DIR, "citation_map.json");
+
+export interface Citation {
+  id: string;
+  resident: string;
+  concept: string;
+  work: string;
+  section: string;
+  reading: string;
+  raw: string;
+}
+
+export interface CitationPlacement {
+  after_block: number;
+  id: string;
+}
+
+let cachedCitations: Citation[] | null = null;
+let cachedMap: Record<string, CitationPlacement[]> | null = null;
+
+function loadCitations(): Citation[] {
+  if (!cachedCitations) {
+    cachedCitations = JSON.parse(readFileSync(CITATIONS_PATH, "utf-8")) as Citation[];
+  }
+  return cachedCitations;
+}
+
+function loadCitationMap(): Record<string, CitationPlacement[]> {
+  if (!cachedMap) {
+    const raw = JSON.parse(readFileSync(CITATION_MAP_PATH, "utf-8")) as Record<string, unknown>;
+    const entries: Record<string, CitationPlacement[]> = {};
+    for (const [key, value] of Object.entries(raw)) {
+      if (key.startsWith("_")) continue; // _comment 等のメタキーは対象外
+      entries[key] = value as CitationPlacement[];
+    }
+    cachedMap = entries;
+  }
+  return cachedMap;
+}
+
+/**
+ * citation_map.json のファイルキー（`content/scripts/` からの相対パス。例 `current/temperature.md`）を、
+ * 読むページの slug（ReaderFrame の `slug` prop・readStore の既読判定キーと同じ値）に変換する。
+ * - `current/x.md`（けふのティータイム）→ ReaderFrame の slug は `tea-x`（tea-time/[slug].astro が
+ *   `slug={`tea-${question.slug}`}` で渡す。src/data/teaTime.ts の sceneId も `tea-x` で揃っている）。
+ * - `free/a__b.md` → `a__b`（そのまま。free/[slug].astro の episode.slug と一致）。
+ * - `main/x.md`（本筋・おはこ）→ `x`（そのまま。main/[slug].astro の slug と一致）。
+ * 未知の1階層目（`current-drafts/` 等）は null（栞の対象外）。
+ */
+export function fileKeyToReaderSlug(fileKey: string): string | null {
+  const slashIdx = fileKey.indexOf("/");
+  if (slashIdx === -1) return null;
+  const dir = fileKey.slice(0, slashIdx);
+  const base = fileKey.slice(slashIdx + 1).replace(/\.md$/, "");
+  if (!base) return null;
+  if (dir === "current") return `tea-${base}`;
+  if (dir === "free" || dir === "main") return base;
+  return null;
+}
+
+/** 読むページの slug から、その扉に灯す栞（出典）の一覧を返す（配置順）。無ければ空配列。 */
+export function getCitationsForSlug(slug: string): Citation[] {
+  const map = loadCitationMap();
+  const citations = loadCitations();
+  const byId = new Map(citations.map((c) => [c.id, c]));
+
+  const results: Citation[] = [];
+  for (const [fileKey, placements] of Object.entries(map)) {
+    if (fileKeyToReaderSlug(fileKey) !== slug) continue;
+    for (const placement of placements) {
+      const citation = byId.get(placement.id);
+      if (citation) results.push(citation);
+    }
+  }
+  return results;
+}
+
+/** 栞1件の表示文言（『著作名（よみがな）』章節）。apply-citations.mjs の telop 本文と同じ組み方。 */
+export function formatCitation(citation: Citation): string {
+  return `『${citation.work}（${citation.reading}）』${citation.section ?? ""}`;
+}

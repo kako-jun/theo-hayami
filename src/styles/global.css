@@ -2188,3 +2188,39 @@ a {
 .th-pwa-install-banner__dismiss:focus-visible {
   color: var(--color-th-gold-bright);
 }
+
+/* ---------------------------------------------------------------------
+   栞（出典）リスト（Issue #173 Phase A）
+   埋め込みの直下・既読のときだけ灯す。既読の意匠語彙（.th-read-stamp と同じく
+   暗くせず金で灯す＝達成のポジ）に揃え、目立たせすぎない（小さめ・インデント・
+   細い金線1本）。display は設定しない（<section> の既定 block のままにして、
+   ブラウザ標準の [hidden]{display:none} と衝突させない）。
+   --------------------------------------------------------------------- */
+.th-shiori {
+  margin-top: 1.5rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(184, 147, 79, 0.35);
+}
+.th-shiori.is-lit {
+  border-top-color: rgba(230, 196, 126, 0.55);
+}
+.th-shiori__title {
+  margin: 0 0 0.4rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  color: var(--color-th-gold);
+}
+.th-shiori.is-lit .th-shiori__title {
+  color: var(--color-th-gold-bright);
+}
+.th-shiori__list {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--color-th-ivory-dim);
+}
+.th-shiori.is-lit .th-shiori__list {
+  color: var(--color-th-ivory);
+}
