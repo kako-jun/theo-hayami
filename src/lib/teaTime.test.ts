@@ -1,12 +1,11 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { RESIDENTS } from "../data/residents.ts";
 import { publishedTeaTimeQuestions, teaTimeQuestions } from "../data/teaTime.ts";
+import { TEA_TIME_SPEAKER_SLUGS } from "../data/teaTimeSpeakers.ts";
 
 const CURRENT_DIR = path.join(process.cwd(), "content", "scripts", "current");
 const TEA_TIME_RULE_DOC = path.join(process.cwd(), "docs", "09_production", "current_questions.md");
-const residentSlugs = new Set(RESIDENTS.map((r) => r.slug));
 
 describe("publishedTeaTimeQuestions", () => {
   it("規約 docs/09_production/current_questions.md を参照できる", () => {
@@ -44,10 +43,10 @@ describe("publishedTeaTimeQuestions", () => {
     expect(duplicates).toEqual([]);
   });
 
-  it("公開済みは3人の既知住人を持つ", () => {
+  it("公開済みは3人の既知の参加者（住人またはせお／ヴィンチア）を持つ", () => {
     const bad = publishedTeaTimeQuestions.filter((entry) => {
       const residents = entry.residents ?? [];
-      return residents.length !== 3 || residents.some((slug) => !residentSlugs.has(slug));
+      return residents.length !== 3 || residents.some((slug) => !TEA_TIME_SPEAKER_SLUGS.has(slug));
     });
     expect(bad.map((entry) => entry.slug)).toEqual([]);
   });

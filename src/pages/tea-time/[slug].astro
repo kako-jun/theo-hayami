@@ -4,7 +4,7 @@ import LibraryLayout from "../../layouts/LibraryLayout.astro";
 import ReaderFrame from "../../components/ReaderFrame.astro";
 import type { TeaTimeQuestion } from "../../data/teaTime";
 import { publishedTeaTimeQuestions } from "../../data/teaTime";
-import { findResident } from "../../data/residents";
+import { findTeaTimeSpeaker } from "../../data/teaTimeSpeakers";
 
 export function getStaticPaths() {
   return publishedTeaTimeQuestions.map((question, index) => ({
@@ -15,7 +15,7 @@ export function getStaticPaths() {
 
 const { question, index } = Astro.props as { question: TeaTimeQuestion; index: number };
 const speakers = (question.residents ?? [])
-  .map((slug) => findResident(slug))
+  .map((slug) => findTeaTimeSpeaker(slug))
   .filter((r): r is NonNullable<typeof r> => r !== undefined);
 const sceneId = question.sceneId ?? `tea-${question.slug}`;
 const teaNumber = String(question.number ?? index + 1).padStart(2, "0");
@@ -57,13 +57,13 @@ const teaNumber = String(question.number ?? index + 1).padStart(2, "0");
               <li class="th-tea-speaker" data-resident={r.slug}>
                 <span class="th-tea-speaker__face">
                   <img
-                    src={`/images/theme-residents/${r.slug}.webp`}
+                    src={r.faceSrc}
                     alt={r.name}
                     loading="lazy"
                   />
                 </span>
                 <span class="th-tea-speaker__name">{r.name}</span>
-                <span class="th-tea-speaker__meta">叡智：{r.ability}</span>
+                <span class="th-tea-speaker__meta">{r.metaLabel}</span>
               </li>
             ))}
           </ul>
