@@ -1051,5 +1051,225 @@
       "after_block": 9,
       "id": "dekaris-デカルトの循環"
     }
+  ],
+  "free/ai__spino.md": [
+    {
+      "after_block": 3,
+      "id": "spino-愛"
+    }
+  ],
+  "free/aseri__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-感情の定義全48"
+    }
+  ],
+  "free/atarimae__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-第一種想像知"
+    }
+  ],
+  "free/fuan__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-第一種想像知"
+    }
+  ],
+  "free/fukushuu__spino.md": [
+    {
+      "after_block": 3,
+      "id": "spino-感情の定義全48"
+    }
+  ],
+  "free/fushin__spino.md": [
+    {
+      "after_block": 15,
+      "id": "spino-社会契約国家"
+    }
+  ],
+  "free/gensou__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-観念"
+    }
+  ],
+  "free/gouman__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-高慢"
+    }
+  ],
+  "free/henka__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-徳力"
+    }
+  ],
+  "free/ikari__spino.md": [
+    {
+      "after_block": 11,
+      "id": "spino-妥当"
+    }
+  ],
+  "free/imi__spino.md": [
+    {
+      "after_block": 7,
+      "id": "spino-必然性決定論"
+    }
+  ],
+  "free/izon__spino.md": [
+    {
+      "after_block": 7,
+      "id": "spino-人間の隷属"
+    }
+  ],
+  "free/jikan__spino.md": [
+    {
+      "after_block": 7,
+      "id": "spino-無限と永遠"
+    }
+  ],
+  "free/jiyuu__spino.md": [
+    {
+      "after_block": 7,
+      "id": "spino-自由自由な人"
+    }
+  ],
+  "free/kitai__spino.md": [
+    {
+      "after_block": 7,
+      "id": "spino-希望"
+    }
+  ],
+  "free/kodoku__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-実体"
+    }
+  ],
+  "free/koufuku__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-至福"
+    }
+  ],
+  "free/koukai__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-後悔"
+    }
+  ],
+  "free/mayoi__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-第二種理性知"
+    }
+  ],
+  "free/mie__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-名誉虚栄"
+    }
+  ],
+  "free/moke__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-コナトゥス"
+    },
+    {
+      "after_block": 7,
+      "id": "spino-徳力"
+    }
+  ],
+  "free/mujun__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-必然性決定論"
+    }
+  ],
+  "free/namake__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-悲しみ"
+    }
+  ],
+  "free/netami__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-嫉妬"
+    }
+  ],
+  "free/oi__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-永遠の相のもとに"
+    }
+  ],
+  "free/ronpa__spino.md": [
+    {
+      "after_block": 11,
+      "id": "spino-自己満足"
+    }
+  ],
+  "free/shihai__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-思想言論の自由"
+    }
+  ],
+  "free/shuuchaku__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-感情の定義全48"
+    }
+  ],
+  "free/soushitsu__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-感情の定義全48"
+    }
+  ],
+  "free/tadashisa__spino.md": [
+    {
+      "after_block": 7,
+      "id": "spino-共通概念"
+    }
+  ],
+  "free/taikutsu__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-喜び"
+    }
+  ],
+  "free/uso__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-精神身体の観念"
+    }
+  ],
+  "free/wakattete__spino.md": [
+    {
+      "after_block": 6,
+      "id": "spino-第三種直観知"
+    }
+  ],
+  "free/wakeru__spino.md": [
+    {
+      "after_block": 11,
+      "id": "spino-様態"
+    }
+  ],
+  "free/yurushi__spino.md": [
+    {
+      "after_block": 5,
+      "id": "spino-愛"
+    }
+  ],
+  "free/zaiakukan__spino.md": [
+    {
+      "after_block": 9,
+      "id": "spino-後悔"
+    }
   ]
 }
