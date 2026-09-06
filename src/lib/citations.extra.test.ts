@@ -101,15 +101,22 @@ describe("fileKeyToReaderSlug: 不正キー", () => {
     expect(fileKeyToReaderSlug("temperature.md")).toBe(null);
   });
 
-  // レビュー指摘（#173テスト設計）: 拡張子が無いキー・二重スラッシュのキーは、実運用では
-  // citation_map.json の値が常に実在する `dir/file.md` の形（他テストで担保済み）なので
-  // 発生しないが、fileKeyToReaderSlug 単体は現状これらを弾かない（既知ディレクトリ名が
-  // 前半に来ると、拡張子が無くても・区切りが二重でも非 null の slug を返してしまう）。
-  // 直さず記録のみ残す（呼び出し元は常に実在パスなので実害は今のところ無い）。
-  it.todo(
-    "拡張子なしキー（例: `main/foo`）は null になるべきだが、現状は `foo` を返してしまう（実装バグ疑い・未修正）",
-  );
-  it.todo(
-    "二重スラッシュキー（例: `main//foo.md`）は null になるべきだが、現状は `/foo` を返してしまう（実装バグ疑い・未修正）",
-  );
+  // fix: fileKeyToReaderSlug を不正キーで null にする厳密化 (#173)。
+  // 受理形を `^(current|current-drafts|free|main)\/([A-Za-z0-9_-]+)\.md$` に厳密化した後は、
+  // 既知ディレクトリ名で始まっていても拡張子なし・二重スラッシュ・許可外文字は null になる。
+  it("拡張子なしキー（例: `main/foo`）は null", async () => {
+    const { fileKeyToReaderSlug } = await freshCitations();
+    expect(fileKeyToReaderSlug("main/foo")).toBe(null);
+  });
+
+  it("二重スラッシュキー（例: `main//foo.md`）は null", async () => {
+    const { fileKeyToReaderSlug } = await freshCitations();
+    expect(fileKeyToReaderSlug("main//foo.md")).toBe(null);
+  });
+
+  it("ファイル名に許可文字（英数字・`_`・`-`）以外を含むキーは null", async () => {
+    const { fileKeyToReaderSlug } = await freshCitations();
+    expect(fileKeyToReaderSlug("main/温度.md")).toBe(null);
+    expect(fileKeyToReaderSlug("main/foo bar.md")).toBe(null);
+  });
 });

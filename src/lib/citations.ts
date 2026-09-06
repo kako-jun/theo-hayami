@@ -61,16 +61,21 @@ function loadCitationMap(): Record<string, CitationPlacement[]> {
  * - `free/a__b.md` → `a__b`（そのまま。free/[slug].astro の episode.slug と一致）。
  * - `main/x.md`（本筋・おはこ）→ `x`（そのまま。main/[slug].astro の slug と一致）。
  * 未知の1階層目（`current-drafts/` 等）は null（栞の対象外）。
+ *
+ * 受理する形は `^(current|current-drafts|free|main)\/([A-Za-z0-9_-]+)\.md$` のみに厳密化する
+ * （レビュー指摘・#173テスト設計）。拡張子なし・二重スラッシュ・ファイル名に許可文字以外を
+ * 含むキーは、既知ディレクトリ名で始まっていても null にする。実際の content/scripts/ 配下の
+ * ファイル名は英数字・`_`・`-` のみ（本関数のテストで固定済み）なので実データには影響しない。
  */
+const VALID_FILE_KEY_RE = /^(current|current-drafts|free|main)\/([A-Za-z0-9_-]+)\.md$/;
+
 export function fileKeyToReaderSlug(fileKey: string): string | null {
-  const slashIdx = fileKey.indexOf("/");
-  if (slashIdx === -1) return null;
-  const dir = fileKey.slice(0, slashIdx);
-  const base = fileKey.slice(slashIdx + 1).replace(/\.md$/, "");
-  if (!base) return null;
+  const m = fileKey.match(VALID_FILE_KEY_RE);
+  if (!m) return null;
+  const [, dir, base] = m;
   if (dir === "current") return `tea-${base}`;
   if (dir === "free" || dir === "main") return base;
-  return null;
+  return null; // current-drafts: 形式は正当だが栞の対象外
 }
 
 /** 読むページの slug から、その扉に灯す栞（出典）の一覧を返す（配置順）。無ければ空配列。 */
