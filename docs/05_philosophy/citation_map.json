@@ -1759,5 +1759,201 @@
       "after_block": 7,
       "id": "hue-是認と否認"
     }
+  ],
+  "free/ai__ou.md": [
+    {
+      "after_block": 9,
+      "id": "ou-知行合一"
+    }
+  ],
+  "free/aseri__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-省察克治"
+    }
+  ],
+  "free/atarimae__ou.md": [
+    {
+      "after_block": 11,
+      "id": "ou-竹を格す"
+    }
+  ],
+  "free/douchou__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-四有と四無"
+    }
+  ],
+  "free/fuan__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-立志は種養うは時を待つ"
+    }
+  ],
+  "free/fushin__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-朱子晩年定論"
+    }
+  ],
+  "free/gensou__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-本心本体"
+    }
+  ],
+  "free/gouman__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-明徳と親民"
+    }
+  ],
+  "free/henka__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-為善去悪"
+    }
+  ],
+  "free/ikari__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-龍場の悟り"
+    },
+    {
+      "after_block": 9,
+      "id": "ou-事上磨錬"
+    }
+  ],
+  "free/izon__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-一念発動即是行"
+    }
+  ],
+  "free/jiyuu__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-致良知"
+    }
+  ],
+  "free/kitai__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-真知"
+    }
+  ],
+  "free/kodoku__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-明徳と親民"
+    }
+  ],
+  "free/koufuku__ou.md": [
+    {
+      "after_block": 9,
+      "id": "ou-良知は現成"
+    }
+  ],
+  "free/koukai__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-知は行の始め行は知の成"
+    }
+  ],
+  "free/mayoi__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-知行本一"
+    }
+  ],
+  "free/mie__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-誠意"
+    }
+  ],
+  "free/moke__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-立志"
+    }
+  ],
+  "free/mujun__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-事上磨錬"
+    }
+  ],
+  "free/namake__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-知は行の始め行は知の成"
+    }
+  ],
+  "free/netami__ou.md": [
+    {
+      "after_block": 11,
+      "id": "ou-本心本体"
+    }
+  ],
+  "free/oi__ou.md": [
+    {
+      "after_block": 11,
+      "id": "ou-不動心"
+    }
+  ],
+  "free/ronpa__ou.md": [
+    {
+      "after_block": 9,
+      "id": "ou-良知の自知"
+    }
+  ],
+  "free/shi__ou.md": [
+    {
+      "after_block": 6,
+      "id": "ou-万物一体の仁"
+    }
+  ],
+  "free/shihai__ou.md": [
+    {
+      "after_block": 5,
+      "id": "ou-格物"
+    }
+  ],
+  "free/shuuchaku__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-無善無悪心之体"
+    }
+  ],
+  "free/soushitsu__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-静坐"
+    }
+  ],
+  "free/taikutsu__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-心外無理心外無物"
+    }
+  ],
+  "free/uso__ou.md": [
+    {
+      "after_block": 9,
+      "id": "ou-心即理"
+    }
+  ],
+  "free/wakeru__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-是非の心"
+    }
+  ],
+  "free/yurushi__ou.md": [
+    {
+      "after_block": 7,
+      "id": "ou-正心"
+    }
   ]
 }
