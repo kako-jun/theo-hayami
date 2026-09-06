@@ -1,65 +1,583 @@
 {
   "_comment": "脚本ファイル（content/scripts/ からの相対パス）→ 挿入する栞の配置一覧（Issue #173 Phase A/B）。after_block は 1始まりの話者ブロック番号（`**話者**` 行の出現順）。id は docs/05_philosophy/citations.json の id。1本あたり最大2箇所（レビューで担保）。scripts/apply-citations.mjs がこのファイルを読んで脚本MDに `[テロップ: ..., 種別=しおり]` を挿入する。",
   "current/temperature.md": [
-    { "after_block": 2, "id": "kantia-アンチノミー" },
-    { "after_block": 3, "id": "hue-習慣慣れ" }
+    {
+      "after_block": 2,
+      "id": "kantia-アンチノミー"
+    },
+    {
+      "after_block": 3,
+      "id": "hue-習慣慣れ"
+    }
   ],
   "current/ai-job.md": [
-    { "after_block": 6, "id": "ou-知行合一" },
-    { "after_block": 7, "id": "kantia-目的それ自体の法式" }
+    {
+      "after_block": 6,
+      "id": "ou-知行合一"
+    },
+    {
+      "after_block": 7,
+      "id": "kantia-目的それ自体の法式"
+    }
   ],
   "current/finite-life.md": [
-    { "after_block": 14, "id": "ou-知行合一" }
+    {
+      "after_block": 14,
+      "id": "ou-知行合一"
+    }
   ],
   "current/genius.md": [
-    { "after_block": 4, "id": "kantia-天才" },
-    { "after_block": 8, "id": "hue-趣味の繊細さ" }
+    {
+      "after_block": 4,
+      "id": "kantia-天才"
+    },
+    {
+      "after_block": 8,
+      "id": "hue-趣味の繊細さ"
+    }
   ],
   "current/media-agitation.md": [
-    { "after_block": 12, "id": "spino-感情" },
-    { "after_block": 17, "id": "hue-習慣慣れ" }
+    {
+      "after_block": 12,
+      "id": "spino-感情"
+    },
+    {
+      "after_block": 17,
+      "id": "hue-習慣慣れ"
+    }
   ],
   "current/scandal.md": [
-    { "after_block": 2, "id": "kantia-目的それ自体の法式" },
-    { "after_block": 6, "id": "hue-比較の原理" }
+    {
+      "after_block": 2,
+      "id": "kantia-目的それ自体の法式"
+    },
+    {
+      "after_block": 6,
+      "id": "hue-比較の原理"
+    }
   ],
   "current/unpersuadable.md": [
-    { "after_block": 14, "id": "spino-思想言論の自由" },
-    { "after_block": 16, "id": "hegru-止揚" }
+    {
+      "after_block": 14,
+      "id": "spino-思想言論の自由"
+    },
+    {
+      "after_block": 16,
+      "id": "hegru-止揚"
+    }
   ],
   "current/wc-luck.md": [
-    { "after_block": 3, "id": "makiya-フォルトゥナ" },
-    { "after_block": 6, "id": "spino-必然性決定論" }
+    {
+      "after_block": 3,
+      "id": "makiya-フォルトゥナ"
+    },
+    {
+      "after_block": 6,
+      "id": "spino-必然性決定論"
+    }
   ],
   "current/youtube-monetization.md": [
-    { "after_block": 18, "id": "makiya-フォルトゥナ" },
-    { "after_block": 25, "id": "aristo-エウダイモニア" }
+    {
+      "after_block": 18,
+      "id": "makiya-フォルトゥナ"
+    },
+    {
+      "after_block": 25,
+      "id": "aristo-エウダイモニア"
+    }
   ],
   "main/ohako-dekaris.md": [
-    { "after_block": 5, "id": "dekaris-夢の論証" },
-    { "after_block": 11, "id": "dekaris-コギト" }
+    {
+      "after_block": 5,
+      "id": "dekaris-夢の論証"
+    },
+    {
+      "after_block": 11,
+      "id": "dekaris-コギト"
+    }
   ],
   "main/ohako-hegru.md": [
-    { "after_block": 9, "id": "hegru-止揚" },
-    { "after_block": 11, "id": "hegru-矛盾" }
+    {
+      "after_block": 9,
+      "id": "hegru-止揚"
+    },
+    {
+      "after_block": 11,
+      "id": "hegru-矛盾"
+    }
   ],
   "main/ohako-hue.md": [
-    { "after_block": 7, "id": "hue-帰納の問題" },
-    { "after_block": 9, "id": "hue-習慣慣れ" }
+    {
+      "after_block": 7,
+      "id": "hue-帰納の問題"
+    },
+    {
+      "after_block": 9,
+      "id": "hue-習慣慣れ"
+    }
   ],
   "main/ohako-kantia.md": [
-    { "after_block": 7, "id": "kantia-現象" },
-    { "after_block": 9, "id": "kantia-物自体" }
+    {
+      "after_block": 7,
+      "id": "kantia-現象"
+    },
+    {
+      "after_block": 9,
+      "id": "kantia-物自体"
+    }
   ],
   "main/ohako-makiya.md": [
-    { "after_block": 7, "id": "makiya-実効的真理" }
+    {
+      "after_block": 7,
+      "id": "makiya-実効的真理"
+    }
   ],
   "main/ohako-ou.md": [
-    { "after_block": 11, "id": "ou-知は行の始め行は知の成" },
-    { "after_block": 15, "id": "ou-知行合一" }
+    {
+      "after_block": 11,
+      "id": "ou-知は行の始め行は知の成"
+    },
+    {
+      "after_block": 15,
+      "id": "ou-知行合一"
+    }
   ],
   "main/ohako-spino.md": [
-    { "after_block": 7, "id": "spino-様態" },
-    { "after_block": 9, "id": "spino-産出する自然" }
+    {
+      "after_block": 7,
+      "id": "spino-様態"
+    },
+    {
+      "after_block": 9,
+      "id": "spino-産出する自然"
+    }
+  ],
+  "free/ai__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-友愛"
+    }
+  ],
+  "free/aseri__aristo.md": [
+    {
+      "after_block": 9,
+      "id": "aristo-場所と自然な場所"
+    }
+  ],
+  "free/atarimae__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-第一原理と知性的把握"
+    }
+  ],
+  "free/douchou__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-弁証術と通念"
+    }
+  ],
+  "free/fuan__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-無限"
+    }
+  ],
+  "free/fushin__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-帰納"
+    }
+  ],
+  "free/gensou__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-想像"
+    }
+  ],
+  "free/gouman__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-配分的正義"
+    }
+  ],
+  "free/henka__aristo.md": [
+    {
+      "after_block": 7,
+      "id": "aristo-自然"
+    }
+  ],
+  "free/ikari__aristo.md": [
+    {
+      "after_block": 6,
+      "id": "aristo-中庸"
+    }
+  ],
+  "free/imi__aristo.md": [
+    {
+      "after_block": 9,
+      "id": "aristo-目的論"
+    }
+  ],
+  "free/izon__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-習慣づけと性向"
+    }
+  ],
+  "free/jikan__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-時間"
+    }
+  ],
+  "free/jiyuu__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-自発的"
+    }
+  ],
+  "free/kitai__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-詩と歴史"
+    }
+  ],
+  "free/kodoku__aristo.md": [
+    {
+      "after_block": 9,
+      "id": "aristo-政治的動物"
+    }
+  ],
+  "free/koufuku__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-エウダイモニア"
+    }
+  ],
+  "free/koukai__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-逆転と認知"
+    }
+  ],
+  "free/mayoi__aristo.md": [
+    {
+      "after_block": 9,
+      "id": "aristo-三段論法"
+    }
+  ],
+  "free/mie__aristo.md": [
+    {
+      "after_block": 7,
+      "id": "aristo-機能論証"
+    }
+  ],
+  "free/moke__aristo.md": [
+    {
+      "after_block": 7,
+      "id": "aristo-中庸"
+    }
+  ],
+  "free/mujun__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-矛盾律"
+    }
+  ],
+  "free/namake__aristo.md": [
+    {
+      "after_block": 7,
+      "id": "aristo-欲求"
+    }
+  ],
+  "free/oi__aristo.md": [
+    {
+      "after_block": 6,
+      "id": "aristo-可能態と現実態"
+    }
+  ],
+  "free/ronpa__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-弁証術と通念"
+    }
+  ],
+  "free/shi__aristo.md": [
+    {
+      "after_block": 7,
+      "id": "aristo-魂"
+    }
+  ],
+  "free/shihai__aristo.md": [
+    {
+      "after_block": 9,
+      "id": "aristo-不動の動者"
+    }
+  ],
+  "free/shuuchaku__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-本質"
+    }
+  ],
+  "free/soushitsu__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-死んだ手の同名異義"
+    }
+  ],
+  "free/tadashisa__aristo.md": [
+    {
+      "after_block": 9,
+      "id": "aristo-思慮"
+    }
+  ],
+  "free/taikutsu__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-観想"
+    }
+  ],
+  "free/uso__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-ミメーシス"
+    }
+  ],
+  "free/wakattete__aristo.md": [
+    {
+      "after_block": 5,
+      "id": "aristo-アクラシア"
+    }
+  ],
+  "free/yurushi__aristo.md": [
+    {
+      "after_block": 7,
+      "id": "aristo-カタルシス"
+    }
+  ],
+  "free/zaiakukan__aristo.md": [
+    {
+      "after_block": 3,
+      "id": "aristo-ハマルティア"
+    }
+  ],
+  "free/ai__hegru.md": [
+    {
+      "after_block": 11,
+      "id": "hegru-家族市民社会国家"
+    }
+  ],
+  "free/aseri__hegru.md": [
+    {
+      "after_block": 11,
+      "id": "hegru-世界史的個人"
+    }
+  ],
+  "free/atarimae__hegru.md": [
+    {
+      "after_block": 10,
+      "id": "hegru-感覚的確信"
+    }
+  ],
+  "free/douchou__hegru.md": [
+    {
+      "after_block": 3,
+      "id": "hegru-人倫"
+    }
+  ],
+  "free/fuan__hegru.md": [
+    {
+      "after_block": 5,
+      "id": "hegru-ミネルヴァの梟"
+    }
+  ],
+  "free/fukushuu__hegru.md": [
+    {
+      "after_block": 7,
+      "id": "hegru-抽象法道徳人倫"
+    }
+  ],
+  "free/fushin__hegru.md": [
+    {
+      "after_block": 5,
+      "id": "hegru-思弁的なもの"
+    }
+  ],
+  "free/gensou__hegru.md": [
+    {
+      "after_block": 10,
+      "id": "hegru-絶対知"
+    }
+  ],
+  "free/gouman__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-具体的普遍"
+    }
+  ],
+  "free/henka__hegru.md": [
+    {
+      "after_block": 5,
+      "id": "hegru-意識の経験の学"
+    }
+  ],
+  "free/ikari__hegru.md": [
+    {
+      "after_block": 6,
+      "id": "hegru-疎外外化"
+    }
+  ],
+  "free/imi__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-世界精神"
+    }
+  ],
+  "free/izon__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-真無限と悪無限"
+    }
+  ],
+  "free/jikan__hegru.md": [
+    {
+      "after_block": 7,
+      "id": "hegru-止揚"
+    }
+  ],
+  "free/jiyuu__hegru.md": [
+    {
+      "after_block": 7,
+      "id": "hegru-自由の意識の進歩"
+    }
+  ],
+  "free/kitai__hegru.md": [
+    {
+      "after_block": 7,
+      "id": "hegru-表象"
+    }
+  ],
+  "free/kodoku__hegru.md": [
+    {
+      "after_block": 5,
+      "id": "hegru-精神"
+    }
+  ],
+  "free/koufuku__hegru.md": [
+    {
+      "after_block": 7,
+      "id": "hegru-美理念の感性的顕現"
+    }
+  ],
+  "free/koukai__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-根拠"
+    }
+  ],
+  "free/mayoi__hegru.md": [
+    {
+      "after_block": 12,
+      "id": "hegru-概念判断推論"
+    }
+  ],
+  "free/mie__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-本質仮象反省"
+    }
+  ],
+  "free/moke__hegru.md": [
+    {
+      "after_block": 6,
+      "id": "hegru-理性の狡知"
+    }
+  ],
+  "free/namake__hegru.md": [
+    {
+      "after_block": 5,
+      "id": "hegru-質量度"
+    }
+  ],
+  "free/netami__hegru.md": [
+    {
+      "after_block": 6,
+      "id": "hegru-主と奴"
+    }
+  ],
+  "free/oi__hegru.md": [
+    {
+      "after_block": 7,
+      "id": "hegru-有無成"
+    },
+    {
+      "after_block": 9,
+      "id": "hegru-止揚"
+    }
+  ],
+  "free/shi__hegru.md": [
+    {
+      "after_block": 8,
+      "id": "hegru-規定的否定"
+    }
+  ],
+  "free/shihai__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-承認"
+    },
+    {
+      "after_block": 11,
+      "id": "hegru-自由意志"
+    }
+  ],
+  "free/shuuchaku__hegru.md": [
+    {
+      "after_block": 7,
+      "id": "hegru-定有或るもの"
+    }
+  ],
+  "free/soushitsu__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-即自対自即且対自"
+    }
+  ],
+  "free/tadashisa__hegru.md": [
+    {
+      "after_block": 6,
+      "id": "hegru-理性的なものは現実的現実的なものは理性的"
+    }
+  ],
+  "free/taikutsu__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-理性"
+    }
+  ],
+  "free/uso__hegru.md": [
+    {
+      "after_block": 10,
+      "id": "hegru-承認"
+    }
+  ],
+  "free/wakeru__hegru.md": [
+    {
+      "after_block": 13,
+      "id": "hegru-本質仮象反省"
+    }
+  ],
+  "free/yurushi__hegru.md": [
+    {
+      "after_block": 9,
+      "id": "hegru-和解"
+    }
+  ],
+  "free/zaiakukan__hegru.md": [
+    {
+      "after_block": 5,
+      "id": "hegru-不幸な意識"
+    }
   ]
 }
