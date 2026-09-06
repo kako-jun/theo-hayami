@@ -9,7 +9,7 @@ import { describe, expect, it } from "vitest";
 
 const READINGS_PATH = path.join(process.cwd(), "docs", "05_philosophy", "work_readings.json");
 const readings = JSON.parse(readFileSync(READINGS_PATH, "utf-8")) as {
-  works: Record<string, { reading: string; aliases?: string[] }>;
+  works: Record<string, { reading: string; link?: string; aliases?: string[] }>;
 };
 
 // 平仮名（U+3041-U+309F）＋長音記号ー（U+30FC）＋中黒・（U+30FB）のみ許可。
@@ -52,5 +52,36 @@ describe("work_readings.json: aliases の一意性", () => {
       }
     }
     expect(collisions).toEqual([]);
+  });
+});
+
+// 栞リストの著作記事リンク（Issue #178）。日本語版 Wikipedia の記事に実在確認済みのものだけを
+// 持たせる（記事が無い・別項目にしか無い著作は link を持たせずリンク無し表示）。
+describe("work_readings.json: link（Issue #178・日本語版 Wikipedia の著作記事）", () => {
+  const WIKIPEDIA_JA_PREFIX = "https://ja.wikipedia.org/wiki/";
+
+  it("全 link が https://ja.wikipedia.org/wiki/ 始まり", () => {
+    const bad = Object.entries(readings.works)
+      .filter(([, entry]) => entry.link !== undefined && !entry.link.startsWith(WIKIPEDIA_JA_PREFIX))
+      .map(([canonical, entry]) => `${canonical}: "${entry.link}"`);
+    expect(bad).toEqual([]);
+  });
+
+  it("link を持つ著作が1件以上ある（Issue #178 実装の存在確認）", () => {
+    const withLink = Object.entries(readings.works).filter(([, entry]) => entry.link !== undefined);
+    expect(withLink.length).toBeGreaterThan(0);
+  });
+
+  it("aliases はただの文字列配列であり、alias 自身が独立した link を持つことはできない（canonical 経由のみ）", () => {
+    // work_readings.json の構造上、aliases は string[] であって { reading, link } のような
+    // オブジェクトではない。canonical キーの entry.link だけが唯一の正本であることを、
+    // 構造そのもの（各 entry.aliases が文字列だけの配列である）で確認する。
+    const bad: string[] = [];
+    for (const [canonical, entry] of Object.entries(readings.works)) {
+      for (const alias of entry.aliases ?? []) {
+        if (typeof alias !== "string") bad.push(`${canonical}: alias が文字列でない (${JSON.stringify(alias)})`);
+      }
+    }
+    expect(bad).toEqual([]);
   });
 });

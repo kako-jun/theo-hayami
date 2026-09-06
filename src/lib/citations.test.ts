@@ -31,6 +31,7 @@ interface Citation {
   display_section: string;
   also: string[];
   reading: string;
+  link?: string;
   raw: string;
 }
 
@@ -46,7 +47,7 @@ const SCRIPTS_CONTENT_DIR = path.join(ROOT, "content", "scripts");
 
 const citations = JSON.parse(readFileSync(path.join(PHILOSOPHY_DIR, "citations.json"), "utf-8")) as Citation[];
 const readings = JSON.parse(readFileSync(path.join(PHILOSOPHY_DIR, "work_readings.json"), "utf-8")) as {
-  works: Record<string, { reading: string; aliases?: string[] }>;
+  works: Record<string, { reading: string; link?: string; aliases?: string[] }>;
 };
 const citationMapRaw = JSON.parse(readFileSync(path.join(PHILOSOPHY_DIR, "citation_map.json"), "utf-8")) as Record<
   string,
@@ -162,6 +163,44 @@ describe("citations.json（台帳・生成物）", () => {
       }
     }
     expect(bad).toEqual([]);
+  });
+});
+
+// 栞リストの著作記事リンク（Issue #178）。work_readings.json の link が
+// citations.json へ正しく伝播しているか（work_readings.json 側の中身は
+// work-readings.quality.test.ts が別途検証する）。
+describe("citations.json の link（Issue #178・work_readings.json からの伝播）", () => {
+  it("citation.link は readings.works[citation.work].link と完全一致する（canonical 経由のみ・値のズレが無い）", () => {
+    const bad: string[] = [];
+    for (const c of citations) {
+      const expectedLink = readings.works[c.work]?.link;
+      if (c.link !== expectedLink) {
+        bad.push(`${c.id}: work="${c.work}" citation.link=${JSON.stringify(c.link)} expected=${JSON.stringify(expectedLink)}`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+
+  it("link を持たない著作の citation には link キー自体が無い（JSON.stringify が undefined を省略）", () => {
+    const raw = readFileSync(path.join(PHILOSOPHY_DIR, "citations.json"), "utf-8");
+    const rawEntries = JSON.parse(raw) as Record<string, unknown>[];
+    const bad: string[] = [];
+    for (const entry of rawEntries) {
+      const hasLinkKey = Object.prototype.hasOwnProperty.call(entry, "link");
+      const work = entry.work as string;
+      const shouldHaveLink = readings.works[work]?.link !== undefined;
+      if (hasLinkKey !== shouldHaveLink) {
+        bad.push(`${entry.id}: hasLinkKey=${hasLinkKey} shouldHaveLink=${shouldHaveLink}`);
+      }
+    }
+    expect(bad).toEqual([]);
+  });
+
+  it("実データに link 有り・無しの両方が存在する（回帰防止）", () => {
+    const withLink = citations.filter((c) => c.link !== undefined);
+    const withoutLink = citations.filter((c) => c.link === undefined);
+    expect(withLink.length).toBeGreaterThan(0);
+    expect(withoutLink.length).toBeGreaterThan(0);
   });
 });
 
