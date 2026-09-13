@@ -7,9 +7,9 @@ title: "歳をとりたくない"
 
 [背景: shadow-library/spiral-stacks.webp]
 [待機: 表示完了]
-[登場: セオ (theo/sad, 左)]
+[登場: セオ (theo/normal, 左)]
 [待機: 表示完了]
-[登場: デカリス (dekaris/firm, 右)]
+[登場: デカリス (dekaris/normal, 右)]
 [待機: 表示完了]
 
 **セオ** (theo/sad, 左):

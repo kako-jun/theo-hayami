@@ -7,7 +7,7 @@ title: "どうしても許せない"
 
 [背景: shadow-library/numbers-hall.webp]
 [待機: 表示完了]
-[登場: セオ (theo/angry, 左)]
+[登場: セオ (theo/normal, 左)]
 [待機: 表示完了]
 
 **ヴィンチア** (vincia/notice, 右):

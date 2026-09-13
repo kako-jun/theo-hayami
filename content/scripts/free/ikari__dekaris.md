@@ -7,7 +7,7 @@ title: "感情に振り回される"
 
 [背景: shadow-library/spiral-stacks.webp]
 [待機: 表示完了]
-[登場: セオ (theo/angry, 左)]
+[登場: セオ (theo/normal, 左)]
 [待機: 表示完了]
 
 **ヴィンチア** (vincia/notice, 右):

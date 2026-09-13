@@ -7,9 +7,9 @@ title: "何が正しいのかわからない"
 
 [背景: shadow-library/forbidden-archive-v.webp]
 [待機: 表示完了]
-[登場: セオ (theo/akarame, 左)]
+[登場: セオ (theo/normal, 左)]
 [待機: 表示完了]
-[登場: ヘグル (hegru/explain, 右)]
+[登場: ヘグル (hegru/normal, 右)]
 [待機: 表示完了]
 
 **セオ** (theo/akarame, 左):

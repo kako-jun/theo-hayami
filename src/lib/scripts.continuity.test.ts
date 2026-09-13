@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 const MAIN_DIR = path.join(process.cwd(), "content", "scripts", "main");
 const FREE_DIR = path.join(process.cwd(), "content", "scripts", "free");
 const CURRENT_DIR = path.join(process.cwd(), "content", "scripts", "current");
+const SCRIPT_FILE = path.join(process.cwd(), "content", "scripts", "script.md");
 
 function mainScript(file: string): string {
   return readFileSync(path.join(MAIN_DIR, file), "utf-8");
@@ -47,6 +48,45 @@ function eventImageEndChoiceLines(raw: string): number[] {
       .map((candidate) => candidate.trim())
       .filter((candidate) => candidate.length > 0 && candidate !== "[待機: 表示完了]");
     return nextMeaningful[0] === "[選択]" ? [index + 1] : [];
+  });
+}
+
+function entryFirstDialoguePoseViolations(raw: string): string[] {
+  const lines = raw.split(/\r?\n/u);
+  const entryPattern = /^\[登場:\s*(.+?)\s+\(([a-z]+)\/([a-z0-9-]+),\s*(左|右)\)\]\s*$/u;
+  const dialoguePattern = /^\*\*(.+?)\*\*\s+\(([a-z]+)\/([a-z0-9-]+),\s*(左|右)\):\s*$/u;
+  const exitPattern = /^\[退場:\s*(.+?)(?:,.*)?\]\s*$/u;
+
+  return lines.flatMap((line, entryIndex) => {
+    const entry = line.match(entryPattern);
+    if (entry === null) return [];
+
+    const [, name, slug, entryPose] = entry;
+    for (let index = entryIndex + 1; index < lines.length; index += 1) {
+      if (lines[index].match(exitPattern)?.[1] === name) return [];
+      if (lines[index].match(entryPattern)?.[1] === name) return [];
+
+      const dialogue = lines[index].match(dialoguePattern);
+      if (dialogue?.[1] !== name || dialogue[2] !== slug) continue;
+      return dialogue[3] === entryPose ? [`${name}:${entryIndex + 1}->${index + 1}:${entryPose}`] : [];
+    }
+    return [];
+  });
+}
+
+function successiveDialoguePoseViolations(raw: string): string[] {
+  const previousByCharacter = new Map<string, { line: number; pose: string }>();
+  const dialoguePattern = /^\*\*(.+?)\*\*\s+\(([a-z]+)\/([a-z0-9-]+),\s*(左|右)\):\s*$/u;
+
+  return raw.split(/\r?\n/u).flatMap((line, index) => {
+    const dialogue = line.match(dialoguePattern);
+    if (dialogue === null) return [];
+
+    const [, name, slug, pose] = dialogue;
+    const key = `${name}/${slug}`;
+    const previous = previousByCharacter.get(key);
+    previousByCharacter.set(key, { line: index + 1, pose });
+    return previous?.pose === pose ? [`${key}:${previous.line}->${index + 1}:${pose}`] : [];
   });
 }
 
@@ -96,7 +136,13 @@ describe("main story continuity", () => {
 
   it("keeps ending anchors and character voice constraints", () => {
     expect(mainScript("act4-07.md")).toContain("見えているはずなのに、端が欠けてる");
-    expect(mainScript("act4-08.md")).toContain("この物語で語られたことを、まず疑え");
+    const act4_08 = mainScript("act4-08.md");
+    expect(act4_08).toContain("この物語で語られたことを、まず疑え");
+    expect(act4_08).toContain("[登場: ヴィンチア (vincia/soften, 右)]");
+    const vinciaDialoguePoses = [...act4_08.matchAll(/\*\*ヴィンチア\*\* \(vincia\/([a-z]+), 右\):/gu)].map((match) => match[1]);
+    expect(vinciaDialoguePoses[0]).toBe("think");
+    expect(act4_08).toMatch(/……立つ。膝に、ちゃんと力が入ってる。\n\n\[待機: 3000\]\n\n\[選択\]/u);
+    expect([...act4_08.matchAll(/^\[待機: 3000\]$/gmu)]).toHaveLength(1);
     expect(mainScript("ohako-makiya.md")).not.toContain("わし");
     expect(mainScript("ohako-hue.md")).not.toContain("ぼくの言うこと");
     expect(mainScript("ohako-hegru.md")).not.toContain("覚えておおき");
@@ -136,7 +182,7 @@ describe("main story continuity", () => {
     expect(bad).toEqual([
       "content/scripts/main/act3-03.md:121",
       "content/scripts/main/act4-07.md:110",
-      "content/scripts/main/act4-08.md:163",
+      "content/scripts/main/act4-08.md:168",
     ]);
   });
 
@@ -157,13 +203,66 @@ describe("main story continuity", () => {
           .flatMap((line, index) => {
             const match = line.match(/^\[待機:\s*(\d+)\]\s*$/u);
             const waitMs = match?.[1];
-            if (waitMs === undefined || allowedWaitMs.has(waitMs)) {
+            const relativeFile = path.relative(process.cwd(), file);
+            const isFinalePostPageTurnHold = relativeFile === "content/scripts/main/act4-08.md" && waitMs === "3000";
+            if (waitMs === undefined || allowedWaitMs.has(waitMs) || isFinalePostPageTurnHold) {
               return [];
             }
-            return [`${path.relative(process.cwd(), file)}:${index + 1}:${waitMs}`];
+            return [`${relativeFile}:${index + 1}:${waitMs}`];
           }),
       );
     expect(bad).toEqual([]);
+  });
+
+  it("changes each entering character's pose before that character first speaks", () => {
+    const allContentScriptFiles = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), SCRIPT_FILE];
+    const bad = allContentScriptFiles
+      .flatMap((file) =>
+        entryFirstDialoguePoseViolations(readFileSync(file, "utf-8")).map(
+          (violation) => `${path.relative(process.cwd(), file)}:${violation}`,
+        ),
+      );
+    expect(bad).toEqual([]);
+  });
+
+  it("handles entries independently across exits, re-entries, other characters, and silent entries", () => {
+    const raw = [
+      "[登場: ア (a/normal, 左)]",
+      "[登場: イ (i/normal, 右)]",
+      "**イ** (i/notice, 左):",
+      "台詞。",
+      "[退場: ア, フェード=2100]",
+      "**ア** (a/normal, 左):",
+      "後からの台詞。",
+      "[登場: ウ (u/normal, 右)]",
+      "[登場: エ (e/pose-2, 右)]",
+      "[登場: エ (e/next-3, 左)]",
+      "**エ** (e/next-3, 右):",
+      "再登場後の台詞。",
+    ].join("\n");
+
+    expect(entryFirstDialoguePoseViolations(raw)).toEqual(["エ:10->11:next-3"]);
+  });
+
+  it("changes every character's pose between dialogue turns despite side or speaker changes", () => {
+    const allContentScriptFiles = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), SCRIPT_FILE];
+    const bad = allContentScriptFiles
+      .flatMap((file) =>
+        successiveDialoguePoseViolations(readFileSync(file, "utf-8")).map(
+          (violation) => `${path.relative(process.cwd(), file)}:${violation}`,
+        ),
+      );
+    expect(bad).toEqual([]);
+
+    const fixture = [
+      "**ア** (a/pose-2, 左):",
+      "最初。",
+      "**イ** (i/normal, 右):",
+      "別の話者。",
+      "**ア** (a/pose-2, 右):",
+      "同じポーズ。",
+    ].join("\n");
+    expect(successiveDialoguePoseViolations(fixture)).toEqual(["ア/a:1->5:pose-2"]);
   });
 
   it("keeps philosophy explanations away from common distortions", () => {

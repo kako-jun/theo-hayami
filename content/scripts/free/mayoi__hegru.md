@@ -7,9 +7,9 @@ title: "迷ってばかりで決められない"
 
 [背景: shadow-library/intimate-reading-room.webp]
 [待機: 表示完了]
-[登場: セオ (theo/sad, 左)]
+[登場: セオ (theo/normal, 左)]
 [待機: 表示完了]
-[登場: ヘグル (hegru/firm, 右)]
+[登場: ヘグル (hegru/normal, 右)]
 [待機: 表示完了]
 
 **セオ** (theo/sad, 左):
