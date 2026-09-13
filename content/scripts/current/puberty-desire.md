@@ -7,7 +7,7 @@ title: "初めての性欲に気づき、自分も先生も汚いと感じてし
 
 [背景: shadow-library/forbidden-archive-v.webp]
 [待機: 表示完了]
-[登場: カンティア (kantia/firm, 右)]
+[登場: カンティア (kantia/observe, 右)]
 [待機: 表示完了]
 
 **カンティア** (kantia/firm, 右):

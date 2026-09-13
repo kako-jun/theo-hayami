@@ -7,7 +7,7 @@ title: "わかっているのに動けない"
 
 [背景: shadow-library/mezzanine-gallery.webp]
 [待機: 表示完了]
-[登場: セオ (theo/sad, 左)]
+[登場: セオ (theo/normal, 左)]
 [待機: 表示完了]
 
 **カンティア** (kantia/firm, 右):
