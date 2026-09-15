@@ -15,6 +15,15 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "ai-extinction",
+    title: "人工知能と人類",
+    question: "人工知能が人類を滅ぼすかもしれない恐怖を、どう考えればよいでしょうか。",
+    number: 12,
+    publishedAt: "2026-09-15",
+    sceneId: "tea-ai-extinction",
+    residents: ["hegru", "kantia", "makiya"],
+  },
+  {
     slug: "sage-time",
     title: "賢者タイムの賢者",
     question: "自慰のあとの賢者タイムが虚しくて怖いのですが、賢者のみなさんはこれを無くせますか。",
@@ -127,7 +136,6 @@ export function findTeaTimeQuestion(slug: string): TeaTimeQuestion | undefined {
 }
 
 export const teaTimeQuestions: TeaTimeQuestion[] = [
-  { slug: "ai-extinction", title: "人工知能と人類", question: "人工知能が人類を滅ぼすかもしれない恐怖を、どう考えればよいでしょうか。" },
   { slug: "confession", title: "告白する怖さ", question: "好きな人に気持ちを伝えるのが怖いとき、どうすればよいでしょうか。" },
   { slug: "farewell", title: "別れの怖さ", question: "大事な人と別れることが怖いとき、どう受け止めればよいでしょうか。" },
   { slug: "legacy", title: "何を残すか", question: "人生で何を残すべきか分からないとき、何を考えればよいでしょうか。" },
