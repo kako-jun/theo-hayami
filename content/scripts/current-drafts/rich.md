@@ -1,7 +1,6 @@
 ---
 engine: name-name
 title: "お金持ちになりたい気持ちを、どう扱えばよいでしょうか。"
-draft_status: "merge-wait"
 ---
 
 ## tea-rich: けふのティータイム / お金持ちになりたい

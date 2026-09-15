@@ -1,7 +1,6 @@
 ---
 engine: name-name
 title: "人工知能が人類を滅ぼすかもしれない恐怖を、どう考えればよいでしょうか。"
-draft_status: "merge-wait"
 ---
 
 ## tea-ai-extinction: けふのティータイム / 人工知能と人類
