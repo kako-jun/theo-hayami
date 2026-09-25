@@ -24,9 +24,12 @@ function currentScript(file: string): string {
 
 function scriptFiles(dir: string): string[] {
   return readdirSync(dir)
-    .filter((file) => file.endsWith(".md"))
+    .filter((file) => file.endsWith(".md") && file !== "README.md")
     .map((file) => path.join(dir, file));
 }
+
+const ALL_SCRIPT_FILES = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR)];
+const ALL_CONTENT_SCRIPT_FILES = [...ALL_SCRIPT_FILES, SCRIPT_FILE];
 
 function activeEventImageChoiceLines(raw: string): number[] {
   let eventImageActive = false;
@@ -178,7 +181,7 @@ describe("main story continuity", () => {
   });
 
   it("keeps terminal event images active through transition fade", () => {
-    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR)]
+    const bad = ALL_SCRIPT_FILES
       .flatMap((file) =>
         activeEventImageChoiceLines(readFileSync(file, "utf-8")).map((line) => `${path.relative(process.cwd(), file)}:${line}`),
       );
@@ -190,7 +193,7 @@ describe("main story continuity", () => {
   });
 
   it("does not reveal standing sprites immediately before a choice transition", () => {
-    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR)]
+    const bad = ALL_SCRIPT_FILES
       .flatMap((file) =>
         eventImageEndChoiceLines(readFileSync(file, "utf-8")).map((line) => `${path.relative(process.cwd(), file)}:${line}`),
       );
@@ -199,7 +202,7 @@ describe("main story continuity", () => {
 
   it("keeps numeric wait directives on approved timing constants", () => {
     const allowedWaitMs = new Set(["300", "700", "1400", "2100"]);
-    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR)]
+    const bad = ALL_SCRIPT_FILES
       .flatMap((file) =>
         readFileSync(file, "utf-8")
           .split(/\r?\n/u)
@@ -218,8 +221,7 @@ describe("main story continuity", () => {
   });
 
   it("changes each entering character's pose before that character first speaks", () => {
-    const allContentScriptFiles = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR), SCRIPT_FILE];
-    const bad = allContentScriptFiles
+    const bad = ALL_CONTENT_SCRIPT_FILES
       .flatMap((file) =>
         entryFirstDialoguePoseViolations(readFileSync(file, "utf-8")).map(
           (violation) => `${path.relative(process.cwd(), file)}:${violation}`,
@@ -248,8 +250,7 @@ describe("main story continuity", () => {
   });
 
   it("changes every character's pose between dialogue turns despite side or speaker changes", () => {
-    const allContentScriptFiles = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR), SCRIPT_FILE];
-    const bad = allContentScriptFiles
+    const bad = ALL_CONTENT_SCRIPT_FILES
       .flatMap((file) =>
         successiveDialoguePoseViolations(readFileSync(file, "utf-8")).map(
           (violation) => `${path.relative(process.cwd(), file)}:${violation}`,
