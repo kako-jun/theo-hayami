@@ -15,6 +15,15 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "rich",
+    title: "お金持ちになりたい",
+    question: "お金持ちになりたい気持ちを、どう扱えばよいでしょうか。",
+    number: 14,
+    publishedAt: "2026-09-25",
+    sceneId: "tea-rich",
+    residents: ["makiya", "aristo", "spino"],
+  },
+  {
     slug: "comiket-desire",
     title: "祭典の後ろめたさ",
     question:
@@ -153,7 +162,6 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
   { slug: "death-pain", title: "死ぬ痛み", question: "死ぬときの痛みを想像して怖くなるとき、どう向き合えばよいでしょうか。" },
   { slug: "birth", title: "出産の怖さ", question: "出産が怖いと感じるとき、その不安とどう付き合えばよいでしょうか。" },
   { slug: "war", title: "戦争がなくならない", question: "戦争がなくならない理由を、どのように考えればよいでしょうか。" },
-  { slug: "rich", title: "お金持ちになりたい", question: "お金持ちになりたい気持ちを、どう扱えばよいでしょうか。" },
   {
     slug: "red-ocean",
     title: "激しい競争",
