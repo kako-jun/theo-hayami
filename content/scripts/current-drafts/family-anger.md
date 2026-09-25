@@ -7,7 +7,7 @@ title: "家族がすぐ怒るとき、どう接すればよいでしょうか。
 
 [背景: shadow-library/thermae-hall.webp]
 [待機: 表示完了]
-[登場: スピノ (spino/normal, 右)]
+[登場: スピノ (spino/explain, 右)]
 [待機: 表示完了]
 
 **スピノ** (spino/normal, 右):

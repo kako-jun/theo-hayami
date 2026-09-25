@@ -7,7 +7,7 @@ title: "友人が自分の成功を素直に喜んでくれないとき、どう
 
 [背景: shadow-library/painting-gallery.webp]
 [待機: 表示完了]
-[登場: マキヤ (makiya/normal, 右)]
+[登場: マキヤ (makiya/explain, 右)]
 [待機: 表示完了]
 
 **マキヤ** (makiya/normal, 右):

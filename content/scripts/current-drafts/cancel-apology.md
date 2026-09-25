@@ -7,7 +7,7 @@ title: "謝罪しても許されない空気の中で、どう振る舞えばよ
 
 [背景: shadow-library/forbidden-archive-v.webp]
 [待機: 表示完了]
-[登場: カンティア (kantia/firm, 右)]
+[登場: カンティア (kantia/explain, 右)]
 [待機: 表示完了]
 
 **カンティア** (kantia/firm, 右):

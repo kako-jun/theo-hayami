@@ -7,7 +7,7 @@ title: "出産が怖いと感じるとき、その不安とどう付き合えば
 
 [背景: shadow-library/green-courtyard.webp]
 [待機: 表示完了]
-[登場: アリスト (aristo/observe, 右)]
+[登場: アリスト (aristo/explain, 右)]
 [待機: 表示完了]
 
 **アリスト** (aristo/observe, 右):

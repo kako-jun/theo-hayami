@@ -7,7 +7,7 @@ title: "自慰のあとの賢者タイムが虚しくて怖いのですが、賢
 
 [背景: shadow-library/time-chamber.webp]
 [待機: 表示完了]
-[登場: アリスト (aristo/normal, 右)]
+[登場: アリスト (aristo/explain, 右)]
 [待機: 表示完了]
 
 **アリスト** (aristo/normal, 右):

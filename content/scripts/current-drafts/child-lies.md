@@ -7,7 +7,7 @@ title: "子どもが嘘をつくようになったとき、親はどう向き合
 
 [背景: shadow-library/wind-curtains.webp]
 [待機: 表示完了]
-[登場: デカリス (dekaris/normal, 右)]
+[登場: デカリス (dekaris/explain, 右)]
 [待機: 表示完了]
 
 **デカリス** (dekaris/normal, 右):

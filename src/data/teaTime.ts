@@ -15,6 +15,25 @@ export interface TeaTimeQuestion {
 
 export const publishedTeaTimeQuestions: TeaTimeQuestion[] = [
   {
+    slug: "rich",
+    title: "お金持ちになりたい",
+    question: "お金持ちになりたい気持ちを、どう扱えばよいでしょうか。",
+    number: 14,
+    publishedAt: "2026-09-25",
+    sceneId: "tea-rich",
+    residents: ["makiya", "aristo", "spino"],
+  },
+  {
+    slug: "comiket-desire",
+    title: "祭典の後ろめたさ",
+    question:
+      "同人誌の祭典で欲望を隠さない集団の中で感じる罪悪感を、人間賛歌と考えてよいのでしょうか。",
+    number: 13,
+    publishedAt: "2026-09-25",
+    sceneId: "tea-comiket-desire",
+    residents: ["aristo", "spino", "makiya"],
+  },
+  {
     slug: "ai-extinction",
     title: "人工知能と人類",
     question: "人工知能が人類を滅ぼすかもしれない恐怖を、どう考えればよいでしょうか。",
@@ -143,7 +162,6 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
   { slug: "death-pain", title: "死ぬ痛み", question: "死ぬときの痛みを想像して怖くなるとき、どう向き合えばよいでしょうか。" },
   { slug: "birth", title: "出産の怖さ", question: "出産が怖いと感じるとき、その不安とどう付き合えばよいでしょうか。" },
   { slug: "war", title: "戦争がなくならない", question: "戦争がなくならない理由を、どのように考えればよいでしょうか。" },
-  { slug: "rich", title: "お金持ちになりたい", question: "お金持ちになりたい気持ちを、どう扱えばよいでしょうか。" },
   {
     slug: "red-ocean",
     title: "激しい競争",
@@ -222,5 +240,4 @@ export const teaTimeQuestions: TeaTimeQuestion[] = [
   { slug: "solo-comfort", title: "一人が楽、と言われても", question: "一人が楽で恋愛したいと思えない自分に、「それでいい」と言ってよいのでしょうか。" },
   { slug: "long-running-boredom", title: "面白くない長期連載", question: "周りが面白いという長期連載を面白く感じられない気持ちを、どう整理すればよいでしょうか。" },
   { slug: "bleached-blockbusters", title: "漂白された映画", question: "大作映画がタブーだらけで漂白されていくように見えるのは、本当なのでしょうか。" },
-  { slug: "comiket-desire", title: "祭典の後ろめたさ", question: "同人誌の祭典で欲望を隠さない集団の中で感じる罪悪感を、人間賛歌と考えてよいのでしょうか。" },
 ];

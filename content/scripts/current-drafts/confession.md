@@ -7,7 +7,7 @@ title: "好きな人に気持ちを伝えるのが怖いとき、どうすれば
 
 [背景: shadow-library/dream-corridor-v.webp]
 [待機: 表示完了]
-[登場: ヘグル (hegru/normal, 右)]
+[登場: ヘグル (hegru/explain, 右)]
 [待機: 表示完了]
 
 [テロップ: 『精神現象学（せいしんげんしょうがく）』, 種別=しおり]

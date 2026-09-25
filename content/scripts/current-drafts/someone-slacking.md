@@ -7,7 +7,7 @@ title: "身近な人の怠けを、見過ごすべきか、注意すべきでし
 
 [背景: shadow-library/mezzanine-gallery.webp]
 [待機: 表示完了]
-[登場: アリスト (aristo/normal, 右)]
+[登場: アリスト (aristo/explain, 右)]
 [待機: 表示完了]
 
 **アリスト** (aristo/normal, 右):
