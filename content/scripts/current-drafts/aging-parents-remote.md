@@ -7,7 +7,7 @@ title: "遠くに住む親の老いを画面越しに見守るしかないとき
 
 [背景: shadow-library/entrance-hall.webp]
 [待機: 表示完了]
-[登場: オウ (ou/firm, 右)]
+[登場: オウ (ou/explain, 右)]
 [待機: 表示完了]
 
 **オウ** (ou/firm, 右):

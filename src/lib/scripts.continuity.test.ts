@@ -5,6 +5,9 @@ import { describe, expect, it } from "vitest";
 const MAIN_DIR = path.join(process.cwd(), "content", "scripts", "main");
 const FREE_DIR = path.join(process.cwd(), "content", "scripts", "free");
 const CURRENT_DIR = path.join(process.cwd(), "content", "scripts", "current");
+// 未公開ストックも同じ name-name 原稿形式で書かれる（content/scripts/README.md）。
+// 公開フラグの有無は機械的な構造ルール（ポーズ連続性・待機ディレクティブ等）の免除理由にならない。
+const CURRENT_DRAFTS_DIR = path.join(process.cwd(), "content", "scripts", "current-drafts");
 const SCRIPT_FILE = path.join(process.cwd(), "content", "scripts", "script.md");
 
 function mainScript(file: string): string {
@@ -175,7 +178,7 @@ describe("main story continuity", () => {
   });
 
   it("keeps terminal event images active through transition fade", () => {
-    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR)]
+    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR)]
       .flatMap((file) =>
         activeEventImageChoiceLines(readFileSync(file, "utf-8")).map((line) => `${path.relative(process.cwd(), file)}:${line}`),
       );
@@ -187,7 +190,7 @@ describe("main story continuity", () => {
   });
 
   it("does not reveal standing sprites immediately before a choice transition", () => {
-    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR)]
+    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR)]
       .flatMap((file) =>
         eventImageEndChoiceLines(readFileSync(file, "utf-8")).map((line) => `${path.relative(process.cwd(), file)}:${line}`),
       );
@@ -196,7 +199,7 @@ describe("main story continuity", () => {
 
   it("keeps numeric wait directives on approved timing constants", () => {
     const allowedWaitMs = new Set(["300", "700", "1400", "2100"]);
-    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR)]
+    const bad = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR)]
       .flatMap((file) =>
         readFileSync(file, "utf-8")
           .split(/\r?\n/u)
@@ -215,7 +218,7 @@ describe("main story continuity", () => {
   });
 
   it("changes each entering character's pose before that character first speaks", () => {
-    const allContentScriptFiles = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), SCRIPT_FILE];
+    const allContentScriptFiles = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR), SCRIPT_FILE];
     const bad = allContentScriptFiles
       .flatMap((file) =>
         entryFirstDialoguePoseViolations(readFileSync(file, "utf-8")).map(
@@ -245,7 +248,7 @@ describe("main story continuity", () => {
   });
 
   it("changes every character's pose between dialogue turns despite side or speaker changes", () => {
-    const allContentScriptFiles = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), SCRIPT_FILE];
+    const allContentScriptFiles = [...scriptFiles(MAIN_DIR), ...scriptFiles(FREE_DIR), ...scriptFiles(CURRENT_DIR), ...scriptFiles(CURRENT_DRAFTS_DIR), SCRIPT_FILE];
     const bad = allContentScriptFiles
       .flatMap((file) =>
         successiveDialoguePoseViolations(readFileSync(file, "utf-8")).map(

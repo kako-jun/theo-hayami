@@ -7,7 +7,7 @@ title: "軍がなければ攻められない、という考え方は本当でし
 
 [背景: shadow-library/history-hall.webp]
 [待機: 表示完了]
-[登場: カンティア (kantia/firm, 右)]
+[登場: カンティア (kantia/explain, 右)]
 [待機: 表示完了]
 
 **カンティア** (kantia/firm, 右):

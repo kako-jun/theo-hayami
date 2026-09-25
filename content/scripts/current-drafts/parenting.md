@@ -7,7 +7,7 @@ title: "子育てに失敗したくない不安と、どう向き合えばよい
 
 [背景: shadow-library/green-courtyard.webp]
 [待機: 表示完了]
-[登場: アリスト (aristo/observe, 右)]
+[登場: アリスト (aristo/explain, 右)]
 [待機: 表示完了]
 
 [テロップ: 『ニコマコス倫理学（にこまこすりんりがく）』I・X, 種別=しおり]

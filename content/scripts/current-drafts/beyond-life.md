@@ -7,7 +7,7 @@ title: "生きている間に結果を見られないことに、なぜ人は関
 
 [背景: shadow-library/time-chamber.webp]
 [待機: 表示完了]
-[登場: ヴィンチア (vincia/normal, 右)]
+[登場: ヴィンチア (vincia/explain, 右)]
 [待機: 表示完了]
 
 **ヴィンチア** (vincia/normal, 右):

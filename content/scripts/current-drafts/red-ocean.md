@@ -7,7 +7,7 @@ title: "激しい競争に巻き込まれないためには、何を見ればよ
 
 [背景: shadow-library/shelf-canyon.webp]
 [待機: 表示完了]
-[登場: マキヤ (makiya/firm, 右)]
+[登場: マキヤ (makiya/explain, 右)]
 [待機: 表示完了]
 
 **マキヤ** (makiya/firm, 右):

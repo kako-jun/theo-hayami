@@ -7,7 +7,7 @@ title: "世界の国が一つになることは、本当に理想なのでしょ
 
 [背景: shadow-library/numbers-hall.webp]
 [待機: 表示完了]
-[登場: カンティア (kantia/observe, 右)]
+[登場: カンティア (kantia/explain, 右)]
 [待機: 表示完了]
 
 **カンティア** (kantia/observe, 右):

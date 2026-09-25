@@ -7,7 +7,7 @@ title: "診断されていないだけで心を病んでいる人は多いので
 
 [背景: shadow-library/mirror-hall.webp]
 [待機: 表示完了]
-[登場: オウ (ou/normal, 右)]
+[登場: オウ (ou/explain, 右)]
 [待機: 表示完了]
 
 **オウ** (ou/normal, 右):

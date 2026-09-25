@@ -7,7 +7,7 @@ title: "多くの人が豊かな国に生まれない現実を、どう考えれ
 
 [背景: shadow-library/observation-deck.webp]
 [待機: 表示完了]
-[登場: スピノ (spino/soften, 右)]
+[登場: スピノ (spino/explain, 右)]
 [待機: 表示完了]
 
 **スピノ** (spino/soften, 右):

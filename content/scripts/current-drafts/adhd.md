@@ -7,7 +7,7 @@ title: "多動症と付き合いながら、どう暮らしていけばよいで
 
 [背景: shadow-library/curio-nook.webp]
 [待機: 表示完了]
-[登場: ヘグル (hegru/normal, 右)]
+[登場: ヘグル (hegru/explain, 右)]
 [待機: 表示完了]
 
 **ヘグル** (hegru/normal, 右):

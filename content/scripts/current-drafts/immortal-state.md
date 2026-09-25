@@ -7,7 +7,7 @@ title: "滅ばない国は作れるのでしょうか。独裁国家が残り続
 
 [背景: shadow-library/underground-vault.webp]
 [待機: 表示完了]
-[登場: ヘグル (hegru/normal, 右)]
+[登場: ヘグル (hegru/explain, 右)]
 [待機: 表示完了]
 
 **ヘグル** (hegru/normal, 右):
