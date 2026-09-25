@@ -269,6 +269,28 @@ describe("main story continuity", () => {
     expect(successiveDialoguePoseViolations(fixture)).toEqual(["ア/a:1->5:pose-2"]);
   });
 
+  it("keeps every scene-id globally unique across all script files (content/scripts/README.md)", () => {
+    // 名前ドリフト・後方到達不能（重複は先勝ち）を検出する安全網。公開状態を問わず
+    // main/free/current/current-drafts/script.md 全体で同じ id が2回出てはいけない。
+    const sceneIdPattern = /^## ([a-z0-9-]+):/gmu;
+    const locationsById = new Map<string, string[]>();
+    for (const file of ALL_CONTENT_SCRIPT_FILES) {
+      const relativeFile = path.relative(process.cwd(), file);
+      const text = readFileSync(file, "utf-8");
+      for (const match of text.matchAll(sceneIdPattern)) {
+        const id = match[1] ?? "";
+        const line = text.slice(0, match.index ?? 0).split("\n").length;
+        const existing = locationsById.get(id) ?? [];
+        existing.push(`${relativeFile}:${line}`);
+        locationsById.set(id, existing);
+      }
+    }
+    const duplicates = [...locationsById.entries()]
+      .filter(([, locations]) => locations.length > 1)
+      .map(([id, locations]) => `${id}: ${locations.join(", ")}`);
+    expect(duplicates).toEqual([]);
+  });
+
   it("keeps philosophy explanations away from common distortions", () => {
     const kantia = mainScript("ohako-kantia.md");
     const spino = mainScript("ohako-spino.md");
